@@ -340,7 +340,7 @@ There are two types of tag you can use:
 1. lightweight are used for temporary labels
 2. annotated are treated as commits and have a message attached to them
 
-##Creating an Annotated Tag
+### Creating an Annotated Tag
 
 lets mark the current version of our code as release 1.0 and attach a message to this. The a flag denotes an annotated tag and, like a standard commit an m flag indicates a commit message.
 ```
@@ -378,7 +378,7 @@ We can now view the changes to our commit tree (some details omitted for clarity
 |
 * commit 5a3b6f4
       added page title and description
-
+```
 ## 5.1 Branching and Merging
 
 Our final task involves creating two branches of your repository, making changes to both then merging the changes back into a single branch. This is useful if you want to make some changes to your code without affecting the main master branch, perhaps experimenting with a new feature.

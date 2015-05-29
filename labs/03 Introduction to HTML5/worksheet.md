@@ -4,3 +4,5 @@
 
 - Basic HTML 5 document structure
 - elements tags, ids, classes, etc.
+
+just testing access rights (Erja)

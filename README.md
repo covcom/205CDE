@@ -40,19 +40,25 @@ This week covers the core html the students need to know.
 
 ### RESTful APIs
 
-## 07: Introduction to PHP
+## 07: Test-Driven Development
+
+### Unit Testing
+
+### Acceptance Testing
+
+## 08: Introduction to PHP
 
 ### The PHP Language
 
 ### Modular PHP
 
-## 08: PHP Architecture
+## 09: PHP Architecture
 
 ### Model-View-Controller
 
 ### Templating
 
-## 09: Data Persistence
+## 10: Data Persistence
 
 ### Relational Databases
 

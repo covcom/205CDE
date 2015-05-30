@@ -46,19 +46,19 @@ This week covers the core html the students need to know.
 ### Unit Testing
 
 
-## 08: Introduction to PHP
+## 07: Introduction to PHP
 
 ### The PHP Language
 
 ### Modular PHP
 
-## 09: PHP Architecture
+## 08: PHP Architecture
 
 ### Model-View-Controller
 
 ### Templating
 
-## 10: Data Persistence
+## 09: Data Persistence
 
 ### Relational Databases
 

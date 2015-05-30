@@ -9,6 +9,7 @@ The module is delivered over 11 weeks with two lectures of 1 hour each and 2 lab
 
 ### Git Remotes
 
+
 ## 02: HTML
 This week covers the core html the students need to know.
 
@@ -16,11 +17,13 @@ This week covers the core html the students need to know.
 
 ### HTML5 Forms and Features
 
+
 ## 03: CSS
 
 ### Introduction to CSS3
 
 ### CSS3 Sizing and Positioning
+
 
 ## 04: Introduction to JavaScript
 
@@ -28,23 +31,20 @@ This week covers the core html the students need to know.
 
 ### JavaScript Language
 
-## 05: JavaScript Web Pages
 
-### Single-Page Applications
-
-### Offline Storage
-
-## 06: Using Web APIs
+## 05 Async JS
 
 ### JSON and AJAX
 
-### RESTful APIs
+### Single-Page Applications
 
-## 07: Test-Driven Development
+
+## 06: Modular JavaScript
+
+### Closure and modules
 
 ### Unit Testing
 
-### Acceptance Testing
 
 ## 08: Introduction to PHP
 

@@ -1,0 +1,31 @@
+
+
+body {
+    font-family: Arial, Verdana, sans-serif;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    float: left;
+    width: 10%;
+    text-align: center;
+}
+
+nav ul li ul {
+    visibility: hidden;
+    position: absolute;
+}
+
+nav ul li ul li {
+    float: none;
+    margin-left: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+nav ul li:hover > ul {
+    visibility:visible;
+}

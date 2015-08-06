@@ -172,3 +172,18 @@ Further reading: [PHP home page][PHP]
 [PHP]: http://php.net/manual/en/
 
 ### Exercises
+
+It is good to be able reed some data when doing these exercises. There are two small php-scrits (Showform.php, getInput.php) included, which can be useful. Feel free to use them if you like.
+
+1. Write a PHP function which gets user name and age as input and prints them out.
+2. Write a PHP function which reverses characters of the input string and prints the result out. So input string "John" is printed out as "nhoJ".
+3. Write a PHP function that prints out prime numbers from 2 to some maximum, the maximum is given as input.
+4. Write a PHP function which randomly chooses (and prints) one line from the list of words found from here: http://www.webstepbook.com/words.txt.
+5. Write a traffic card program using PHP class which makes it possible to “travel” in public transportation (in busses, trams, etc.). Define a TrafficCard class which has at least the following features:
+    a.	a card initialization (who’s the owner, assign zero to a balance)
+    b.	loading a value to the card (euros/pounds)
+    c.	traveling using a card
+    d.	two different charges: 2.80 euros/pounds in city central and 4 euros/pounds in areas outside of a city.
+
+    Consider what operations a card must include. Implement the TrafficCard class and test that it functions as should (for example a balance can never be negative).
+

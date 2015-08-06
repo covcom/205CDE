@@ -72,7 +72,7 @@ Under_scores are forbidden by some programming style guides but let's follow the
 
 ### Loosely Typed Language
 
-PHP is loosely typed language meaning that you can assign a value of a certain type type a variable which is of a different and PHP tries to
+PHP is loosely typed language meaning that you can assign a value of a certain type to a variable which is of a different type and PHP tries to
 make a conversion. For example the code
 ```
 <?php
@@ -98,7 +98,7 @@ $printed = "Values $number and $f_number";
 $str2 = 'This is also a string';
 
 The first and the second are examples of interpreted strings, meaning you can write variable names inside a string and the values of variables will be inserted into a string.
-The third example are not interpreted so writing a variable name into this string have no special meaning.
+The third example is not interpreted so writing a variable name into this string have no special meaning.
 
 The + operator is always a numeric operator in PHP. String concatenation is done by using . (dot-operator).
 

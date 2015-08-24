@@ -2,19 +2,30 @@
 
 ## What is PHP?
 
-When implementing Web-based application some processing is usually done on a client-side (web browser) and/or on a server-side (web server). The server creates a response programmatically since static content is not usually enough.
+In this worksheet is an introduction to the PHP programming language.
+
+When implementing a Web-based application some processing is usually done on a client-side (web browser) and/or on a server-side (web server). The server creates a response programmatically since static content is not usually enough.
 
 This can be done in various ways: using PHP, Java Server Pages (JSP), Ruby, Python etc. PHP programming language is widely used and fairly easy to learn, so we are using PHP
 in this course.
 
-PHP is a scriptng language meaning it is interpreted; it is translated to machine instructions and executed on the fly, rather than compiled to machine
+PHP is a scripting language meaning it is interpreted; it is translated to machine instructions and executed on the fly, rather than compiled to machine
 code before actually running a program.
 
-## Requirements
+Traditionally a PHP program creates a dynamic content in the HTML page, for example client information read from the database which is stored in the server. Nowadays there is a trend towards to an API based processing: a PHP programming module is triggered by a REST API call and returns a JSON object as a response.
+
+## Task List
+
+In this lab you
+
+- check, that Codio is able to run PHP programs
+- write small PHP code examples
+
+## 1. Requirements
 
 PHP needs a server installation, which can be Apache or Microsoft IIS. Also PHP extension for the server is needed. Instructions for installation required by Codio can be found from here:
 [Installing Apache and PHP in Codio][apache]
-## Basic PHP-program
+## 2. Basic PHP-program
 
 Take a look at the basic PHP-program below:
 ```
@@ -51,9 +62,9 @@ HTML content
 
 
 
-## Some PHP-spesific features
+## 3 Some PHP-spesific features
 
-### Defining a variable
+### 3.1 Defining a variable
 
 A variable name in PHP is always preceded by a $ sign. The variable is defined by assigning it a value. The type information is not needed.
 The type of a variable is based on the type of an assigned value. The syntax template for variable definition is below:
@@ -70,7 +81,7 @@ $under_age = $age - 5;
 Under_scores are forbidden by some programming style guides but let's follow the style of CodeIgniter which says: 
 "variables should contain only lowercase letters, use underscore separators, and be reasonably named to indicate their purpose and contents. Very short, non-word variables should only be used as iterators in for() loops."
 
-### Loosely Typed Language
+### 3.2 Loosely Typed Language
 
 PHP is loosely typed language meaning that you can assign a value of a certain type to a variable which is of a different type and PHP tries to
 make a conversion. For example the code
@@ -88,7 +99,7 @@ make a conversion. For example the code
 will print the result: Values 20.5 and 23.64 
 
 
-### Strings
+### 3.3 Strings
 
 Strings in PHP are enclosed "-marks (quotation) or '-marks (apostrophe).
 
@@ -108,7 +119,7 @@ print '<p>Values '.$number.' and '.$f_number.'</p>';
 Strings in PHP are an array of characters so accessing an individual character is similar to many other languages: writing $str[0] returns "W" from the upper example.
 More on strings: [PHP strings][PHPStrings]
 
-## Excercises
+## Test Your Understanding
 
 1. Write a PHP program which prints a classic "Hello word" greeting on the screen.
 2. Write a PHP program which shows an image duplicated so that there are four images in two rows on the web page.

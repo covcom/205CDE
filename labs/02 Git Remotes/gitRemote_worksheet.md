@@ -12,18 +12,26 @@ Create a new project in Codio. On the projects screen click in the Create Projec
 
 Open Tools > Terminal. Clone the course repository (https://github.com/covcom/205CDE.git). 
 ```
-
 $ git clone https://github.com/covcom/205CDE.git
-
 ```
 
-Finally give a name e.g. 205CDE to your project.
+You can change the default name (205CDE) in Codio by right-clicking it in the tree view on the left.
 
 ### Changing the remote repository
 
 The course repository is read-only, you will have to put your code in your own remote repository.
 Follow these steps:
-Create a new repository in GitLab. You can name your repository the way you want. Copy the HTTPS to your clipboard.
+
+Create a new GitLab (https://gitlab.com/) account if necessary. Sign in and create a new repository. Notice that the repository is called a project in Gitlab's terms. You can name your repository the way you want.
+
+Copy the HTTPS URL, visible in GitLab, to your clipboard.
+
+Go back to Codio. Go to the folder of the cloned reposity in the terminal:
+
+```
+$ cd 205CDE/
+```
+
 Because you have cloned the course repository, there is one remote called origin, check it:
 
 ```
@@ -41,6 +49,7 @@ $ git remote -v
 origin	https://github.com/omanimesi/omaproj.git (fetch)
 origin	https://github.com/omanimesi/omaproj.git (push)
 ```
+(Above, paste the HTTPS URL that you copied from GitLab to replace your_GitLab_URL.)
 
 Then finally you want to push all your commits to your own repository located in new url.
 
@@ -55,7 +64,7 @@ Sometimes the course repository will change, and you have to get the modificatio
 ```
 $ git remote
 origin
-$ git remote add wete git@github.com:covcom/205CDE.git
+$ git remote add wete https://github.com/covcom/205CDE.git
 $ git remote -v
 origin	https://github.com/omanimesi/omaproj.git (fetch)
 origin	https://github.com/omanimesi/omaproj.git (push)

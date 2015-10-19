@@ -114,7 +114,13 @@ And last: put all together: (*Chat.php*)
     $controller->$action();
     ?>
 
-## Web frameworks
+Some links for MVC:
+
+[Wikipedia](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
+[MVC Architecture](https://developer.chrome.com/apps/app_frameworks)
+[MVC for Noobs](http://code.tutsplus.com/tutorials/mvc-for-noobs--net-10488)
+
+# Web frameworks
 
 A web framework is a software which is designed for development of web software, such as
 

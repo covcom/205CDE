@@ -4,6 +4,8 @@ This lab extends the work you did in the previous one called *Git Basics*. Make 
 
 In this lab you will learn how to create a remote repository using *GitLab*. You may apply these principles to working with any other remote repository such as GitHub or Bitbucket.
 
+There are two ways to use git remote repos. One is to use https protocol, and the other is to use SSH keys. You can choose the way you feel more familiar to. Go through only one of the 02.2. or 02.3.
+
 ## 02.1 Updating the GitLab Profile
 We will be using *GitLab* as our remote repository and will use it to store and share our code. Start by creating an account (if you don’t have these already) and logging in. You will also need to have a *Codio* account. Make sure you have an account and are logged in to both sites before starting this worksheet.
 
@@ -15,7 +17,7 @@ As a bare minimum you should supply your full name and upload a recognisable pho
 
 Click 'Save changes' then click on the GitLab icon in the top-left corner to return to the home screen.
 
-There are two ways to use git remote repos. One is to use https protocol, and the other is to use SSH keys. You can choose the way you feel more familiar to.
+
 
 ## 02.2 Using https protocol
 
@@ -58,11 +60,11 @@ origin	https://github.com/covcom/205CDE.git (push)
 We change this by
 
 ```
-$ git remote set-url origin https://github.com/omanimesi/omaproj.git
+$ git remote set-url origin your_GitLab_URL
 $ git remote -v
 
-origin	https://github.com/omanimesi/omaproj.git (fetch)
-origin	https://github.com/omanimesi/omaproj.git (push)
+origin	https://gitlab.com/your_GitLab_name/your_repo_name.git (fetch)
+origin	https://gitlab.com/your_GitLab_name/your_repo_name.git (push)
 ```
 (Above, paste the HTTPS URL that you copied from GitLab to replace your_GitLab_URL.)
 
@@ -81,8 +83,8 @@ $ git remote
 origin
 $ git remote add wete https://github.com/covcom/205CDE.git
 $ git remote -v
-origin	https://github.com/omanimesi/omaproj.git (fetch)
-origin	https://github.com/omanimesi/omaproj.git (push)
+origin	https://gitlab.com/your_GitLab_name/your_repo_name.git (fetch)
+origin	https://gitlab.com/your_GitLab_name/your_repo_name.git (push)
 wete	https://github.com/covcom/205CDE.git (fetch)
 wete	https://github.com/covcom/205CDE.git (push)
 ```
@@ -103,7 +105,7 @@ git config credential.helper 'cache --timeout=300'
 ```
 
 
-## 02.3 Using ssh keys
+## 02.3 Using ssh keys (Skip this if you are using https)
 
 The course materials will be in GitHub repository, your own repository will be in GitLab, therefore you will need accounts on both sites.
 1)	create account on GitHub
@@ -152,11 +154,11 @@ origin	git@github.com:covcom/205CDE.git (push)
 
 We change this by
 ```
-$ git remote set-url origin git@gitlab.com:omanimesi/omaproj.git
+$ git remote set-url origin git@gitlab.com:your_GitLab_name/your_repo_name.git
 $ git remote -v
 
-origin	git@gitlab.com:omanimesi/omaproj.git (fetch)
-origin	git@gitlab.com:omanimesi/omaproj.git (push)
+origin	git@gitlab.com:your_GitLab_name/your_repo_name.git (fetch)
+origin	git@gitlab.com:your_GitLab_name/your_repo_name.git (push)
 ```
 
 Then finally you want to push all your commits to your own repository located in new url.
@@ -174,8 +176,8 @@ $ git remote
 origin
 $ git remote add wete git@github.com:covcom/205CDE.git
 $ git remote -v
-origin	git@gitlab.com:omanimesi/omaproj.git (fetch)
-origin	git@gitlab.com:omanimesi/omaproj.git (push)
+origin	git@gitlab.com:your_GitLab_name/your_repo_name.git (fetch)
+origin	git@gitlab.com:your_GitLab_name/your_repo_name.git (push)
 wete	git@github.com:covcom/205CDE.git (fetch)
 wete	git@github.com:covcom/205CDE.git (push)
 ```

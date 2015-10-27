@@ -28,6 +28,7 @@ As the original idea of MVC was to use it implementing user interfaces, nowadays
 
 In this example we make a simple chat program. First we desing a Model: (name it Model.php)
 
+```
     <?php
     class Model {
         private $file = "messages.txt";
@@ -46,11 +47,21 @@ In this example we make a simple chat program. First we desing a Model: (name it
         }
     }
     ?>
+```
+
+Remember: before you can use this code, you should make a new empty file named *messages.txt* and change its access:
+
+```
+$ touch messages.txt
+$ chmod o+rw messages.txt
+```
+
+After that the web server could read and write to this file.
 
 Model defines two functions: *messages()*, wich returns previous messages and *add_message()*, which writes a new message to chat. So you can read and write messages with it.
 
 Next we make *View.php*, which is an user interface for chat:
-
+```
     <!DOCTYPE html> 
     <html>
     <head>
@@ -74,9 +85,10 @@ Next we make *View.php*, which is an user interface for chat:
         </form>
     </body>
     </html>
+```
 
 Next one is the Controller (*Controller.php*):
-
+```
     <?php
     class Controller {
         private $model;
@@ -96,11 +108,11 @@ Next one is the Controller (*Controller.php*):
         }
     }
     ?>
-    
+```    
 Notice the first function *__construct()*. It is the constructor, which creates a new object. You might need sometimes also a destrunctor (*__destruct()*), which deletes an object.
 
 And last: put all together: (*Chat.php*)
-
+```
     <?php
     include("Model.php");
     include("Controller.php");
@@ -113,7 +125,7 @@ And last: put all together: (*Chat.php*)
     }
     $controller->$action();
     ?>
-
+```
 Some links for MVC:
 
 [Wikipedia](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
@@ -162,10 +174,10 @@ CodeIgniter is an open source framework, which uses PHP language. It is commonly
 ## Installing CodeIgniter to Codio
 
 First, make a new project to Codio, open a terminal and install a codeigniter (get it & unzip). Note: before downloading, check version!
-
-    $ wget https://github.com/bcit-ci/CodeIgniter/archive/3.0.1.zip
-    $ unzip 3.0.1.zip
-
+```
+$ wget https://github.com/bcit-ci/CodeIgniter/archive/3.0.1.zip
+$ unzip 3.0.1.zip
+```
 When done, you will see this kind of directory structure on your project:
 
 ![directory](http://users.metropolia.fi/~kuivi/codeigniter/codeigniter.png "directory structure")
@@ -173,10 +185,10 @@ When done, you will see this kind of directory structure on your project:
 As you see, also documentation is included.
 
 We need also another programs to use: Some database and web server. So we install Apache Web Server, PHP5, PHP5 plugin for Apache and a MySQL relational database: (and of course to start these services)
-
-    $ parts install php5 php5-apache2 mysql
-    $ parts start apache2 mysql       
-
+```
+$ parts install php5 php5-apache2 mysql
+$ parts start apache2 mysql       
+```
 Now we are ready for using Codeigniter.
 
 ## Tutorial

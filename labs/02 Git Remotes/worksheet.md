@@ -1,72 +1,197 @@
-# Git Remotes
+# 02 Working with Git remote repos
 
 This lab extends the work you did in the previous one called *Git Basics*. Make sure you have completed the worksheet and fully understand the concepts covered. You will also need access to the repository you created as part of the exercise.
 
 In this lab you will learn how to create a remote repository using *GitLab*. You may apply these principles to working with any other remote repository such as GitHub or Bitbucket.
 
-## 1.1 Updating the GitLab Profile
+There are two ways to use git remote repos. One is to use https protocol, and the other is to use SSH keys. You can choose the way you feel more familiar to. Go through only one of the 02.2. or 02.3.
+
+## 02.1 Updating the GitLab Profile
 We will be using *GitLab* as our remote repository and will use it to store and share our code. Start by creating an account (if you don’t have these already) and logging in. You will also need to have a *Codio* account. Make sure you have an account and are logged in to both sites before starting this worksheet.
 
 Before we start using GitLab it is important to update your personal profile to add your name and photo. This is required for when you start sharing your code with others.
 
 In the top-right of the home screen there is a **Profile settings** button.
 
-As a bare minimum you should supply your full name as it appears on your Student Card and upload a recognisable photo. This is so that we can clearly identify you when marking your work. Your email address should be your *personal* one rather than the one provided by the University as you will want to continue using GitLab after graduating.
+As a bare minimum you should supply your full name and upload a recognisable photo. This is so that we can clearly identify you when marking your work. Your email address should be your *personal* one rather than the one provided by the University as you will want to continue using GitLab after graduating.
 
 Click 'Save changes' then click on the GitLab icon in the top-left corner to return to the home screen.
 
-## 2 Configuring a Remote Repository
 
-### 2.1 Copying the SSH Key from Codio
 
-Authentication will be through the use of SSH keys. We need to copy the public key from Codio and add this to GitLab. You may have already done this, if so, skip to the next stage.
+## 02.2 Using https protocol
 
-Start by clicking on the *Account settings* icon (gear) in the bottom-left corner of the Codio projects screen.
+### Cloning the course repository
 
-Choose the *SSH Key* tab and triple-click the long string (public key) to select it all. Copy this to the clipboard.
+Many of the exercises you will be doing will require you to amend existing code. This code is available in a course repository in GitHub. To access this you will need to create a new Codio project containing a clone of this repository.
 
-### 2.2 Adding the SSH Key to GitLab
+Create a new project in Codio. On the projects screen click in the Create Project button.
 
-Now open the *Profile settings* page in GitLab (person icon in the top-right corner) and choose the *SSH Keys* tab from the left-menu.
-
-Click on the green button Add SSH Key and paste in the public key stored in the clipboard. Enter Codio as a title.
-
-This has added the public key from Codio to your GitLab account.
-
-## 3 Creating an Online repository
-
-Now you have logged into GitLab you need to create a new remote repository. Open the *home screen* and click on the *New Project* button.
-
-Enter 'tutorial' in the project path and set the visibility level to 'Private'. Click on the Create Project button when done.
-
-## 4 Configuring the Remote
-
-The next step is to configure your local repository (created in the previous lab) to communicate with the remote repository you have just created on GitLab.
-
-### 4.1 Getting the Remote URL
-
-Once the project has been created you will be taken to the project screen on GitLab. Here you will find your repository URL. This starts with 'git@' and contains your GitLab username and project name 'tutorial.git'. If your URL looks different check that the SSH option is selected (not HTTPS). Copy this URL to your clipboard.
-
-### 4.2 Adding the Remote
-
-Now you need to log into Codio and open your Git Tutorial project from the previous lab. You will need to open a terminal window. If you are unsure of any of these steps refer to the previous worksheet.
-
-The `git remote` command is used to configure the remote repository settings. There are currently no remotes configured so if we try to list these we should get an empty list (the v flag means use verbose mode (list all the details):
-
-`git remote -v`
-
-We now need to add our remote repository to our local one. Origin is the alias we will be using to refer to our remote. Make sure you use your own remote (currently in the clipboard).
-
-`git remote add origin git@gitlab.com:username/tutorial.git`
-
-We can now list our remote using the previously described git remote command.
+Open Tools > Terminal. Clone the course repository (https://github.com/covcom/205CDE.git). 
 ```
-git remote -v
-origin  git@gitlab.com:marktyers/tutorial.git (fetch)
-origin  git@gitlab.com:marktyers/tutorial.git (push)
+$ git clone https://github.com/covcom/205CDE.git
 ```
 
-## 5 Push and Pull
+You can change the default name (205CDE) in Codio by right-clicking it in the tree view on the left.
+
+### Changing the remote repository
+
+The course repository is read-only, you will have to put your code in your own remote repository.
+Follow these steps:
+
+Create a new GitLab (https://gitlab.com/) account if necessary. Sign in and create a new repository. Notice that the repository is called a project in Gitlab's terms. You can name your repository the way you want.
+
+Copy the HTTPS URL, visible in GitLab, to your clipboard.
+
+Go back to Codio. Go to the folder of the cloned reposity in the terminal:
+
+```
+$ cd 205CDE/
+```
+
+Because you have cloned the course repository, there is one remote called origin, check it:
+
+```
+$ git remote -v
+origin	https://github.com/covcom/205CDE.git (fetch)
+origin	https://github.com/covcom/205CDE.git (push)
+```
+
+We change this by
+
+```
+$ git remote set-url origin your_GitLab_URL
+$ git remote -v
+
+origin	https://gitlab.com/your_GitLab_name/your_repo_name.git (fetch)
+origin	https://gitlab.com/your_GitLab_name/your_repo_name.git (push)
+```
+(Above, paste the HTTPS URL that you copied from GitLab to replace your_GitLab_URL.)
+
+Then finally you want to push all your commits to your own repository located in new url.
+
+```
+git push origin master
+```
+
+### The course repository has been changed
+
+Sometimes the course repository will change, and you have to get the modifications to your own repositories and local working copies.
+
+```
+$ git remote
+origin
+$ git remote add wete https://github.com/covcom/205CDE.git
+$ git remote -v
+origin	https://gitlab.com/your_GitLab_name/your_repo_name.git (fetch)
+origin	https://gitlab.com/your_GitLab_name/your_repo_name.git (push)
+wete	https://github.com/covcom/205CDE.git (fetch)
+wete	https://github.com/covcom/205CDE.git (push)
+```
+
+We have now two remote repositories. The one called origin is your own, where you sent your updates. But because sometimes the course remote repository is edited, we have another remote repository called wete.
+
+```
+$ git pull wete master
+```
+
+This is the way you fetch and merge everything that has changed in the course repository with your own master.
+After this you have to check for conflicts, commit your changes to your local repository and push the changes to your own remote repository. But these ones you already know.
+
+When using https protocol, git will always ask your username and password for the remote. If you get bored, you can use e.g. git credential helper cache. More on using helpers, see git documentation. The stored credentials never touch the disk, and are forgotten after a configurable timeout. The cache is accessible over a Unix domain socket, restricted to the current user by filesystem permissions. In the following credentials are stored for 5 minutes.
+
+```
+git config credential.helper 'cache --timeout=300'
+```
+
+
+## 02.3 Using ssh keys (Skip this if you are using https)
+
+The course materials will be in GitHub repository, your own repository will be in GitLab, therefore you will need accounts on both sites.
+1)	create account on GitHub
+2)	create account on GitLab
+Authentication will be through the use of SSH keys. You need to copy the public key from Codio and add this to both GitHub and GitLab.
+
+### GitHub
+Start by clicking on the Accounts setting icon in the bottom-left corner of the projects screen (gear icon).
+
+Choose the SSH Key tab and triple-click the long string (public key) to select it all. Copy this to clipboard.
+
+Log into GitHub and open the Preferences screen (gear icon). Locate the SSH Keys link and Add SSH Key button.
+
+Set the key title to Codio and Paste the SSH key from the clipboard before clicking the Add key button.
+
+### GitLab
+Open the Profile setting page (person icon) and choose the SSH Keys tab.
+
+Click the green button Add SSH Key and paste in the public key stored in the clipboard. Enter Codio as a title.
+
+### Cloning the course repository
+
+Many of the exercises you will be doing will require you to amend existing code. This code is available in a course repository in GitHub. To access this you will need to create a new Codio project containing a clone of this repository.
+
+Create a new project in Codio. On the projects screen click in the Create Project button.
+
+Open Tools > Terminal. Clone the course repository (git@github.com:covcom/205CDE.git). 
+
+```
+$ git clone git@github.com:covcom/205CDE.git
+```
+
+Finally give a name 205CDE to your project.
+
+### Changing the remote repository
+The course repository is read-only, you will have to put your code in your own remote repository.
+Follow these steps:
+Create a new repository in GitLab. You can name your repository the way you want. Copy the SSH link to your clipboard.
+Because you have cloned the course repository, there is one remote called origin, check it:
+
+```
+$git remote -v
+origin	git@github.com:covcom/205CDE.git (fetch)
+origin	git@github.com:covcom/205CDE.git (push)
+```
+
+We change this by
+```
+$ git remote set-url origin git@gitlab.com:your_GitLab_name/your_repo_name.git
+$ git remote -v
+
+origin	git@gitlab.com:your_GitLab_name/your_repo_name.git (fetch)
+origin	git@gitlab.com:your_GitLab_name/your_repo_name.git (push)
+```
+
+Then finally you want to push all your commits to your own repository located in new url.
+
+```
+$ git push origin master
+```
+
+### The course repository has been changed
+
+Sometimes the course repository will change, and you have to get the modifications to your own repositories and local working copies.
+
+```
+$ git remote
+origin
+$ git remote add wete git@github.com:covcom/205CDE.git
+$ git remote -v
+origin	git@gitlab.com:your_GitLab_name/your_repo_name.git (fetch)
+origin	git@gitlab.com:your_GitLab_name/your_repo_name.git (push)
+wete	git@github.com:covcom/205CDE.git (fetch)
+wete	git@github.com:covcom/205CDE.git (push)
+```
+
+We have now two remote repositories. The one called origin is your own, where you sent your updates. But because sometimes the course remote repository is edited, we have another remote repository called wete.
+
+```
+$ git pull wete master
+```
+
+This is the way you fetch and merge everything that has changed in the course repository with your own master.
+After this you have to check for conflicts, commit your changes to your local repository and push the changes to your own remote repository. But these ones you already know.
+
+## 02.4 New commands:  Push and Pull
 
 Now we have configured our remote we need to push our commits onto the GitLab server. There are two key tasks.
 
@@ -80,7 +205,7 @@ git branch
 * master
   newbranch
 ```
-### 5.1 Pushing to the Remote
+###  Pushing to the Remote
 
 You can see that there are *three branches* and that we are on the *master* branch. Once you understand that you should be able to make sense of the command we use to push our changes to the remote.
 
@@ -88,7 +213,7 @@ You can see that there are *three branches* and that we are on the *master* bran
 
 This will push all the commits on your master branch to the remote with an alias of origin (we just added this).
 
-### 5.2 Viewing the Commit Graph
+###  Viewing the Commit Graph
 
 Lets see what has been pushed. Return to the *GitLab project* page and refresh it in the browser.
 
@@ -104,7 +229,7 @@ to push all branches at once use the all flag.
 
 `git push origin --all`
 
-### 5.3 Pushing Tags
+###  Pushing Tags
 
 If you view the network graph you may have noticed that the tags were not pushed from the local repository. By default tags are considered a local resource. Sometime we wish to push one or more tags to the remote. To push a single tag we use the following command. Try this out.
 
@@ -118,7 +243,7 @@ If we wish to push all the local tags we can do this by passing the tags long fl
 
 Try this and make sure both tags are now pushed.
 
-### 5.4 Pulling Changes
+###  Pulling Changes
 
 Sometimes there are commits on the remote that you don't have in your local repository. This can be caused two ways:
 
@@ -129,11 +254,11 @@ Before making any changes to your code you should get into the habit of pulling 
 
 `git pull origin master`
 
-## 6 Sharing with Other Users
+## 02.5 Sharing with Other Users
 
 You already know a lot about using Git both locally and syncing with remotes however we have still to cover one of the most powerful features, collaborative programming. By sharing your repository with other developers you allow them to clone a copy of your remote, make changes and commit locally then push these commits back to your remote!
 
-### 6.1 Adding Team Members
+###  Adding Team Members
 From the project page, click on the *Settings* link to access the repository settings screen.
 
 In the left-hand menu you will find a *Members* link. Click on this to view the appropriate screen.
@@ -149,24 +274,24 @@ You also need to choose the correct access settings. Generally you have two choi
 
 Choose *Developer* access to allow your classmate to push changes to your remote repository.
 
-## 6 Submitting Work for Marking
+## 02.6 Submitting Work for Marking
 
 You will be expected to submit a link to your remote repository home page when you complete an assignment. It is important that the academics who will be marking your work have access to your code and so it becomes your responsibility to locate their GitLab usernames and provide them with Reporter access to your repository.
 
 Typically the list of staff usernames will be found on your *assignment brief*. If you cannot locate this please speak to your lab supervisor as soon as possible.
 
-## 7 Online Tools
+## 02.7 Online Tools
 
 Git provides a number of useful tools to help manage your programming project. Here we identify a few of the most useful.
 
-### 7.1 Issues
+###  Issues
 
 The issues tool provides a sophisticated way to identify jobs, prioritise them and assign them to different members your development team. You can also generate labels (under the labels tab) and assign them to the tasks, add milestones and, finally you can mark jobs as complete. Think about this as a powerful todo list. You will be expected to demonstrate you can use this.
 
-### 7.2 Wiki
+###  Wiki
 
 It is important that you keep detailed notes and documentation. The wiki tool allows you to write nicely formatted notes. You can also link pages together. As you write your code you need to maintain suitable documentation.
 
-### 7.3 Merge Requests
+###  Merge Requests
 
 If you are working as part of a team you will each be working on code in your own branch(es). Before merging a branch back into the master you should issue a merge request. You detail the branch you want to merge, where you want to merge it and the features you have added. Others can view the changes you intend making to the master branch and suggest changes. When working in a team you will be expected to use this tool before merging any branches.

@@ -6,20 +6,5 @@ body {
 
 
 
-figure#floating {
-    float: right;
-}
 
-aside#factbox {
-    float: left;
-    border: 1px solid black;
-    margin: 2em;
-    padding: 1em;
-}
 
-nav {
-    position:absolute;
-    top:120px;
-    left:40px;
-    width:100px;
-}

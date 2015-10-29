@@ -43,7 +43,7 @@ Create a new GitLab (https://gitlab.com/) account if necessary. Sign in and crea
 
 Copy the HTTPS URL, visible in GitLab, to your clipboard.
 
-Go back to Codio. Go to the folder of the cloned reposity in the terminal:
+Go back to Codio. Go to the folder of the cloned repository in the terminal:
 
 ```
 $ cd 205CDE/

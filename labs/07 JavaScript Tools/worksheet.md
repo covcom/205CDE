@@ -17,9 +17,9 @@ Try out the application by entering different values and clicking on the Calcula
 
 As you edit the file in Codio it auto-saves. To view the view version simply refresh the web browser tab running your web page.
 
-### 1.2 Crib Sheet
+### 1.2 JavaScript source material
 
-To help you remember the syntax used in JavaScript there is a crib sheet available. This will be a work in progress with additional materials added as we encounter them.
+To help you get acquainted with the syntax used in JavaScript, use a tutorial such as [W3Schools JavaScript tutorial](http://www.w3schools.com/js/). You will learn that several JavaScript constructs, such as the control structures are very similar to Java.
 
 ## 2 Chrome Developer Tools
 To follow this example you will be using the Chrome Developer Tools.
@@ -64,9 +64,9 @@ jslint_happy = true
 
 Load up `js/notes.js` in Codio and run it to prove the code is fully functional. Make sure you understand how it works.
 
-1. Locate the orange and red dots in the left margin
-2. click on each dot to see the warning message
-3. read the warning message and use this information to correct the code
+1. Locate the orange and red dots in the left margin. If the dots are not visible, select Tools > Beautify to make them appear.
+2. Click on each dot to see the warning message
+3. Read the warning message and use this information to correct the code
 
 Note that many of the highlighted issues are about things like indentation, and consistency of style, as well as syntax. That is because linters take readable code very seriously, and so should you! You should aim to have no JSLint warnings when you write your JavaScript or other programming code.
 
@@ -112,7 +112,7 @@ WIth strict mode enabled your program will throw errors which can be seen in the
 
 ## 5 Basic Debugging
 
-For a much more detailed description read Google’s debugging JavaScript guide.
+For a much more detailed description read [Google’s debugging JavaScript guide](https://developer.chrome.com/devtools/docs/javascript-debugging).
 
 Sometimes your attempts to change the code will introduce bugs. A bug is usually signalled by some kind of error message, usually RED in colour, appearing on the console. If you find a bug has appeared in your code do the following to help track it down:
 
@@ -135,10 +135,10 @@ Lets get familiar with the debugger:
 
 ### 5.2 Test Your Understanding
 
-Lets use the debugger to help fix a problem with our program:
+Use the debugger to help fix a problem with our program:
 
-1. It is currently possible to add duplicate items. Instead of adding duplicated the quantity should increase by one.
-2. Add a breakpoint 
+It is currently possible to add duplicate items. Instead of adding duplicated the quantity should increase by one.
+
 
 ## 6 Local Storage
 

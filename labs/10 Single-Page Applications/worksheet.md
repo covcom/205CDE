@@ -5,8 +5,11 @@ This week you will be modifying the content of the web browser through manipulat
 ## Task List
 
 Aim to complete these in roughly 30-60 minutes of lab time.
+
 1. Use a range of event handlers to access data from a simple form and display it in html tags.
+
 2. Take a complex JavaScript object containing arrays and objects and display the data in the web browser.
+
 3. Take an existing SPA and make improvements to it.
 
 ## Resources

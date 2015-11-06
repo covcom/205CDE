@@ -49,7 +49,7 @@ Finally load up `SpecRunner.html` in the browser inside codio. You should get a 
 
 Before writing tests take a moment to understand the purpose of the module we will be writing. Specifically we should write down the required functionality and, for each piece of functionality, how we can test for compliance.
 
-We will be building a module called notes which will store a series of notes together with a unix timestamp indicating when they were added. It will expose the following five public functions.
+We will be building a module called notes which will store a series of notes together with a unix timestamp indicating when they were added. It will expose the following six public functions.
 
 **add(note)**
 

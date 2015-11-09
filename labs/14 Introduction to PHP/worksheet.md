@@ -120,10 +120,12 @@ More on strings: [PHP strings][PHPStrings]
 
 1. Write a PHP program which prints a classic "Hello word" greeting on the screen.
 2. Write a PHP program which shows an image duplicated so that there are four images in two rows on the web page.
-3. Write a PHP program that calculates an area of a circle when the radius is known.
+3. Write a PHP program that calculates an area of a circle when the radius is known. You  may use a harcoded radius value.
+4. Check [for example from here][W3SchoolsPHP], how a PHP script process input fields of a form. Apply this and let the user fill in a radius value to the form and calculate area of a circle based on that value.  
 4. Define few variables of different types, assign values to them and print them out using an interpreted string.
 5. Same as 4, but use a non-interpreted string this time.
 
 
 [apache]: https://codio.com/docs/ide/tutorials/php/
 [PHPStrings]: http://php.net/manual/en/language.types.string.php
+[W3SchoolsPHP]: http://www.w3schools.com/php/php_forms.asp

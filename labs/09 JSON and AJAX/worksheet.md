@@ -24,7 +24,6 @@ The tasks this week are split in to two “tracks” depending on your confidenc
 
 Since this material is more advanced than previous weeks, aim to get as much understanding as possible during 60-80 minutes of lab time. Follow this up in your own time with trying to complete at least the tasks in “Track 1”
 
-NOTE: Remember to commit your changes to a fork of the 305CDE git reposi- tory (see last week’s worksheet) so that you can continue later. The techniques and knowledge developed this week will be very useful later.
 
 ## Track 1
 

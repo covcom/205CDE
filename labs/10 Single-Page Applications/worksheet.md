@@ -5,8 +5,11 @@ This week you will be modifying the content of the web browser through manipulat
 ## Task List
 
 Aim to complete these in roughly 30-60 minutes of lab time.
+
 1. Use a range of event handlers to access data from a simple form and display it in html tags.
+
 2. Take a complex JavaScript object containing arrays and objects and display the data in the web browser.
+
 3. Take an existing SPA and make improvements to it.
 
 ## Resources
@@ -17,7 +20,7 @@ One of the most useful resources is the Mozilla JS Tutorial. You should read thi
 
 In this task you will write code to respond to a series of events. The code will access data contained within a form and display it in HTML tags.
 
-1. Open the Codio project containing the lab code (see the previous lab) and open the file  simple_dom.html  from  /labs/03 Single-Page Applications/ 
+1. Open the Codio project containing the lab code (see the previous lab) and open the file  simple_dom.html  from  /labs/10 Single-Page Applications/ 
 2. Use the  Current File (static)  button to test out what the page does. Make sure you open the Chrome Developer Tools at the Console tab.
 3. Open the associated JS file  js/simple_dom.js  and check you understand how it works.
 
@@ -25,7 +28,7 @@ Experiment by entering text into the three textboxes and clicking on the button.
 
 Identify how the script can locate both the textboxes and the heading and paragraph tags.
 
-Notice the two different ways the functions are called by the event handler on line 3 and line 4. Can you understand the different syntax used?
+Notice the two different ways the functions are called by the event handler on line 5 and line 6. Can you understand the different syntax used?
 
 There is one bug in the script, can you identify what this is?
 
@@ -41,7 +44,7 @@ Now you have a good idea of how the JavaScript code works, try the following:
     e. onchange
     f. onclick
     
-2. The onclick event handler currently calls a named function. Using the code on line 4 as a guide, replace this with an anonymous inline function.
+2. The onclick event handler currently calls a named function. Using the code on line 6 as a guide, replace this with an anonymous inline function.
 3. Modify the page so that the name, email and password are displayed in the heading and paragraph tags when the button is clicked.
 4. Modify the page so that the headings and paragraphs are updated as the user types. Remove the button and its event handler.
 

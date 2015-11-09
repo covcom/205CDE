@@ -59,7 +59,7 @@ The next step is to link it to the file **csstest.html** in the lab folder. Firs
 Then, insert the following line of HTML code in the `head` element of the HTML file:
 
 ```
-<link href="css/csstest.css" type="text/css" rel="stylesheet" />
+<link href="css/simple.css" type="text/css" rel="stylesheet" />
 ```
 
 The line links the HTML file to the just created CSS file.
@@ -256,7 +256,7 @@ So far, we have used elements, classes and identifiers to pick the applicable ru
 
 It is possible to define the targets of rules in a more specified way. Open file **targets.html** to demonstrate this. In the file, there's a complex list structure.
 
-The file is linked to **tergetstyles.css**, which contains only the font settings for the entire document.
+The file is linked to **targetstyles.css**, which contains only the font settings for the entire document.
 
 Write the following rules to **targetstyles.css**:
 

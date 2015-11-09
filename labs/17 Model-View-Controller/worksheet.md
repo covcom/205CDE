@@ -24,7 +24,115 @@ MVC-model has three components: (Wikipedia)
 
 As the original idea of MVC was to use it implementing user interfaces, nowadays it is commonly used with WWW-applications. Several commercial and noncommercial web application frameworks have been created that enforce the pattern. These frameworks vary in their interpretations, mainly in the way that the MVC responsibilities are divided between the client and server.
 
-## Web frameworks
+## First example: a simple chat
+
+In this example we make a simple chat program. First we desing a Model: (name it Model.php)
+
+```
+    <?php
+    class Model {
+        private $file = "messages.txt";
+
+        public function messages() {
+            if (file_exists($this->file)) {
+                return file($this->file);
+            } else {
+                return array();
+            }
+        }
+
+        public function add_message($message) {
+            $message = date("H:i:s: ") . $message;
+            file_put_contents($this->file, "{$message}\n", FILE_APPEND);
+        }
+    }
+    ?>
+```
+
+Remember: before you can use this code, you should make a new empty file named *messages.txt* and change its access:
+
+```
+$ touch messages.txt
+$ chmod o+rw messages.txt
+```
+
+After that the web server could read and write to this file.
+
+Model defines two functions: *messages()*, wich returns previous messages and *add_message()*, which writes a new message to chat. So you can read and write messages with it.
+
+Next we make *View.php*, which is an user interface for chat:
+```
+    <!DOCTYPE html> 
+    <html>
+    <head>
+        <title>Chat</title>
+    </head>
+    <body>
+        <h1>Chat</h1>
+        <?php
+        if (empty($this->messages)) {
+            echo "There is no messages in chat...";
+        } else {
+            foreach ($this->messages as $message) {
+                echo htmlspecialchars($message) . "<br>";
+            }
+        }
+        ?>
+    <h2>New message</h2>
+        <form action="?action=send" method="post">
+        <input type="text" name="message">
+        <input type="submit" value="Send">
+        </form>
+    </body>
+    </html>
+```
+
+Next one is the Controller (*Controller.php*):
+```
+    <?php
+    class Controller {
+        private $model;
+
+        public function __construct() {
+            $this->model = new Model();
+        }
+
+        public function list_it() {
+            $this->messages = $this->model->messages();
+            include("View.php");
+        }
+
+        public function send() {
+            $this->model->add_message($_POST["message"]);
+            header("Location: Chat.php?action=list_it");
+        }
+    }
+    ?>
+```    
+Notice the first function *__construct()*. It is the constructor, which creates a new object. You might need sometimes also a destrunctor (*__destruct()*), which deletes an object.
+
+And last: put all together: (*Chat.php*)
+```
+    <?php
+    include("Model.php");
+    include("Controller.php");
+
+    $controller = new Controller();
+    if (isset($_GET["action"])) {
+        $action = $_GET["action"];
+    } else {
+        $action = "list_it";
+    }
+    $controller->$action();
+    ?>
+```
+Some links for MVC:
+
+[Wikipedia](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
+[MVC Architecture](https://developer.chrome.com/apps/app_frameworks)
+[MVC for Noobs](http://code.tutsplus.com/tutorials/mvc-for-noobs--net-10488)
+
+# Web frameworks
 
 A web framework is a software which is designed for development of web software, such as
 
@@ -66,21 +174,21 @@ CodeIgniter is an open source framework, which uses PHP language. It is commonly
 ## Installing CodeIgniter to Codio
 
 First, make a new project to Codio, open a terminal and install a codeigniter (get it & unzip). Note: before downloading, check version!
-
-    $ wget https://github.com/bcit-ci/CodeIgniter/archive/3.0.0.zip
-    $ unzip 3.0.0.zip
-
+```
+$ wget https://github.com/bcit-ci/CodeIgniter/archive/3.0.1.zip
+$ unzip 3.0.1.zip
+```
 When done, you will see this kind of directory structure on your project:
 
-![directory](img/codeigniter.png "directory structure")
+![directory](http://users.metropolia.fi/~kuivi/codeigniter/codeigniter.png "directory structure")
 
 As you see, also documentation is included.
 
 We need also another programs to use: Some database and web server. So we install Apache Web Server, PHP5, PHP5 plugin for Apache and a MySQL relational database: (and of course to start these services)
-
-    $ parts install php5 php5-apache2 mysql
-    $ parts start apache2 mysql       
-
+```
+$ parts install php5 php5-apache2 mysql
+$ parts start apache2 mysql       
+```
 Now we are ready for using Codeigniter.
 
 ## Tutorial
@@ -89,7 +197,10 @@ CodeIgniter has a very good tutorial. With it you will find out what is MVC:s id
 
 ## Test your understanding
 
+1. Test how chat example works
+1. Add a nickname-field to your chat so that you can show in messages list who wrote message. Could you do this so, that you have to give your nickname only once?
 1. Go through GodeIgniters tutorial
+1. Use CodeIgniter to make your chat.
 1. For more experienced users: By default CodeIgniters  URL:s are something like that: *example.com/index.php/news/article/my_article* Find out how to remove *index.php* from the visible URL. Tip: you maybe have to install something more to your Apache server...
 
 

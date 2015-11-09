@@ -28,7 +28,7 @@ Experiment by entering text into the three textboxes and clicking on the button.
 
 Identify how the script can locate both the textboxes and the heading and paragraph tags.
 
-Notice the two different ways the functions are called by the event handler on line 3 and line 4. Can you understand the different syntax used?
+Notice the two different ways the functions are called by the event handler on line 5 and line 6. Can you understand the different syntax used?
 
 There is one bug in the script, can you identify what this is?
 
@@ -44,7 +44,7 @@ Now you have a good idea of how the JavaScript code works, try the following:
     e. onchange
     f. onclick
     
-2. The onclick event handler currently calls a named function. Using the code on line 4 as a guide, replace this with an anonymous inline function.
+2. The onclick event handler currently calls a named function. Using the code on line 6 as a guide, replace this with an anonymous inline function.
 3. Modify the page so that the name, email and password are displayed in the heading and paragraph tags when the button is clicked.
 4. Modify the page so that the headings and paragraphs are updated as the user types. Remove the button and its event handler.
 

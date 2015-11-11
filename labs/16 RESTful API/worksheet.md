@@ -175,7 +175,7 @@ if (!empty($_GET['location'])){
 ### Making your own REST API
 
 Next, we design a simple REST API and set it up as a REST server.  As the implementation of a full-scale
-REST API usually requires permanent storage at server side (database), the functionality of the example API consists of mock implementations
+RESTful API usually requires permanent storage at server side (database), the functionality of the example API consists of mock implementations
 that merely demonstrate that each call has been handled by a correct PHP function.
 However, it will later be straightforward to further develop the API into a full, working application.
 
@@ -248,7 +248,7 @@ that the correct function has been called.
 
 Study the contents of the file and make sure you understand how it works.
 
-The three functions in the beginning, getResource(), getParameters() and getMethod(), are URI parsing functions that return the information embedded in the URI in a consumable format.
+The three functions in the beginning, **getResource()**, **getParameters()** and **getMethod()**, are URI parsing functions that return the information embedded in the URI in a consumable format.
 For instance, suppose a POST request [https://museum-austria.codio.io:9500/staffapi/person?id=13&firstname="Jane"&lastname="Doe"](https://museum-austria.codio.io:9500/staffapi/person?id=13&firstname="Jane"&lastname="Doe") has been obtained by server.
 - For this sample URI, function **getResource()** would produce a numerical array of URI parts, where element 0 contains the value “staffapi”, and element 1 contains the value “person”.
 - The second function, **getParameters()**, produces an associative array, where element “firstname” has value "Jane", and element “lastname” has a value of "Doe".
@@ -265,5 +265,7 @@ Thus, adding new functionality to the API is simple:
 
 1. Add a mock DELETE operation that deletes the entire collection of persons. Verify that the API call works as intended.
 
+2. Generate a minimalistic RESTful API that gives you a lucky number and a lucky word. Both should be delivered within a single JSON. Use random number generator to produce the output.
 
+3. Generate a HTML client that contains a button for making a call for your API. The client should also display the results.
 

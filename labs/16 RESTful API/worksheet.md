@@ -172,31 +172,49 @@ if (!empty($_GET['location'])){
 1. Make your own mash-up application using at least two existing public REST APIs.
 
 
-###Making your own REST API
+### Making your own REST API
 
-First give a simple name for API end point:
+Next, we design a simple REST API and set it up as a REST server.  As the implementation of a full-scale
+REST API usually requires permanent storage at server side (database), the functionality of the example API consists of mock implementations
+that merely demonstrate that each call has been handled by a correct PHP function.
+However, it will later be straightforward to further develop the API into a full, working application.
 
-'https://www.YourApp.com/Api/'
+First, we choose the API end point to be:
 
-so for resources it is:
+https://domainname.countrycode/staffapi/
 
-'https://www.YourApp.com/Api/ResourceName'
+This is a prefix for all API calls.
 
-Then you should design which resources you have, and requests you use for getting resources. 
-Take a look at the HTTP methos table in the beginning of this section.
+Next, we define two resources:
+1. **persons**, a collection of persons
+2. **person**, a single person
 
-Next you should consider what are the error messages you give in different situations accessing the resources.
+The following API methods will be implemented:
 
-Once the API functionality and the corresponding URIs have been designed,
-the next step is to map each URI to a PHP function that handles the corresponding action.
+Method | Resource | Purpose | Example
+--------|---------|-------|-------|
+POST | person | add a person| POST .../staffapi/person?id=13&firstname="Jane"&lastname="Doe"
+GET | persons | get a list of persons | GET .../staffapi/persons
+GET | person | get a person | GET .../staffapi/person/13
+DELETE | person | delete a person | DELETE .../staffapi/13
 
-In Codio, the first step is to add a file called .htaccess into the root directory of the project’s workspace. 
-You can simply right-click the project’s master folder icon in the project’s Codio workspace and select New File…:
+The list can be expanded for new functionality.
+
+Next you should consider what are the error messages you give in different situations accessing the resources. In our example,
+we return HTTP error code **405 (Method not allowed)** in case of an illegal API call.
+
+As it is easier to setup the API server in a new Codio project, create a new Codio project at this step.
+
+The next step is to map each URI to a PHP function that handles the corresponding action.
+
+In the new Codio project, the first step is to add a file called **.htaccess** into the root directory of the project’s workspace. 
+
+You can simply right-click the project’s master folder icon in the project’s Codio workspace and select New File:
 
 ![Creating a new file](img/newfile.png).
 
-The .htaccess file is used by Apache web server, and it may contain instructions for the web server to redirect URI requests.
-Add the following contents to the newly created .htaccess file:
+The **.htaccess** file is used by Apache web server, and it may contain instructions for the web server to redirect URI requests.
+Add the following contents to the newly created **.htaccess** file:
 
 ```
 Options -MultiViews
@@ -205,96 +223,47 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.php [QSA,L]
 ```
 
-The file tells to map all URIs to a file called index.php. Thus, all API calls are now directed to a single handler file 
+The file tells to map all URIs to a file called index.php. Thus, all API calls are now directed to a single handler file **index.php**
 that will be constructed in such a way that it contains a handler function for each operation. (Technically, 
 there could be separate handler files for various URIs, but in this example all API calls are handled by the same handler script. Modularity is achieved by assigning separate functions for different operations.)
-Now, create a handler file index.php:
 
-```
-<?php
+Now, create a handler file called **index.php** in the root of the project workspace. Copy the contents of the file **index.php** in course module's **php** folder into the
+newly-created **index.php** file.
 
-# URI parser functions
-# --------------------
+To get the HTTPS server address, hit "Box URL SSL" in Codio's menu row. This should open a blank browser tab with the server uri. The domain
+name in the URI varies, but it should be something like:
 
-    function getResource() {
-        # returns numerically indexed array of URI parts
-        $resource_string = $_SERVER['REQUEST_URI'];
-        if (strstr($resource_string, '?')) {
-            $resource_string = substr($resource_string, 0, strpos($resource_string, '?'));
-        }
-        $resource = array();
-        $resource = explode('/', $resource_string);
-        array_shift($resource);   
-        return $resource;
-    }
+https://museum-austria.codio.io:9500.
 
-    function getParameters() {
-        # returns an associative array containing the parameters
-        $resource = $_SERVER['REQUEST_URI'];
-        $param_string = "";
-        $param_array = array();
-        if (strstr($resource, '?')) {
-            # URI has parameters
-            $param_string = substr($resource, strpos($resource, '?')+1);
-            $parameters = explode('&', $param_string);                      
-            foreach ($parameters as $single_parameter) {
-                $param_name = substr($single_parameter, 0, strpos($single_parameter, '='));
-                $param_value = substr($single_parameter, strpos($single_parameter, '=')+1);
-                $param_array[$param_name] = $param_value;
-            }
-        }
-        return $param_array;
-    }
+This is a prefix in the API calls.
 
-    function getMethod() {
-        # returns a string containing the HTTP method
-        $method = $_SERVER['REQUEST_METHOD'];
-        return $method;
-    }
- 
-# Handlers, one included as an example
-# ------------------------------------
+To make an api call for listing persons, for example, you can now make a GET call to
 
-    function getPersonById($book_id) {
-        # implements GET method for /api/persons/1 etc.
-        echo "Called GET handler for persons, id=".$book_id;
-    }
+https://museum-austria.codio.io:9500/persons.
 
+Again, the domain name must be replaced with the correct one.
 
-# Main
-# ----
+Open Postman and make API calls to try all operations mentions in the list of operations. Each mock handler function contains an echo statement that verifies
+that the correct function has been called.
 
-    $resource = getResource();
-    $request_method = getMethod();
-    $parameters = getParameters();
-
-    # Uncomment to see the contents for debugging:
-    # var_dump($resource);
-    # var_dump($request_method);
-    # var_dump($parameters);
- 
-    # Redirect to appropriate handler.
-    # This is just an example:
-    if ($request_method=="GET" && $resource[0]=="api" && $resource[1]=="persons") {
-        $person_id = $resource[2];
-        getPersonById($person_id);
-    }
-?>
-```
+Study the contents of the file and make sure you understand how it works.
 
 The three functions in the beginning, getResource(), getParameters() and getMethod(), are URI parsing functions that return the information embedded in the URI in a consumable format.
-For instance, suppose a GET request http://museum-austria.codio.io:3000/library/books/912?q=123&t=5 has been obtained by server.
-- For this sample URI, function getResource() would produce a numerical array of URI parts, where element 0 contains the value “library”, and element 1 contains the value “books”. Likewise, the value of element 2 is 912.
-- The second function, getParameters(), produces an associative array, where element “q” has value 123, and element “t” has a value of 5.
-- Finally, function getPersonByID() returns a string containing the HTTP method, i.e. “GET”.
+For instance, suppose a POST request [https://museum-austria.codio.io:9500/staffapi/person?id=13&firstname="Jane"&lastname="Doe"](https://museum-austria.codio.io:9500/staffapi/person?id=13&firstname="Jane"&lastname="Doe") has been obtained by server.
+- For this sample URI, function **getResource()** would produce a numerical array of URI parts, where element 0 contains the value “staffapi”, and element 1 contains the value “person”.
+- The second function, **getParameters()**, produces an associative array, where element “firstname” has value "Jane", and element “lastname” has a value of "Doe".
+- Finally, function **getMethod()** returns a string containing the HTTP method, i.e. “POST”.
 
-The URI parser functions can be left as they are. The interesting part is in the very end, where the different handler functions are called. In the example, GET requests with URI parts api/persons are directed to a function called getPersonById() that gets the person’s id as a parameter. The corresponding function, getPersonById(), is just a mockup implementation.
+The URI parser functions can be left as they are. The interesting part is in the very end, where the different handler functions are called. In the example, GET requests with URI parts staffapi/person are directed to a function called **getPerson()** that gets the person’s id as a parameter. The function **getPerson()**, is just a mockup implementation.
 Thus, adding new functionality to the API is simple:
 
 1.	write corresponding handler functions.
 2.	expand the if statement in the end to call the newly-written handler functions.
 
+
 ### Test your understanding
 
-1. Design your own small REST API using at least GET and PUT requests for listing and adding resources.
+1. Add a mock DELETE operation that deletes the entire collection of persons. Verify that the API call works as intended.
+
+
 

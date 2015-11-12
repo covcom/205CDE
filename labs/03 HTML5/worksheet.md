@@ -165,7 +165,7 @@ There are a couple of notable things about the `img` element:
 | Attribute | Purpose                                                                                                                                     |
 |-----------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | src      | For locating the image file. The file path is normally given as relative,path, starting from the directory where the html file is located.  |
-| alt       | For displaying an alternate text if the image cannot be displayed, or if,the user prefers using a screen reader for accessibility purposes. |
+| alt       | For displaying an alternative text if the image cannot be displayed, or if the user prefers using a screen reader for accessibility purposes. |
 
 
 

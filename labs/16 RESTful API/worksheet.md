@@ -174,16 +174,19 @@ if (!empty($_GET['location'])){
 
 ### Making your own REST API
 
-Next, we design a simple REST API and set it up as a REST server.  As the implementation of a full-scale
-RESTful API usually requires permanent storage at server side (database), the functionality of the example API consists of mock implementations
+Next, we design a simple RESTful API and set it up as a service.  As the implementation of a full-scale
+RESTful API usually requires permanent storage at server side (a database), the functionality of the example API consists of mock implementations
 that merely demonstrate that each call has been handled by a correct PHP function.
-However, it will later be straightforward to further develop the API into a full, working application.
+Nevertheless, it will later be straightforward to further develop the API into a full, working application.
 
 First, we choose the API end point to be:
 
-https://domainname.countrycode/staffapi/
+https://museum-austria.codio.io:9500/staffapi/
 
-This is a prefix for all API calls.
+Here, staffapi is the name of the designed API. The domain part in the URI is given by Codio. In your project that runs in a different Codio Box,
+the domain will be different.
+
+The URI shown before will be a prefix for all API calls.
 
 Next, we define two resources:
 1. **persons**, a collection of persons
@@ -200,18 +203,17 @@ DELETE | person | delete a person | DELETE .../staffapi/13
 
 The list can be expanded for new functionality.
 
-Next you should consider what are the error messages you give in different situations accessing the resources. In our example,
-we return HTTP error code **405 (Method not allowed)** in case of an illegal API call.
+Next, you should consider which error messages you give in the situations when accessing the resources fails. In our example,
+we will return HTTP error code **405 (Method not allowed)** in case of an illegal API call.
 
 As it is easier to setup the API server in a new Codio project, create a new Codio project at this step.
 
 The next step is to map each URI to a PHP function that handles the corresponding action.
 
-In the new Codio project, the first step is to add a file called **.htaccess** into the root directory of the project’s workspace. 
+In the new Codio project, the first step is to add a file called **.htaccess** into the root directory of the project's workspace. 
 
-You can simply right-click the project’s master folder icon in the project’s Codio workspace and select New File:
-
-![Creating a new file](img/newfile.png).
+You can simply right-click the project's master folder icon in the project's Codio workspace and select New File.
+![(You see the image of file creation if you open this assignment sheet outside Codio, in a separate browser window.)](img/newfile.png)
 
 The **.htaccess** file is used by Apache web server, and it may contain instructions for the web server to redirect URI requests.
 Add the following contents to the newly created **.htaccess** file:
@@ -239,7 +241,7 @@ This is a prefix in the API calls.
 
 To make an api call for listing persons, for example, you can now make a GET call to
 
-https://museum-austria.codio.io:9500/persons.
+https://museum-austria.codio.io:9500/staffapi/persons.
 
 Again, the domain name must be replaced with the correct one.
 
@@ -250,11 +252,11 @@ Study the contents of the file and make sure you understand how it works.
 
 The three functions in the beginning, **getResource()**, **getParameters()** and **getMethod()**, are URI parsing functions that return the information embedded in the URI in a consumable format.
 For instance, suppose a POST request [https://museum-austria.codio.io:9500/staffapi/person?id=13&firstname="Jane"&lastname="Doe"](https://museum-austria.codio.io:9500/staffapi/person?id=13&firstname="Jane"&lastname="Doe") has been obtained by server.
-- For this sample URI, function **getResource()** would produce a numerical array of URI parts, where element 0 contains the value “staffapi”, and element 1 contains the value “person”.
-- The second function, **getParameters()**, produces an associative array, where element “firstname” has value "Jane", and element “lastname” has a value of "Doe".
-- Finally, function **getMethod()** returns a string containing the HTTP method, i.e. “POST”.
+- For this sample URI, function **getResource()** would produce a numerical array of URI parts, where element 0 contains the value 'staffapi', and element 1 contains the value 'person'.
+- The second function, **getParameters()**, produces an associative array, where element 'firstname' has value "Jane", and element 'lastname' has a value of "Doe".
+- Finally, function **getMethod()** returns a string containing the HTTP method, i.e. 'POST'.
 
-The URI parser functions can be left as they are. The interesting part is in the very end, where the different handler functions are called. In the example, GET requests with URI parts staffapi/person are directed to a function called **getPerson()** that gets the person’s id as a parameter. The function **getPerson()**, is just a mockup implementation.
+The URI parser functions can be left as they are. The interesting part is in the very end, where the different handler functions are called. In the example, GET requests with URI parts staffapi/person are directed to a function called **getPerson()** that gets the person's id as a parameter. The function **getPerson()**, is just a mockup implementation.
 Thus, adding new functionality to the API is simple:
 
 1.	write corresponding handler functions.

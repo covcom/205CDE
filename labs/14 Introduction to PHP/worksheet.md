@@ -6,11 +6,9 @@ In this worksheet is an introduction to the PHP programming language.
 
 When implementing a Web-based application some processing is usually done on a client-side (web browser) and/or on a server-side (web server). The server creates a response programmatically since static content is not usually enough.
 
-This can be done in various ways: using PHP, Java Server Pages (JSP), Ruby, Python etc. PHP programming language is widely used and fairly easy to learn, so we are using PHP
-in this course.
+This can be done in various ways: using PHP, Java Server Pages (JSP), Ruby, Python etc. PHP programming language is widely used and fairly easy to learn, so we are using PHP in this course.
 
-PHP is a scripting language meaning it is interpreted; it is translated to machine instructions and executed on the fly, rather than compiled to machine
-code before actually running a program.
+PHP is a scripting language meaning it is interpreted; it is translated to machine instructions and executed on the fly, rather than compiled to machine code before actually running a program.
 
 Traditionally a PHP program creates a dynamic content in the HTML page, for example client information read from the database which is stored in the server. Nowadays there is a trend towards to an API based processing: a PHP programming module is triggered by a REST API call and returns a JSON object as a response.
 
@@ -83,8 +81,7 @@ Under_scores are forbidden by some programming style guides but let's follow the
 
 ### 3.2 Loosely Typed Language
 
-PHP is loosely typed language meaning that you can assign a value of a certain type to a variable which is of a different type and PHP tries to
-make a conversion. For example the code
+PHP is loosely typed language meaning that you can assign a value of a certain type to a variable which is of a different type and PHP tries to make a conversion. For example the code
 ```
 <?php
     $text = "20.5testing";
@@ -123,10 +120,12 @@ More on strings: [PHP strings][PHPStrings]
 
 1. Write a PHP program which prints a classic "Hello word" greeting on the screen.
 2. Write a PHP program which shows an image duplicated so that there are four images in two rows on the web page.
-3. Write a PHP program that calculates an area of a circle when the radius is known.
+3. Write a PHP program that calculates an area of a circle when the radius is known. You  may use a harcoded radius value.
+4. Check [for example from here][W3SchoolsPHP], how a PHP script process input fields of a form. Apply this and let the user fill in a radius value to the form and calculate area of a circle based on that value.  
 4. Define few variables of different types, assign values to them and print them out using an interpreted string.
 5. Same as 4, but use a non-interpreted string this time.
 
 
-[apache]: https://codio.com/docs/DEL-specifics/php/
+[apache]: https://codio.com/docs/ide/tutorials/php/
 [PHPStrings]: http://php.net/manual/en/language.types.string.php
+[W3SchoolsPHP]: http://www.w3schools.com/php/php_forms.asp

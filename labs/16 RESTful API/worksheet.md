@@ -46,7 +46,7 @@ http://MyService/Persons/1
 
 ### HTTP methods used
 
-You have seen GET and POST methods used, but a RESTful style to use all HTTP methods, and to use of them in
+You have seen GET and POST methods used, but a RESTful style is  to use all HTTP methods, and to use of them in
 a consistent way.
 
 Method |	Operation performed on server | Quality
@@ -62,7 +62,7 @@ A Safe operation is an operation that does not have any effect on the original v
 
 An Idempotent operation is an operation that gives the same result no matter how many times you perform it.
 
-An example of a request to put a new character in the Persons database.
+An example of an HTTP request to put a new character in the Persons database.
 POST http://MyService/Person/
 Host: MyService
 Content-Type: application/json

@@ -13,7 +13,7 @@ In the lab you do the following tasks:
 
 1. Use existing published REST APIs
 2. Write a mash-up combining existing REST API's results
-3. Wtite your own REST API.
+3. Write your own REST API.
 
 This lab takes approximately 2 hours.
 
@@ -74,34 +74,58 @@ Accept: application/json
      "From": Book
 }
 
-## 2 REST API
+## 2 Using REST API
 
 API stands for Application Programming Interface - it means that we give access to public methods of an application outside of the program itself. 
 To allow this action to take place, the application has to publish an API that specifically allows for 
 foreign applications to make calls to its data and return data to the user from inside of the external application. 
 
-On the web there are nowadays huge amount of services who have published an API for outside clients to use. 
-The next figure is of an API Console where you can try different public REST APIs. As you can see the possible requests are described.
+We have created a simple API in FireBase, which is a cloud platform for building web applications. The URL to the API is
 
-![Console to make queries](img/apigee.png).
+'https://cityofhelsinki-erja.firebaseio.com'
 
-Another easy playground is Postman, a Crome browser plugin, where you also can write requests for public APIs. 
-The next figure shows an example of using Google maps information on locations.
+The API is a copy of issue reporting API, which is used by applications for sending service requests to the City of Helsinki. At the moment, the real issue API is mostly used for sending service requests about broken parts of city infrastructure like street signs, potholes, etc.
+To do our experiments we are using a Chrome browser plugin called Postman. If it’s not installed on your computer, do it now.
+The resources we have are shown in FireBase dashboard:
 
-![Postman for making queries](img/postman.png).
+![Resources available in the API](img/data_city.png).
 
-### Using REST APIs
+The requests we have are the ones which are shown in Postman history.
 
-Next we are using two REST APIs to build a mash-up. The example application can be found on the web.
-We write simple web application which converts a location into latitude and longitude using the Google Maps API.
-Then it uses those coordinates to pull images taken in that location from the Instagram API.
+![Postman history](img/hist_city.png).
 
-These kind of applications are called mashups, which refers to a web application, that uses content from more than one source to create a single 
-new service displayed in a single graphical interface. 
-Nowadays there are also Mashup composition tools that are usually simple enough to be used by end-users. 
-They generally do not require programming skills and rather support visual wiring of GUI widgets, services and components together. 
-We are using these two APIs to program a mashup with PHP. First the queries we are using are the ones we have in the above figures.
-They are
+### Making queries with Postman
+
+By choosing a GET method at the left-hand side and requesting for the first issue in the URL, we have 
+
+
+![Postman get](img/get_city.png).
+
+Check your understanding by asking 
+-	for a description of an issue and
+-	for all issues having “Katujen kunto ja liikenne” ask for their group
+
+The PUT method is used to add a named resource. we will have to give the item we want to add in the request. By choosing PUT at the left hand side, giving URL and adding the json data to the request body as raw data in JSON format, we will have
+
+![Postman put](img/put_city.png).
+
+In our data store we have the new item number 10
+
+![Resources available in the API](img/datanew_city.png).
+
+The POST method is used to add a new item to a collection. These are represented as arrays in our data and the keywords is such an array. By choosing POST at the left hand side, giving URL and adding the string to the request body as raw data in Json or Text format, we will have
+
+![Postman post](img/post_city.png).
+
+Finally we have DELETE method which is used to remove resources and collections. By choosing POST at the left hand side and giving URL and the issue, we will have
+
+![Postman delete](img/delete_city.png).
+
+### Using public API
+
+
+Make two requests in Postman. 
+One for Google Maps API for getting coordinates for a location, another for Instagram to pull images from Instagram API using the coordinates. The requests are e.g.
 
 'https://maps.googleapis.com/maps/api/geocode/json?address=helsinki, fi'
 
@@ -110,8 +134,14 @@ and
 'https://api.instagram.com/v1/media/search?lat=60.1788737%lng=24.9570322'
 
 
-But because we are making an application, we will allow the user to tell a location name, 
-and make our program to find the coordinates, and use them to find out photos from Instagram.
+Next take a look at index.html and geogram.php. This a small application called mashup, which refers to a web application, that uses content from more than one source to create a single 
+new service displayed in a single graphical interface. Nowadays there are also Mashup composition tools that are usually simple enough to be used by end-users. 
+They generally do not require programming skills and rather support visual wiring of GUI widgets, services and components together. 
+We are using these two APIs to program a mashup with PHP. First the queries we are using are the ones we have in the above figures.
+Notice that this is not a REST API itself, it is just a demonstration how to construct HTTP requests in PHP.
+
+
+But because we are making an application, we will allow the user to tell a location name, and make our program to find the coordinates, and use them to find out photos from Instagram.
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -169,7 +199,7 @@ if (!empty($_GET['location'])){
 
 ### Test your understanding
 
-1. Make your own mash-up application using at least two existing public REST APIs.
+1. Change the mash-up application to use some other existing public REST APIs. Remember first to test your queries with Postman.
 
 
 ### Making your own REST API

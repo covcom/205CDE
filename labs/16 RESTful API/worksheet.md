@@ -82,7 +82,7 @@ foreign applications to make calls to its data and return data to the user from 
 
 We have created a simple API in FireBase, which is a cloud platform for building web applications. The URL to the API is
 
-'https://cityofhelsinki-erja.firebaseio.com'
+https://cityofhelsinki-erja.firebaseio.com
 
 The API is a copy of issue reporting API, which is used by applications for sending service requests to the City of Helsinki. At the moment, the real issue API is mostly used for sending service requests about broken parts of city infrastructure like street signs, potholes, etc.
 To do our experiments we are using a Chrome browser plugin called Postman. If it’s not installed on your computer, do it now.
@@ -124,17 +124,22 @@ Finally we have DELETE method which is used to remove resources and collections.
 ### Using public API
 
 
-Make two requests in Postman. 
-One for Google Maps API for getting coordinates for a location, another for Instagram to pull images from Instagram API using the coordinates. The requests are e.g.
+Try the next two requests in Postman. 
+One for Google Maps API for getting coordinates for a location, another for Instagram to pull images from Instagram API using the coordinates. 
+Instagram like some other APIs need authentication. For public API's you may want to have a look at
 
-'https://maps.googleapis.com/maps/api/geocode/json?address=helsinki, fi'
+https://www.avoindata.fi/data/fi/dataset?res_format=json&_res_format_limit=0
+
+The requests are e.g.
+
+https://maps.googleapis.com/maps/api/geocode/json?address=helsinki, fi
 
 and
 
-'https://api.instagram.com/v1/media/search?lat=60.1788737%lng=24.9570322'
+https://api.instagram.com/v1/media/search?lat=60.1788737%lng=24.9570322
 
 
-Next take a look at index.html and geogram.php. This a small application called mashup, which refers to a web application, that uses content from more than one source to create a single 
+Next take a look at the following code, which is a small application called mashup, which refers to a web application, that uses content from more than one source to create a single 
 new service displayed in a single graphical interface. Nowadays there are also Mashup composition tools that are usually simple enough to be used by end-users. 
 They generally do not require programming skills and rather support visual wiring of GUI widgets, services and components together. 
 We are using these two APIs to program a mashup with PHP. First the queries we are using are the ones we have in the above figures.
@@ -196,6 +201,8 @@ if (!empty($_GET['location'])){
 }
 ?>
 ```
+
+As you can see, the request to Instagram needs a client-id. If you want the code to work, you need to authenticate the application in Instagram. By registering the application you get the client-id, which you can use.
 
 ### Test your understanding
 

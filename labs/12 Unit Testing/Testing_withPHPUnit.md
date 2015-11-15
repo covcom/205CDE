@@ -95,6 +95,21 @@ Let’s have a look at what the three parts of above invocation mean:
 
 Using tests instead of tests/MoneyTest would instruct the PHPUnit command-line test runner to execute all tests found declared in *Test.php sourcecode files in the tests directory.
 
+You can have in the src folder a simple script in the autoload.php file, which will be used to find class definitions. The contents of it can be e.g.
+
+```php
+<?php
+    spl_autoload_register(
+        function($class) {
+            if (file_exists("src/$class.php")) { 
+                include "src/$class.php";
+            }
+        }
+    );
+?>
+```
+If you don't have this kind of script, you can list the source files needed for testing instead.
+
 ## Testing procedural code
 
 Let’s assume we have a PHP function which we want to test. It’s located in a PHP file named function.php.

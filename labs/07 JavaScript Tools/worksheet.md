@@ -151,7 +151,7 @@ LocalStorage uses a dictionary to store data as key/value pairs. If we know the 
 ### 6.1 Task
 
 We will start by implementing two new functions in our code which will handle converting our array to a string and saving it and then taking the stored JSON string and turning it back into a JavaScript array.
-```
+```js
 function saveList() {
     localStorage.notes = JSON.stringify(notes);
 }

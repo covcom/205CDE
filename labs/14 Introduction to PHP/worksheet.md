@@ -72,9 +72,11 @@ $name = expression
 ```
 
 Examples:
+```php
 $user_name = "james";
 $age = 20;
 $under_age = $age - 5;
+```
 
 Under_scores are forbidden by some programming style guides but let's follow the style of CodeIgniter which says: 
 "variables should contain only lowercase letters, use underscore separators, and be reasonably named to indicate their purpose and contents. Very short, non-word variables should only be used as iterators in for() loops."
@@ -82,7 +84,7 @@ Under_scores are forbidden by some programming style guides but let's follow the
 ### 3.2 Loosely Typed Language
 
 PHP is loosely typed language meaning that you can assign a value of a certain type to a variable which is of a different type and PHP tries to make a conversion. For example the code
-```
+```php
 <?php
     $text = "20.5testing";
     $number = 0;
@@ -101,9 +103,11 @@ will print the result: Values 20.5 and 23.64
 Strings in PHP are enclosed "-marks (quotation) or '-marks (apostrophe).
 
 Examples:
+```php
 $str = "Writing PHP is cool";
 $printed = "Values $number and $f_number";
 $str2 = 'This is also a string';
+```
 
 The first and the second are examples of interpreted strings, meaning you can write variable names inside a string and the values of variables will be inserted into a string.
 The third example is not interpreted so writing a variable name into this string have no special meaning.

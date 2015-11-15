@@ -147,7 +147,7 @@ Notice that this is not a REST API itself, it is just a demonstration how to con
 
 
 But because we are making an application, we will allow the user to tell a location name, and make our program to find the coordinates, and use them to find out photos from Instagram.
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -173,7 +173,7 @@ But because we are making an application, we will allow the user to tell a locat
 We will put everything in a single page, the above is our form with a little PHP code. In front of this we put our PHP code to make up the URIs. 
 As you can see the file is called geogram.php.
 
-```
+```php
 <?php
 if (!empty($_GET['location'])){
   /**

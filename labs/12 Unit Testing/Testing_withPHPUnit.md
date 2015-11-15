@@ -25,7 +25,7 @@ PHPUnit 4.8.0 by Sebastian Bergmann and contributors
 ## Testing classes
 
 The next code snippet is a simple class called Money, which has one attribute called amount. (src/Money.php)
-```
+```php
 
 <?php
 class Money
@@ -50,7 +50,7 @@ class Money
 
 The corresponding test class is called MoneyTest. (tests/MoneyTest.php)
 
-```
+```php
 
 <?php
 class MoneyTest extends PHPUnit_Framework_TestCase
@@ -99,7 +99,7 @@ Using tests instead of tests/MoneyTest would instruct the PHPUnit command-line t
 
 Let’s assume we have a PHP function which we want to test. It’s located in a PHP file named function.php.
 
-```   
+```   php
 
 <?php 
 	function easter($year) {

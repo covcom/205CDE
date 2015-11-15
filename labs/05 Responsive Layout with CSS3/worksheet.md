@@ -26,7 +26,7 @@ First, open the file **boxmodel.html** that illustrates the CSS box model which 
 Create a file called **boxstyles.css** and link it to the HTML file.
 
 In the newly-created CSS file, add the following lines of code:
-```
+```css
 p.one {
     border: 1px solid black;
     padding: 3em;
@@ -100,7 +100,7 @@ Open the file **floating.html** and view the HTML file as well as the linked CSS
 
 The HTML file contains one image tag. First, add an identifier for the figure holding the image, as it is going to be treated in a different way compared to potential other figures in the document:
 
-```
+```html
 <figure id="floating">
 <img src="img/onions.png" alt="Onions">
     <figcaption>Onions are delicious.</figcaption>
@@ -108,7 +108,7 @@ The HTML file contains one image tag. First, add an identifier for the figure ho
 ```
 
 Next, open the linked CSS file **floatstyles.css** and add the following rule:
-```
+```css
 figure#floating {
     float: right;
 }
@@ -119,7 +119,7 @@ Reopen the page in browser. The figure is now positioned in the right, together 
 Next, we make a floating fact box that contains multiple elements. Add the following files in the HTML file **floating.html** right after the main heading, before any paragraphs:
 
 
-```
+```html
 <section id="factbox">    
 <p>Did you know?</p>
 <ul>
@@ -137,7 +137,7 @@ There are two alternatives for the container: either a generic `div` element, or
 
 Now, add the rule for the `section` element whose identifier is `factbox`:
 
-```
+```css
 section#factbox {
     float: left;
     border: 1px solid black;
@@ -159,7 +159,7 @@ Next, let's create navigation links for the onion page. Initially, we set the li
 
 Add the navigation information (using the HTML5 `nav` element) into the bottom of **floating.html** file, inside the body element:
 
-```
+```html
 <nav>
   <a href="1.html">Nutrition</a> 
   <a href="2.html">Recipes</a> 
@@ -173,7 +173,7 @@ Note that the files that the links point to do not exist. We could add them late
 Reload the page and see how the links are positioned by default.
 
 To move the navigation items to the left edge , we use absolute positioning. Add the following rule for the nav element to the CSS file:
-```
+```css
 nav {
     position: absolute;
     top: 120px;
@@ -185,7 +185,7 @@ nav {
 This sets the absolute position of the element to be exactly 120 pixels from the top of the page and exactly 40 pixels from the left edge of the page. Furthermore, the width of the element is set to 100 pixels.
 
 Note that the elements positioned using absolute positioning may appear on top of other elements, essentially garbling the output. To avoid this, we move the left edge of the page contents to 200 px, to facilite the 100 px wide navigation element, starting at 40 px. Modify the rule for `body` element to contain the new `margin-left` property:
-```
+```css
 body {
     font-family: Arial, Verdana, sans-serif;
     margin-left: 200px;
@@ -245,7 +245,7 @@ Besides CSS stylesheets for responsive designs, Bootstrap includes some Javascri
 In this example, we design a web page for a fictitious computer game. First, open a HTML5 file called **game.html**.
 
 In your HTML file, you notice links to the bootstrap CSS files that are included from a content delivery network (CDN). This is done by adding the following lines inside the head element of the HTML page:
-```
+```html
  <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
@@ -264,7 +264,7 @@ Once the Bootstrap stylesheets are linked, you can start designing your content.
 
 The overall layout is achieved using div elements that carry a specific class name. For instance, a responsive container for the content is created by adding the following lines in the `body`element:
 
-```
+```html
 <div class="container">
   <h1>Space Escape</h1>
     <p>Space Escape is a text adventure game where Per Finn, the protagonist, dares to venture the uncharted realms of planet Mars. Be prepared for thrill and suspension!</p>
@@ -274,7 +274,7 @@ The overall layout is achieved using div elements that carry a specific class na
 The class above, `container` is the main class for holding contents. Alternatively, class `container-fluid` can be used to get a full-width container.
 
 Now, you can apply the grid model of bootstrap to divide the area below the previous element into three equally spaced columns, each having some content. Within the `container` element, add the following nested elements:
-```
+```html
  <div class="row">
      <div class="col-sm-4">
          <h2>Setup</h2>
@@ -307,7 +307,7 @@ Above, the grid model was specified by including three div-elements specifying c
 Bootstrap has defined styles for HTML elements such as headings and paragraphs. Most elements can be further enhanced with CSS classes.
 
 As an example, add add an image with rounded corners into an empty paragrap element in the main container:
-```
+```html
 <p>
 <img src="img/mars.jpg" class="img-rounded" alt="Planet Mars" width="200" height="200">
 </p>

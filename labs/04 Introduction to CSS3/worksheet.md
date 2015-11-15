@@ -33,7 +33,7 @@ This approach makes a clear separation between content and representation. The a
 Create a new file in Codio and name it **simple.css**.
 
 In the resulting CSS file, replace the placeholder content with the following:
-```
+```css
 body {
     font-family: Arial, Verdana, sans-serif;
 }
@@ -83,7 +83,7 @@ This can be done in two ways:
 In RGB colour system, each colour is encoded as a combination of three bytes (valued 0 to 255), corresponding to red, green, and blue channels. For instance, bright red is (255,0,0) and royal blue is encoded (65,105,225).
 
 Thus, valid ways to set the `h1` colour would be:
-```
+```css
 h1 {
     color: blue;
 }
@@ -91,7 +91,7 @@ h1 {
 
 or
 
-```
+```css
 h1 {
     color: rgb(65,105,225);
 }
@@ -100,7 +100,7 @@ h1 {
 In CSS3, RGB colours can be supplemented by an additional alpha channel, which sets the opacity value (0.0 meaning fully transparent and 1.0 fully opaque).
 
 To add some opacity to headers, the aforementioned rule would be:
-```
+```css
 h1 {
     color: rgba(65,105,225,0.7);
 }
@@ -111,7 +111,7 @@ h1 {
 
 Add the following lines of code to **simple.css** to change the font sizes:
 
-```
+```css
 h1 {
     font-size: 4.0em;
 }
@@ -170,7 +170,7 @@ An instance of an element is assigned to a class by entering a class attribute i
 
 Enter the following line of markup into **csstest.html**:
 
-```
+```html
 <p class="copyright_notice">Photo courtesy of Pekka Virtanen.</p>
 ```
 
@@ -184,14 +184,14 @@ p.copyright_notice {
 The rule is now applied to only those paragraphs that belong to `copyright_notice` class. There can be many such paragraphs, each having a similar `class` attribute. Verify this in browser.
 
 Alternatively, you could create a rule for all elements in `copyright_notice` class, regardless of whether they are paragraphs, list items, or something else:
-```
+```css
 .copyright_notice {
     font-size: 0.8em;
 }
 ```
 
 An HTML element can belong to multiple classes simultanously:
-```
+```html
 <p class="info urgent">The tour starts at 10 am.</p>
 ```
 
@@ -202,11 +202,11 @@ The paragraph element above belongs to two classes: `info` and `urgent`.
 As seen before, multiple elements can belong to the same class. However, unique identifiers are a better option to generate rules that are applied only once.
 
 This is marked in HTML by the identifier attribute:
-```
+```html
 <p id="special">This is different from all other paragraphs</p>
 ```
 The CSS rule looks as follows:
-```
+```css
 #special {
     font-size: 0.8em;
 }
@@ -260,7 +260,7 @@ The file is linked to **targetstyles.css**, which contains only the font setting
 
 Write the following rules to **targetstyles.css**:
 
-```
+```css
 ol > li {
     color: green;    
 }
@@ -289,7 +289,7 @@ Pseudoelements allow formatting only certain parts of an element. Using pseudoel
 
 Add the following line into **simple.css** (that is linked to **csstest.html**):
 
-```
+```css
 p::first-letter {
     font-size:8em;
 }
@@ -312,12 +312,12 @@ In all the examples above, the CSS rules have been located in a single CSS file.
 Technically, there are other options for placing CSS rules, even though they are considered bad practice.
 
 The first alternative is to make CSS inline:
-```
+```html
 <p style="color: green">Hello!</p>
 ```
 
 The second alternative is to generate a page-specific internal stylesheet inside the `head` element of an HTML document:
-```
+```html
 <head>
   <style>
     p {color: green};

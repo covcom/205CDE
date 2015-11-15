@@ -18,7 +18,7 @@ This lab takes approximately 2 hours.
 First, create a file called **aSampleForm.html**.
 
 In the newly-created HTML file, add the following lines of code:
-```
+```html
 <form action="http://www.google.com/search">
   <div>
     Let's search Google:
@@ -33,7 +33,7 @@ Notice that as an action it refers to [Google's search engine](http://www.google
 When you write something into the box and click submit, your text is sent to Google's search engine.
 
 Notice how you see parameters passed in a URL.
-```
+```html
 https://www.google.fi/search?q=biketrial
 ```
 
@@ -94,7 +94,7 @@ The browser tries to verify user's input. These error messages depend on the ope
 ### Selectable lists
 
 The `select` element defines a selectable list, and the `OPTION` element is used to define a list item.
-```
+```html
 <select name="example"> 
 <option value="notknown">Not selected</option>
 <option value="item1">Item 1</option> 
@@ -116,14 +116,14 @@ We have a couple of ways to help the user with forms.
 ### Connecting text and control 
 
 `label` elements are used to connect the text and the controls that are used in the form. For example radio buttons and check boxes often come with text that describes the choice. However if the user clicks the text nothing happens. That's because the browser doesn't know the connection between the text and the neighboring control. They must be wrapped up with label element.
-```
+```html
 <form action="">
 <input type="checkbox" name="vehicle" value="Bike">I have a bike<br>
 <input type="checkbox" name="vehicle" value="Car">I have a car 
 </form>
 ```
 You have to click on the box. But if you have
-```
+```html
 <form action="">
 <label><input type="checkbox" name="vehicle" value="Bike">I have a bike</label><br>
 <label><input type="checkbox" name="vehicle" value="Car">I have a car </label>
@@ -134,7 +134,7 @@ it is enough to click on text too.
 ### Helping by grouping and hints
 
 In many user interfaces you have seen how different elements on the screen are grouped together in order to make the input easier for the user. in HTML you can use `fieldset` element for this.
-```
+```html
 <form action="">
 <fieldset>
 <legend>Credit Card</legend>
@@ -155,7 +155,7 @@ In user interfaces it also a common practice to give hints for the user of the k
 ### Using CSS to change the look
 
 Remember the syntax for CSS rules
-```
+```css
 selector {
 	property : value;
 	....
@@ -163,7 +163,7 @@ selector {
 ```
 
 A useful selector for styling forms is CSS attribute selector which applies to an element with a particular attribute set to a value. For example
-```
+```css
 input[type="text"] {
 	color : blue;
 }
@@ -196,7 +196,7 @@ belongs together.
 
 Sometimes we need a way to submit some additional parameter to the server. This can be done by using a `hidden` input parameter.
 A hidden parameter has no onscreen appearence, but it will be sent to the server.
-```
+```html
 <form>
 ......
 	<input type="hidden" name="org" value="Acme" />
@@ -208,7 +208,7 @@ A hidden parameter has no onscreen appearence, but it will be sent to the server
 
 Earlier `Reset` buttons were common, they are used to reset a form's data to its initial value.
 
-```
+```html
 <form>
 ......
 	<input type="reset" value="Reset everything!" />
@@ -238,7 +238,7 @@ validation, it is useful to make the user interface more pleasant.
 
 A Finnish social security number is often 999999-999X (for those who are born in the 20th century). First 6 digits are the birth date: day, month and year's last two numbers. 
 After "-" there are 3 digits and last character can be either digit or letter from A to Y. If we want to make a pattern of this, it would be
-```
+```html
 <input type="text" pattern="\d{6}\-\d{3}([0-9A-Y])" ...>
 ```
 \d means a digit, \\- means the "-", [chars] means a set of characters.

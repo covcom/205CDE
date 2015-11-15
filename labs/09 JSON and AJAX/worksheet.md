@@ -109,7 +109,7 @@ It’s two main methods are for converting strings to and from “native” JSON
 ### Test your understanding
 
 1. Define a new JS object in the `JSON.html` script which also contains nested objects (recall that JS objects can be nested multiple times) as some of its properties. For example:
-```
+```js
 var employee = {
     name: { first: "Colin",
             second: "Stephen" },
@@ -173,7 +173,7 @@ The actual code in `dom_scripting.html` is short and self contained, this is bec
 - Have a look at the utility JavaScript
 - Note that U is simply an object with some useful methods which wrap native
 JS methods for achieving event interaction and DOM manipulation. An important thing to note is that where there exist browser incompatibilities, the utility methods defined on U need to conditionalise on the JS methods being available. For example, in U.setText():
-```
+```js
 if (output.textContent !== undefined) {
     // use this property
 } else {

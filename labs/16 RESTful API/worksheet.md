@@ -13,7 +13,7 @@ In the lab you do the following tasks:
 
 1. Use existing published REST APIs
 2. Write a mash-up combining existing REST API's results
-3. Wtite your own REST API.
+3. Write your own REST API.
 
 This lab takes approximately 2 hours.
 
@@ -46,7 +46,7 @@ http://MyService/Persons/1
 
 ### HTTP methods used
 
-You have seen GET and POST methods used, but a RESTful style to use all HTTP methods, and to use of them in
+You have seen GET and POST methods used, but a RESTful style is  to use all HTTP methods, and to use of them in
 a consistent way.
 
 Method |	Operation performed on server | Quality
@@ -62,7 +62,8 @@ A Safe operation is an operation that does not have any effect on the original v
 
 An Idempotent operation is an operation that gives the same result no matter how many times you perform it.
 
-An example of a request to put a new character in the Persons database.
+An example of an HTTP request to put a new character in the Persons database.
+```
 POST http://MyService/Person/
 Host: MyService
 Content-Type: application/json
@@ -73,46 +74,82 @@ Accept: application/json
      "Email": "harry.potter@hogwarts.magic",
      "From": Book
 }
+```
 
-## 2 REST API
+## 2 Using REST API
 
 API stands for Application Programming Interface - it means that we give access to public methods of an application outside of the program itself. 
 To allow this action to take place, the application has to publish an API that specifically allows for 
 foreign applications to make calls to its data and return data to the user from inside of the external application. 
 
-On the web there are nowadays huge amount of services who have published an API for outside clients to use. 
-The next figure is of an API Console where you can try different public REST APIs. As you can see the possible requests are described.
+We have created a simple API in FireBase, which is a cloud platform for building web applications. The URL to the API is
 
-![Console to make queries](img/apigee.png).
+https://cityofhelsinki-erja.firebaseio.com
 
-Another easy playground is Postman, a Crome browser plugin, where you also can write requests for public APIs. 
-The next figure shows an example of using Google maps information on locations.
+The API is a copy of issue reporting API, which is used by applications for sending service requests to the City of Helsinki. At the moment, the real issue API is mostly used for sending service requests about broken parts of city infrastructure like street signs, potholes, etc.
+To do our experiments we are using a Chrome browser plugin called Postman. If it’s not installed on your computer, do it now.
+The resources we have are shown in FireBase dashboard:
 
-![Postman for making queries](img/postman.png).
+![Resources available in the API](img/data_city.png).
 
-### Using REST APIs
+The requests we have are the ones which are shown in Postman history.
 
-Next we are using two REST APIs to build a mash-up. The example application can be found on the web.
-We write simple web application which converts a location into latitude and longitude using the Google Maps API.
-Then it uses those coordinates to pull images taken in that location from the Instagram API.
+![Postman history](img/hist_city.png).
 
-These kind of applications are called mashups, which refers to a web application, that uses content from more than one source to create a single 
-new service displayed in a single graphical interface. 
-Nowadays there are also Mashup composition tools that are usually simple enough to be used by end-users. 
-They generally do not require programming skills and rather support visual wiring of GUI widgets, services and components together. 
-We are using these two APIs to program a mashup with PHP. First the queries we are using are the ones we have in the above figures.
-They are
+### Making queries with Postman
 
-'https://maps.googleapis.com/maps/api/geocode/json?address=helsinki, fi'
+By choosing a GET method at the left-hand side and requesting for the first issue in the URL, we have 
+
+
+![Postman get](img/get_city.png).
+
+Check your understanding by asking 
+-	for a description of an issue and
+-	for all issues having “Katujen kunto ja liikenne” ask for their group
+
+The PUT method is used to add a named resource. we will have to give the item we want to add in the request. By choosing PUT at the left hand side, giving URL and adding the json data to the request body as raw data in JSON format, we will have
+
+![Postman put](img/put_city.png).
+
+In our data store we have the new item number 10
+
+![Resources available in the API](img/datanew_city.png).
+
+The POST method is used to add a new item to a collection. These are represented as arrays in our data and the keywords is such an array. By choosing POST at the left hand side, giving URL and adding the string to the request body as raw data in Json or Text format, we will have
+
+![Postman post](img/post_city.png).
+
+Finally we have DELETE method which is used to remove resources and collections. By choosing POST at the left hand side and giving URL and the issue, we will have
+
+![Postman delete](img/delete_city.png).
+
+### Using public API
+
+
+Try the next two requests in Postman. 
+One for Google Maps API for getting coordinates for a location, another for Instagram to pull images from Instagram API using the coordinates. 
+Instagram like some other APIs need authentication. For public API's you may want to have a look at
+
+https://www.avoindata.fi/data/fi/dataset?res_format=json&_res_format_limit=0
+
+The requests are e.g.
+
+https://maps.googleapis.com/maps/api/geocode/json?address=helsinki, fi
 
 and
 
-'https://api.instagram.com/v1/media/search?lat=60.1788737%lng=24.9570322'
+https://api.instagram.com/v1/media/search?lat=60.1788737%lng=24.9570322
 
 
-But because we are making an application, we will allow the user to tell a location name, 
-and make our program to find the coordinates, and use them to find out photos from Instagram.
-```
+Next take a look at the following code, which is a small application called mashup, which refers to a web application, that uses content from more than one source to create a single 
+new service displayed in a single graphical interface. Nowadays there are also Mashup composition tools that are usually simple enough to be used by end-users. 
+They generally do not require programming skills and rather support visual wiring of GUI widgets, services and components together. 
+We are using these two APIs to program a mashup with PHP. First the queries we are using are the ones we have in the above figures.
+Notice that this is not a REST API itself, it is just a demonstration how to construct HTTP requests in PHP.
+
+
+But because we are making an application, we will allow the user to tell a location name, and make our program to find the coordinates, and use them to find out photos from Instagram.
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -138,7 +175,7 @@ and make our program to find the coordinates, and use them to find out photos fr
 We will put everything in a single page, the above is our form with a little PHP code. In front of this we put our PHP code to make up the URIs. 
 As you can see the file is called geogram.php.
 
-```
+```php
 <?php
 if (!empty($_GET['location'])){
   /**
@@ -167,36 +204,58 @@ if (!empty($_GET['location'])){
 ?>
 ```
 
+As you can see, the request to Instagram needs a client-id. If you want the code to work, you need to authenticate the application in Instagram. By registering the application you get the client-id, which you can use.
+
 ### Test your understanding
 
-1. Make your own mash-up application using at least two existing public REST APIs.
+1. Change the mash-up application to use some other existing public REST APIs. Remember first to test your queries with Postman.
 
 
-###Making your own REST API
+### Making your own REST API
 
-First give a simple name for API end point:
+Next, we design a simple RESTful API and set it up as a service.  As the implementation of a full-scale
+RESTful API usually requires permanent storage at server side (a database), the functionality of the example API consists of mock implementations
+that merely demonstrate that each call has been handled by a correct PHP function.
+Nevertheless, it will later be straightforward to further develop the API into a full, working application.
 
-'https://www.YourApp.com/Api/'
+First, we choose the API end point to be:
 
-so for resources it is:
+https://museum-austria.codio.io:9500/staffapi/
 
-'https://www.YourApp.com/Api/ResourceName'
+Here, staffapi is the name of the designed API. The domain part in the URI is given by Codio. In your project that runs in a different Codio Box,
+the domain will be different.
 
-Then you should design which resources you have, and requests you use for getting resources. 
-Take a look at the HTTP methos table in the beginning of this section.
+The URI shown before will be a prefix for all API calls.
 
-Next you should consider what are the error messages you give in different situations accessing the resources.
+Next, we define two resources:
+1. **persons**, a collection of persons
+2. **person**, a single person
 
-Once the API functionality and the corresponding URIs have been designed,
-the next step is to map each URI to a PHP function that handles the corresponding action.
+The following API methods will be implemented:
 
-In Codio, the first step is to add a file called .htaccess into the root directory of the project’s workspace. 
-You can simply right-click the project’s master folder icon in the project’s Codio workspace and select New File…:
+Method | Resource | Purpose | Example
+--------|---------|-------|-------|
+POST | person | add a person| POST .../staffapi/person?id=13&firstname="Jane"&lastname="Doe"
+GET | persons | get a list of persons | GET .../staffapi/persons
+GET | person | get a person | GET .../staffapi/person/13
+DELETE | person | delete a person | DELETE .../staffapi/13
 
-![Creating a new file](img/newfile.png).
+The list can be expanded for new functionality.
 
-The .htaccess file is used by Apache web server, and it may contain instructions for the web server to redirect URI requests.
-Add the following contents to the newly created .htaccess file:
+Next, you should consider which error messages you give in the situations when accessing the resources fails. In our example,
+we will return HTTP error code **405 (Method not allowed)** in case of an illegal API call.
+
+As it is easier to setup the API server in a new Codio project, create a new Codio project at this step.
+
+The next step is to map each URI to a PHP function that handles the corresponding action.
+
+In the new Codio project, the first step is to add a file called **.htaccess** into the root directory of the project's workspace. 
+
+You can simply right-click the project's master folder icon in the project's Codio workspace and select New File.
+![(You see the image of file creation if you open this assignment sheet outside Codio, in a separate browser window.)](img/newfile.png)
+
+The **.htaccess** file is used by Apache web server, and it may contain instructions for the web server to redirect URI requests.
+Add the following contents to the newly created **.htaccess** file:
 
 ```
 Options -MultiViews
@@ -205,96 +264,49 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.php [QSA,L]
 ```
 
-The file tells to map all URIs to a file called index.php. Thus, all API calls are now directed to a single handler file 
+The file tells to map all URIs to a file called index.php. Thus, all API calls are now directed to a single handler file **index.php**
 that will be constructed in such a way that it contains a handler function for each operation. (Technically, 
 there could be separate handler files for various URIs, but in this example all API calls are handled by the same handler script. Modularity is achieved by assigning separate functions for different operations.)
-Now, create a handler file index.php:
 
-```
-<?php
+Now, create a handler file called **index.php** in the root of the project workspace. Copy the contents of the file **index.php** in course module's **php** folder into the
+newly-created **index.php** file.
 
-# URI parser functions
-# --------------------
+To get the HTTPS server address, hit "Box URL SSL" in Codio's menu row. This should open a blank browser tab with the server uri. The domain
+name in the URI varies, but it should be something like:
 
-    function getResource() {
-        # returns numerically indexed array of URI parts
-        $resource_string = $_SERVER['REQUEST_URI'];
-        if (strstr($resource_string, '?')) {
-            $resource_string = substr($resource_string, 0, strpos($resource_string, '?'));
-        }
-        $resource = array();
-        $resource = explode('/', $resource_string);
-        array_shift($resource);   
-        return $resource;
-    }
+https://museum-austria.codio.io:9500.
 
-    function getParameters() {
-        # returns an associative array containing the parameters
-        $resource = $_SERVER['REQUEST_URI'];
-        $param_string = "";
-        $param_array = array();
-        if (strstr($resource, '?')) {
-            # URI has parameters
-            $param_string = substr($resource, strpos($resource, '?')+1);
-            $parameters = explode('&', $param_string);                      
-            foreach ($parameters as $single_parameter) {
-                $param_name = substr($single_parameter, 0, strpos($single_parameter, '='));
-                $param_value = substr($single_parameter, strpos($single_parameter, '=')+1);
-                $param_array[$param_name] = $param_value;
-            }
-        }
-        return $param_array;
-    }
+This is a prefix in the API calls.
 
-    function getMethod() {
-        # returns a string containing the HTTP method
-        $method = $_SERVER['REQUEST_METHOD'];
-        return $method;
-    }
- 
-# Handlers, one included as an example
-# ------------------------------------
+To make an api call for listing persons, for example, you can now make a GET call to
 
-    function getPersonById($book_id) {
-        # implements GET method for /api/persons/1 etc.
-        echo "Called GET handler for persons, id=".$book_id;
-    }
+https://museum-austria.codio.io:9500/staffapi/persons.
 
+Again, the domain name must be replaced with the correct one.
 
-# Main
-# ----
+Open Postman and make API calls to try all operations mentions in the list of operations. Each mock handler function contains an echo statement that verifies
+that the correct function has been called.
 
-    $resource = getResource();
-    $request_method = getMethod();
-    $parameters = getParameters();
+Study the contents of the file and make sure you understand how it works.
 
-    # Uncomment to see the contents for debugging:
-    # var_dump($resource);
-    # var_dump($request_method);
-    # var_dump($parameters);
- 
-    # Redirect to appropriate handler.
-    # This is just an example:
-    if ($request_method=="GET" && $resource[0]=="api" && $resource[1]=="persons") {
-        $person_id = $resource[2];
-        getPersonById($person_id);
-    }
-?>
-```
+The three functions in the beginning, **getResource()**, **getParameters()** and **getMethod()**, are URI parsing functions that return the information embedded in the URI in a consumable format.
+For instance, suppose a POST request [https://museum-austria.codio.io:9500/staffapi/person?id=13&firstname="Jane"&lastname="Doe"](https://museum-austria.codio.io:9500/staffapi/person?id=13&firstname="Jane"&lastname="Doe") has been obtained by server.
+- For this sample URI, function **getResource()** would produce a numerical array of URI parts, where element 0 contains the value 'staffapi', and element 1 contains the value 'person'.
+- The second function, **getParameters()**, produces an associative array, where element 'firstname' has value "Jane", and element 'lastname' has a value of "Doe".
+- Finally, function **getMethod()** returns a string containing the HTTP method, i.e. 'POST'.
 
-The three functions in the beginning, getResource(), getParameters() and getMethod(), are URI parsing functions that return the information embedded in the URI in a consumable format.
-For instance, suppose a GET request http://museum-austria.codio.io:3000/library/books/912?q=123&t=5 has been obtained by server.
-- For this sample URI, function getResource() would produce a numerical array of URI parts, where element 0 contains the value “library”, and element 1 contains the value “books”. Likewise, the value of element 2 is 912.
-- The second function, getParameters(), produces an associative array, where element “q” has value 123, and element “t” has a value of 5.
-- Finally, function getPersonByID() returns a string containing the HTTP method, i.e. “GET”.
-
-The URI parser functions can be left as they are. The interesting part is in the very end, where the different handler functions are called. In the example, GET requests with URI parts api/persons are directed to a function called getPersonById() that gets the person’s id as a parameter. The corresponding function, getPersonById(), is just a mockup implementation.
+The URI parser functions can be left as they are. The interesting part is in the very end, where the different handler functions are called. In the example, GET requests with URI parts staffapi/person are directed to a function called **getPerson()** that gets the person's id as a parameter. The function **getPerson()**, is just a mockup implementation.
 Thus, adding new functionality to the API is simple:
 
 1.	write corresponding handler functions.
 2.	expand the if statement in the end to call the newly-written handler functions.
 
+
 ### Test your understanding
 
-1. Design your own small REST API using at least GET and PUT requests for listing and adding resources.
+1. Add a mock DELETE operation that deletes the entire collection of persons. Verify that the API call works as intended.
+
+2. Generate a minimalistic RESTful API that gives you a lucky number and a lucky word. Both should be delivered within a single JSON. Use random number generator to produce the output.
+
+3. Generate a HTML client that contains a button for making a call for your API. The client should also display the results.
 

@@ -41,7 +41,7 @@ The elements follow the HTML5 syntax. The syntax dictates, for example, that:
 
 Fill the title element with the text you want to appear in the top of the browser window (or as a label in browser tab). It is also a good practice to enter the `meta` element used for character encoding:
 
-```
+```html
 <head>
     <title>1980's home computers</title>
     <meta charset="utf-8" />
@@ -51,7 +51,7 @@ Fill the title element with the text you want to appear in the top of the browse
 Above, `meta` is an empty element with an attribute. It is an exception of the start tag / end tag rule. We return to these later.
 
 Once the `head` element is ready, add some markup inside the `body` element of the web page:
-```
+```html
 <body>
     <article>
     <h1>1980's Home Computers</h1>
@@ -108,7 +108,7 @@ You should validate frequently. Validation often helps you to spot problems, as 
 
 Now, add a list inside your web page. Insert the following lines of code after the paragraph describing clever uses for home computers: 
 
-```
+```html
     <p>Some reasons often mentioned were:</p>
     <ul>
         <li>learning to write computer programs</li>
@@ -124,7 +124,7 @@ The `ul` element describes an unordered list. It contains three list items (deno
 See what happens, when you change the list type to ordered list (`ol`).
 
 Next, try a definition list. Add the following piece of code into the very end of the document, right before the `</article>` end tag:
-```
+```html
     <p>There are two types of memory:</p>
 
     <dl>
@@ -148,7 +148,7 @@ In HTML5, images are put inside a `figure` element. The `figure` element normall
 
 Now, add an image of a computer into the document. Add the following lines of code in an appropriate place, directly inside the `body` element:
 
-```
+```html
     <figure>    
         <img src="img/computer.png" alt="A computer with a monitor"/>
         <figcaption>Photo: Piotr Siedlecki, public domain via http://www.publicdomainpictures.net.</figcaption>
@@ -165,7 +165,7 @@ There are a couple of notable things about the `img` element:
 | Attribute | Purpose                                                                                                                                     |
 |-----------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | src      | For locating the image file. The file path is normally given as relative,path, starting from the directory where the html file is located.  |
-| alt       | For displaying an alternate text if the image cannot be displayed, or if,the user prefers using a screen reader for accessibility purposes. |
+| alt       | For displaying an alternative text if the image cannot be displayed, or if the user prefers using a screen reader for accessibility purposes. |
 
 
 
@@ -174,7 +174,7 @@ There are a couple of notable things about the `img` element:
 
 Now, add a link to a Wikipedia article to your web page, in a suitable location directly inside the `body` element:
 
-```
+```html
 <p>Read the <a href="http://en.wikipedia.org/wiki/Retrocomputing">Wikipedia article for Retrocomputing</a>.</p>
 ```
 
@@ -197,7 +197,7 @@ Add a link or two to suitable places in **computers80.html**.
 1. Create a Commodore 64 web page to the same web site. To do this, create a file called **commodore64.html** and include the following content, properly marked in HTML. Finally, link the main page (computers80.html) to your new page by adding a link from the correct list item.
 
 
-```
+```html
 Commodore 64
   History
     Commodore 64, abbreviated C64, was introduced in 1982 and gained worldwide popularity. It is still the most sold computer in the world.
@@ -257,7 +257,7 @@ Two benefits of using HTML5 are easier inclusion of multimedia content and bette
 Inclusion of audio and video files is easy.
 
 In the lab's `audio` folder, there is a sample public domain audio clip. Include that in a web page by adding the following HTML5 code:
-```
+```html
 <audio controls>
     <source src="audio/tune.mp3" type="audio/mp3">
     Your browser does not support the audio element.

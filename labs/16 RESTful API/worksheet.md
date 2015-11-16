@@ -63,6 +63,7 @@ A Safe operation is an operation that does not have any effect on the original v
 An Idempotent operation is an operation that gives the same result no matter how many times you perform it.
 
 An example of an HTTP request to put a new character in the Persons database.
+```
 POST http://MyService/Person/
 Host: MyService
 Content-Type: application/json
@@ -73,6 +74,7 @@ Accept: application/json
      "Email": "harry.potter@hogwarts.magic",
      "From": Book
 }
+```
 
 ## 2 Using REST API
 

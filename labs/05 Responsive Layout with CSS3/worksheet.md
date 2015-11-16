@@ -226,6 +226,8 @@ Important things to note:
 
 ### Test your understanding
 
+You need the aforementioned file `menustyles.css`.
+
 1. Add a fourth menu with a few menu items to **menu.html**.
 
 2. Use CSS to format the menu bar in the way that is shown in file **menu.png** in the lab's **img** folder.

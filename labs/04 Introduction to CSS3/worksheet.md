@@ -148,6 +148,8 @@ Go to the validation page, and validate the file you created. If no errors are f
 
 ### Test your understanding
 
+You need the aforementioned file `simple.css`.
+
 1. Using the CSS documentation, make the following amendments to the CSS file:
     a. Add a border around each list and change the color of list items to dark grey. 
     b. Indent the paragraphs and lists.
@@ -329,6 +331,8 @@ As these approaches obscure the separation of content and presentation, their us
 
 
 ### Test your understanding
+
+You need the aforementioned file `simple.css`.
 
 1. CSS pseudoelements `::before` and `::after` allow inserting content right before or after an element for stylistic purposes. These are normally used in conjunction with `content` property that specifies the content to be included.
     a. Add a rule that adds the text `Note!` before each paragraph in **csstest.html**.

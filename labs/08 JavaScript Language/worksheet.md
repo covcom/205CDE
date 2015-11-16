@@ -24,6 +24,8 @@ In this task you will write a simple function to detect and remove duplicates fr
 
 ### 1.1 Test Your Understanding
 
+You need the aforementioned files `js/tasks.js` and `simple_function.html`.
+
 1. Add a button to the html page labelled “Remove duplicates”.
 2. When clicked, this button should trigger a new function removeDuplicates() against the tasks list.
 3. The removal function should parse the list and remove any identical copies of previous items (leaving at most one).

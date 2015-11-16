@@ -105,7 +105,7 @@ Every `option` element should have a unique value, just like in check boxes and 
 
 ### Test your understanding
 
-1. Change your input types for the input elements to appropriate values.
+1. Open file **form_skel.html**. Change your input types for the input elements to appropriate values.
 
 2. Try to put incorrect data in your form and check the browser's support for types.
 
@@ -177,7 +177,7 @@ Therefore you should always check that the results are what is expected.
 
 ### Test your understanding
 
-Suppose we want to have our web site in another language. For example in Finnish.
+Suppose we want to have our web site in another language. For example in Finnish. Open file **form_skel.html**.
 
 1. Change your error messages to show the error text in another language. Find out how to do this!
 
@@ -245,6 +245,6 @@ After "-" there are 3 digits and last character can be either digit or letter fr
 
 ### Test your understanding
 
-1. Validate the user's data in Student id, email address and score by using patterns.
+1. Open file **form_skel.html**. Validate the user's data in Student id, email address and score by using patterns.
 
 

@@ -280,7 +280,7 @@ These are the API calls in this example:
 
 The API implementation returns a specific JSON object related to the query string id value. The query string variable "get_app_list" is used to create a menu if there is a need to run client more than once.
 Notice how a PHP program obtain access to the HTTP query ids and to the query id values.
-Both PHP programs are included as a separate files if you like to test them.
+
 
 
 ### 4 Object Oriented PHP

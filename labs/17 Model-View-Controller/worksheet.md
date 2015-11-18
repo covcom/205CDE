@@ -173,10 +173,10 @@ CodeIgniter is an open source framework, which uses PHP language. It is commonly
 
 ## Installing CodeIgniter to Codio
 
-First, make a new project to Codio, open a terminal and install a codeigniter (get it & unzip). Note: before downloading, check version!
+First, make a new project to Codio, open a terminal and install a codeigniter (get it & unzip). Note: before downloading, check the newest version!
 ```
-$ wget https://github.com/bcit-ci/CodeIgniter/archive/3.0.1.zip
-$ unzip 3.0.1.zip
+$ wget https://github.com/bcit-ci/CodeIgniter/archive/3.0.3.zip
+$ unzip 3.0.3.zip
 ```
 When done, you will see this kind of directory structure on your project:
 

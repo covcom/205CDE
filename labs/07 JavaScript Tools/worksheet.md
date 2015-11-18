@@ -37,8 +37,8 @@ Enter some valid inputs into the form and submit it...
 
 ### 2.2 Test Your Understanding
 
-1. modify the HTML form to include a “Full Name” field
-2. add validation in contact.js to ensure that the name entered has at least two parts separated by a space, and is between 3 and 100 characters in length
+1. Load up `conditionals_booleans.html` and modify the HTML form to include a “Full Name” field
+2. Add validation in contact.js to ensure that the name entered has at least two parts separated by a space, and is between 3 and 100 characters in length
 
 ## 3 JSLint Code Checking
 
@@ -74,7 +74,7 @@ Note that many of the highlighted issues are about things like indentation, and 
 2. Load the js/membership.js file and follow the code to determine how it works
 
 ### 3.2 Test your understanding
-Once you have corrected for any JSLint errors found by the code linter, do the following.
+Once you have corrected for any JSLint errors found by the code linter (`js/notes.js`), do the following.
 1. Locate all the JSLint errors and warnings and understand what they mean
 2. Correct the app to eliminate all the errors (make sure it still runs correctly!)
 3. Read up on the most common JSLint errors
@@ -151,7 +151,7 @@ LocalStorage uses a dictionary to store data as key/value pairs. If we know the 
 ### 6.1 Task
 
 We will start by implementing two new functions in our code which will handle converting our array to a string and saving it and then taking the stored JSON string and turning it back into a JavaScript array.
-```
+```js
 function saveList() {
     localStorage.notes = JSON.stringify(notes);
 }
@@ -168,7 +168,7 @@ Take a few moments to understand how these functions work.
 
 ### 6.2 Test Your Understanding
 
-We have defined these functions but they are not currently being used. Study the program carefully and modify it:
+We have defined these functions but they are not currently being used (`js/notes.js`). Study the program carefully and modify it:
 
 1. Each time an item is added or removed, the array should be saved to Local Storage.
 2. When the program first loads it should load the data back into the array and display the items in the web browser.

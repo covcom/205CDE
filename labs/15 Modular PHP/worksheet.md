@@ -48,6 +48,7 @@ Example:
     </body>
 </html>
 ```
+
 The latter if-statement looks a bit redundant. How would you get rid of it?
 
 #### 1.2 Parameter Types
@@ -140,7 +141,7 @@ Below is a table containing some useful I/O related functions.
 
 An example below reverses lines of a text file (The example is found from the book Stepp, Miller, Kirst:"Web Programming Step bt Step").
 
-```
+```php
 <?php
 function reverse_lines($filename) {
     $text = file_get_contents($filename);
@@ -159,7 +160,7 @@ print file_get_contents("myfile.txt");
 Here is a simple REST API [example][RESTAPI] found from the web. In the example the first PHP program creates an api implementation and the second is a client which creates api calls.
 The API implementation is below:
 
-```
+```php
 <?php
 // This is the API, 2 possibilities: show the app list or show a specific app by id.
 // This would normally be pulled from a database but for demo purposes, I will be hardcoding the return values.
@@ -280,7 +281,7 @@ These are the API calls in this example:
 
 The API implementation returns a specific JSON object related to the query string id value. The query string variable "get_app_list" is used to create a menu if there is a need to run client more than once.
 Notice how a PHP program obtain access to the HTTP query ids and to the query id values.
-Both PHP programs are included as a separate files if you like to test them.
+
 
 
 ### 4 Object Oriented PHP
@@ -288,7 +289,7 @@ Both PHP programs are included as a separate files if you like to test them.
 PHP can be used as an object oriented language i.e. a developer can create classes and objects and use other object oriented features.
 The syntax template for PHP class is the following:
 
-```
+```php
 class name {
     private $name; #  member attribute (class data in each object)
     

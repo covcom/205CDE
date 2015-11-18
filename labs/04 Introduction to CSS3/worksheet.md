@@ -211,6 +211,11 @@ The CSS rule looks as follows:
 ```css
 #special {
     font-size: 0.8em;
+    color: yellowgreen;
+    font-style: italic;
+    border-left: 2px solid black;
+    margin-left: 40px;
+    padding-left: 10px;
 }
 ```
 

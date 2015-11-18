@@ -15,7 +15,7 @@ In the lab you do the following tasks:
 2. Write a mash-up combining existing REST API's results
 3. Wtite your own REST API.
 
-This lab takes approximately 2 hours.
+This lab takes at least 2 hours.
 
 
 ## 1 REST architectural style
@@ -188,9 +188,11 @@ the domain will be different.
 
 The URI shown before will be a prefix for all API calls.
 
-Next, we define two resources:
+Next, we design the resources that our API handles. The API should handle individual persons and provide a list of persons available, so the corresponding resources could be:
 1. **persons**, a collection of persons
 2. **person**, a single person
+
+The choice of resources will be reflected in the URIs used to call the API.
 
 The following API methods will be implemented:
 
@@ -203,14 +205,18 @@ DELETE | person | delete a person | DELETE .../staffapi/13
 
 The list can be expanded for new functionality.
 
+The URIs above do not correspond to the directory hierarchy and actual files in the server. The idea of resources represented by URIs is to redirect a call to each URI to
+a handler file (here **index.php**, created later). The handler file can retrieve the original URI parts to decide the original request of the caller.
+
 Next, you should consider which error messages you give in the situations when accessing the resources fails. In our example,
 we will return HTTP error code **405 (Method not allowed)** in case of an illegal API call.
 
-As it is easier to setup the API server in a new Codio project, create a new Codio project at this step.
+As it is easier to setup the API server in a new Codio project, create a new Codio project at this step. **From now on, until the end of the worksheet, do not continue to work in the original Codio project.**
 
 The next step is to map each URI to a PHP function that handles the corresponding action.
 
-In the new Codio project, the first step is to add a file called **.htaccess** into the root directory of the project's workspace. 
+
+In the new Codio project, the first step is to add a file called **.htaccess** into the root directory of the project's workspace (in the root of **~/workspace** directory). 
 
 You can simply right-click the project's master folder icon in the project's Codio workspace and select New File.
 ![(You see the image of file creation if you open this assignment sheet outside Codio, in a separate browser window.)](img/newfile.png)
@@ -228,6 +234,8 @@ RewriteRule ^ index.php [QSA,L]
 The file tells to map all URIs to a file called index.php. Thus, all API calls are now directed to a single handler file **index.php**
 that will be constructed in such a way that it contains a handler function for each operation. (Technically, 
 there could be separate handler files for various URIs, but in this example all API calls are handled by the same handler script. Modularity is achieved by assigning separate functions for different operations.)
+
+This URI redirecting is the reason why it is not advisable to work in the original Codio project, as the lines above would remap all URIs to **index.php** even if they were completely unrelated to this worksheet.
 
 Now, create a handler file called **index.php** in the root of the project workspace. Copy the contents of the file **index.php** in course module's **php** folder into the
 newly-created **index.php** file.

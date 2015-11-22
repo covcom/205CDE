@@ -12,6 +12,7 @@ MongoDB that we use in this lab is one of the most commonly used document databa
 ## Task list
 
 In this lab you do the following tasks:
+
 1. Install MongoDB in Codio
 2. Learn MongoDB data model.
 3. Make queries as well as data modification operations via MongoDB interpreter.
@@ -89,6 +90,7 @@ Next, get used to the documents and tutorials:
 
 ### Test your understanding
 Use MongoDB reference manual as well as other sources, and perform the following operations. Verify the outcome of each operation.
+
 1. Update the salary of person number 2 to 6000 euros.
 2. Add everybody's salary by 5% (with a single operation).
 3. Drop person number 4.

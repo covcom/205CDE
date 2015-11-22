@@ -88,13 +88,43 @@ Next, get used to the documents and tutorials:
 - http://docs.mongodb.org/manual/reference/ 
 
 ### Test your understanding
-Use MongoDB reference manual as well as other sources, and perform the following operations:
-1. Update the salary of person number 2 to 6000 €.
-2. Add everybody’s salary by 5% (with a single operation).
+Use MongoDB reference manual as well as other sources, and perform the following operations. Verify the outcome of each operation.
+1. Update the salary of person number 2 to 6000 euros.
+2. Add everybody's salary by 5% (with a single operation).
 3. Drop person number 4.
 
 ## 4 Programmatic use
 
-TBA.
+The next step is to use MongoDB programmatically from a PHP program. As you may guess by now, the correspondence between REST API handlers and database operations is often straightforward: for example, a handler for HTTP POST operation usually generates an **insert()** call to MongoDB.
+
+From the previous lab, you should have a REST API enabled Codeigniter project. If you don't, create one at this step. Make sure that Apache web server is running.
+
+Now, install PHP drivers for MongoDB in a terminal window:
+```
+parts install php5-mongo
+```
+After the driver installation, restart Apache server; otherwise the drivers may not be visible to the web server:
+```
+parts restart apache2
+```
+
+In the lab's **php** folder, there´s a file named **Persons.php**. This is a REST API handler for GET operation to resource **.../Persons/list** that should work together with the MongoDB database that you generated a while ago using command line. Recall at this step that the database **company** contains one collection named **persons** that should have a few persons inserted in it. The handler file simply returns as JSON that contains all the persons in the collection.
+
+Study the contents of **Persons.php**. As you see, it is fairly straightforward to perform MongoDB operations from inside PHP code. The database driver provides a collection of functions for communication with the database.
+
+Copy **Persons.php** to **controllers** folder in your Codeigniter/REST project.
+
+If your project is in working condition, you can simply send the GET request from Postman or browser to the following URI:
+```
+https://chrome-coral.codio.io:9500/staff/index.php/Persons/list/
+```
+In the URI, replace **chrome-coral** with your own Codio box name, and, instead of **staff**, write the name of your API. It appears as the name of the folder right under the project folder in the hierarchy (see image below).
+
+![(You see the image embedded here if you open this assignment sheet in a separate browser window).](img/ci_files.png)
+
+As a reply to your request, you should get a JSON containing the persons. Examine the structure of the received JSON.
 
 ### Test your understanding
+
+1. Create another REST API handler for your project. The handler should insert a new person into the MongoDB database. The data for the new person can be sent as URI parameters or as a JSON in the request's body (choose either).
+

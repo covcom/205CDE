@@ -18,12 +18,13 @@ You can download it from
 
 https://github.com/chriskacerguis/codeigniter-restserver
 
-You can download full package (.zip) or just these three files:
+You can download full package (.zip) or just these four files:
 
 ```
 application/libraries/Format.php
 application/libraries/REST_Controller.php
 application/config/rest.php
+application/language/english/rest_controller_lang.php
 
 ```
 Copy those files to your applications directories and after that you can make your own RESTful API:s with CI.

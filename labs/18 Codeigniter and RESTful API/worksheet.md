@@ -56,11 +56,11 @@ Now you can create RESTful API:s with Codeigniter. (There is really three of P:s
 
 ## Some useful information
 
-[Tutorial written by Philip Sturgeon](http://code.tutsplus.com/tutorials/working-with-restful-services-in-codeigniter--net-8814) - read this first
-[Video from Mark Tyers](https://www.youtube.com/watch?v=YevHf8Y11ME) - short introduction how to use CI and Rest Server. Please notice: Rest Server is already installed on the video and at this moment we don't have apigee-program!
-http://www.slideshare.net/sachingk30/rest-api-best-practices-implementing-in-codeigniter - from Slideshare.
+- [Tutorial written by Philip Sturgeon](http://code.tutsplus.com/tutorials/working-with-restful-services-in-codeigniter--net-8814) - read this first
+- [Video from Mark Tyers](https://www.youtube.com/watch?v=YevHf8Y11ME) - short introduction how to use CI and Rest Server. Please notice: Rest Server is already installed on the video and at this moment we don't have apigee-program!
+- [REST API Best Practices & Implementing in Codeigniter ](http://www.slideshare.net/sachingk30/rest-api-best-practices-implementing-in-codeigniter) - from Slideshare.
 
 ## Test your understanding
 
-1. Read tutorial above and test it with chapter 17's tutorial example
+1. Read the tutorial above and test it with chapter 17's CI's tutorial example
 1. at Chapter 16 you made a REST API. Now do the same thing with CI and REST Server.

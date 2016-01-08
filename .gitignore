@@ -58,3 +58,15 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# below added by Jianhua Yang 20160108
+
+# Windows thumbnail db
+Thumbs.db
+
+# OSX files
+.DS_Store
+
+# need to ignore all ppt files, but keep generated pdf for class
+*.pptx
+*.mp4

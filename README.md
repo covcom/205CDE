@@ -266,6 +266,6 @@ Refer to [Moodle](https://cumoodle.coventry.ac.uk/pluginfile.php/1001156/mod_res
 
 # About this Github repository
 
-This Github repository is a collaborative work between Coventry University and Helsinki Metropolia University of Applied Sciences. The repository was initially set up by Mark Tyers who contributed initial drafts of most exercises. During 1st semester of the 15-16 academic year, this set of material was used by Erja and Vesa, who made substantial improvements. 
+This Github repository is a collaborative work between Coventry University and Helsinki Metropolia University of Applied Sciences. The repository was initially set up by Mark Tyers who contributed initial drafts of most exercises. During the 1st semester of the 15-16 academic year, this set of material was used by Erja, Vesa and colleagues, who made substantial improvements. 
 
-The current branch C9 was introduced due to the fact that the IDE used in the master branch (Codio) stop offering free licenses. This branch was started and maintained mainly by Jianhua Yang, who is currently the module leader of 205CDE.
+The current branch C9 was introduced due to the fact that the IDE used in the master branch (Codio) stop offering free licenses. This branch was started and maintained mainly by Jianhua Yang, who is currently the module leader of 205CDE at Coventry.

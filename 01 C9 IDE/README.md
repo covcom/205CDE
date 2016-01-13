@@ -105,7 +105,17 @@ We have now used two ways to view an html file:
 
 ## Basic Linux commands
 
-pipes, output
+Behind the scene C9 is based on Linux technology and specifically it's Ubuntu 14.04 at the time of writing (Jan 2016). This can be verified if you issue the following command in the terminal window:
+
+```shell
+    lsb_release -a
+```
+
+The output is 
+
+![](.md_images/version.png)
+
+Basically what happens when you create a Workspace in C9 is that the system creates a virtual machine for you using Ubuntu 14.04 with the configuration of 5GB disks etc. You need to know some basic comand line operations if you work with C9 or web technologies in general.
 
 ### Navigate the filesystem
 

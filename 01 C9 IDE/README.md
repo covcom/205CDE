@@ -107,17 +107,17 @@ We have now used two ways to view an html file:
 
 pipes, output
 
-### Navigating the filesystem
+### Navigate the filesystem
 
-### Handling files
+### Handle files
 
-### File permissions
+### Linux permissions
 
 ## What if C9 is down?
 
 ### Work locally using Brackets
 
-### Setting up webservers using XAMPP or Ubuntu
+### Set up webservers using XAMPP or Ubuntu
 
 
 

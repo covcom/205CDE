@@ -92,7 +92,7 @@ Right click on file hello-world.html and select Run. This will open a new Consol
 
 Copy that url and paste into the browser window, now you'll see the same content as before. The URL for my webpage is at
 
-```java
+```sh
     https://lab1-jianhuayang.c9users.io/hello-world.html
 ```
 
@@ -107,7 +107,7 @@ We have now used two ways to view an html file:
 
 Behind the scene C9 is based on Linux technology and specifically it's Ubuntu 14.04 at the time of writing (Jan 2016). This can be verified if you issue the following command in the terminal window:
 
-```shell
+```sh
     lsb_release -a
 ```
 
@@ -115,9 +115,15 @@ The output is
 
 ![](.md_images/version.png)
 
-Basically what happens when you create a Workspace in C9 is that the system creates a virtual machine for you using Ubuntu 14.04 with the configuration of 5GB disks etc. You need to know some basic comand line operations if you work with C9 or web technologies in general.
+Basically what happens when you create a Workspace in C9 is that the system creates a virtual machine for you using Ubuntu 14.04 with the configuration of 5GB disks etc. 
+
+> Other popular Linux OSs include Fedora and openSUSE. For a comprehensive list, click [Put the fun back into computing](http://distrowatch.com).
+
+You need to know some basic comand line operations if you work with C9 or web technologies in general.
 
 ### Navigate the filesystem
+
+
 
 ### Handle files
 
@@ -125,9 +131,25 @@ Basically what happens when you create a Workspace in C9 is that the system crea
 
 ## What if C9 is down?
 
+OK, this is unlikely. But if you are a worrier (not a warrior) like me you always want a plan-b. Then this is what you need to do:
+
+> Instruction on this is very brief as you most likely don't need this. But I put the stuff here in case you need it.
+
 ### Work locally using Brackets
 
+1. Download C9 project to your local machine using File ==> Download Project menu in your workspace. 
+2. Extract the downloaded file into a desired folder on your hard drive.
+3. On all EC machines the Brackets software has been installed. But if it's own computer, you'll need to [download](brackets.io) and install first.
+4. Open Brackets software and select File ==> Open Folder on your computer, and navigate to where you just saved the files. 
+5. Now you're ready to start editting.
+
 ### Set up webservers using XAMPP or Ubuntu
+
+Brackets enables you to edit and preview html files locally. But you'll need to setup a webserver to view dynamic contents. Here I have several options for you:
+
+1. If you like the Chrome book the 
+2. XAMPP
+3. Virtual box
 
 
 

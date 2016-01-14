@@ -125,7 +125,7 @@ The Console window (also called terminal or shell) is a way we interact with the
 
 > They say that [Jeff Dean](https://en.wikipedia.org/wiki/Jeff_Dean_(computer_scientist)) uses just two keys '0' and '1' to talk to the console, which is probably not true. See [here](https://www.quora.com/What-are-all-the-Jeff-Dean-facts).
 
-![](https://s-media-cache-ak0.pinimg.com/736x/d2/1e/59/d21e59cd995478a21a9a5e9af31f1ea9.jpg)
+![](.md_images/01.jpg)
 
 What we have seen in the Workspace is that the HTML template generated two files for us: hello-world.html and README.md. But in fact what has been created is a whole systems: an operating system, a web server, your home folder, and many others.
 
@@ -250,7 +250,7 @@ Now issue the following commands and see the differences in the outputs
     uid=1000(ubuntu) gid=1000(ubuntu) groups=1000(ubuntu),27(sudo),1001(rvm)
 ```
 
-Unlike Windows, files and folders in Linux have owners and permissions. (Windows do too, but not in an obvious way). You can see even though we copied the file from a system folder (everything should be exactly the same), the owner has been changed.
+Unlike Windows, files and folders in Linux have owners and permissions. (Windows do too, but not in an obvious way). You can see even though we copied the file from a system folder (and everything should be exactly the same), the owner has been changed.
 
 For both files, the permissions are `-rw-r--r--`. This means that for the three positions in the order of owner, group, others, the permissions are rand/write `rw`, read only `r` and  read only `r`. But the owner has been changed from root to ubuntu.
 

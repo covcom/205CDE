@@ -1,10 +1,26 @@
-# Introduction to Git
+# Git
+
+## Work with Git locally
+
+
+## Git remotes
+
+### GitHub
+
+
+
+## Advanced stuff - branching etc.
+
+## What if Github is down?
+
+### Gitlab
+
+
 
 In this worksheet you will learn the basic principles behind the most popular version control system. You will also be introduced to a code editor that runs in your web browser. This lab shows you how to work with a local repository.
 
 The lab activities are detailed and cover a lot of useful skills. Take the time to practice the skills and learn how to use Git.
 
-## 1.1 Codio IDE
 
 Start by creating an account on Codio and logging in. On the projects screen click on the Create Project button to open the new projects screen. Name your project Git Tutorial. You will only have the option to create a public project unless you pay for a Student subscription.
 

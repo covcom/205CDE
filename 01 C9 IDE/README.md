@@ -115,27 +115,170 @@ The output is
 
 ![](.md_images/version.png)
 
-Basically what happens when you create a Workspace in C9 is that the system creates a virtual machine for you using Ubuntu 14.04 with the configuration of 5GB disks etc. 
+Basically what happens when you create a Workspace in C9 is that the system creates a virtual machine for you using Ubuntu 14.04 with the configuration of 5GB disks etc. You need to know some basic comand line operations if you work with C9 or web technologies in general.
 
 > Other popular Linux OSs include Fedora and openSUSE. For a comprehensive list, click [Put the fun back into computing](http://distrowatch.com).
 
-You need to know some basic comand line operations if you work with C9 or web technologies in general.
-
 ### Navigate the filesystem
 
+The Console window (also called terminal or shell) is a way we interact with the virtual machine that hosts our workspace. And probably it's the most effective way. 
 
+> They say that [Jeff Dean](https://en.wikipedia.org/wiki/Jeff_Dean_(computer_scientist)) uses just two keys '0' and '1' to talk to the console, which is probably not true. See [here](https://www.quora.com/What-are-all-the-Jeff-Dean-facts).
 
-### Handle files
+![](https://s-media-cache-ak0.pinimg.com/736x/d2/1e/59/d21e59cd995478a21a9a5e9af31f1ea9.jpg)
 
-### Linux permissions
+What we have seen in the Workspace is that the HTML template generated two files for us: hello-world.html and README.md. But in fact what has been created is a whole systems: an operating system, a web server, your home folder, and many others.
+
+Use the following command to see where you are in the system (pwd = print working directory)
+
+```sh
+    jianhuayang:~/workspace $ pwd
+    /home/ubuntu/workspace
+```
+
+To see what files we have here
+
+```sh
+    jianhuayang:~/workspace $ ls
+    README.md*  hello-world.html
+```
+
+The `ls` command can have differnt options in the form `ls -a -l` or `ls -al`. Here option `-a` tells the system to show hidden files/folders, and `-l` is the flag for long listing format. In the outputs, the single dot `.` represent the current directory and the double dot `..` represents the parent directory. Names that begin with a period `.` are hidden files/folders, which don’t normally show up. 
+
+```sh
+    jianhuayang:~/workspace $ ls -al
+    total 20
+    drwxrwxr-x  3 ubuntu ubuntu 4096 Jan 13 11:11 ./
+    drwxr-xr-x 19 ubuntu ubuntu 4096 Jan 13 23:23 ../
+    drwxr-xr-x  3 ubuntu ubuntu 4096 Jan 13 11:11 .c9/
+    -rwxrwxr-x  1 ubuntu ubuntu  907 Oct 12 13:14 README.md*
+    -rw-rw-r--  1 ubuntu ubuntu 1272 Oct 12 13:14 hello-world.html
+```
+
+Use the follwing command to navigate to the .c9 folder and see what's in there
+
+```sh
+    jianhuayang:~/workspace $ cd .c9/
+    jianhuayang:~/workspace/.c9 $ ls -a -l
+    total 20
+    drwxr-xr-x 3 ubuntu ubuntu 4096 Jan 13 11:11 ./
+    drwxrwxr-x 3 ubuntu ubuntu 4096 Jan 13 11:11 ../
+    -rw-r--r-- 1 ubuntu ubuntu  116 Jan 13 11:11 .nakignore
+    drwxr-xr-x 5 ubuntu ubuntu 4096 Jan 13 23:23 metadata/
+    -rw-r--r-- 1 ubuntu ubuntu  974 Jan 13 22:55 project.settings
+```
+
+> By default, the command prompt changes if you change current directory.
+
+Use the following command to navigate to the root of the file system
+
+```
+jianhuayang:~/workspace/.c9 $ cd ../../../../
+jianhuayang:/ $ pwd
+/
+```
+
+Now we're at the root of the file system. If you issue `ls` command again you'll see different folders in the system
+
+```sh
+    jianhuayang:/ $ ls
+    bin/   build/  dev/  home/  lib64/       media/  nix/  proc/  run/   srv/  tmp/  var/
+    boot/  data/   etc/  lib/   lost+found/  mnt/    opt/  root/  sbin/  sys/  usr/
+```
+
+> The system arranges so that the display goes vertical first and then horizontal.
+
+Things are getting interesting from here. All these folders are for different purposes. Here lists a few important ones, for a complete list click [this](https://peter.upfold.org.uk/blog/2006/07/18/a-guide-to-files-and-folders-on-linux/)
+
+* bin is for linaries, in other words programmes, executables.
+* etc is for configuration files e.g. Apache configuration.
+* home is where your personal stuff go e.g. workspace.
+* var is for application data such as SQL database.
+
+Since we have Apache server installed, if we do the following we'll see how different parts of a single package are seperatted into different folders
+
+```sh
+    jianhuayang:/ $ dpkg -L apache2
+    /.
+    /usr
+    /usr/share
+
+    ......
+    /etc/apache2/sites-available/default-ssl.conf
+    /etc/init.d
+    /etc/init.d/apache2
+    /etc/ufw
+    /etc/ufw/applications.d
+    ......
+    /var/log/apache2
+    /var/www
+    /var/www/html
+    /var/cache
+    ......
+```
+
+### Handle files and permissions
+
+Regarding file operations you need to know how to create, copy, rename, and delete. The Linux commands corresponding to these are `touch`, `cp`, `mv`, and `rm'.
+
+Copy the Apache server configuration file to your local directory
+
+```sh
+jianhuayang:/ $ cd ~/workspace/
+jianhuayang:~/workspace $ cp /etc/apache2/apache2.conf apache2.conf
+```
+Now you'll see that you have a new file named apache2.conf in your workspace. You can now double click to edit in the IDE.
+
+The following commands will create a new file and then delete it.
+
+```sh
+    jianhuayang:~/workspace $ cp apache2.conf apache2.conf_new
+    jianhuayang:~/workspace $ ls
+    README.md*  apache2.conf  apache2.conf_new  hello-world.html
+    jianhuayang:~/workspace $ rm apache2.conf_new 
+    jianhuayang:~/workspace $ ls
+    README.md*  apache2.conf  hello-world.html
+```
+
+Now issue the following commands and see the differences in the outputs
+
+```sh
+    jianhuayang:~/workspace $ ls -l /etc/apache2/apache2.conf
+    -rw-r--r-- 1 root root 7115 Jan  7  2014 /etc/apache2/apache2.conf
+    jianhuayang:~/workspace $ ls -l apache2.conf
+    -rw-r--r-- 1 ubuntu ubuntu 7115 Jan 14 00:18 apache2.conf
+    jianhuayang:~/workspace $ id
+    uid=1000(ubuntu) gid=1000(ubuntu) groups=1000(ubuntu),27(sudo),1001(rvm)
+```
+
+Unlike Windows, files and folders in Linux have owners and permissions. (Windows do too, but not in an obvious way). You can see even though we copied the file from a system folder (everything should be exactly the same), the owner has been changed.
+
+For both files, the permissions are `-rw-r--r--`. This means that for the three positions in the order of owner, group, others, the permissions are rand/write `rw`, read only `r` and  read only `r`. But the owner has been changed from root to ubuntu.
+
+The command `id` tells us that the current user (you that is) has been assigned a username ubuntu.
+
+Run the following commands to change some permissions of the file
+
+```sh
+    jianhuayang:~/workspace $ chmod go-r apache2.conf
+    jianhuayang:~/workspace $ ls -l apache2.conf
+    -rw------- 1 ubuntu ubuntu 7115 Jan 14 00:18 apache2.conf
+    jianhuayang:~/workspace $ chmod u+x apache2.conf
+    jianhuayang:~/workspace $ ls -l apache2.conf
+    -rwx------ 1 ubuntu ubuntu 7115 Jan 14 00:18 apache2.conf*
+```
+
+Now that the read `r` permission has been removed from group `g` and others `o`, and execution has been added to the owner.
+
+A shortcut to the example above is to use the number system `chmod 700 apache2.conf`, click [here](https://www.linux.com/learn/tutorials/309527-understanding-linux-file-permissions) for detailed explanation and examples.
 
 ## What if C9 is down?
 
-OK, this is unlikely. But if you are a worrier (not a warrior) like me you always want a plan-b. Then this is what you need to do:
-
-> Instruction on this is very brief as you most likely don't need this. But I put the stuff here in case you need it.
+OK, this is unlikely. But if you are a worrier (like myself) you always want a plan-b. Then this is what you need to do:
 
 ### Work locally using Brackets
+
+Brackets and C9 IDE have a lot similarities. Follow the instructions below and let us know if you get stuck:
 
 1. Download C9 project to your local machine using File ==> Download Project menu in your workspace. 
 2. Extract the downloaded file into a desired folder on your hard drive.
@@ -143,13 +286,13 @@ OK, this is unlikely. But if you are a worrier (not a warrior) like me you alway
 4. Open Brackets software and select File ==> Open Folder on your computer, and navigate to where you just saved the files. 
 5. Now you're ready to start editting.
 
-### Set up webservers using XAMPP or Ubuntu
+### Set up local webservers
 
-Brackets enables you to edit and preview html files locally. But you'll need to setup a webserver to view dynamic contents. Here I have several options for you:
+Brackets enables you to edit and preview html files locally. But you'll need to setup a webserver to view dynamic contents. Here are several options for you:
 
 1. If you like the Chrome book the 
 2. XAMPP
-3. Virtual box
+3. Virtual box Ubuntu
 
 
 

@@ -344,6 +344,8 @@ Follow instructions below to install a web server yourself:
 
 4. You have seen previously files installed by in Apache package using `dpkg -L apache2`. Now let's have a little look to understand how to configure Apache. Open the apache2.conf file in C9 or Ubuntu. Have a read through, especially the following block. This refers to the folder we used before. For explanations of these options, refer to the [official documentation](http://httpd.apache.org/docs/2.2/mod/core.html).
     
+    > The official documentation on configuring Apache on Ubuntu is [here](https://help.ubuntu.com/lts/serverguide/httpd.html)
+    
     ```xml
     <Directory /var/www/>
         Options Indexes FollowSymLinks
@@ -352,8 +354,7 @@ Follow instructions below to install a web server yourself:
     </Directory>
     ```
     
-    > The official documentation on configuring Apache on Ubuntu is [here](https://help.ubuntu.com/lts/serverguide/httpd.html)
 
-Finally, there're quite a few LAMPP or WAMP packages available, some are listed here on [wiki](https://en.wikipedia.org/wiki/List_of_Apache%E2%80%93MySQL%E2%80%93PHP_packages). Among these my favorites are [XAMPP](https://www.apachefriends.org/index.html) on Windows and [MAMP](https://www.mamp.info/en/) on Mac.
+> There're quite a few LAMPP or WAMP packages available, some are listed here on [wiki](https://en.wikipedia.org/wiki/List_of_Apache%E2%80%93MySQL%E2%80%93PHP_packages). Among these my favorites are [XAMPP](https://www.apachefriends.org/index.html) on Windows and [MAMP](https://www.mamp.info/en/) on Mac.
 
 

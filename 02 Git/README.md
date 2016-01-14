@@ -1,28 +1,18 @@
 # Git
 
+Git is a sidely-used version control system (VCS), and probably the most popular one. You need Git mainly for three reasons:
+
+1. The source code of your website forms part of your final assessment. This needs to be submitted through GitHub, which is a website based on Git.
+2. Git allows you to easier backup (and restore) your source code.
+3. Git allows easier sharing and collobration.
+
+You'll see details of these as you go along.
+
+> If you are old enough you've probably heard of [Google Code Search](http://web.archive.org/web/20101112131244/http://www.google.com//codesearch), which is a tool that allows programmers to search for source code. Partially due to the increased popularity of Git-base code hosting websits such as Github, this tool has now been shut down. (code.google.com is not the original site anymore.)
+
 ## Work with Git locally
 
 
-## Git remotes
-
-### GitHub
-
-
-
-## Advanced stuff - branching etc.
-
-## What if Github is down?
-
-### Gitlab
-
-
-
-In this worksheet you will learn the basic principles behind the most popular version control system. You will also be introduced to a code editor that runs in your web browser. This lab shows you how to work with a local repository.
-
-The lab activities are detailed and cover a lot of useful skills. Take the time to practice the skills and learn how to use Git.
-
-
-Start by creating an account on Codio and logging in. On the projects screen click on the Create Project button to open the new projects screen. Name your project Git Tutorial. You will only have the option to create a public project unless you pay for a Student subscription.
 
 ## 1.2 Working with Git
 
@@ -329,177 +319,6 @@ git log --graph --abbrev-commit --decorate --date=relative --all
 
 Try out different flags to see how you can customise the log display.
 
-## 4.1 Configuring an alias
-
-There are a huge number of options you can pass to the git log command and, as a result the full command with long flag options can get a bit unwieldy!
-```
-git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - 
-%C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-```
-
-To make it easier to remember these you can set up aliases. For example
-```
-git config --global alias.log1 "log --graph --decorate --all"
-```
-
-To run this command you would type:
-```
-git log1
-```
-
-## 4.2 Tagging
-
-Git allows you to add tags to your repository to mark a specific commit point as serving a particular purpose. For example you may wish to mark a particular version of your code for general release.
-
-There are two types of tag you can use:
-
-1. lightweight are used for temporary labels
-2. annotated are treated as commits and have a message attached to them
-
-### Creating an Annotated Tag
-
-lets mark the current version of our code as release 1.0 and attach a message to this. The a flag denotes an annotated tag and, like a standard commit an m flag indicates a commit message.
-```
-git tag -a v1.0 -m 'First code release'
-```
-
-We can list all the tags:
-```
-git tag
-v1.0
-```
-
-It is also possible to add tags retrospectively to earlier commits by passing the short commit code. Lets add a beta release tag to our second commit labelled ‘Instructions on committing files’
-```
-git tag -a v0.9 -m 'First beta release' a07144a
-git tag
-v0.9
-v1.0
-```
-
-We can now view the changes to our commit tree (some details omitted for clarity). Note that adding a tag to an existing commit changes the commit hash:
-```
-* commit 13221ec (HEAD, tag: v1.0, master)
-|     Final changes to README
-|    
-| * commit 0faca9d (badcode)
-| |     Added notes file            
-| | 
-| * commit f050276
-| |     Renamed README file
-|/ 
-|         
-* commit a07144a (tag: v0.9)
-|     Instructions on committing files
-|
-* commit 5a3b6f4
-      added page title and description
-```
-## 5.1 Branching and Merging
-
-Our final task involves creating two branches of your repository, making changes to both then merging the changes back into a single branch. This is useful if you want to make some changes to your code without affecting the main master branch, perhaps experimenting with a new feature.
-
-Most of the steps you have done before so these will be quickly summarised:
-
-1. modify the README file and change the title on the first line to read ‘# My Git Notes v1.1’
-2. stage and commit this change as ‘changed version to 2.1’
-3. revert to the previous commit (Final changes to README). This can be referenced by its tag as shown: git checkout tags/v0.9
-
-create a branch called newbranch (this command creates a new branch and checks it out).
-```
-git checkout -b newbranch 
-```
-
-Open the README file, notice that the last change is no longer present. Change the title to
-```
-# My Git Notes v1.2
-```
-
-Now add a new file called `newfile.md` using the touch command.
-
-stage and commit the README file with the message ‘changed version to 2.2’
-
-stage and commit the newfile with the message ‘newfile added’
-
-Your commit tree should look like this (some data omitted for clarity).
-```
-* commit a50e7c0 (HEAD, newbranch)
-|     added newfile      
-|
-* commit f7ae3cc
-|     changed version to 2.2
-|
-| * commit f46319f (master)
-|/  changed version to 2.1
-|
-* commit 13221ec (tag: v1.0)
-|     Final changes to README
-```
-
-Our plan now is to merge the changes from newbranch into the master branch. We start by switching to the master branch.
-```
-git checkout master
-```
-
-Next we merge the newbranch into our current branch
-```
-git merge newbranch
-Auto-merging README.md
-CONFLICT (content): Merge conflict in README.md
-Automatic merge failed; fix conflicts and then commit the result.
-```
-
-As you can see we get a message stating there are merge conflicts in the README.md file. We need to open this file and fix these.
-
-## Resolving Merge Conflicts
-Opening the README.md file you will see that Git has added some markers to the contents.
-```
-<<<<<<< HEAD
-# My Git Notes v1.1
-=======
-# My Git Notes v1.2
->>>>>>> newbranch
-```
-
-Lets take a moment to understand what this shows. As you can see there are two versions of the same block of text separated by a line of `=========`. The version above this shows what is in the current branch (shown as HEAD) whilst the version underneath comes from the newbranch branch. We need to edit the file to resolve this conflict. In this case we will keep the version from newbranch so delete the other version and the conflict markers.
-```
-# My Git Notes v1.2
-```
-
-Now we have resolved the conflict we can check the status:
-```
-git status
-# Changes to be committed:  
-#       new file:   newfile.md 
-# Unmerged paths:   
-#   (use "git add <file>..." to mark resolution) 
-#       both modified:   README.md
-```
-
-We can see that there is an unmerged path. Since we have resolved the conflict we should stage the file which indicated the issue is fixed.
-```
-git commit -m 'README file merged from newbranch'
-```
-
-If we examine the commit tree you will see that the changes made in the newbranch branch are merged back into the master branch.
-```
-*   commit 8a62380 (HEAD, master)
-|\  Merge: f46319f a50e7c0
-| |     README file merged from newbranch
-| |
-| * commit a50e7c0 (newbranch)
-| |     added newfile
-| |
-| * commit f7ae3cc
-| |     changed version to 2.2
-| |                 
-* | commit f46319f
-|/  changed version to 2.1
-|   Date:   47 minutes ago
-|
-* commit 13221ec (tag: v1.0)
-|     Final changes to README
-```
 
 
 
@@ -508,6 +327,9 @@ If we examine the commit tree you will see that the changes made in the newbranc
 
 
 
+
+
+## Git remotes
 
 # 02 Working with Git remote repos
 
@@ -765,6 +587,208 @@ Before making any changes to your code you should get into the habit of pulling 
 
 `git pull origin master`
 
+
+
+
+
+### GitHub
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Advanced Git
+
+## 4.1 Configuring an alias
+
+There are a huge number of options you can pass to the git log command and, as a result the full command with long flag options can get a bit unwieldy!
+```
+git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - 
+%C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+```
+
+To make it easier to remember these you can set up aliases. For example
+```
+git config --global alias.log1 "log --graph --decorate --all"
+```
+
+To run this command you would type:
+```
+git log1
+```
+
+## 4.2 Tagging
+
+Git allows you to add tags to your repository to mark a specific commit point as serving a particular purpose. For example you may wish to mark a particular version of your code for general release.
+
+There are two types of tag you can use:
+
+1. lightweight are used for temporary labels
+2. annotated are treated as commits and have a message attached to them
+
+### Creating an Annotated Tag
+
+lets mark the current version of our code as release 1.0 and attach a message to this. The a flag denotes an annotated tag and, like a standard commit an m flag indicates a commit message.
+```
+git tag -a v1.0 -m 'First code release'
+```
+
+We can list all the tags:
+```
+git tag
+v1.0
+```
+
+It is also possible to add tags retrospectively to earlier commits by passing the short commit code. Lets add a beta release tag to our second commit labelled ‘Instructions on committing files’
+```
+git tag -a v0.9 -m 'First beta release' a07144a
+git tag
+v0.9
+v1.0
+```
+
+We can now view the changes to our commit tree (some details omitted for clarity). Note that adding a tag to an existing commit changes the commit hash:
+```
+* commit 13221ec (HEAD, tag: v1.0, master)
+|     Final changes to README
+|    
+| * commit 0faca9d (badcode)
+| |     Added notes file            
+| | 
+| * commit f050276
+| |     Renamed README file
+|/ 
+|         
+* commit a07144a (tag: v0.9)
+|     Instructions on committing files
+|
+* commit 5a3b6f4
+      added page title and description
+```
+## 5.1 Branching and Merging
+
+Our final task involves creating two branches of your repository, making changes to both then merging the changes back into a single branch. This is useful if you want to make some changes to your code without affecting the main master branch, perhaps experimenting with a new feature.
+
+Most of the steps you have done before so these will be quickly summarised:
+
+1. modify the README file and change the title on the first line to read ‘# My Git Notes v1.1’
+2. stage and commit this change as ‘changed version to 2.1’
+3. revert to the previous commit (Final changes to README). This can be referenced by its tag as shown: git checkout tags/v0.9
+
+create a branch called newbranch (this command creates a new branch and checks it out).
+```
+git checkout -b newbranch 
+```
+
+Open the README file, notice that the last change is no longer present. Change the title to
+```
+# My Git Notes v1.2
+```
+
+Now add a new file called `newfile.md` using the touch command.
+
+stage and commit the README file with the message ‘changed version to 2.2’
+
+stage and commit the newfile with the message ‘newfile added’
+
+Your commit tree should look like this (some data omitted for clarity).
+```
+* commit a50e7c0 (HEAD, newbranch)
+|     added newfile      
+|
+* commit f7ae3cc
+|     changed version to 2.2
+|
+| * commit f46319f (master)
+|/  changed version to 2.1
+|
+* commit 13221ec (tag: v1.0)
+|     Final changes to README
+```
+
+Our plan now is to merge the changes from newbranch into the master branch. We start by switching to the master branch.
+```
+git checkout master
+```
+
+Next we merge the newbranch into our current branch
+```
+git merge newbranch
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+As you can see we get a message stating there are merge conflicts in the README.md file. We need to open this file and fix these.
+
+## Resolving Merge Conflicts
+Opening the README.md file you will see that Git has added some markers to the contents.
+```
+<<<<<<< HEAD
+# My Git Notes v1.1
+=======
+# My Git Notes v1.2
+>>>>>>> newbranch
+```
+
+Lets take a moment to understand what this shows. As you can see there are two versions of the same block of text separated by a line of `=========`. The version above this shows what is in the current branch (shown as HEAD) whilst the version underneath comes from the newbranch branch. We need to edit the file to resolve this conflict. In this case we will keep the version from newbranch so delete the other version and the conflict markers.
+```
+# My Git Notes v1.2
+```
+
+Now we have resolved the conflict we can check the status:
+```
+git status
+# Changes to be committed:  
+#       new file:   newfile.md 
+# Unmerged paths:   
+#   (use "git add <file>..." to mark resolution) 
+#       both modified:   README.md
+```
+
+We can see that there is an unmerged path. Since we have resolved the conflict we should stage the file which indicated the issue is fixed.
+```
+git commit -m 'README file merged from newbranch'
+```
+
+If we examine the commit tree you will see that the changes made in the newbranch branch are merged back into the master branch.
+```
+*   commit 8a62380 (HEAD, master)
+|\  Merge: f46319f a50e7c0
+| |     README file merged from newbranch
+| |
+| * commit a50e7c0 (newbranch)
+| |     added newfile
+| |
+| * commit f7ae3cc
+| |     changed version to 2.2
+| |                 
+* | commit f46319f
+|/  changed version to 2.1
+|   Date:   47 minutes ago
+|
+* commit 13221ec (tag: v1.0)
+|     Final changes to README
+```
+
+
+
+
+
+
+
+
+
+
+
 ## 02.5 Sharing with Other Users
 
 You already know a lot about using Git both locally and syncing with remotes however we have still to cover one of the most powerful features, collaborative programming. By sharing your repository with other developers you allow them to clone a copy of your remote, make changes and commit locally then push these commits back to your remote!
@@ -806,3 +830,33 @@ It is important that you keep detailed notes and documentation. The wiki tool al
 ###  Merge Requests
 
 If you are working as part of a team you will each be working on code in your own branch(es). Before merging a branch back into the master you should issue a merge request. You detail the branch you want to merge, where you want to merge it and the features you have added. Others can view the changes you intend making to the master branch and suggest changes. When working in a team you will be expected to use this tool before merging any branches.
+
+
+
+
+
+
+
+
+
+
+
+
+## What if Github is down?
+
+### Gitlab
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

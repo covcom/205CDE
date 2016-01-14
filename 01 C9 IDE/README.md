@@ -108,7 +108,7 @@ We have now used two ways to view an html file:
 Behind the scene C9 is based on Linux technology and specifically it's Ubuntu 14.04 at the time of writing (Jan 2016). This can be verified if you issue the following command in the terminal window:
 
 ```sh
-    lsb_release -a
+    $ lsb_release -a
 ```
 
 The output is 
@@ -124,7 +124,7 @@ Basically what happens when you create a Workspace in C9 is that the system crea
 The Console window (also called terminal or shell) is a way we interact with the virtual machine that hosts our workspace. And probably it's the most effective way. 
 
 > They say that [Jeff Dean](https://en.wikipedia.org/wiki/Jeff_Dean_(computer_scientist)) uses just two keys '0' and '1' to talk to the console, which is probably not true. See [here](https://www.quora.com/What-are-all-the-Jeff-Dean-facts).
-
+>   
 ![](.md_images/01.jpg)
 
 What we have seen in the Workspace is that the HTML template generated two files for us: hello-world.html and README.md. But in fact what has been created is a whole systems: an operating system, a web server, your home folder, and many others.
@@ -136,17 +136,24 @@ Use the following command to see where you are in the system (pwd = print workin
     /home/ubuntu/workspace
 ```
 
+In the example above, I copied/pasted exactly everything from the terminal. In following examples, I'll omit the part that has my names in it (i.e. the command prompt). That means lines that begin with a dollar sign `$` are my inputs, the and the rest are outputs. So the above example becomes
+
+```sh
+    $ pwd
+    /home/ubuntu/workspace
+```
+
 To see what files we have here
 
 ```sh
-    jianhuayang:~/workspace $ ls
+    $ ls
     README.md*  hello-world.html
 ```
 
 The `ls` command can have differnt options in the form `ls -a -l` or `ls -al`. Here option `-a` tells the system to show hidden files/folders, and `-l` is the flag for long listing format. In the outputs, the single dot `.` represent the current directory and the double dot `..` represents the parent directory. Names that begin with a period `.` are hidden files/folders, which don’t normally show up. 
 
 ```sh
-    jianhuayang:~/workspace $ ls -al
+    $ ls -al
     total 20
     drwxrwxr-x  3 ubuntu ubuntu 4096 Jan 13 11:11 ./
     drwxr-xr-x 19 ubuntu ubuntu 4096 Jan 13 23:23 ../
@@ -158,8 +165,8 @@ The `ls` command can have differnt options in the form `ls -a -l` or `ls -al`. H
 Use the follwing command to navigate to the .c9 folder and see what's in there
 
 ```sh
-    jianhuayang:~/workspace $ cd .c9/
-    jianhuayang:~/workspace/.c9 $ ls -a -l
+    $ cd .c9/
+    $ ls -a -l
     total 20
     drwxr-xr-x 3 ubuntu ubuntu 4096 Jan 13 11:11 ./
     drwxrwxr-x 3 ubuntu ubuntu 4096 Jan 13 11:11 ../
@@ -172,16 +179,16 @@ Use the follwing command to navigate to the .c9 folder and see what's in there
 
 Use the following command to navigate to the root of the file system
 
-```
-jianhuayang:~/workspace/.c9 $ cd ../../../../
-jianhuayang:/ $ pwd
-/
+```sh
+    $ cd ../../../../
+    $ pwd
+    /
 ```
 
 Now we're at the root of the file system. If you issue `ls` command again you'll see different folders in the system
 
 ```sh
-    jianhuayang:/ $ ls
+    $ ls
     bin/   build/  dev/  home/  lib64/       media/  nix/  proc/  run/   srv/  tmp/  var/
     boot/  data/   etc/  lib/   lost+found/  mnt/    opt/  root/  sbin/  sys/  usr/
 ```
@@ -198,7 +205,7 @@ Things are getting interesting from here. All these folders are for different pu
 Since we have Apache server installed, if we do the following we'll see how different parts of a single package are seperatted into different folders
 
 ```sh
-    jianhuayang:/ $ dpkg -L apache2
+    $ dpkg -L apache2
     /.
     /usr
     /usr/share
@@ -218,35 +225,35 @@ Since we have Apache server installed, if we do the following we'll see how diff
 
 ### Handle files and permissions
 
-Regarding file operations you need to know how to create, copy, rename, and delete. The Linux commands corresponding to these are `touch`, `cp`, `mv`, and `rm'.
+Regarding file operations you need to know how to create, copy, rename, and delete. The Linux commands corresponding to these are `touch`, `cp`, `mv`, and `rm`.
 
 Copy the Apache server configuration file to your local directory
 
 ```sh
-jianhuayang:/ $ cd ~/workspace/
-jianhuayang:~/workspace $ cp /etc/apache2/apache2.conf apache2.conf
+    $ cd ~/workspace/
+    $ cp /etc/apache2/apache2.conf apache2.conf
 ```
 Now you'll see that you have a new file named apache2.conf in your workspace. You can now double click to edit in the IDE.
 
 The following commands will create a new file and then delete it.
 
 ```sh
-    jianhuayang:~/workspace $ cp apache2.conf apache2.conf_new
-    jianhuayang:~/workspace $ ls
+    $ cp apache2.conf apache2.conf_new
+    $ ls
     README.md*  apache2.conf  apache2.conf_new  hello-world.html
-    jianhuayang:~/workspace $ rm apache2.conf_new 
-    jianhuayang:~/workspace $ ls
+    $ rm apache2.conf_new 
+    $ ls
     README.md*  apache2.conf  hello-world.html
 ```
 
 Now issue the following commands and see the differences in the outputs
 
 ```sh
-    jianhuayang:~/workspace $ ls -l /etc/apache2/apache2.conf
+    $ ls -l /etc/apache2/apache2.conf
     -rw-r--r-- 1 root root 7115 Jan  7  2014 /etc/apache2/apache2.conf
-    jianhuayang:~/workspace $ ls -l apache2.conf
+    $ ls -l apache2.conf
     -rw-r--r-- 1 ubuntu ubuntu 7115 Jan 14 00:18 apache2.conf
-    jianhuayang:~/workspace $ id
+    $ id
     uid=1000(ubuntu) gid=1000(ubuntu) groups=1000(ubuntu),27(sudo),1001(rvm)
 ```
 
@@ -259,11 +266,11 @@ The command `id` tells us that the current user (you that is) has been assigned 
 Run the following commands to change some permissions of the file
 
 ```sh
-    jianhuayang:~/workspace $ chmod go-r apache2.conf
-    jianhuayang:~/workspace $ ls -l apache2.conf
+    $ chmod go-r apache2.conf
+    $ ls -l apache2.conf
     -rw------- 1 ubuntu ubuntu 7115 Jan 14 00:18 apache2.conf
-    jianhuayang:~/workspace $ chmod u+x apache2.conf
-    jianhuayang:~/workspace $ ls -l apache2.conf
+    $ chmod u+x apache2.conf
+    $ ls -l apache2.conf
     -rwx------ 1 ubuntu ubuntu 7115 Jan 14 00:18 apache2.conf*
 ```
 
@@ -273,27 +280,80 @@ Now that the read `r` permission has been removed from group `g` and others `o`,
 
 ## What if C9 is down?
 
-OK, this is unlikely. But if you are a worrier (like myself) you always want a plan-b. Then this is what you need to do:
+OK, this is unlikely. But if you are a worrier (like myself) you always want a plan B. Then this is what you need to follow.
 
 ### Work locally using Brackets
 
-Brackets and C9 IDE have a lot similarities. Follow the instructions below and let us know if you get stuck:
+Brackets is a software used to author websites. Brackets and C9 IDE have a lot similarities. Follow the instructions below to work locally using Brackets:
 
-1. Download C9 project to your local machine using File ==> Download Project menu in your workspace. 
+1. Download C9 project to your local machine using File ==> Download Project menu from your workspace. 
 2. Extract the downloaded file into a desired folder on your hard drive.
-3. On all EC machines the Brackets software has been installed. But if it's own computer, you'll need to [download](brackets.io) and install first.
-4. Open Brackets software and select File ==> Open Folder on your computer, and navigate to where you just saved the files. 
+3. On all EC machines the Brackets software has been installed. But if it's your own computer, you'll need to [download](brackets.io) and install first.
+4. Open Brackets software and select File ==> Open Folder on your computer, and navigate to where you just saved the files. If everything goes well, you should see something similar to below
+    
+    ![](.md_images/barckets.png)
+    
 5. Now you're ready to start editting.
 
 ### Set up local webservers
 
-Brackets enables you to edit and preview html files locally. But you'll need to setup a webserver to view dynamic contents. Here are several options for you:
+Brackets enables you to edit and preview html files locally. But you'll need to setup a webserver to view dynamic contents. You don't need it right now, but you'll need it later during the module.
 
-1. If you like the Chrome book the 
-2. XAMPP
-3. Virtual box Ubuntu
+Unfortuantely the university policy doesn't allow you to install any software on ITS machines youself, so you'll have to do it on your own machines. But it's important you install and configure a web server yourself.
 
+Follow instructions below to install a webserver yourself:
 
+1. In stall Ubuntu:
+    
+    Depending on if you use the Chromebook regularly (comfortable) or not, you have two options:
+    * Option 1: Open your Chromebook, follow instructions given [here](http://lifehacker.com/how-to-install-linux-on-a-chromebook-and-unlock-its-ful-509039343) to install Ubuntu on a Chromebook.
+    * Option 2: Open your Windows machine, install [VirtualBox](https://www.virtualbox.org) and then install [Ubuntu](http://www.ubuntu.com) within it. A step by step instruction can be found on [wikiHow](http://www.wikihow.com/Install-Ubuntu-on-VirtualBox).
+    
+2. Boot into Ubuntu to install LAMP server. In the example below I use Ubuntu installed on a VirtualBox running inside a Mac. But if it's Chromebook or Windows it's essentially the same.
+    
+    ```sh
+        sudo apt-get update
+        sudo apt-get install lamp-server^
+    ```
+    
+    ![](.md_images/vbox.png)
+    
+    > The official documentation on installing [LAMP](https://help.ubuntu.com/community/ApacheMySQLPHP)
+    
+3. Now you can put your lab1 stuff in these server and view it in a browser.
+    
+    * Download your lab1 material and extract within Ubuntu. For example, mine is extracted at `/home/yang/Downloads/workspace`'
+    
+    ![](.md_images/folder.png)
+    
+    * Open terminal, create a symbolic link to `/var/www/html`. A symbolic link basically is a pointer that stays inside `/var/www/html` but pointing to the actual location of our lab material.
+    
+    ```sh
+        sudo ln -s /home/yang/Downloads/workspace/ /var/www/html
+    ```
+    
+    * Restart Apache server. This step may not be necessary, just a pre-caution.
+    
+    ```sh
+         sudo /etc/init.d/apache2 restart
+    ```
+    
+    * You can now open a browser and view the file on your local server
+    
+    ![](.md_images/running.png)
 
+4. You have seen previously files installed by in Apache package using `dpkg -L apache2`. Now let's have a little look to understand how to configure Apache. Open the apache2.conf file in C9 or Ubuntu. Have a read through, especially the following block. This refers to the folder we used before. For explanations of these options, refer to the [official documentation](http://httpd.apache.org/docs/2.2/mod/core.html).
+    
+    ```xml
+    <Directory /var/www/>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+    </Directory>
+    ```
+    
+    > The official documentation on configuring Apache on Ubuntu is [here](https://help.ubuntu.com/lts/serverguide/httpd.html)
+
+Finally, there're quite a few LAMPP or WAMP packages available, some are listed here on [wiki](https://en.wikipedia.org/wiki/List_of_Apache%E2%80%93MySQL%E2%80%93PHP_packages). Among these my favorites are [XAMPP](https://www.apachefriends.org/index.html) on Windows and [MAMP](https://www.mamp.info/en/) on Mac.
 
 

@@ -202,7 +202,6 @@ Since we have Apache server installed, if we do the following we'll see how diff
     /.
     /usr
     /usr/share
-
     ......
     /etc/apache2/sites-available/default-ssl.conf
     /etc/init.d
@@ -270,7 +269,7 @@ Run the following commands to change some permissions of the file
 
 Now that the read `r` permission has been removed from group `g` and others `o`, and execution has been added to the owner.
 
-A shortcut to the example above is to use the number system `chmod 700 apache2.conf`, click [here](https://www.linux.com/learn/tutorials/309527-understanding-linux-file-permissions) for detailed explanation and examples.
+> A shortcut to the example above is to use the number system `chmod 700 apache2.conf`, click [here](https://www.linux.com/learn/tutorials/309527-understanding-linux-file-permissions) for detailed explanation and examples.
 
 ## What if C9 is down?
 

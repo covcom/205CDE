@@ -245,9 +245,9 @@ To revert to an old commit we need to take the following steps:
 3. create a new branch at that point called `master` and move the `<head>` flag to that branch
 
 ```sh
-    git branch -m badcode
-    git checkout af2309b
-    git checkout -b master
+    $ git branch -m badcode
+    $ git checkout af2309b
+    $ git checkout -b master
 ```
 
 You should see that the notes file has gone and the README file only contains the early edits. Lets make a change to the README file, stage and commit this as 'Final changes to README'.

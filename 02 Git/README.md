@@ -143,8 +143,6 @@ Return to C9 and open README.md in the editor. At the very bottom of the file ad
 
 > You don't have to add the date, this is just to make some changes to the file.
 
-and add some more notes explaining the steps you need to complete to stage a file and commit the changes. You will need to create a second level heading and a numbered list. To do this use the following syntax:
-```
 
 Run the status command `git status` to show the current status of the repository. You should see that the README.md file is shown as modified and that no files have been staged. 
 

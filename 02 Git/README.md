@@ -8,117 +8,118 @@ Git is a sidely-used version control system (VCS), and probably the most popular
 
 You'll see details of these as you go along.
 
-> If you are old enough you've probably heard of [Google Code Search](http://web.archive.org/web/20101112131244/http://www.google.com//codesearch), which is a tool that allows programmers to search for source code. Partially due to the increased popularity of Git-base code hosting websits such as Github, this tool has now been shut down. (code.google.com is not the original site anymore.)
+> If you are old enough you've probably heard of [Google Code Search](http://web.archive.org/web/20101112131244/http://www.google.com//codesearch), which is a tool that allows programmers to search for source code. Partially due to the increased popularity of Git-base code hosting websits such as Github, this tool has now been shut down. ([code.google.com](code.google.com) is not the original site anymore.)
 
 ## Work with Git locally
 
+In C9 create a new workspace based on HTML template and name it lab2. In terminal type in the following command and press enter. This shows you Git has been installed
 
-
-## 1.2 Working with Git
-
-Each Codio project runs on a Micro server running Linux. The most important way to run commands on a Linux server is through the Terminal screen. This is accessible under the Codio Tools menu. Git is an open source software package that is already installed and is accessed by running commands in the Terminal window. All the commands we will use start with the git command. lets start by confirming that Git is indeed installed. Type in the following command and press enter:
-```
-  git
-```
-
-Notice that we are presented with a summary of the available Git commands.
-
-## 1.3 Initialising the Repository
-
-A Git repository contains a hidden directory called .git which contains all the tracking data. We need to check that there is a repository. Obviously we can’t see it in the file tree (its hidden) so we need to run a command to list all the files, including the hidden ones (ls lists the files whilst the a flag includes the hidden ones.
-```
-  ls -a
-  .  ..  .git
+```sh
+    $ git
+    usage: git 
+    ......
+    The most commonly used git commands are:
+       add        Add file contents to the index
+       bisect     Find by binary search the change that introduced a bug
+    ......
 ```
 
-The first file (.) represents the current directory, the second (..) the parent directory and the last (.git) is the Git repository. So in this case we can see that there is already a repository. If the folder is missing we need to create this by running the following command:
-```
-  git init
+> C9 Ubuntu virtual machine has Git installed by default. If you work on your own computers, make sure you download and install [Git](https://git-scm.com/downloads) first.
+
+Here we are presented with a summary of the available Git commands.
+
+### Initialise the repository
+
+In terminal issue the following command to initialise a Git repository.
+
+```sh
+    $ git init
+    Initialized empty Git repository in /home/ubuntu/workspace/.git/
 ```
 
-## 1.4 Setting User Information
+A Git repository contains a hidden directory called .git which contains all the tracking data. We need to check that there is a repository. Obviously we can't see it in the file tree (its hidden) so we need to run a command to list all the files, including the hidden ones (`ls` lists the files whilst the `ls -a` flag includes the hidden ones.
+
+```sh
+    $ ls -a
+    ./  ../  .c9/  .git/  README.md*  hello-world.html
+```
+
+The first file (.) represents the current directory, the second (..) the parent directory and the last (.git) is the Git repository. So in this case we can see that there is now a repository.
+
+### Set user information
+
 The first time you use the repository you should check that the name and email details are correct. These are used to indicate who has been committing code. Start by displaying the current contents of the git config file:
+
 ```
-  git config --list
-  user.name=John Doe
-  user.email=johndoe@gmail.com
+    $ git config --list
+    user.name=Jianhua Yang
+    user.email=(blur blur blur, you all know that)
+    ......
 ```
 
-You are looking for a single entry for user.name and one for user.email. There may be additional keys and values stored. If there are multiple names and/or emails you can replace all instances using the following two commands (substituting your own name and email)
+You are looking for a single entry for user.name and one for user.email. So if yours are like mine, you're fine.
+
+There may be additional keys and values stored. If there are multiple names and/or emails you can replace all instances using the following two commands (substituting your own name and email)
 ```
 git config --global --replace-all user.email "johndoe@gmail.com"
 git config --global --replace-all user.name "John Doe"
 ```
 
-## 2.1 Adding Files
-We can now add files to our project. You can either right-click on the project folder in the file tree and choose New File. Alternatively you can use the touch command in the terminal. Lets create an empty file called README.md using the terminal.
-```
-touch README.md
+> Ever wonder why it's John again, click [here](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup).
+
+### Stage files
+
+At any stage you can use the `status` command to check the status of the project files. Try running this now:
+
+```sh
+    $ git status
 ```
 
-Notice the new file appears in the file tree. We can also list the files in the terminal:
-```
-ls -l
-```
+You will see a message that there are untracked files. These are listed in red. Before committing files they need to be placed in the staging area using the `add` command
 
-The l flag displays the directory contents in a list format. Click on the file in the file tree to begin editing. The file extension you added marks this as being a markdown file which is used to create documentation. Down the right-hand edge you will see a number of icons. If you click on the book icon you will be presented with a split editor. You will be able to enter your markup in the left pane whilst viewing the rendered layout in the right pane.
+> You only need to type the first few letters of the filename, press the tab key to auto-complete.
 
-Enter the following markup.
-```
-# My Git Notes
-
-Detailed notes showing how to use Git.
-
+```sh
+    $ git add .
 ```
 
-Notice how the markup is rendered as a top-level heading and a short paragraph.
-
-## 2.2 Staging Files
-
-At any stage you can use the status command to check the status of the project files. Try running this now:
-```
-git status
-```
-
-You will see a message that there are untracked files. These are listed in red. Before committing files they need to be placed in the staging area using the add command (Hint: you only need to type the first few letters of the filename, press the tab key to auto-complete..
-```
-git add README.md
-```
+Here `.` means the current directory.
 
 So how can we check the file has been staged? Remember that status command?
-```
-git status
+
+```sh
+    $ git status
 ```
 
-You will see that the file has been added to the staging area to create a snapshot. Git has also identified that this file is not being currently tracked. We are now ready to commit our snapshot.
+You will see that the files have been added to the staging area to create a snapshot.
 
-## 2.3 Committing Files
+### Commit files
 
 Once we have added one or more files to the staging area and created a snapshot we can commit the changes to our local repository. Each snapshot is accompanied by a message to explain what changes have been made. Before making the commit it can be useful to see what changes you will be committing.
-```
-git diff --cached
-diff --git a/README.md b/README.md
-new file mode 100644
-index 0000000..3bd5ff0
---- /dev/null
-+++ b/README.md
-@@ -0,0 +1,3 @@
-+# My Git Notes
-+
-+Detailed notes showing how to use Git.
-\ No newline at end of file 
+
+```sh
+    $ git diff --cached
+    diff --git a/README.md b/README.md
+    new file mode 100755
+    index 0000000..064ecaa
+    --- /dev/null
+    +++ b/README.md
+    @@ -0,0 +1,26 @@
+    ......
 ```
 
-Take a moment to make sense of the results. The three + characters next to the filename indicate that three lines have been changed. Then all the modified lines are listed. A + character at the start of the line indicates the line has been added, a - character indicates the line has been deleted. So we can see that the file has had 3 lines added. Finally there is a warning telling you there is a missing newline character (its best practice to always add a blank line at the end of every file.
+You'll be automatically redirect to a command line text editor. Type letter 'q' at the command prompt and hit enter to get out of it. Use your mouse to scroll up and down in the terminal window. Take a moment to make sense of the results. The three + characters next to the filename indicate that three lines have been changed. Then all the modified lines are listed. A + character at the start of the line indicates the line has been added, a - character indicates the line has been deleted. So we can see that since we haven't committed, all lines are new.
 
 Now lets commit our changes. Remember that you need to include a descriptive message with every commit.
-```
-git commit -m 'added page title and description'
+
+```sh
+    $ git commit -m '1st commit'
 ```
 
 This commits the changes in your staged files to the repository and removes all the files from the staged area. We can check this using the status command:
-```
-git status
+
+```sh
+    $ git status
 ```
 
 You get two important pieces of information:
@@ -126,263 +127,185 @@ You get two important pieces of information:
 1. nothing to commit (there are no changes to stage)
 2. working directory clean (there are no staged files)
 
-## 2.4 Viewing the Commit
-
 Lets take a look at the commit history. This lists all the commits you have made to the Git repository.
-```
-git log
-commit 5a3b6f4941ffb03faccbb9ae22d462943d6ccaee
-Author: John Doe <johndoe@gmail.com>
-Date:   Tue Mar 24 20:07:59 2015 +0000
 
-    added page title and description
+```sh
+    $ git log
 ```
 
-## 2.5 A Second Commit
-Return to the editor and add some more notes explaining the steps you need to complete to stage a file and commit the changes. You will need to create a second level heading and a numbered list. To do this use the following syntax:
+### A second commit
+
+Return to C9 and open README.md in the editor. At the very bottom of the file add today's date
+
+```sh
+    20 Jan 2016
 ```
 
-## 2.6 Committing Changes
+> You don't have to add the date, this is just to make some changes to the file.
 
-Perform the following steps
-
-1. step 1
-2. step 2
+and add some more notes explaining the steps you need to complete to stage a file and commit the changes. You will need to create a second level heading and a numbered list. To do this use the following syntax:
 ```
 
-## 2.7 Staging the File
+Run the status command `git status` to show the current status of the repository. You should see that the README.md file is shown as modified and that no files have been staged. 
 
-Run the status command (as before) to show the current status of the repository. You should see that the file is shown as modified and that no files have been staged. Time to stage the README.md file. If you check the status again you should see the file listed as modified and staged ready for committing. Commit the staged file and add a message ‘Instructions on committing files’.
+Time to stage the README.md file `git add README.md`. If you check the status again you should see the file listed as modified and staged ready for committing. Commit the staged file and add a message '2nd commit' `git commit -m '2nd commit'`.
 
 Check the status to make sure there are no uncommitted changes and that the working directory is clean. Finally view you commit history where you should see both of the commits you have made.
 
-## 3.1 Comparing Files
+### Compare files
+
 Git creates a unique hash for each commit made to the repository. These are the long alpha-numeric strings displayed in the git log output. There is also a shorter 7 character version which can be shown when you add the abbrev-commit long flag like this:
+
 ```
-git log --abbrev-commit
-commit a07144a
-Author: Mark Tyers <marktyers@gmail.com>
-Date:   Tue Mar 24 20:37:54 2015 +0000
-
-    Instructions on committing files
-
-commit 5a3b6f4
-Author: marktyers <marktyers@gmail.com>
-Date:   Tue Mar 24 20:07:59 2015 +0000
- 
-    added page title and description 
+    $ git log --abbrev-commit
 ```
 
 We can use these to reference their associated commits when using the diff command which compares different commits of the same file:
+
 ```
 git diff 5a3b6f4..a07144a README.md
 ```
 
-You should see all the changes made to the file between the two specified commits. ‘+’ indicates lines added whilst ‘-’ lines indicate lines deleted.
-```
-git diff 5a3b6f4..a07144a README.md
-diff --git a/README.md b/README.md
-index 3bd5ff0..945ce92 100644
---- a/README.md
-+++ b/README.md
-@@ -1,3 +1,9 @@
- # My Git Notes
+You should see all the changes made to the file between the two specified commits. '+' indicates lines added whilst '-' lines indicate lines deleted, similar to what you've seen before
 
-+
-+## Committing Changes
-+Perform the following steps
-+
-+1. step 1
-+2. step 2
-\ No newline at end of file 
+### Rename files
+
+Renaming files is easy right? We perhaps not. Lets see what happens when we rename our file using the standard approach. Right-click on the file in the file tree and choose Rename. Call the file README2.md then run the status command:
+
+```sh
+    $ git status
 ```
 
-## 3.2 Renaming Files
+Notice that git assumes we have delete the old file (with all its commits) and created a new file. If we stage and commit at this stage we will lose all our commits because git thinks the file is a completely new one! 
 
-Renaming files is easy right? We perhaps not. Lets see what happens when we rename our file using the standard approach. Right-click on the file in the file tree and choose ‘Rename’. Call the file README2.md then run the status command:
-```
-git status
-# On branch master
-# Changes not staged for commit:
-#
-#       deleted:    README.md
-#
-# Untracked files:      
-#
-#       README2.md
-#
-```
+To fix this we need to rename the file using a special git command.
 
-Notice that git assumes we have delete the old file (with all its commits) and created a new file. If we stage and commit at this stage we will lose all our commits because git thinks the file is a completely new one! To fix this we need to rename the file using a special git command.
+Start by renaming the file back to the original name and running the status command to check there are no changes to stage. Next we run the `git mv` command:
 
-Start by renaming the file back to the original name and running the status command to check there are no changes to stage. Next we run the git mv command:
-```
-git mv README.md README2.md
+```sh
+    $ git mv README.md README2.md
 ```
 
 Now run the status command which indicates the filename has been changed.
-```
-git status
-# Changes to be committed:
-#
-#       renamed:    README.md -> README2.md
-#
-```
 
-Go ahead, stage and commit this file which will retain its commit history. Use the commit message ‘Renamed README file’.
-
-## 3.3 Unstaging Files
-
-Sometimes you may accidentally stage a file and wish to remove it from the staging area. Lets create a new file called notes.md (use the touch command). Edit the file to add some text (anything you want). Modify the README2.md file as well.
-
-Now add both files to the staging area. Instead of adding each file separately you can add multiple files at the same time. Remember that the single . character represents the current directory? Well we can add all the files in our current directory using the following command:
-```
-git add .
+```sh
+    $ git status
+    On branch master
+    Changes to be committed:
+      (use "git reset HEAD ..." to unstage)
+    
+            renamed:    README.md -> README2.md
 ```
 
-If we use status we can see one new and one modified file.
+Go ahead, stage and commit this file which will retain its commit history. Use the commit message 'Renamed README file'.
+
 ```
-modified:   README2.md
-new file:   notes.md 
+    $ git commit -am  'Renamed README file'
+```
+
+The `-a` flag ['tell the command to automatically stage files that have been modified and deleted, but new files you have not told Git about are not affected'](https://git-scm.com/docs/git-commit).
+
+### Unstage files
+
+Sometimes you may accidentally stage a file and wish to remove it from the staging area. Lets create a new file called notes.md using command `touch notes.md` in terminal. Edit the file to add some text (anything you want). Modify the README2.md file as well.
+
+Now add both files to the staging area using `git add .`. If we use status we can see one new and one modified file.
+
+```sh
+    modified:   README2.md
+    new file:   notes.md 
 ```
 
 Perhaps we only wanted to commit the notes file. Lets unstage the README2 file before committing.
-```
-git reset HEAD README2.md
+
+```sh
+    $ git reset HEAD README2.md
 ```
  
-If you check the status you should see that only the notes file is staged. Commit this file with the message ‘Added notes file’. If you check the status you should see that there are still uncommitted changes.
+If you check the status you should see that only the notes file is staged. Commit this file with the message 'Added notes file'. If you check the status you should see that there are still uncommitted changes.
 
-We have decided we don’t want the changes we made to the README file. To undo these changes we checkout the last version we committed to the repository:
-git checkout README2.md
+We have decided we don't want the changes we made to the README file. To undo these changes we checkout the last version we committed to the repository
+
+```sh
+    $ git checkout README2.md
+```
 
 If we examine the file we should see that the changes we made have gone. If we check the repository status we should see that there are no uncommitted changes.
 
-## 3.4 Reverting to Previous Commit
+### Revert to previous commit
 
-Lets pretend that we want to ‘undo’ all the changes we made since the second commit (Instructions on committing files). In other words we want to change our working code to how it was when we made an earlier commit.
+Let's pretend that we want to 'undo' all the changes we made since the second commit (`git log --abbrev-commit` shows `af2309b` for my 2nd commit). In other words we want to change our working code to how it was when we made an earlier commit.
 
 One important feature of Git is that we keep track of all changes through our commits and we can never delete any commits. So how do we revert our code whilst keeping a record of the commits we have made since that point?
 
-In Git, all commits are made to a branch. By default this branch is called ‘master’ but we can have any number of named branches, each with its own commits rather like stations on a rail network. Git uses a special flag called the <head> to identify where to make commits.
+In Git, all commits are made to a branch. By default this branch is called 'master' but we can have any number of named branches, each with its own commits rather like stations on a rail network. Git uses a special flag called the `<head>` to identify where to make commits.
 
 To revert to an old commit we need to take the following steps:
 
 1. move/rename the current branch to reflect its new status.
 2. checkout the good commit
-3. create a new branch at that point called `‘master’` and move the `<head>` flag to that branch
-```
-git branch -m badcode
-git checkout a07144a
-git checkout -b master
+3. create a new branch at that point called `master` and move the `<head>` flag to that branch
+
+```sh
+    git branch -m badcode
+    git checkout af2309b
+    git checkout -b master
 ```
 
-You should see that the notes file has gone and the README file only contains the early edits. Lets make a change to the README file, stage and commit this as ‘Final changes to README’.
+You should see that the notes file has gone and the README file only contains the early edits. Lets make a change to the README file, stage and commit this as 'Final changes to README'.
+
+```sh
+    $ git commit -am 'Final changes to README'
+```
 
 Now we can display the commits and which branch they were applied to:
-```
-git log --graph --all --decorate
-```
 
-You should see a detailed log with a visual representation of the branches and commits. For a version displaying the short commit codes try:
-```
-git log --graph --abbrev-commit --decorate --date=relative --all
-
-* commit 13221ec (HEAD, master)
-| Author: John Doe <johndoe@gmail.com>
-| Date:   19 minutes ago
-|
-|     Final changes to README
-|
-| * commit 0faca9d (badcode)
-| | Author: John Doe <johndoe@gmail.com>
-| | Date:   42 minutes ago
-| |
-| |     Added notes file
-| |
-| * commit f050276
-|/  Author: John Doe <johndoe@gmail.com>
-|   Date:   47 minutes ago
-|
-|       Renamed README file
-|
-* commit a07144a
-| Author: John Doe <johndoe@gmail.com>
-| Date:   88 minutes ago
-|
-|     Instructions on committing files
-|
-* commit 5a3b6f4
-  Author: John Doe <johndoe@gmail.com>
-  Date:   2 hours ago
+```sh
+    $ git log --graph --all --decorate
 ```
 
-Try out different flags to see how you can customise the log display.
+You should see a detailed log with a visual representation of the branches and commits. 
 
+For a version displaying the short commit codes try:
 
-
-
-
-
-
-
-
-
+```sh
+    $ git log --graph --abbrev-commit --decorate --date=relative --all
+```
 
 ## Git remotes
 
-# 02 Working with Git remote repos
+### GitHub repository
 
-This lab extends the work you did in the previous one called *Git Basics*. Make sure you have completed the worksheet and fully understand the concepts covered. You will also need access to the repository you created as part of the exercise.
+GitHub is a source code hosting website based on Git. If you haven't got one, create an account and sign in. Click on the plus sign on the top right corner and select 'New repository'. Name it lab2 and click 'Create repository'.
 
-In this lab you will learn how to create a remote repository using *GitLab*. You may apply these principles to working with any other remote repository such as GitHub or Bitbucket.
+![](.md_images/github.png)
 
-There are two ways to use git remote repos. One is to use https protocol, and the other is to use SSH keys. You can choose the way you feel more familiar to. Go through only one of the 02.2. or 02.3.
+Once created, you'll see something similar to below
 
-## 02.1 Updating the GitLab Profile
-We will be using *GitLab* as our remote repository and will use it to store and share our code. Start by creating an account (if you don’t have these already) and logging in. You will also need to have a *Codio* account. Make sure you have an account and are logged in to both sites before starting this worksheet.
+![](.md_images/url.png)
 
-Before we start using GitLab it is important to update your personal profile to add your name and photo. This is required for when you start sharing your code with others.
+Take a note of the URL of the repository, you'll need it for later. For example, mine is `https://github.com/jianhuayang/lab2.git`
 
-In the top-right of the home screen there is a **Profile settings** button.
+> Make sure it's https not SSH.
 
-As a bare minimum you should supply your full name and upload a recognisable photo. This is so that we can clearly identify you when marking your work. Your email address should be your *personal* one rather than the one provided by the University as you will want to continue using GitLab after graduating.
+### Add the remote repository
 
-Click 'Save changes' then click on the GitLab icon in the top-left corner to return to the home screen.
+To add a new remote, use the `git remote add` command on the terminal, in the directory your repository is stored at.
 
+The `git remote add` command takes two arguments:
 
+1. A remote name, for example, `origin`
+2. A remote URL, for example, `https://github.com/jianhuayang/lab2.git`
 
-## 02.2 Using https protocol
-
-### Cloning the course repository
-
-Many of the exercises you will be doing will require you to amend existing code. This code is available in a course repository in GitHub. To access this you will need to create a new Codio project containing a clone of this repository.
-
-Create a new project in Codio. On the projects screen click in the Create Project button.
-
-Open Tools > Terminal. Clone the course repository (https://github.com/covcom/205CDE.git). 
+```sh
+    $ git remote add origin https://github.com/jianhuayang/lab2.git
+    $ git remote -v
+    origin  https://github.com/jianhuayang/lab2.git (fetch)
+    origin  https://github.com/jianhuayang/lab2.git (push)
 ```
-$ git clone https://github.com/covcom/205CDE.git
-```
+For example:
 
-You can change the default name (205CDE) in Codio by right-clicking it in the tree view on the left.
-
-### Changing the remote repository
-
-The course repository is read-only, you will have to put your code in your own remote repository.
-Follow these steps:
-
-Create a new GitLab (https://gitlab.com/) account if necessary. Sign in and create a new repository. Notice that the repository is called a project in Gitlab's terms. You can name your repository the way you want.
-
-Copy the HTTPS URL, visible in GitLab, to your clipboard.
-
-Go back to Codio. Go to the folder of the cloned repository in the terminal:
-
-```
-$ cd 205CDE/
-```
-
-Because you have cloned the course repository, there is one remote called origin, check it:
+Here the remote is called origin, which is the default name for remotes.
 
 ```
 $ git remote -v
@@ -390,16 +313,6 @@ origin	https://github.com/covcom/205CDE.git (fetch)
 origin	https://github.com/covcom/205CDE.git (push)
 ```
 
-We change this by
-
-```
-$ git remote set-url origin your_GitLab_URL
-$ git remote -v
-
-origin	https://gitlab.com/your_GitLab_name/your_repo_name.git (fetch)
-origin	https://gitlab.com/your_GitLab_name/your_repo_name.git (push)
-```
-(Above, paste the HTTPS URL that you copied from GitLab to replace your_GitLab_URL.)
 
 Then finally you want to push all your commits to your own repository located in new url.
 
@@ -438,91 +351,8 @@ git config credential.helper 'cache --timeout=300'
 ```
 
 
-## 02.3 Using ssh keys (Skip this if you are using https)
 
-The course materials will be in GitHub repository, your own repository will be in GitLab, therefore you will need accounts on both sites.
-1)	create account on GitHub
-2)	create account on GitLab
-Authentication will be through the use of SSH keys. You need to copy the public key from Codio and add this to both GitHub and GitLab.
 
-### GitHub
-Start by clicking on the Accounts setting icon in the bottom-left corner of the projects screen (gear icon).
-
-Choose the SSH Key tab and triple-click the long string (public key) to select it all. Copy this to clipboard.
-
-Log into GitHub and open the Preferences screen (gear icon). Locate the SSH Keys link and Add SSH Key button.
-
-Set the key title to Codio and Paste the SSH key from the clipboard before clicking the Add key button.
-
-### GitLab
-Open the Profile setting page (person icon) and choose the SSH Keys tab.
-
-Click the green button Add SSH Key and paste in the public key stored in the clipboard. Enter Codio as a title.
-
-### Cloning the course repository
-
-Many of the exercises you will be doing will require you to amend existing code. This code is available in a course repository in GitHub. To access this you will need to create a new Codio project containing a clone of this repository.
-
-Create a new project in Codio. On the projects screen click in the Create Project button.
-
-Open Tools > Terminal. Clone the course repository (git@github.com:covcom/205CDE.git). 
-
-```
-$ git clone git@github.com:covcom/205CDE.git
-```
-
-Finally give a name 205CDE to your project.
-
-### Changing the remote repository
-The course repository is read-only, you will have to put your code in your own remote repository.
-Follow these steps:
-Create a new repository in GitLab. You can name your repository the way you want. Copy the SSH link to your clipboard.
-Because you have cloned the course repository, there is one remote called origin, check it:
-
-```
-$git remote -v
-origin	git@github.com:covcom/205CDE.git (fetch)
-origin	git@github.com:covcom/205CDE.git (push)
-```
-
-We change this by
-```
-$ git remote set-url origin git@gitlab.com:your_GitLab_name/your_repo_name.git
-$ git remote -v
-
-origin	git@gitlab.com:your_GitLab_name/your_repo_name.git (fetch)
-origin	git@gitlab.com:your_GitLab_name/your_repo_name.git (push)
-```
-
-Then finally you want to push all your commits to your own repository located in new url.
-
-```
-$ git push origin master
-```
-
-### The course repository has been changed
-
-Sometimes the course repository will change, and you have to get the modifications to your own repositories and local working copies.
-
-```
-$ git remote
-origin
-$ git remote add wete git@github.com:covcom/205CDE.git
-$ git remote -v
-origin	git@gitlab.com:your_GitLab_name/your_repo_name.git (fetch)
-origin	git@gitlab.com:your_GitLab_name/your_repo_name.git (push)
-wete	git@github.com:covcom/205CDE.git (fetch)
-wete	git@github.com:covcom/205CDE.git (push)
-```
-
-We have now two remote repositories. The one called origin is your own, where you sent your updates. But because sometimes the course remote repository is edited, we have another remote repository called wete.
-
-```
-$ git pull wete master
-```
-
-This is the way you fetch and merge everything that has changed in the course repository with your own master.
-After this you have to check for conflicts, commit your changes to your local repository and push the changes to your own remote repository. But these ones you already know.
 
 ## 02.4 New commands:  Push and Pull
 
@@ -591,7 +421,6 @@ Before making any changes to your code you should get into the habit of pulling 
 
 
 
-### GitHub
 
 
 
@@ -647,7 +476,7 @@ git tag
 v1.0
 ```
 
-It is also possible to add tags retrospectively to earlier commits by passing the short commit code. Lets add a beta release tag to our second commit labelled ‘Instructions on committing files’
+It is also possible to add tags retrospectively to earlier commits by passing the short commit code. Lets add a beta release tag to our second commit labelled 'Instructions on committing files'
 ```
 git tag -a v0.9 -m 'First beta release' a07144a
 git tag
@@ -679,8 +508,8 @@ Our final task involves creating two branches of your repository, making changes
 
 Most of the steps you have done before so these will be quickly summarised:
 
-1. modify the README file and change the title on the first line to read ‘# My Git Notes v1.1’
-2. stage and commit this change as ‘changed version to 2.1’
+1. modify the README file and change the title on the first line to read '# My Git Notes v1.1'
+2. stage and commit this change as 'changed version to 2.1'
 3. revert to the previous commit (Final changes to README). This can be referenced by its tag as shown: git checkout tags/v0.9
 
 create a branch called newbranch (this command creates a new branch and checks it out).
@@ -695,9 +524,9 @@ Open the README file, notice that the last change is no longer present. Change t
 
 Now add a new file called `newfile.md` using the touch command.
 
-stage and commit the README file with the message ‘changed version to 2.2’
+stage and commit the README file with the message 'changed version to 2.2'
 
-stage and commit the newfile with the message ‘newfile added’
+stage and commit the newfile with the message 'newfile added'
 
 Your commit tree should look like this (some data omitted for clarity).
 ```
@@ -780,10 +609,40 @@ If we examine the commit tree you will see that the changes made in the newbranc
 ```
 
 
+## 02.3 Using ssh keys (Skip this if you are using https)
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## What if Github is down?
+
+### Gitlab
 
 
 
@@ -830,25 +689,6 @@ It is important that you keep detailed notes and documentation. The wiki tool al
 ###  Merge Requests
 
 If you are working as part of a team you will each be working on code in your own branch(es). Before merging a branch back into the master you should issue a merge request. You detail the branch you want to merge, where you want to merge it and the features you have added. Others can view the changes you intend making to the master branch and suggest changes. When working in a team you will be expected to use this tool before merging any branches.
-
-
-
-
-
-
-
-
-
-
-
-
-## What if Github is down?
-
-### Gitlab
-
-
-
-
 
 
 

@@ -53,7 +53,7 @@ The first time you use the repository you should check that the name and email d
 ```
     $ git config --list
     user.name=Jianhua Yang
-    user.email=(blur blur blur, you all know that)
+    user.email=(blur blur blur, you all know it)
     ......
 ```
 

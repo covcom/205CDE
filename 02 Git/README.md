@@ -365,7 +365,7 @@ As an alternative to web-based hosting tools, you can use offline software as we
     
 4. You should see now the project has been backed up to your local folder. And that you can manage Git through the GUI.
     
-    ![](.md_images/source.png)
+    ![](.md_images/full.png)
     
     In fact this C9 ==> GitHub ==> SourceTre is a better approach to backup your project rather than downloading directly from C9.
 

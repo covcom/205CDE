@@ -60,9 +60,10 @@ The first time you use the repository you should check that the name and email d
 You are looking for a single entry for user.name and one for user.email. So if yours are like mine, you're fine.
 
 There may be additional keys and values stored. If there are multiple names and/or emails you can replace all instances using the following two commands (substituting your own name and email)
-```
-git config --global --replace-all user.email "johndoe@gmail.com"
-git config --global --replace-all user.name "John Doe"
+
+```sh
+    $ git config --global --replace-all user.email "johndoe@gmail.com"
+    $ git config --global --replace-all user.name "John Doe"
 ```
 
 > Ever wonder why it's John again, click [here](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup).
@@ -154,14 +155,14 @@ Check the status to make sure there are no uncommitted changes and that the work
 
 Git creates a unique hash for each commit made to the repository. These are the long alpha-numeric strings displayed in the git log output. There is also a shorter 7 character version which can be shown when you add the abbrev-commit long flag like this:
 
-```
+```sh
     $ git log --abbrev-commit
 ```
 
 We can use these to reference their associated commits when using the diff command which compares different commits of the same file:
 
-```
-git diff 5a3b6f4..a07144a README.md
+```sh
+    $ git diff 5a3b6f4..a07144a README.md
 ```
 
 You should see all the changes made to the file between the two specified commits. '+' indicates lines added whilst '-' lines indicate lines deleted, similar to what you've seen before
@@ -270,7 +271,7 @@ For a version displaying the short commit codes try:
     $ git log --graph --abbrev-commit --decorate --date=relative --all
 ```
 
-## Git remotes
+## Work with GitHub remotely
 
 ### GitHub repository
 
@@ -288,12 +289,14 @@ Take a note of the URL of the repository, you'll need it for later. For example,
 
 ### Add the remote repository
 
-To add a new remote, use the `git remote add` command on the terminal, in the directory your repository is stored at.
+To add a new remote, use the `git remote add` command on the terminal in C9, in the directory your repository is stored at.
 
 The `git remote add` command takes two arguments:
 
 1. A remote name, for example, `origin`
 2. A remote URL, for example, `https://github.com/jianhuayang/lab2.git`
+
+For example:
 
 ```sh
     $ git remote add origin https://github.com/jianhuayang/lab2.git
@@ -301,17 +304,8 @@ The `git remote add` command takes two arguments:
     origin  https://github.com/jianhuayang/lab2.git (fetch)
     origin  https://github.com/jianhuayang/lab2.git (push)
 ```
-For example:
 
-Here the remote is called origin, which is the default name for remotes.
-
-```
-$ git remote -v
-origin	https://github.com/covcom/205CDE.git (fetch)
-origin	https://github.com/covcom/205CDE.git (push)
-```
-
-Then finally you want to push all your commits to your own repository located in new url.
+Here the remote is called origin, which is the default name for remotes. Then finally you want to push all your commits to your own repository located in new url.
 
 ```sh
     $ git push origin master
@@ -328,38 +322,6 @@ Enter the GitHub credentials as and when prompted. If you then refresh you GitHu
 
 
 
-
-
-
-### The course repository has been changed
-
-Sometimes the course repository will change, and you have to get the modifications to your own repositories and local working copies.
-
-```
-$ git remote
-origin
-$ git remote add wete https://github.com/covcom/205CDE.git
-$ git remote -v
-origin	https://gitlab.com/your_GitLab_name/your_repo_name.git (fetch)
-origin	https://gitlab.com/your_GitLab_name/your_repo_name.git (push)
-wete	https://github.com/covcom/205CDE.git (fetch)
-wete	https://github.com/covcom/205CDE.git (push)
-```
-
-We have now two remote repositories. The one called origin is your own, where you sent your updates. But because sometimes the course remote repository is edited, we have another remote repository called wete.
-
-```
-$ git pull wete master
-```
-
-This is the way you fetch and merge everything that has changed in the course repository with your own master.
-After this you have to check for conflicts, commit your changes to your local repository and push the changes to your own remote repository. But these ones you already know.
-
-When using https protocol, git will always ask your username and password for the remote. If you get bored, you can use e.g. git credential helper cache. More on using helpers, see git documentation. The stored credentials never touch the disk, and are forgotten after a configurable timeout. The cache is accessible over a Unix domain socket, restricted to the current user by filesystem permissions. In the following credentials are stored for 5 minutes.
-
-```
-git config credential.helper 'cache --timeout=300'
-```
 
 
 
@@ -447,180 +409,42 @@ Before making any changes to your code you should get into the habit of pulling 
 
 ## Advanced Git
 
-## 4.1 Configuring an alias
+### The course repository has been changed
 
-There are a huge number of options you can pass to the git log command and, as a result the full command with long flag options can get a bit unwieldy!
-```
-git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - 
-%C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-```
+Sometimes the course repository will change, and you have to get the modifications to your own repositories and local working copies.
 
-To make it easier to remember these you can set up aliases. For example
 ```
-git config --global alias.log1 "log --graph --decorate --all"
-```
-
-To run this command you would type:
-```
-git log1
+$ git remote
+origin
+$ git remote add wete https://github.com/covcom/205CDE.git
+$ git remote -v
+origin	https://gitlab.com/your_GitLab_name/your_repo_name.git (fetch)
+origin	https://gitlab.com/your_GitLab_name/your_repo_name.git (push)
+wete	https://github.com/covcom/205CDE.git (fetch)
+wete	https://github.com/covcom/205CDE.git (push)
 ```
 
-## 4.2 Tagging
+We have now two remote repositories. The one called origin is your own, where you sent your updates. But because sometimes the course remote repository is edited, we have another remote repository called wete.
 
-Git allows you to add tags to your repository to mark a specific commit point as serving a particular purpose. For example you may wish to mark a particular version of your code for general release.
-
-There are two types of tag you can use:
-
-1. lightweight are used for temporary labels
-2. annotated are treated as commits and have a message attached to them
-
-### Creating an Annotated Tag
-
-lets mark the current version of our code as release 1.0 and attach a message to this. The a flag denotes an annotated tag and, like a standard commit an m flag indicates a commit message.
 ```
-git tag -a v1.0 -m 'First code release'
+$ git pull wete master
 ```
 
-We can list all the tags:
-```
-git tag
-v1.0
-```
+This is the way you fetch and merge everything that has changed in the course repository with your own master.
+After this you have to check for conflicts, commit your changes to your local repository and push the changes to your own remote repository. But these ones you already know.
 
-It is also possible to add tags retrospectively to earlier commits by passing the short commit code. Lets add a beta release tag to our second commit labelled 'Instructions on committing files'
-```
-git tag -a v0.9 -m 'First beta release' a07144a
-git tag
-v0.9
-v1.0
-```
+When using https protocol, git will always ask your username and password for the remote. If you get bored, you can use e.g. git credential helper cache. More on using helpers, see git documentation. The stored credentials never touch the disk, and are forgotten after a configurable timeout. The cache is accessible over a Unix domain socket, restricted to the current user by filesystem permissions. In the following credentials are stored for 5 minutes.
 
-We can now view the changes to our commit tree (some details omitted for clarity). Note that adding a tag to an existing commit changes the commit hash:
 ```
-* commit 13221ec (HEAD, tag: v1.0, master)
-|     Final changes to README
-|    
-| * commit 0faca9d (badcode)
-| |     Added notes file            
-| | 
-| * commit f050276
-| |     Renamed README file
-|/ 
-|         
-* commit a07144a (tag: v0.9)
-|     Instructions on committing files
-|
-* commit 5a3b6f4
-      added page title and description
-```
-## 5.1 Branching and Merging
-
-Our final task involves creating two branches of your repository, making changes to both then merging the changes back into a single branch. This is useful if you want to make some changes to your code without affecting the main master branch, perhaps experimenting with a new feature.
-
-Most of the steps you have done before so these will be quickly summarised:
-
-1. modify the README file and change the title on the first line to read '# My Git Notes v1.1'
-2. stage and commit this change as 'changed version to 2.1'
-3. revert to the previous commit (Final changes to README). This can be referenced by its tag as shown: git checkout tags/v0.9
-
-create a branch called newbranch (this command creates a new branch and checks it out).
-```
-git checkout -b newbranch 
-```
-
-Open the README file, notice that the last change is no longer present. Change the title to
-```
-# My Git Notes v1.2
-```
-
-Now add a new file called `newfile.md` using the touch command.
-
-stage and commit the README file with the message 'changed version to 2.2'
-
-stage and commit the newfile with the message 'newfile added'
-
-Your commit tree should look like this (some data omitted for clarity).
-```
-* commit a50e7c0 (HEAD, newbranch)
-|     added newfile      
-|
-* commit f7ae3cc
-|     changed version to 2.2
-|
-| * commit f46319f (master)
-|/  changed version to 2.1
-|
-* commit 13221ec (tag: v1.0)
-|     Final changes to README
-```
-
-Our plan now is to merge the changes from newbranch into the master branch. We start by switching to the master branch.
-```
-git checkout master
-```
-
-Next we merge the newbranch into our current branch
-```
-git merge newbranch
-Auto-merging README.md
-CONFLICT (content): Merge conflict in README.md
-Automatic merge failed; fix conflicts and then commit the result.
-```
-
-As you can see we get a message stating there are merge conflicts in the README.md file. We need to open this file and fix these.
-
-## Resolving Merge Conflicts
-Opening the README.md file you will see that Git has added some markers to the contents.
-```
-<<<<<<< HEAD
-# My Git Notes v1.1
-=======
-# My Git Notes v1.2
->>>>>>> newbranch
-```
-
-Lets take a moment to understand what this shows. As you can see there are two versions of the same block of text separated by a line of `=========`. The version above this shows what is in the current branch (shown as HEAD) whilst the version underneath comes from the newbranch branch. We need to edit the file to resolve this conflict. In this case we will keep the version from newbranch so delete the other version and the conflict markers.
-```
-# My Git Notes v1.2
-```
-
-Now we have resolved the conflict we can check the status:
-```
-git status
-# Changes to be committed:  
-#       new file:   newfile.md 
-# Unmerged paths:   
-#   (use "git add <file>..." to mark resolution) 
-#       both modified:   README.md
-```
-
-We can see that there is an unmerged path. Since we have resolved the conflict we should stage the file which indicated the issue is fixed.
-```
-git commit -m 'README file merged from newbranch'
-```
-
-If we examine the commit tree you will see that the changes made in the newbranch branch are merged back into the master branch.
-```
-*   commit 8a62380 (HEAD, master)
-|\  Merge: f46319f a50e7c0
-| |     README file merged from newbranch
-| |
-| * commit a50e7c0 (newbranch)
-| |     added newfile
-| |
-| * commit f7ae3cc
-| |     changed version to 2.2
-| |                 
-* | commit f46319f
-|/  changed version to 2.1
-|   Date:   47 minutes ago
-|
-* commit 13221ec (tag: v1.0)
-|     Final changes to README
+git config credential.helper 'cache --timeout=300'
 ```
 
 
-## 02.3 Using ssh keys (Skip this if you are using https)
+
+
+
+
+
 
 
 
@@ -655,51 +479,9 @@ If we examine the commit tree you will see that the changes made in the newbranc
 
 ### Gitlab
 
+### SourceTree
 
 
-
-
-## 02.5 Sharing with Other Users
-
-You already know a lot about using Git both locally and syncing with remotes however we have still to cover one of the most powerful features, collaborative programming. By sharing your repository with other developers you allow them to clone a copy of your remote, make changes and commit locally then push these commits back to your remote!
-
-###  Adding Team Members
-From the project page, click on the *Settings* link to access the repository settings screen.
-
-In the left-hand menu you will find a *Members* link. Click on this to view the appropriate screen.
-
-Click on the 'Add Users' button (green) to reveal the dialog that allows you to search the entire GitLab users database. 
-
-You should enter the name or username of another person in the lab. You will know you have the correct user when their photo appears next to their full name.
-
-You also need to choose the correct access settings. Generally you have two choices:
-
-1. Reporter access allows read-access to the code (pull)
-2. Developer access allows read-write access (pull and push)
-
-Choose *Developer* access to allow your classmate to push changes to your remote repository.
-
-## 02.6 Submitting Work for Marking
-
-You will be expected to submit a link to your remote repository home page when you complete an assignment. It is important that the academics who will be marking your work have access to your code and so it becomes your responsibility to locate their GitLab usernames and provide them with Reporter access to your repository.
-
-Typically the list of staff usernames will be found on your *assignment brief*. If you cannot locate this please speak to your lab supervisor as soon as possible.
-
-## 02.7 Online Tools
-
-Git provides a number of useful tools to help manage your programming project. Here we identify a few of the most useful.
-
-###  Issues
-
-The issues tool provides a sophisticated way to identify jobs, prioritise them and assign them to different members your development team. You can also generate labels (under the labels tab) and assign them to the tasks, add milestones and, finally you can mark jobs as complete. Think about this as a powerful todo list. You will be expected to demonstrate you can use this.
-
-###  Wiki
-
-It is important that you keep detailed notes and documentation. The wiki tool allows you to write nicely formatted notes. You can also link pages together. As you write your code you need to maintain suitable documentation.
-
-###  Merge Requests
-
-If you are working as part of a team you will each be working on code in your own branch(es). Before merging a branch back into the master you should issue a merge request. You detail the branch you want to merge, where you want to merge it and the features you have added. Others can view the changes you intend making to the master branch and suggest changes. When working in a team you will be expected to use this tool before merging any branches.
 
 
 

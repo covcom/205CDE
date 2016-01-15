@@ -311,12 +311,25 @@ origin	https://github.com/covcom/205CDE.git (fetch)
 origin	https://github.com/covcom/205CDE.git (push)
 ```
 
-
 Then finally you want to push all your commits to your own repository located in new url.
 
+```sh
+    $ git push origin master
 ```
-git push origin master
-```
+
+Enter the GitHub credentials as and when prompted. If you then refresh you GitHub reporitory you'll see the files are there now
+
+![](.md_images/fill.png)
+
+
+
+
+
+
+
+
+
+
 
 ### The course repository has been changed
 

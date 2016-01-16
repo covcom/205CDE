@@ -1,10 +1,10 @@
 # Git
 
-Git is a sidely-used version control system (VCS), and probably the most popular one. You need Git mainly for three reasons:
+Git is a widely-used version control system (VCS), and probably the most popular one. You need Git mainly for three reasons:
 
 1. The source code of your website forms part of your final assessment. This needs to be submitted through GitHub, which is a website based on Git.
-2. Git allows you to easier backup (and restore) your source code.
-3. Git allows easier sharing and collaboration.
+2. Git allows easy backup (and restore) your source code.
+3. Git allows easy sharing and collaborating.
 
 You'll see details of these as you go along.
 

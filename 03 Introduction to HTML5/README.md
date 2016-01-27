@@ -1,16 +1,16 @@
 # HTML5
 
-The web technology has evolutionized everything, including itself. HTML5 (Hypertext Markup Language) became official in 2014, following previous release of version 4.01. There're many big changes introduced in this new release, the most important being HTML is now a ['living standard'](https://html.spec.whatwg.org/multipage/). This means that the standard will update itself, there will never be another version of HTML.
+The web technology has revolutionized everything, including itself. HTML5 (Hypertext Markup Language) became official in 2014, following the previous release of version 4.01. There're many big changes introduced in this new release, the most important being HTML is now a ['living standard'](https://html.spec.whatwg.org/multipage/). This means that the standard will update itself, there will never be another version of HTML.
 
 [![](.md_images/eow.png)](http://www.evolutionoftheweb.com/)
 
-HTML5 is the most fundamental language in web programming. In this lab you learn the basics of HTML5. In subsequent labs, several new technologies are introduced to facilitate styling and dynamic content, but HTML5 remains the starting point and centerpoint of web programming techniques.
+HTML5 is the most fundamental language in web programming. In this lab, you learn the basics of HTML5. In subsequent labs, several new technologies are introduced to facilitate styling and dynamic content, but HTML5 remains the starting point and center point of web programming techniques.
 
 > [A journey of a thousand miles begins with a single step, Lao Tzu](http://www.bbc.co.uk/worldservice/learningenglish/movingwords/shortlist/laotzu.shtml)
 
 In this lab you'll do the following tasks:
 
-1. Use basic HTML5 markup in a web page and verify the page's correctness.
+1. Use basic HTML5 markup on a web page and verify the page's correctness.
 2. Use tables in a web page.
 3. Include audio and video and use semantic markup.
 
@@ -20,11 +20,11 @@ This lab takes approximately 2 hours.
 
 ## Basic HTML5 markup
 
-HTML is the language for describing the structure and content of a web page. In this task you learn to create a HTML5 document with basic markup.
+HTML is the language for describing the structure and content of a web page. In this task, you learn to create an HTML5 document with basic markup.
 
 ### Hello HTML
 
-In C9, create a new document through File ==> New From Template ==> HTML file. The file will automatically open in the editor. Move you cursor into the editting area and press `ctrl` + `s` to save the file. Name it *computers80.html*, leave other default settings unchanged.
+In C9, create a new document through File ==> New From Template ==> HTML file. The file will automatically open in the editor. Move you cursor into the editing area and press `ctrl` + `s` to save the file. Name it *computers80.html*, leave other default settings unchanged.
 
 The resulting HTML5 document contains the definition of an empty web page. First, pay attention to the overall structure of the web page defined in the document. There is a correspondence between a file and a web page. Each static web page corresponds to one HTML5 file.
 
@@ -44,7 +44,7 @@ The elements follow the HTML5 syntax. The syntax dictates, for example, that:
 
 ### Write content and structure
 
-First, add language attruibute to the start tag of `html`. So
+First, add language attribute to the start tag of `html`. So
 
 ```html
     <html>
@@ -56,9 +56,9 @@ becomes
     <html lang="en">
 ```
 
-This step is not really compulsory. But according to the [W3C recommendation](https://www.w3.org/International/questions/qa-html-language-declarations) you should always use a language attribute.
+This step is not really compulsory. But according to the [W3C recommendation](https://www.w3.org/International/questions/qa-html-language-declarations), you should always use a language attribute.
 
-Now, fill the title element with the text you want to appear in the top of the browser window (or as a label in browser tab). It is also a good practice to enter the `meta` element used for character encoding:
+Now, fill the title element with the text you want to appear at the top of the browser window (or as a label in a browser tab). It is also a good practice to enter the `meta` element used for character encoding:
 
 ```html
 <head>
@@ -69,8 +69,8 @@ Now, fill the title element with the text you want to appear in the top of the b
 
 In the above:
 
-* `meta` is an empty element with an attribute. It is an exception of the start tag / end tag rule. We return to these later.
-* UTF-8 is a means of encoding characters on disk or memorry. Instead of UTF-8, we could have ASCII or ANSI, among many others. But UTF-8 (Unicode) covers almost all of the characters and symbols in the world.
+* `meta` is an empty element with an attribute. It is an exception to the start tag / end tag rule. We return to these later.
+* UTF-8 is a means of encoding characters in disk or memory. Instead of UTF-8, we could have ASCII or ANSI, among many others. But UTF-8 (Unicode) covers almost all of the characters and symbols in the world.
 
 > If you're confused about UTF-8/ANSI etc, you're not alone. Read discussions on [StackOverFlow](http://stackoverflow.com/questions/700187/unicode-utf-ascii-ansi-format-differences) and [The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets](http://www.joelonsoftware.com/articles/Unicode.html).
 
@@ -94,13 +94,13 @@ Once the `head` element is ready, add some markup inside the `body` element of t
 </body>
 ```
 
-Open the file in a browser by right-click computers80.html in Workspace tool window and then select Preview. The page is displayed using the browser's built-in style settings. We can later change how the page looks using CSS (Cascaded Style Sheets).
+Open the file in a browser by right-clicking computers80.html in Workspace tool window and then select Preview. The page is displayed using the browser's built-in style settings. We can later change how the page looks using CSS (Cascaded Style Sheets).
 
 ![](.md_images/hello.png)
 
 > If you don't want to type yourself to fill the space, instead of copy/paste, you can use [Lorem ipsum](https://en.wikipedia.org/wiki/Lorem_ipsum).
 
-Later, when you amend your code, just hit **Refresh** icon in the built-in broswer to show the updated content.
+Later, when you amend your code, just hit **Refresh** icon in the built-in browser to show the updated content.
 
 ![](.md_images/refresh.png)
 
@@ -112,20 +112,20 @@ The direct subelements of the `body` element in the example are block elements. 
 
 Some block elements can be nested. However, it is not legal to nest headers and paragraphs between each other.
 
-Note that header elements represent the level of the header. Thus, all `h1` elements are the top-level headers (usually one per page), `h2` elements are second-level headers etc.
+Note those header elements represent the level of the header. Thus, all `h1` elements are the top-level headers (usually one per page), `h2` elements are second-level headers etc.
 
 ### Validate the code
 
-Everyone writing HTML5 pages introduces errors into the code by mistake. These can be simple typos, or errors in the element structure.
+Everyone writing HTML5 pages introduces errors into the code by mistake. These can be simple typos or errors in the element structure.
 
 It is a good idea to check the page against syntax error using an automated tool called validator. For this purpose, open new browser window and go to [W3C Markup Validation Service](https://validator.w3.org/).
 
 Select **Validate by direct input** tag and copy-paste your code into the text area. Once you click the **Check** button, you get feedback about your markup:
 
-- If the page is error-free, a green bar appears. The page should be correctly viewable by any browser that follow the HTML5 syntax.
+- If the page is error-free, a green bar appears. The page should be correctly viewable by any browser that follows the HTML5 syntax.
 - If the page contains errors, a red bar appears. Browsers may still be able to show its contents, but not necessarily in the intended way. You should correct the errors in the markup and revalidate.
 
-The list of errors provided by the validator can be very long. This happens especially if one error causes the validator to loose the trail of parsing, causing in a chain reaction of errors. It is often easiest to correct the first error, and then revalidate.
+The list of errors provided by the validator can be very long. This happens especially if one error causes the validator to loose the trail of parsing, causing a chain reaction of errors. It is often easiest to correct the first error, and then revalidate.
 
 Add some errors into your HTML5 code and see how the validator responds.
 
@@ -133,7 +133,7 @@ You should validate frequently. Validation often helps you to spot problems, as 
 
 ### Lists
 
-Now, add a list inside your web page. Insert the following lines of code after the paragraph describing clever uses for home computers: 
+Now, add a list on your web page. Insert the following lines of code after the paragraph describing clever uses for home computers: 
 
 ```html
     <p>Some reasons often mentioned were:</p>
@@ -145,13 +145,13 @@ Now, add a list inside your web page. Insert the following lines of code after t
     </ul>
 ```
 
-View the list in browser.
+View the list in the browser.
 
 The `ul` element describes an unordered list. It contains three list items (denoted by `li` elements).
 
 See what happens, when you change the list type to ordered list (`ol`).
 
-Next, try a definition list. Add the following piece of code into the very end of the document, right before the `</article>` end tag:
+Next, try a definition list. Add the following piece of code at the very end of the document, right before the `</article>` end tag:
 
 ```html
     <p>There are two types of memory:</p>
@@ -165,7 +165,7 @@ Next, try a definition list. Add the following piece of code into the very end o
     </dl>
 ```
 
-The definitions list contains two elements for each item: a `dt` for term and a `dd` for definition.
+The definitions list contains two elements for each item: a `dt` for the term and a `dd` for definition.
 
 ### Images
 
@@ -192,18 +192,18 @@ Now,  Add the following lines of code in an appropriate place, directly inside t
 
 There are a couple of notable things about the `img` element:
 
-1. It is an void element. An void element doesn't have any content, and can be closed immediately, like this  `<img >`. For convenience it can also be closed like this `<img />`. The extra `/` character in the end is not essential.  However,  `<img >` must **NOT** be closed like this `<img></img>`, which is a syntax error.
+1. It is a void element. A void element doesn't have any content, and can be closed immediately, like this  `<img >`. For convenience, it can also be closed like this `<img />`. The extra `/` character, in the end, is not essential.  However,  `<img >` must **NOT** be closed like this `<img></img>`, which is a syntax error.
     
     > There are other void elements besides `img`. One of the most widely used is `hr` for creating a horizontal rule and written as `<hr>`. Void elements are not to be confused with self-closing tags. For void elements it's **illegal** to write `<img></img>` or `<hr></hr>`, but for self-closing tags such as `<li>` or `<body>` you can safely ignore closing tags `</li>` or `</body>`. 
     
     > Click [here](https://www.w3.org/TR/html-markup/syntax.html) for a comprehensive list of void elements, [here](http://stackoverflow.com/questions/3558119/are-self-closing-tags-valid-in-html5) and [here](http://stackoverflow.com/questions/5641997/is-it-necessary-to-write-head-body-and-html-tags) for discussions on StackOverFlow. [To close or not to close tags](http://blog.teamtreehouse.com/to-close-or-not-to-close-tags-in-html5), that is the question.
     
     
-2. For an image to be displayed, it requires additional information in form of attribute/value pairs. The attribute/value pairs above, are given within the start tag in form of `attribute="value"`. Multiple definitions are separated by space. Two of attribute/value pairs are mandatory for images:
+2. For an image to be displayed, it requires additional information in the form of attribute/value pairs. The attribute/value pairs above, are given within the start tag in the form of `attribute="value"`. Multiple definitions are separated by space. Two of attribute/value pairs are mandatory for images:
 
 | Attribute | Purpose                                                                                                                                     |
 |-----------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| src       | For locating the image file. The file path is normally given as relative,path, starting from the directory where the html file is located.  |
+| src       | For locating the image file. The file path is normally given as relative path, starting from the directory where the HTML file is located.  |
 | alt       | For displaying an alternative text if the image cannot be displayed, or if the user prefers using a screen reader for accessibility purposes. |
 
 ### Links
@@ -214,11 +214,11 @@ Now, add a link to a Wikipedia article to your web page, in a suitable location 
 <p>Read the <a href="http://en.wikipedia.org/wiki/Retrocomputing">Wikipedia article for Retrocomputing</a>.</p>
 ```
 
-To test the functionality in the browser, you need to run the Apache server first, and then choose a proper browser (not the defalt one). This was in lab1 if you cannot remember. The following image was generated using Chrome on Windows. Once you click the link, you'll be directed to the wiki page you specified earlier.
+To test the functionality in the browser, you need to run the Apache server first, and then choose a proper browser (not the default one). This was in lab1 if you cannot remember. The following image was generated using Chrome on Windows. Once you click the link, you'll be directed to the wiki page you specified earlier.
 
 ![](.md_images/wiki.png)
 
-A link, defined by `a` element contains the URL of the linked web page as its `href` attribute. The link above contains an absolute path to a document in the external server. Absolute path begins will full protocol identifier and domain nime.
+A link, defined by `a` element contains the URL of the linked web page as its `href` attribute. The link above contains an absolute path to a document on the external server. The absolute path begins will full protocol identifier and domain name.
 
 Unlike block elements (such as `h1` or `p`), links are inline elements: they always need a block element as a container and they are considered as a running part of the content of the parent block element.
 
@@ -232,7 +232,7 @@ Add a link or two to suitable places in **computers80.html**.
 
 ### Test your understanding
 
-1. Create a Commodore 64 web page to the same web site. To do this, create a file called **commodore64.html** and include the following content, properly marked in HTML. Finally, link the main page (computers80.html) to your new page by adding a link from the correct list item.
+1. Create a Commodore 64 web page to the same website. To do this, create a file called **commodore64.html** and include the following content, properly marked in HTML. Finally, link the main page (computers80.html) to your new page by adding a link from the correct list item.
 
 ```html
 Commodore 64
@@ -283,15 +283,15 @@ Verify that you understand the elements used in marking up the table:
 2. Generate two additional rows where each row should have a multi-column cell (use `colspan` attribute):
 
     - Main usage: home computing (for all computers, a single cell should span over four columns)
-    - Killer game: Jet Set Willy (for Commodore 64 and ZX Spectum, in a merged cell covering two colums), Jelly Monsters (for VIC-20), and  Armoured Assault for Spectravideo.
+    - Killer game: Jet Set Willy (for Commodore 64 and ZX Spectrum, in a merged cell covering two columns), Jelly Monsters (for VIC-20), and  Armoured Assault for Spectravideo.
 
 ## New features, semantic elements
 
-Two benefits of using HTML5 are easier inclusion of multimedia content and better semantic markup possibilities for the content. 
+Two benefits of using HTML5 are the easier inclusion of multimedia content and better semantic markup possibilities for the content. 
 
 ### Audio and video ###
 
-Inclusion of audio and video files is easy. In the lab's `assets` folder, there is a sample public domain audio clip. Download to you computer and then upload to your own `assets` folder (create it first).
+The inclusion of audio and video files is easy. In the lab's `assets` folder, there is a sample public domain audio clip. Download to you computer and then upload to your own `assets` folder (create it first).
 
 The audio file can then be included in a web page by adding the following HTML5 code:
 
@@ -302,9 +302,9 @@ The audio file can then be included in a web page by adding the following HTML5 
 </audio>
 ```
 
-The incorporation of videos is similar to audio elements, except for that the corresponding tag is `video`. For large videos, the file size limit in Codio can, however, hinder the use of anything but small video clips.
+The incorporation of videos is similar to audio elements, except for that the corresponding tag is `video`. For large videos, the file size limit in C9 can, however, hinder the use of anything but small video clips.
 
-> For YouTube vidoes, however, the format is different. See [w3school page](http://www.w3schools.com/html/tryit.asp?filename=tryhtml_youtubeiframe) for an example 
+> For YouTube videos, however, the format is different. See [w3school page](http://www.w3schools.com/html/tryit.asp?filename=tryhtml_youtubeiframe) for an example 
 
 ### Semantic elements
 
@@ -332,12 +332,12 @@ The use of semantic elements is encouraged, even though they are not yet in wide
 
 ### Test your understanding
 
-1. Generate a personal webpage of a fictitious student Jane Doe, or John Doe (or your own, if you prefer), that contains at least the information listed below. Use semantic elements when applicable.
+1. Generate a personal webpage of a fictitious student Jane Doe, or John Doe (or your own, if you prefer), that contains, at least, the information listed below. Use semantic elements when applicable.
 
     - personal data (first names, family name, date of birth)
     - image
     - short introduction
-    - hobbies listed, links for further information provided
+    - hobbies listed, links to further information provided
     - courses passed (name, date, grade), in tabular format
     - contact data
 

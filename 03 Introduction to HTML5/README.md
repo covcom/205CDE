@@ -8,13 +8,11 @@ HTML5 is the most fundamental language in web programming. In this lab, you lear
 
 > [A journey of a thousand miles begins with a single step, Lao Tzu](http://www.bbc.co.uk/worldservice/learningenglish/movingwords/shortlist/laotzu.shtml)
 
-In this lab you'll do the following tasks:
+In this lab you'll do the following tasks, it takes approximately 2 hours.
 
 1. Use basic HTML5 markup on a web page and verify the page's correctness.
 2. Use tables in a web page.
 3. Include audio and video and use semantic markup.
-
-This lab takes approximately 2 hours.
 
 > When we reference to HTML in this and upcoming labs, we always mean HTML5.
 
@@ -233,13 +231,13 @@ Add a link or two to suitable places in **computers80.html**.
 ### Test your understanding
 
 1. Create a Commodore 64 web page to the same website. To do this, create a file called **commodore64.html** and include the following content, properly marked in HTML. Finally, link the main page (computers80.html) to your new page by adding a link from the correct list item.
-
+    
 ```html
 Commodore 64
   History
     Commodore 64, abbreviated C64, was introduced in 1982 and gained worldwide popularity. It is still the most sold computer in the world.
     (image of C64, download a copy to local site from http://commons.wikimedia.org, include copyright notice as a caption)
-
+    
   Current status
     There's still a wide community of C64 enthusiasts. There are numerous C64 emulators,
     such as CCS64 (link to http://www.ccs64.com/) and Frodo (link to http://frodo.cebix.net/).
@@ -256,9 +254,9 @@ Commodore 64
       Several joysticks were manufactured for Commodore 64, such as Quickshot II.
     
 Back to Main page (link)
-
+    
 ```
-
+    
 2. Validate your newly-created web page and correct any potential errors.
 
 ## Tables

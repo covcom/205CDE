@@ -171,7 +171,9 @@ In HTML5, images are put inside a `figure` element. The `figure` element normall
 
 In the Workspace tool window, create a new folder called 'images'. Add an image of a computer into this folder by using the File ==> Upload Local Files menu. 
 
-> Organize your folders/projects properly using sub-folders such as images/js/css. See [here](https://www.reddit.com/r/webdev/comments/3afdb8/website_directory_structure_bestpractices/) for a discussion on Reddit.
+> Organize your folders/projects properly using sub-folders such as images/assets/js/css. See [here](https://www.reddit.com/r/webdev/comments/3afdb8/website_directory_structure_bestpractices/) for a discussion on Reddit. For file names, follow common practice using all lower case letters and hyphen such as `contact-details.html`. See [here](http://www.dummies.com/how-to/content/how-to-name-html-files.html) for some explanations. 
+
+> Don't use `index.html` for pages other than your home page, because browsers detect your home page by looking for a file called index.html by default.
 
 ![](.md_images/upload.png)
 
@@ -283,11 +285,11 @@ Verify that you understand the elements used in marking up the table:
     - Main usage: home computing (for all computers, a single cell should span over four columns)
     - Killer game: Jet Set Willy (for Commodore 64 and ZX Spectrum, in a merged cell covering two columns), Jelly Monsters (for VIC-20), and  Armoured Assault for Spectravideo.
 
-## New features, semantic elements
+## Multimedia and semantic elements
 
 Two benefits of using HTML5 are the easier inclusion of multimedia content and better semantic markup possibilities for the content. 
 
-### Audio and video ###
+### Audio and video
 
 The inclusion of audio and video files is easy. In the lab's `assets` folder, there is a sample public domain audio clip. Download to you computer and then upload to your own `assets` folder (create it first).
 

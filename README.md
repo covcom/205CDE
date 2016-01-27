@@ -28,7 +28,7 @@ Git version control: add, remove, branch, merge etc.
 
 ## Week 2 HTML
 
-### Introducing HTML
+### Introduction to HTML5
 
 **Contents**
 
@@ -36,9 +36,9 @@ Introduction, list, tables, structuring
 
 **Refs**
 
-[Ref.[3]](#ref3) chapter 2/3/6
+[Ref.[3]](#ref3) chapter 2/3
 
-### HTML forms
+### HTML5 forms
 
 **Contents**
 
@@ -46,7 +46,7 @@ Forms, semantic tags
 
 **Refs**
 
-[Ref.[3]](#ref3) chapter 7/8
+[Ref.[3]](#ref3) chapter 6/7/8
 
 ## Week 3 CSS
 
@@ -80,29 +80,29 @@ Intro, debugging, functions, testing
 
 **Refs**
 
-[Ref.[3]](#ref3) chapter 11/12/13
+[Ref.[3]](#ref3) chapter 11/12
 
-### JS DOM
-
-**Contents**
-
-Objects, JSON, DOM
-
-**Refs**
-
-[Ref.[3]](#ref3) chapter 17/18/19
-
-## Week 5 jQuery
-
-### jQuery
+### Functions and objects
 
 **Contents**
 
-jQuery selection, traversal, and events
+Closures, hoisting, prototypes
 
 **Refs**
 
-[Ref.[3]](#ref3) chapter 14/15/16
+[Ref.[3]](#ref3) chapter 13/14
+
+## Week 5 Javascript
+
+### JS, DOM, AJAX
+
+**Contents**
+
+JSON, DOM
+
+**Refs**
+
+[Ref.[3]](#ref3) chapter 15/16
 
 ### Multimedia contents
 

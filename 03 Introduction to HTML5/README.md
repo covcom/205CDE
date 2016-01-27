@@ -1,14 +1,14 @@
 # HTML5
 
-In this lab you learn the basics of HTML5 (Hypertext Markup Language), which is the language for describing the structure and content of a web page.
+The web technology has evolutionized everything, including itself. HTML5 (Hypertext Markup Language) became official in 2014, following previous release of version 4.01. There're many big changes introduced in this new release, the most important being HTML is now a ['living standard'](https://html.spec.whatwg.org/multipage/). This means that the standard will update itself, there will never be another version of HTML.
 
-HTML5 is the most fundamental language in web programming. In subsequent labs, several new technologies are introduced to facilitate styling and dynamic content, but HTML5 remains the starting point and centerpoint of web programming techniques.
+[![](.md_images/eow.png)](http://www.evolutionoftheweb.com/)
 
-Note: When we reference to HTML in this and upcoming labs, we always mean HTML5, which is the latest version of the markup language.
+HTML5 is the most fundamental language in web programming. In this lab you learn the basics of HTML5. In subsequent labs, several new technologies are introduced to facilitate styling and dynamic content, but HTML5 remains the starting point and centerpoint of web programming techniques.
 
-## Task list
+> [A journey of a thousand miles begins with a single step, Lao Tzu](http://www.bbc.co.uk/worldservice/learningenglish/movingwords/shortlist/laotzu.shtml)
 
-In the lab you do the following tasks:
+In this lab you'll do the following tasks:
 
 1. Use basic HTML5 markup in a web page and verify the page's correctness.
 2. Use tables in a web page.
@@ -16,84 +16,112 @@ In the lab you do the following tasks:
 
 This lab takes approximately 2 hours.
 
+> When we reference to HTML in this and upcoming labs, we always mean HTML5.
 
-## 1 Basic HTML5 markup
+## Basic HTML5 markup
 
-In this task you learn to create a HTML5 document with basic markup.
+HTML is the language for describing the structure and content of a web page. In this task you learn to create a HTML5 document with basic markup.
 
-### Creating a document in Codio
+### Hello HTML
 
-In Codio, create a new document and name it **computers80.html**. Codio suggests that the type of document is HTML. Change it to HTML5, as otherwise the resulting document would be incorrectly interpreted as HTML 4.01.
+In C9, create a new document through File ==> New From Template ==> HTML file. The file will automatically open in the editor. Move you cursor into the editting area and press `ctrl` + `s` to save the file. Name it *computers80.html*, leave other default settings unchanged.
 
 The resulting HTML5 document contains the definition of an empty web page. First, pay attention to the overall structure of the web page defined in the document. There is a correspondence between a file and a web page. Each static web page corresponds to one HTML5 file.
 
 The page consists of elements, separated by a start tag and end tag. For example, the root element `html` starts with a start tag `<html>` and ends with an end tag `</html>`.
 
+> HTML elements are written with a start tag, with an end tag, with the content in between. See definition here on [w3school](http://www.w3schools.com/html/html_elements.asp) and discussions on [StackOverFlow](http://stackoverflow.com/questions/8937384/what-is-the-difference-between-tags-and-elements-html)
+
 Elements are nested: for instance, the `body` element is inside the `html` element.
 
+> Use Edit ==> Code Formatting ==> HTML to properly format your code so that parent-children relation becomes obvious to see.
+
 The elements follow the HTML5 syntax. The syntax dictates, for example, that:
-- Each HTML5 page contains an `html` root element. All the markup for a web page goes inside this element.
-- Inside the `html` element, there are `head` and `body` elements in this order. In head element, there is background information for showing the web page, usually consumed by browsers. In the example file, there is one piece of information, the title of the page, indicated in `title` element.
-- The content is within `body` element.
 
+* Each HTML5 page contains an `html` root element. All the markup for a web page goes inside this element.
+* Inside the `html` element, there are `head` and `body` elements in this order. In head element, there is background information for showing the web page, usually consumed by browsers. In the example file, there is one piece of information, the title of the page, indicated in `title` element.
+* The content is within `body` element.
 
-### Writing content and structure
+### Write content and structure
 
-Fill the title element with the text you want to appear in the top of the browser window (or as a label in browser tab). It is also a good practice to enter the `meta` element used for character encoding:
+First, add language attruibute to the start tag of `html`. So
+
+```html
+    <html>
+```
+
+becomes
+
+```html
+    <html lang="en">
+```
+
+This step is not really compulsory. But according to the [W3C recommendation](https://www.w3.org/International/questions/qa-html-language-declarations) you should always use a language attribute.
+
+Now, fill the title element with the text you want to appear in the top of the browser window (or as a label in browser tab). It is also a good practice to enter the `meta` element used for character encoding:
 
 ```html
 <head>
     <title>1980's home computers</title>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
 </head>
 ```
 
-Above, `meta` is an empty element with an attribute. It is an exception of the start tag / end tag rule. We return to these later.
+In the above:
+
+* `meta` is an empty element with an attribute. It is an exception of the start tag / end tag rule. We return to these later.
+* UTF-8 is a means of encoding characters on disk or memorry. Instead of UTF-8, we could have ASCII or ANSI, among many others. But UTF-8 (Unicode) covers almost all of the characters and symbols in the world.
+
+> If you're confused about UTF-8/ANSI etc, you're not alone. Read discussions on [StackOverFlow](http://stackoverflow.com/questions/700187/unicode-utf-ascii-ansi-format-differences) and [The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets](http://www.joelonsoftware.com/articles/Unicode.html).
 
 Once the `head` element is ready, add some markup inside the `body` element of the web page:
+
 ```html
 <body>
     <article>
-    <h1>1980's Home Computers</h1>
-    <p>In early 1980's, home computers became mainstream. For the first time, computers could be
-        purchased by an average family household.</p>
+        <h1>1980's Home Computers</h1>
+        <p>In early 1980's, home computers became mainstream. For the first time, computers could be purchased by an average family household.</p>
 
-    <h2>Clever uses</h2>
-    <p>The main usage for a home computer was, of course, games. As cool games may not be a valid reason
-        for purchasing an expensive gadget, a wide variety of potential uses were invented to satisfy those
-        family members who might otherwise be sceptical.</p>
-    
-    <h2>Legendary computers</h2>
-    <p>The best known computer of the eighties was Commodore 64, but there are other computers that gained popularity.</p>
+        <h2>Clever uses</h2>
+        <p>The main usage for a home computer was, of course, games. As cool games may not be a valid reason for purchasing an expensive gadget, a wide variety of potential uses were invented to satisfy those family members who might otherwise be sceptical.</p>
 
-    <h2>Key concepts</h2>
-    <p>The hardware charateristics of a home computer could be defined by its graphics and sound capabilities, CPU, and amount of memory.</p>
+        <h2>Legendary computers</h2>
+        <p>The best known computer of the eighties was Commodore 64, but there are other computers that gained popularity.</p>
+
+        <h2>Key concepts</h2>
+        <p>The hardware charateristics of a home computer could be defined by its graphics and sound capabilities, CPU, and amount of memory.</p>
     </article>
 </body>
 ```
 
-Open the file in a browser by selecting **Current file (static)**. The page is displayed using the browser´s built-in style settings. We can later change how the page looks using CSS (Cascaded Style Sheets).
+Open the file in a browser by right-click computers80.html in Workspace tool window and then select Preview. The page is displayed using the browser's built-in style settings. We can later change how the page looks using CSS (Cascaded Style Sheets).
 
-Later, when you amend your code, just hit **Refresh** button in your browser (F5 in many browsers) to show the updated content.
+![](.md_images/hello.png)
+
+> If you don't want to type yourself to fill the space, instead of copy/paste, you can use [Lorem ipsum](https://en.wikipedia.org/wiki/Lorem_ipsum).
+
+Later, when you amend your code, just hit **Refresh** icon in the built-in broswer to show the updated content.
+
+![](.md_images/refresh.png)
 
 ### Paragraphs and headers
 
-In your web page, we have used a few of HTML5 block elements.
+All visual HTML elements have a display type, the most common of this are **block** and **inline**. In your web page, we have used a few of HTML5 block elements.
 
 The direct subelements of the `body` element in the example are block elements. This means that each of these elements uses a rectangular area of the resulting web page. By default, block elements are displayed in a browser in the same order as they appear in the HTML document. That is, the first header element `h1` is displayed before the consequent paragraph `p`, etc. 
 
 Some block elements can be nested. However, it is not legal to nest headers and paragraphs between each other.
 
-Note that header elements repsent the level of the header. Thus, all `h1` elements are the top-level headers (usually one per page), `h2` elements are second-level headers etc.
+Note that header elements represent the level of the header. Thus, all `h1` elements are the top-level headers (usually one per page), `h2` elements are second-level headers etc.
 
-
-### Validating the code
+### Validate the code
 
 Everyone writing HTML5 pages introduces errors into the code by mistake. These can be simple typos, or errors in the element structure.
 
 It is a good idea to check the page against syntax error using an automated tool called validator. For this purpose, open new browser window and go to [W3C Markup Validation Service](https://validator.w3.org/).
 
-Select **Validate by direct input** tag and copy-paste your code into the text area. Once you click the **Validate** button, you get feedback about your markup:
+Select **Validate by direct input** tag and copy-paste your code into the text area. Once you click the **Check** button, you get feedback about your markup:
+
 - If the page is error-free, a green bar appears. The page should be correctly viewable by any browser that follow the HTML5 syntax.
 - If the page contains errors, a red bar appears. Browsers may still be able to show its contents, but not necessarily in the intended way. You should correct the errors in the markup and revalidate.
 
@@ -103,13 +131,13 @@ Add some errors into your HTML5 code and see how the validator responds.
 
 You should validate frequently. Validation often helps you to spot problems, as you write your code. You should always validate all pages of your site before publishing.
 
-
 ### Lists
 
 Now, add a list inside your web page. Insert the following lines of code after the paragraph describing clever uses for home computers: 
 
 ```html
     <p>Some reasons often mentioned were:</p>
+
     <ul>
         <li>learning to write computer programs</li>
         <li>managing family finances</li>
@@ -124,51 +152,59 @@ The `ul` element describes an unordered list. It contains three list items (deno
 See what happens, when you change the list type to ordered list (`ol`).
 
 Next, try a definition list. Add the following piece of code into the very end of the document, right before the `</article>` end tag:
+
 ```html
     <p>There are two types of memory:</p>
 
     <dl>
         <dt>RAM</dt>
-        <dd>Random access memory. The memory usable by programs. The amount was typically
-        in the ballpark of 20 to 64 kilobytes. However, the Basic interpreter by default
-        consumed a part of this.</dd>
+        <dd>Random access memory. The memory usable by programs. The amount was typically in the ballpark of 20 to 64 kilobytes. However, the Basic interpreter by default consumed a part of this.</dd>
 
         <dt>ROM</dt>
-        <dd>Read-only memory. This was normally smaller in size than RAM and roughly
-        corresponded to the hardware implementation of the operating system.</dd>
+        <dd>Read-only memory. This was normally smaller in size than RAM and roughly corresponded to the hardware implementation of the operating system.</dd>
     </dl>
 ```
 
 The definitions list contains two elements for each item: a `dt` for term and a `dd` for definition.
 
-
 ### Images
 
 In HTML5, images are put inside a `figure` element. The `figure` element normally contains one image, possibly with a caption, but technically it can serve as a container for multiple images.
 
-Now, add an image of a computer into the document. Add the following lines of code in an appropriate place, directly inside the `body` element:
+In the Workspace tool window, create a new folder called 'images'. Add an image of a computer into this folder by using the File ==> Upload Local Files menu. 
+
+> Organize your folders/projects properly using sub-folders such as images/js/css. See [here](https://www.reddit.com/r/webdev/comments/3afdb8/website_directory_structure_bestpractices/) for a discussion on Reddit.
+
+![](.md_images/upload.png)
+
+You can use the image below if you wish.
+
+![](.md_images/computer.png)
+
+Now,  Add the following lines of code in an appropriate place, directly inside the `body` element:
 
 ```html
-    <figure>    
-        <img src="img/computer.png" alt="A computer with a monitor"/>
-        <figcaption>Photo: Piotr Siedlecki, public domain via http://www.publicdomainpictures.net.</figcaption>
-    </figure> 
+<figure>
+    <img src="images/computer.png" alt="A computer with a monitor"/>
+    <figcaption>Photo: Piotr Siedlecki, public domain via http://www.publicdomainpictures.net.</figcaption>
+</figure>
 ```
-
 
 There are a couple of notable things about the `img` element:
 
-1. It is an empty element. An empty element doesn't have any content, and could be closed immediately, like this: `<img></img>`. However, for convenience, the end tag may be omitted and this be notified by an extra `/` character in the end of start tag, like this: `<img />`. (There are other empty elements besides `img`. One of the most widely used is `hr` for creating a horizontal rule and written as `<hr />`.)
-
+1. It is an void element. An void element doesn't have any content, and can be closed immediately, like this  `<img >`. For convenience it can also be closed like this `<img />`. The extra `/` character in the end is not essential.  However,  `<img >` must **NOT** be closed like this `<img></img>`, which is a syntax error.
+    
+    > There are other void elements besides `img`. One of the most widely used is `hr` for creating a horizontal rule and written as `<hr>`. Void elements are not to be confused with self-closing tags. For void elements it's **illegal** to write `<img></img>` or `<hr></hr>`, but for self-closing tags such as `<li>` or `<body>` you can safely ignore closing tags `</li>` or `</body>`. 
+    
+    > Click [here](https://www.w3.org/TR/html-markup/syntax.html) for a comprehensive list of void elements, [here](http://stackoverflow.com/questions/3558119/are-self-closing-tags-valid-in-html5) and [here](http://stackoverflow.com/questions/5641997/is-it-necessary-to-write-head-body-and-html-tags) for discussions on StackOverFlow. [To close or not to close tags](http://blog.teamtreehouse.com/to-close-or-not-to-close-tags-in-html5), that is the question.
+    
+    
 2. For an image to be displayed, it requires additional information in form of attribute/value pairs. The attribute/value pairs above, are given within the start tag in form of `attribute="value"`. Multiple definitions are separated by space. Two of attribute/value pairs are mandatory for images:
 
 | Attribute | Purpose                                                                                                                                     |
 |-----------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| src      | For locating the image file. The file path is normally given as relative,path, starting from the directory where the html file is located.  |
+| src       | For locating the image file. The file path is normally given as relative,path, starting from the directory where the html file is located.  |
 | alt       | For displaying an alternative text if the image cannot be displayed, or if the user prefers using a screen reader for accessibility purposes. |
-
-
-
 
 ### Links
 
@@ -178,24 +214,25 @@ Now, add a link to a Wikipedia article to your web page, in a suitable location 
 <p>Read the <a href="http://en.wikipedia.org/wiki/Retrocomputing">Wikipedia article for Retrocomputing</a>.</p>
 ```
 
-Test the functionality in the browser.
+To test the functionality in the browser, you need to run the Apache server first, and then choose a proper browser (not the defalt one). This was in lab1 if you cannot remember. The following image was generated using Chrome on Windows. Once you click the link, you'll be directed to the wiki page you specified earlier.
+
+![](.md_images/wiki.png)
 
 A link, defined by `a` element contains the URL of the linked web page as its `href` attribute. The link above contains an absolute path to a document in the external server. Absolute path begins will full protocol identifier and domain nime.
 
 Unlike block elements (such as `h1` or `p`), links are inline elements: they always need a block element as a container and they are considered as a running part of the content of the parent block element.
 
 A relative link is intended for links within the same domain. The parsing of the file path starts from the default directory, which is the directory where the containing HTML document is located. For instance:
+
 - `"document.html"` points to a document of that name in the default directory.
 - `"info/document.html"` points to a document in `info` subdirectory of the default directory.
 - `"../document.html"` points to a document in the parent directory of the default directory. (Note that, for security reasons, web servers prohibit the traversal of server's directory structure outside the dedicated document root folder.)
 
 Add a link or two to suitable places in **computers80.html**.
 
-
 ### Test your understanding
 
 1. Create a Commodore 64 web page to the same web site. To do this, create a file called **commodore64.html** and include the following content, properly marked in HTML. Finally, link the main page (computers80.html) to your new page by adding a link from the correct list item.
-
 
 ```html
 Commodore 64
@@ -224,7 +261,7 @@ Back to Main page (link)
 
 2. Validate your newly-created web page and correct any potential errors.
 
-## 2 Tables
+## Tables
 
 The second task focuses on HTML tables.
 
@@ -238,33 +275,36 @@ Verify that you understand the elements used in marking up the table:
 - `th` for a header cell. Inside the `tr` element corresponding to the header row (usually the topmost row), each column heading is given using this element.
 - `td` for a table data cell, i.e. regular table cell.
 
+> A summary of all HTML table tags can be found [here](http://www.w3schools.com/html/html_tables.asp).
 
 ### Test your understanding
+
 1. Modify the table structure to contain a column for Spectravideo home computer. Its data is: Spectravideo SV-328, Zilog Z80A CPU, 64kB RAM, 32kB ROM.
 2. Generate two additional rows where each row should have a multi-column cell (use `colspan` attribute):
+
     - Main usage: home computing (for all computers, a single cell should span over four columns)
     - Killer game: Jet Set Willy (for Commodore 64 and ZX Spectum, in a merged cell covering two colums), Jelly Monsters (for VIC-20), and  Armoured Assault for Spectravideo.
 
-
-
-## 3 New features, semantic elements
+## New features, semantic elements
 
 Two benefits of using HTML5 are easier inclusion of multimedia content and better semantic markup possibilities for the content. 
 
-
 ### Audio and video ###
 
-Inclusion of audio and video files is easy.
+Inclusion of audio and video files is easy. In the lab's `assets` folder, there is a sample public domain audio clip. Download to you computer and then upload to your own `assets` folder (create it first).
 
-In the lab's `audio` folder, there is a sample public domain audio clip. Include that in a web page by adding the following HTML5 code:
+The audio file can then be included in a web page by adding the following HTML5 code:
+
 ```html
 <audio controls>
-    <source src="audio/tune.mp3" type="audio/mp3">
+    <source src="assets/tune.mp3" type="audio/mp3">
     Your browser does not support the audio element.
 </audio>
 ```
 
 The incorporation of videos is similar to audio elements, except for that the corresponding tag is `video`. For large videos, the file size limit in Codio can, however, hinder the use of anything but small video clips.
+
+> For YouTube vidoes, however, the format is different. See [w3school page](http://www.w3schools.com/html/tryit.asp?filename=tryhtml_youtubeiframe) for an example 
 
 ### Semantic elements
 
@@ -284,6 +324,7 @@ The summary of some key semantic elements to describe the contents of the web pa
 | header  | introductory content                                       | welcome texts            |
 | footer  | "smallprint" content, usually in the end.                  | contact data, disclaimer |
 
+![](http://www.w3schools.com/html/img_sem_elements.gif)
 
 There are more semantic elements to clarify the content, such as `thead`, `tbody` and `tfoot` elements inside the tables.
 
@@ -292,6 +333,7 @@ The use of semantic elements is encouraged, even though they are not yet in wide
 ### Test your understanding
 
 1. Generate a personal webpage of a fictitious student Jane Doe, or John Doe (or your own, if you prefer), that contains at least the information listed below. Use semantic elements when applicable.
+
     - personal data (first names, family name, date of birth)
     - image
     - short introduction

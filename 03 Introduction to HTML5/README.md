@@ -232,7 +232,7 @@ Add a link or two to suitable places in **computers80.html**.
 
 1. Create a Commodore 64 web page to the same website. To do this, create a file called **commodore64.html** and include the following content, properly marked in HTML. Finally, link the main page (computers80.html) to your new page by adding a link from the correct list item.
     
-```html
+    ```html
     Commodore 64
       History
         Commodore 64, abbreviated C64, was introduced in 1982 and gained worldwide  popularity. It is still the most sold computer in the world.
@@ -255,7 +255,7 @@ Add a link or two to suitable places in **computers80.html**.
         
     Back to Main page (link)
     
-```
+    ```
     
 2. Validate your newly-created web page and correct any potential errors.
 

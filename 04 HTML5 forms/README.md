@@ -68,7 +68,7 @@ Second input element's type is `submit` which generates a submit button for the 
 
 ### Test your understanding
 
-1. Create a file called **form-skel.html**. You can download from current workspace folder and then transfer to your C9 workspace. Or you can create a new file in your C9 workspace and copy/paste contents into it. The file can be found in [here]().
+1. Create a file called **form-skel.html**. You can download from current workspace folder and then transfer to your C9 workspace. Or you can create a new file in your C9 workspace and copy/paste contents into it. The file can be found in [here](https://github.com/covcom/205CDE/blob/c9/04%20HTML5%20forms/workspace/form-skel.html).
 2. Insert the required input elements in the file and check that you have them all. You can use text input type for all but submit button.
 
 ## Control inputs

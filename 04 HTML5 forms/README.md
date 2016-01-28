@@ -258,5 +258,5 @@ For example, a Finnish social security number (similar to UK National Insurance 
 
 ### Test your understanding
 
-* Open file **form_skel.html**. Validate the user's data in Student id, email address and score by using patterns.
+* Open file **form-skel.html**. Validate the user's data in Student id, email address and score by using patterns.
 

@@ -4,22 +4,31 @@ In this lab you learn to use CSS3 for defining the visual outlook of a web site.
 
 As you know by now, the purpose of HTML is to define the structure and content of a web site. It is not intended to contain any representational markup. CSS (Cascaded Style Sheets) is designed for that purpose.
 
+> CSS is amazingly powerful. As an example, click to visit [CSS Zen Garden](http://www.csszengarden.com). Different CSS files are applied to a single HTML file by clicking on the navigation links to the right of the screen. There's a book for it as well on [Amazon](http://www.amazon.co.uk/ZEN-CSS-Design-Visual-Enlightenment/dp/0321303474).
+
 This lab focuses on basic repsetentation (colors, fonts, etc.). The layout of the elements in a web page will be covered in the next lab.
 
-From now on, we use CSS as a synonym for CSS3, which is the newest version of the styling language.
-
-## Task list
-
-In the lab you do the following tasks:
+In the lab you do the following tasks, and it takes approximately 2 hours.
 
 1. Perform basic formatting (colors, fonts, etc.) of your web pages.
 2. Use CSS classes and identifiers to pick the correct elements 
 3. Fine-tune your selection by picking nested elements and using pseudoelements.
 
-This lab takes approximately 2 hours.
+> We use CSS as a synonym for CSS3, which is the newest version of the styling language.
+
+## Emmet
+
+Now you've (hopefully) learned how to write proper/valid HTML codes, it's the time to show you some tricks.
+
+> [Laziness is the mother of invention](http://innovators.vassar.edu/innovator.html?id=8).
 
 
-## 1 Style sheet basics
+[Emmet](http://emmet.io) is a plugin for text editors etc that saves your time from typing full HTML/CSS tags, some example usages can be found here](). Emmet is neabled by default in C9.
+
+
+
+
+## Style sheet basics
 
 The purpose of a style sheet is to collect all information on how the pages in a web site should be visually rendered, into one place.
 
@@ -347,4 +356,44 @@ You need the aforementioned file `simple.css`.
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+goo.gl/sbKh7H
+
+### Using CSS to change the look on forms
+
+### originally from Finland lab 06 html5 forms
+
+Remember the syntax for CSS rules
+```css
+selector {
+    property : value;
+    ....
+}
+```
+
+A useful selector for styling forms is CSS attribute selector which applies to an element with a particular attribute set to a value. For example
+```css
+input[type="text"] {
+    color : blue;
+}
+input[type="submit"] {
+    font-weight : bold;
+}
+```
+Of course you can use also the normal selectors for elements like `form`, `legend`, `fieldset`, etc. Unfortunately support for styling form controls is inconsistent across browsers. 
+Therefore you should always check that the results are what is expected.
 

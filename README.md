@@ -50,7 +50,7 @@ Forms, semantic tags
 
 ## Week 3 CSS
 
-### Introducing CSS
+### Introduction to CSS
 
 **Contents**
 

@@ -22,11 +22,29 @@ Now you've (hopefully) learned how to write proper/valid HTML codes, it's the ti
 
 > [Laziness is the mother of invention](http://innovators.vassar.edu/innovator.html?id=8).
 
+[Emmet](http://emmet.io) is a plugin for text editors etc that saves your time from typing full HTML/CSS tags. Emmet is neabled by default in C9 through the Plugin Manager.
 
-[Emmet](http://emmet.io) is a plugin for text editors etc that saves your time from typing full HTML/CSS tags, some example usages can be found here](). Emmet is neabled by default in C9.
+![](https://a.disquscdn.com/uploads/mediaembed/images/3016/7557/original.jpg)
 
+In C9 start a new workspace and name it lab5. Open the auto-generated hello-world.html file and remove all contents. Type in the exclamation mark and immediately hit tab key. What happened? 
 
+![](.md_images/ex.png).
 
+What you should have seen is that the editor expands the single character into a full HTML template. Behind the scene it's Emmet that does the job.
+
+![](.md_images/expand.png).
+
+There're other tricks you can do as well:
+
+* Type `table1` and hit tab immediately, it will expand into full table element.
+    
+    ![](.md_images/tb.png).
+    
+* Type `ul>li*8` and hit tab immediately, it will expand into full list element.
+    
+    ![](.md_images/ul.png).
+
+Some more example usages can be found [here](https://www.smashingmagazine.com/2013/03/goodbye-zen-coding-hello-emmet/).
 
 ## Style sheet basics
 

@@ -1,7 +1,23 @@
-# JavaScript Tools
+# JavaScript syntax
+
+From this week we start doing JavaScript, which is the language for the modern web development, and also the language of the future.
+
+> [What Is The Most Valuable Programming Language To Know For The Future And Why?](http://www.forbes.com/sites/quora/2014/07/14/what-is-the-most-valuable-programming-language-to-know-for-the-future-and-why/#425503b66439)
+
+You need to learn JS for the following reasons (since I've been asked several times in the past):
+
+1. You want to use JS to add interactivity to your website, which greatly enhances user experience.
+2. JS is an essential component of Bootstrap, which is a popular font-end framework introduced later in the module.
+3. You need JS for your 3rd year module [305CDE Developing the Modern Web 2](https://github.com/covcom/305CDE), that teaches [full stack JavaScript development](https://www.smashingmagazine.com/2013/11/introduction-to-full-stack-javascript/).
+
+> To help you get acquainted with the syntax used in JavaScript, use a tutorial such as [Mozilla developer network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction) or [W3Schools JavaScript tutorial](http://www.w3schools.com/js/). You will learn that several JavaScript constructs, such as the control structures are very similar to Java.
+
+## Edit and test JS code
+
+>  Instruction on using pre-existing files were given [here](https://github.com/covcom/205CDE/blob/c9/05%20Introduction%20to%20CSS3/README.md#pre-existing)
 
 
-## 1 Editing and Testing JavaScript Code
+
 
 In the sidebar, locate the folder `labs/07 JavaScript Tools/` and open the file  `basic_math.html` . You can now make changes to the code. To preview the page (and run your program) you need to view it in a new tab in your web browser. At the top of the screen you should see a menu item called *Project Index (static)* and next to this a small drop down arrow. 
 
@@ -9,7 +25,7 @@ Make sure the html code is open then click on the arrow to open the menu. Make s
 
 Try out the application by entering different values and clicking on the Calculate link.
 
-### 1.1 Test Your Understanding
+### Test your understanding
 
 1. the values read from the text boxes are stored as *strings*. Modify the code to store the quantity to an *integer* and the price, tax and discount as *floats* (hint, check the crib sheet).
 2. modify the JS code to double the discount applied when the quantity ordered is greater than 100 items
@@ -17,9 +33,6 @@ Try out the application by entering different values and clicking on the Calcula
 
 As you edit the file in Codio it auto-saves. To view the view version simply refresh the web browser tab running your web page.
 
-### 1.2 JavaScript source material
-
-To help you get acquainted with the syntax used in JavaScript, use a tutorial such as [W3Schools JavaScript tutorial](http://www.w3schools.com/js/). You will learn that several JavaScript constructs, such as the control structures are very similar to Java.
 
 ## 2 Chrome Developer Tools
 To follow this example you will be using the Chrome Developer Tools.

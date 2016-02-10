@@ -80,7 +80,7 @@ Examine the CSS file and verify that you understand its contents. Pay attention 
 
 Even though the CSS file is present, it has no effect as it is not currently linked to any HTML document. The next step is to link it to a file called **csstest.html** in your C9 workspace. 
 
-> There're two ways to create this file in your own workspace:
+> <a name='pre-existing'></a> There're two ways to create this file in your own workspace:
 > * You can simply create a new file in your workspace called csstest.html, and make it identical to our example by copying the contents over. The existing file that can be found [here]().
 > * Alternatively, you can clone the whole module's GitHub repository into your own workspace, and pull changes each time the module's repository gets updated. Mark Tyers has written a set of instructions that can be found [here](https://github.com/covcom/305CDE/blob/master/README.md).
 

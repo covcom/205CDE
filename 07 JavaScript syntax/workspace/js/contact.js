@@ -8,25 +8,23 @@ function process() {
 
     // Variable to represent validity:
     var okay = true;
-    
+
     // Get form references:
     var email = document.getElementById('email');
     var comments = document.getElementById('comments');
     // Validate the email address:
-    if (!email || !email.value 
-    || (email.value.length < 6) 
-    || (email.value.indexOf('@') == -1)) {
+    if (!email || !email.value || (email.value.length < 6) || (email.value.indexOf('@') == -1)) {
         okay = false;
         alert('Please enter a valid email address!');
     }
 
     // Validate the comments:
     var maxLength = 100;
-    if (!comments || !comments.value 
-    || (comments.value.indexOf('<') != -1) ) {
+    if (!comments || !comments.value || (comments.value.indexOf('<') != -1)) {
         okay = false;
         alert('Please enter your comments, without any HTML!');
-    } else if (comments.value.length > maxLength) {
+    }
+    else if (comments.value.length > maxLength) {
         okay = false;
         var originalText = comments.value;
         // Find the last space before the limit:
@@ -38,7 +36,7 @@ function process() {
 
         alert('Comment was trimmed under ' + maxLength + ' characters');
     }
-        
+
     // Normally you would "return okay;" here to submit/block the form submission
     // return okay;
 
@@ -46,7 +44,8 @@ function process() {
     var message;
     if (okay) {
         message = "Form submitted";
-    } else {
+    }
+    else {
         message = "Form not submitted";
     }
     console.log(message);
@@ -56,7 +55,7 @@ function process() {
 
     // Prevent submission for the purposes of this example:
     return false;
-    
+
 } // End of process() function.
 
 // Initial setup:

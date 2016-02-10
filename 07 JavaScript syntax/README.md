@@ -10,11 +10,13 @@ You need to learn JS for the following reasons (since I've been asked several ti
 2. JS is an essential component of Bootstrap, which is a popular front-end framework introduced later in the module.
 3. You need JS for your 3rd-year module [305CDE Developing the Modern Web 2](https://github.com/covcom/305CDE), that teaches [full stack JavaScript development](https://www.smashingmagazine.com/2013/11/introduction-to-full-stack-javascript/).
 
-> To help you get acquainted with the syntax used in JavaScript, use a tutorial such as [Mozilla developer network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction) or [W3Schools JavaScript tutorial](http://www.w3schools.com/js/). You will learn that several JavaScript constructs, such as the control structures are very similar to Java.
-
-## Edit and test JS code
+To help you get acquainted with the syntax used in JavaScript, use a tutorial such as [Mozilla developer network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction) or [W3Schools JavaScript tutorial](http://www.w3schools.com/js/). You will learn that several JavaScript constructs, such as the control structures are very similar to Java.
 
 > For this and following labs you'll need to clone the module repository in your C9 workspace. Instruction were given [here](https://github.com/covcom/305CDE).
+
+> Some of the JS exercises were based on tutorials written by [Colin Stephen](https://github.com/c0lin). 
+
+## Edit and test JS code
 
 In the Workspace tool window navigate to lab7 ==> workspace, the folder structure is like this:
 
@@ -127,6 +129,7 @@ Sometimes your attempts to change the code will introduce bugs. A bug is usually
 
 Let's get familiar with the debugger:
 
+1. Make sure you're viewing your webpage using the live privew in a new tab. This is important.
 1. Click on the Sources tab and open the notes.js file
 2. Click in the margin to add a breakpoint to the first line of the addItem() function.
 3. Refresh the browser, type in a new item and click the button. The execution will pause at the breakpoint without running line 5.

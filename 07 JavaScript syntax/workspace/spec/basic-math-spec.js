@@ -8,7 +8,7 @@ casper.test.begin('can multiply quantity and price', function suite(test) {
     this.fill('form#theForm', {
         'quantity': '10',
         'price': '5'
-    }, true);
+    });
   });
 
   casper.thenClick('input#submit', function() {

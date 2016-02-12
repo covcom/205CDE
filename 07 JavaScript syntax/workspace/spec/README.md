@@ -7,6 +7,14 @@ Welcome to the world of _automated testing_. Here, we write a script to test our
 
 The scripts are run on the web server and are written in a flavour of JavaScript called ECMA6, you should take a few moments to learn more about this. They use a framework called **NodeJS** which you will learn more about next year in 305CDE. For now you will be shown the steps needed to run the tests.
 
+The first step is to update NodeJS to the latest version (5.6.0 at time of writing). Updating is done using the Node Version Manager (NVM) which will need to be installed.
+```
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
+nvm install 5.6.0
+nvm alias default 5.6.0
+node -v
+```
+
 NodeJS allows the use of third-party _modules_ and we will be using two of these which we will install globally:
 
 1. **phantomjs** is a _headless web browser_ based on _Webkit_ which powers the _Safari web browser).

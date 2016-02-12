@@ -1,6 +1,6 @@
 /* global casper */
 
-const url = 'https://covcom-marktyers.c9users.io/07%20JavaScript%20syntax/workspace/basic_math.html';
+const url = 'PUT YOUR URL HERE';
 
 casper.test.begin('can multiply quantity and price', function suite(test) {
   

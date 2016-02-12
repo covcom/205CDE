@@ -30,7 +30,7 @@ casper.test.begin('can apply a sales tax', function suite(test) {
         'quantity': '10',
         'price': '5',
         'tax': '20'
-    }, true);
+    });
   });
 
   casper.thenClick('input#submit', function() {

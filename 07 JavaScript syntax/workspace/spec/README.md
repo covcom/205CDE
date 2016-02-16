@@ -30,9 +30,9 @@ Load the web page `basic_math.html` file and use the run button to start the _Ap
 
 ## Running the Tests
 
-The acceptance tests are run from the terminal.
+The acceptance tests are run from the terminal. There are several optional flags you should try. Find out what the `--concise` and `--fail-fast` flags do.
 ```
-casperjs test basic-math-spec.js
+casperjs test basic-math-spec.js --concise --fail-fast
 ```
 
 ## Test Your Knowledge

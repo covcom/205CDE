@@ -3,12 +3,13 @@
 /* Before running these acceptance tests make sure your web app is running then paste in its URL below.*/
 const url = 'https://covcom-marktyers.c9users.io/07 JavaScript syntax/workspace/basic_math.html';
 
-casper.test.begin('can multiply quantity and price', 4, function suite(test) {
+casper.test.begin('can multiply quantity and price', 5, function suite(test) {
   
   casper.start(url, function() {
-    test.assertVisible('fieldset', 'form is visible');
-    test.assertExists('fieldset > p', 'form title is present');
-    test.assertSelectorHasText('fieldset > p', 'Calculate a bulk book order.', 'form title text is correct');
+    test.assertEquals(this.getTitle(), 'Bulk Order Calculator', 'check page title text')
+    test.assertVisible('fieldset', 'check form is visible');
+    test.assertExists('fieldset > p', 'check form title is present');
+    test.assertSelectorHasText('fieldset > p', 'Calculate a bulk book order.', 'check form title text');
     this.fill('form#theForm', {
         'quantity': '10',
         'price': '5'
@@ -17,7 +18,7 @@ casper.test.begin('can multiply quantity and price', 4, function suite(test) {
 
   casper.thenClick('input#submit', function() {
     var total = this.getFormValues('#theForm').total;
-    casper.test.assertEquals(total, '50.00', 'total is correct');
+    casper.test.assertEquals(total, '50.00', 'check total is correct');
   });
 
 
@@ -27,12 +28,13 @@ casper.test.begin('can multiply quantity and price', 4, function suite(test) {
   });
 });
 
-casper.test.begin('can apply a sales tax', 1, function suite(test) {
+casper.test.begin('can apply a sales tax', 5, function suite(test) {
   
   casper.start(url, function() {
-    test.assertVisible('fieldset', 'form is visible');
-    test.assertExists('fieldset > p', 'form title is present');
-    test.assertSelectorHasText('fieldset > p', 'Calculate a bulk book order.', 'form title text is correct');
+    test.assertEquals(this.getTitle(), 'Bulk Order Calculator', 'check page title text')
+    test.assertVisible('fieldset', 'check form is visible');
+    test.assertExists('fieldset > p', 'check form title is present');
+    test.assertSelectorHasText('fieldset > p', 'Calculate a bulk book order.', 'check form title text');
     this.fill('form#theForm', {
         'quantity': '10',
         'price': '5',
@@ -42,7 +44,7 @@ casper.test.begin('can apply a sales tax', 1, function suite(test) {
 
   casper.thenClick('input#submit', function() {
     var total = this.getFormValues('#theForm').total;
-    casper.test.assertEquals(total, '60.00', 'total is correct');
+    casper.test.assertEquals(total, '60.00', 'check total is correct');
   });
   
   casper.run(function() {
@@ -51,12 +53,13 @@ casper.test.begin('can apply a sales tax', 1, function suite(test) {
 
 });
 
-casper.test.begin('can apply a discount', 1, function suite(test) {
+casper.test.begin('can apply a discount', 5, function suite(test) {
   
   casper.start(url, function() {
-    test.assertVisible('fieldset', 'form is visible');
-    test.assertExists('fieldset > p', 'form title is present');
-    test.assertSelectorHasText('fieldset > p', 'Calculate a bulk book order.', 'form title text is correct');
+    test.assertEquals(this.getTitle(), 'Bulk Order Calculator', 'check page title text')
+    test.assertVisible('fieldset', 'check form is visible');
+    test.assertExists('fieldset > p', 'check form title is present');
+    test.assertSelectorHasText('fieldset > p', 'Calculate a bulk book order.', 'check form title text');
     this.fill('form#theForm', {
         'quantity': '10',
         'price': '5',
@@ -67,7 +70,7 @@ casper.test.begin('can apply a discount', 1, function suite(test) {
 
   casper.thenClick('input#submit', function() {
     var total = this.getFormValues('#theForm').total;
-    casper.test.assertEquals(total, '35.00', 'total is correct');
+    casper.test.assertEquals(total, '35.00', 'check total is correct');
   });
 
 
@@ -76,12 +79,13 @@ casper.test.begin('can apply a discount', 1, function suite(test) {
   });
 });
 
-casper.test.begin('double discount if qty greater than 100', 1, function suite(test) {
+casper.test.begin('double discount if qty greater than 100', 5, function suite(test) {
   
   casper.start(url, function() {
-    test.assertVisible('fieldset', 'form is visible');
-    test.assertExists('fieldset > p', 'form title is present');
-    test.assertSelectorHasText('fieldset > p', 'Calculate a bulk book order.', 'form title text is correct');
+    test.assertEquals(this.getTitle(), 'Bulk Order Calculator', 'check page title text')
+    test.assertVisible('fieldset', 'check form is visible');
+    test.assertExists('fieldset > p', 'check form title is present');
+    test.assertSelectorHasText('fieldset > p', 'Calculate a bulk book order.', 'check form title text');
     this.fill('form#theForm', {
         'quantity': '101',
         'price': '5',
@@ -92,7 +96,7 @@ casper.test.begin('double discount if qty greater than 100', 1, function suite(t
 
   casper.thenClick('input#submit', function() {
     var total = this.getFormValues('#theForm').total;
-    casper.test.assertEquals(total, '556.00', 'total is correct');
+    casper.test.assertEquals(total, '556.00', 'check total is correct');
   });
 
 
@@ -101,12 +105,13 @@ casper.test.begin('double discount if qty greater than 100', 1, function suite(t
   });
 });
 
-casper.test.begin('can add the shipping fee', 1, function suite(test) {
+casper.test.begin('can add the shipping fee', 5, function suite(test) {
   
   casper.start(url, function() {
-    test.assertVisible('fieldset', 'form is visible');
-    test.assertExists('fieldset > p', 'form title is present');
-    test.assertSelectorHasText('fieldset > p', 'Calculate a bulk book order.', 'form title text is correct');
+    test.assertEquals(this.getTitle(), 'Bulk Order Calculator', 'check page title text')
+    test.assertVisible('fieldset', 'check form is visible');
+    test.assertExists('fieldset > p', 'check form title is present');
+    test.assertSelectorHasText('fieldset > p', 'Calculate a bulk book order.', 'check form title text');
     this.fill('form#theForm', {
         'quantity': '10',
         'price': '5',
@@ -118,7 +123,7 @@ casper.test.begin('can add the shipping fee', 1, function suite(test) {
 
   casper.thenClick('input#submit', function() {
     var total = this.getFormValues('#theForm').total;
-    casper.test.assertEquals(total, '55.00', 'total is correct');
+    casper.test.assertEquals(total, '55.00', 'check total is correct');
   });
   
   casper.run(function() {

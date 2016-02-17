@@ -37,8 +37,10 @@ casperjs test basic-math-spec.js --concise --fail-fast
 
 ## Test Your Knowledge
 
-1. Write additional tests to the test suite to cover:
+1. The _test suite_ covers all the functional requirements including:
   - Applying a discount
   - Doubling the dicsount for orders of over 100 units
   - Shipping charges
-2. Write tests for the other lab challenges.
+2. Implement the requirements based on the instructions in the worksheet.
+3. Run the acceptance tests regularly to monitor your progress.
+4. When all the tests pass your have completed the web app, congratulations!

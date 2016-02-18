@@ -70,13 +70,13 @@ Box model, display, positioning
 
 [Ref.[3]](#ref3) chapter 9/10
 
-## Week 4 Javascript
+## Week 4 Javascript 1
 
 ### Javascript syntax
 
 **Contents**
 
-Intro, debugging, functions, testing
+Intro, syntax, debugging
 
 **Refs**
 
@@ -86,33 +86,33 @@ Intro, debugging, functions, testing
 
 **Contents**
 
-Closures, hoisting, prototypes
+functions and objects
 
 **Refs**
 
 [Ref.[3]](#ref3) chapter 13/14
 
-## Week 5 Javascript
+## Week 5 Javascript 2
 
-### JS, DOM, AJAX
+### Javascript modules
 
 **Contents**
 
-JSON, DOM
+Closures, modules, hoisting, prototypes
+
+**Refs**
+
+[Ref.[3]](#ref3) chapter 13/14
+
+### The Document Object Model (DOM)
+
+**Contents**
+
+JSON, Nodes, objects, selection, manipulation
 
 **Refs**
 
 [Ref.[3]](#ref3) chapter 15/16
-
-### Multimedia contents
-
-**Contents**
-
-Combining HTML, CSS, and JS for multimedia contents
-
-**Refs**
-
-[Ref.[3]](#ref3) chapter 22-25
 
 ## Week 6 Bootstrap
 
@@ -121,6 +121,8 @@ Combining HTML, CSS, and JS for multimedia contents
 **Contents**
 
 Intro, grid system, different components: page, navigation, forms
+
+testing
 
 **Refs**
 

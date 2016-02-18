@@ -1,7 +1,7 @@
 /* global casper, __utils__ */
 
 /* Before running these acceptance tests make sure your web app is running then paste in its URL below.*/
-const url = 'Add URL HERE';
+const url = 'ADD URL HERE';
 
 casper.test.begin('can add new item to list', 7, function suite(test) {
   
@@ -55,6 +55,39 @@ casper.test.begin('can add two different items', 6, function suite(test) {
     test.assertEquals(itemQty[0], '1', 'check first item quantity')
     test.assertEquals(itemNames[0], 'bread', 'check first item in list')
     test.assertEquals(itemQty[0], '1', 'check first item quantity')
+  });
+
+  casper.run(function() {
+    test.done();
+  });
+  
+});
+
+casper.test.begin('can delete an item', 5, function suite(test) {
+  
+  casper.start(url, function() {
+    casper.sendKeys('p >input#item', 'bread');
+  });
+
+  casper.thenClick('button#add', function() {
+  	casper.sendKeys('p >input#item', 'butter');
+  });
+  
+  casper.thenClick('button#add', function() {
+  	casper.capture('step1.png');
+  	test.assertElementCount('tr', 2, 'check rows have been added');
+  	casper.click('tr:nth-child(1) > td > a');
+  	casper.capture('step2.png');
+    var itemNames = casper.evaluate(function () {
+    	return [].map.call(__utils__.findAll('table tr td:nth-child(1)'), function (e) { return e.innerHTML; });
+    });
+    var itemQty = casper.evaluate(function () {
+    	return [].map.call(__utils__.findAll('table tr td:nth-child(2)'), function (e) { return e.innerHTML; });
+    });
+    test.assertElementCount('tr', 1, 'check rows remaining');
+    test.assertEquals(itemNames.length, 1, 'check number of items in list')
+    test.assertEquals(itemNames[0], 'butter', 'check name of item in list')
+    test.assertEquals(itemQty[0], '1', 'check qty of item in list')
   });
 
   casper.run(function() {

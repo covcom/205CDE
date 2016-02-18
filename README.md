@@ -108,7 +108,7 @@ Closures, modules, hoisting, prototypes
 
 **Contents**
 
-Nodes, objects, selection, manipulation
+JSON, Nodes, objects, selection, manipulation
 
 **Refs**
 

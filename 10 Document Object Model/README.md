@@ -8,7 +8,7 @@ The DOM is essentially a description of the elements on a web page along with th
 
 > Do these after a quick scan of the [MDN DOM introduction](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction).
 
-1. Load `map.html` and preview the functionality via Brackets
+1. Load `map.html` and preview the functionality in C9
 2. Observe that the `showCoords()` function sets the innerHTML property of a DOM element
 3. Also observe that the `addtext()` function dynamically adds a new element to the DOM ( a "text node").
     * Similarly you can add other HTML tags such as `<a>` or `<p>` etc., or update their attributes

@@ -1,7 +1,7 @@
 /* global casper */
 
 /* Before running these acceptance tests make sure your web app is running then paste in its URL below.*/
-const url = 'https://covcom-marktyers.c9users.io/07 JavaScript syntax/workspace/basic_math.html';
+const url = 'https://lab11-jianhuayang.c9users.io/casperjs/basic_math.html';
 
 casper.test.begin('can multiply quantity and price', 5, function suite(test) {
   

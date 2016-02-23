@@ -1,4 +1,5 @@
 /* global notes, expect */
+/* global pending */
 
 describe('notes module', () => {
 	
@@ -16,10 +17,21 @@ describe('notes module', () => {
     expect(notes.count()).toBe(6);
 	});
 
-	xit("should ignore blank notes", () => {
+	it("should ignore blank notes", () => {
     expect(notes.add('')).toBe(false);
     expect(notes.count()).toBe(5);
 	});
-  it('should ignore notes containing only whitespace');
-  it('should require a string parameter');
+
+
+//   it("should be able to add a new note");
+// 	xit("should ignore blank notes");
+  it('should ignore notes containing only whitespace', ()=>{
+    expect(notes.add('   ')).toBe(false);
+    expect(notes.count()).toBe(5);
+    pending();
+  });
+  xit('should require a string parameter', ()=>{
+    expect(notes.add()).toBe(false);
+    expect(notes.count()).toBe(5);
+  });
 });

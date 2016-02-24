@@ -104,8 +104,8 @@ Add more content to the page and test the outcome in a browser. Test responsiven
 ### Test your understanding
 
 Add the following elements into the **game.html** page:
-    a. a well (a gray area with rounded edges), that contains facts about Mars.
-    b. home, previous and next buttons (functionality not required). Use pager class.
+* a well (a gray area with rounded edges), that contains facts about Mars.
+* home, previous and next buttons (functionality not required). Use pager class.
 
 ## Bootstrap JS
 

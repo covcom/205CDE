@@ -1,13 +1,12 @@
 # Bootstrap framework
 
-CSS3 introduced media query technique to check browser properties such as window size or orientation. Using media queries, one can build webisits suitable to be viewed using different browswers on differnt platforms. In other words, the goal is to build responsive websites, i.e. sites that scale well when viewed by various devices such as dekstop and mobile devices. 
+CSS3 introduced media query technique to check browser properties such as window size or orientation. Using media queries, one can build websites suitable to be viewed using different browsers on different platforms. In other words, the goal is to build responsive websites, i.e. sites that scale well when viewed by various devices such as desktop and mobile devices. 
 
 ![](http://www.w3schools.com/css/rwd_desktop.png)
 
-
 ![](http://www.w3schools.com/css/rwd_phone.png)
 
-Bootstrap is a popular front-end framework (HTML, CSS, and JS)that provides responsiveness -- it simplifies the design of a web site and makes it much easier to create sites that are responsive. 
+Bootstrap is a popular front-end framework (HTML, CSS, and JS)that provides responsiveness -- it simplifies the design of a website and makes it much easier to create sites that are responsive. 
 
 ## Bootstrap CSS
 
@@ -22,12 +21,14 @@ First, open a HTML5 file called **game.html**. Insert the following lines inside
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 ```
+
+> Most online tutorials use HTTP protocol for Bootstrap hosting. But here on C9, you'll have to use https to be consistent with jQuery.
 
 Note here we included a link to the jQuery library. This is required by the Bootstrap framework.
 
@@ -72,7 +73,7 @@ Now, you can apply the grid model of bootstrap to divide the area below the prev
 </div>
 ```
 
-Try the page in browser. Resize the window to emulate a mobile device.
+Try the page in the browser. Resize the window to emulate a mobile device.
 
 Above, the grid model was specified by including three div-elements specifying class `col-sm-4`. In Bootstrap, the content area is split into 12 parts. Thus, for example, two equally wide elements would be obtained by class `col-sm-6`.
 
@@ -96,7 +97,7 @@ For Bootstrap reference, use sources such as:
 
 - W3Schools Bootstrap tutorial: http://www.w3schools.com/bootstrap/
 - Tutorial Republic Bootstrap tutorial: http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/
-- Bootstrap home page: http://getbootstrap.com/
+- Bootstrap homepage: http://getbootstrap.com/
 
 Add more content to the page and test the outcome in a browser. Test responsiveness by resizing the browser window and/or opening the page in a mobile device.
 
@@ -110,30 +111,32 @@ Add the following elements into the **game.html** page:
 
 Besides CSS stylesheets for responsive designs, Bootstrap also includes some Javascript functionality. A popular Bootstrap JS component is carousel.js. 
 
-Take a look at the official documentation to see the 'end product', click [here](http://getbootstrap.com/javascript/#carousel).
+Take a look at the official documentation to see the some examples, click [here](http://getbootstrap.com/javascript/#carousel).
 
-The official documentation of Bootstrap is, however, difficult to understand. In the reading list I recommended a book titled ['Jump Start Bootstrap'](http://www.sitepoint.com/store/jump-start-bootstrap/). The source code of examples used in the book can be found [here](https://github.com/spbooks/jsbootstrap1). Click on the link and navigate to **Chapter_4.zip**. 
+The official documentation of Bootstrap is, however, somehow difficult to understand. In the reading list, I recommended a book titled ['Jump Start Bootstrap'](http://www.sitepoint.com/store/jump-start-bootstrap/). The source code of examples used in the book can be found [here](https://github.com/spbooks/jsbootstrap1). 
 
-Now, download **Chapter_4.zip** and unzip it. Upload all contents into your C9 workspace.
+Click on the link mentioned above and navigate to **Chapter_4.zip**. Download **Chapter_4.zip** and unzip it on your computer. Upload all contents into your C9 workspace.
 
 ![](.md_images/ch4.png)
 
 > For copyright reasons the files are not included in the module repository. 
 
-Note the carousel part starts from line 256. 
+Preview the index.html page, and navigate down to where you see images of posh cars.
 
+![](.md_images/car.png)
+
+Note the carousel part starts from line 256 in the source code:
+
+* Every carousel plugin has three subsections in it: indicators, body, and controls.
+* Indicators are the little dots, body is the actual image, and controls are chevrons.
+* Indicators are lists, and the number of list items corresponds to the number of images.
+* Extensive `div` tags are being used.
 
 ### Test your understanding
 
-
-
-* In your workspace, create a new file and 
-
-
-
-
-
-
+1. In your workspace, create a new HTML file and copy the carousel part over from index.html, in addition to the `head` part.
+1. Replace the `img` tag, use images with absolute path i.e. 'http://...' instead
+2. The Bootstrap API doesn't allow you to change the sliding speed. Try and figure out a way of doing it. (hint: Google)
 
 
 

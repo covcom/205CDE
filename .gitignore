@@ -81,3 +81,6 @@ Thumbs.db
 # codio files
 *.codio
 *.c9
+
+# lab12 example from book 'jump start bootstrap'
+Chapter_4/

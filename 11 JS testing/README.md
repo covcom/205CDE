@@ -375,6 +375,8 @@ nvm install stable
 node -v
 ```
 
+[comment]: <> (http://stackoverflow.com/questions/30631725/update-node-js-version-inside-cloud-9-ide)
+
 ![](.md_images/node.png)
 
 NodeJS allows the use of third-party _modules_ and we will be using two of these which we will install globally:

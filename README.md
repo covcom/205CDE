@@ -10,7 +10,7 @@ This repository contains material used for 205CDE Developing the Modern Web 1 at
 
 **Contents**
 
-C9 IDE, basic Linux command line operations: directory manipulation, file permissions etc.
+C9 IDE, basic Linux command line operations: directory manipulation, file permissions, Apache server etc.
 
 **Refs**
 
@@ -20,7 +20,7 @@ C9 IDE, basic Linux command line operations: directory manipulation, file permis
 
 **Contents**
 
-Git version control: add, remove, branch, merge etc.
+Git version control: add, remove, branch, merge, fetch etc.
 
 **Refs**
 
@@ -76,7 +76,7 @@ Box model, display, positioning
 
 **Contents**
 
-Intro, syntax, debugging
+Intro, data type, syntax, debugging
 
 **Refs**
 
@@ -108,7 +108,7 @@ Closures, modules, hoisting, prototypes
 
 **Contents**
 
-JSON, Nodes, objects, selection, manipulation
+DOM, nodes, objects, selection, manipulation, JSON
 
 **Refs**
 
@@ -131,8 +131,7 @@ Test-driven development, unit testing, Jasmine JS, CasperJS
 
 **Contents**
 
-Intro, grid system, different components: page, navigation, forms, 
-Bootstrap JS integration, dropdowns, alert, tabs, scrolllspy etc
+Intro, grid system, different components: well, navigation, forms, Bootstrap JS integration, dropdowns, carousel etc
 
 **Refs**
 
@@ -143,6 +142,8 @@ Bootstrap JS integration, dropdowns, alert, tabs, scrolllspy etc
 ### SQL (recall)
 
 **Contents**
+
+Module 104KM
 
 SQL basics, data types, commands, syntax: create, select etc.
 
@@ -165,6 +166,8 @@ Database design, normalization, relationship, transaction
 ### Python syntax (recall)
 
 **Contents**
+
+Module 110CT
 
 Loops, function, array
 

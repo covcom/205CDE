@@ -363,8 +363,11 @@ Another set of functions that are useful when you work with JS are called JSON f
 
 ### Advanced features
 
+The CRUD operations you saw ealier can be done in Excel or alike, and probably you can do much quicker there. But in this session you'll learn something that cannot be done in spreadsheet applications, or at lease not in an obvious way.
 
 #### Some house keeping
+
+Use the code below to create a new table that contains some details of office room capacity. In this case we only have 3 records, as opposed to 4 different rooms in table l1.
 
 ```sql
 CREATE TABLE building (Room, Capacity);
@@ -391,8 +394,9 @@ Room        Capacity
 305         2    
 ```
 
-
 #### Join
+
+SQLite supports two types of joins. Use inner join is when you want to get only those records from database tables that have matching values.
 
 ```sql
 sqlite> SELECT *
@@ -423,6 +427,7 @@ Id          Name        Room        Building                   Age         Capac
 3           Carl        305         EC                         38          2         
 ```
 
+On the other hand, an outer join does not require each record in the two joined tables to have a matching record.
 
 ```sql
 sqlite> SELECT *
@@ -446,13 +451,57 @@ Id          Name        Room        Building                   Age         Capac
 4           Steve       301         EC                         28                    
 ```
 
-#### Trigger
+In both inner and outer join, SQLite supports natual join. This is when the two tables share the same column names. To avoid confusion, both to you and the system, always specify the column name.
 
-#### Index
+#### View, index, trigger, and transaction
+
+In setead of creating sub-tables from existing tables, you can also create Views. Views are like pivot tables in excel in the sence that it gets updated automatically when it's 'mother' tables are updated.
+
+```sql
+CREATE VIEW level4 AS SELECT * FROM l1 WHERE room > 399;
+```
+
+To enable fast searching, you should build some indexes on the columns that you run query against. Unlike MySQL, indexing in SQLite cannot be done when you create the table.
+
+```sql
+CREATE UNIQUE INDEX ind_id
+on l1 (id);
+
+CREATE INDEX ind_name
+on l1 (name);
+```
+
+Another useful feature is the trigger. By the name you can guess that it triggers curtain action when some criteria are met.
+
+> The example below is a bit too artificial, but you get the idea
+
+```sql
+CREATE TRIGGER update_room UPDATE OF room ON l1 
+  BEGIN
+    UPDATE building SET room = new.room WHERE room = old.room;
+  END;
+```
+
+Normally when you operate on the data you're using transactions implicitly. That means you make changes and commit. But you can also define a transaction explicitly, so that when one operation fails the state of the dabtabase rolls back to before the transaction starts.
+
+```sql
+BEGIN TRANSACTION;
+-- some SQL code goes here
+COMMIT;
+```
+
+In this example, `--` is the line comment used in SQL. Block comment can be done using `/* ... */`.
 
 #### Normalization
 
+SQL tables should be normalized. In other words, table rows and columns should contain no duplicated infomation.
 
+Some principles for normalization are:
+
+* There should be no repeating columns containing the same kind of data.
+* All columns should contain a single value.
+* There should be a primary key to uniquely identify each row.
+* Now redundancy across multiple rows.
 
 
 

@@ -458,39 +458,60 @@ In both inner and outer join, SQLite supports natural join. This is when the two
 In stead of creating sub-tables from existing tables, you can also create Views. Views are like pivot tables in excel in the sense that it gets updated automatically when it's 'mother' tables are updated.
 
 ```sql
-CREATE VIEW level4 AS SELECT * FROM l1 WHERE room > 399;
+sqlite> CREATE VIEW level4 AS
+   ...> SELECT *
+   ...> FROM l1
+   ...> WHERE room > 399;
+sqlite> 
+sqlite> .tables
+building  l1        level4  
 ```
 
 To enable fast searching, you should build some indexes on the columns that you run a query against. Unlike MySQL, indexing in SQLite cannot be done when you create the table.
 
 ```sql
-CREATE UNIQUE INDEX ind_id
-on l1 (id);
-
-CREATE INDEX ind_name
-on l1 (name);
+sqlite> CREATE UNIQUE INDEX ind_id ON l1 (id);
+sqlite> 
+sqlite> CREATE INDEX ind_name ON l1 (name);
+sqlite> 
+sqlite> .indices
+ind_id
+ind_name
 ```
 
 Another useful feature is the trigger. By the name you can guess that it triggers curtain action when some criteria are met.
 
-> The example below is a bit too artificial, but you get the idea
+> The example below is a bit too artificial, I know. But you get the idea.
 
 ```sql
-CREATE TRIGGER update_room UPDATE OF room ON l1 
-  BEGIN
-    UPDATE building SET room = new.room WHERE room = old.room;
-  END;
+sqlite> CREATE TRIGGER update_room
+   ...> UPDATE OF room ON l1 BEGIN
+   ...> UPDATE building
+   ...> SET room = new.room
+   ...> WHERE room = old.room; END;
+sqlite> 
+sqlite> SELECT name
+   ...> FROM sqlite_master
+   ...> WHERE TYPE = 'trigger';
+name       
+-----------
+update_room
 ```
 
 Normally when you operate on the data you're using transactions implicitly. That means you make changes and commit. But you can also define a transaction explicitly, so that when one operation fails the state of the database rolls back to before the transaction starts.
 
 ```sql
 BEGIN TRANSACTION;
--- some SQL code goes here
+
+ -- some SQL code goes here
 COMMIT;
 ```
 
 In this example, `--` is the line comment used in SQL. Block comment can be done using `/* ... */`.
+
+If you download the test.db file from C9 and view it using SQLiteStudio, you should see the database structure similar to below
+
+![](.md_images/final.png)
 
 #### Normalization
 
@@ -542,10 +563,10 @@ We have defined these functions but they are not currently being used (`js/notes
 2. When the program first loads it should load the data back into the array and display the items in the web browser.
 3. There are some other files that use different HTML5 APIs, have a look at the code and see how much you understand.
     
-    ├── js
-    │   ├── document_storage.js
-    │   ├── offline_storage.js
-    │   └── web_database.js
-    ├── document_storage.html
-    ├── offline_storage.html
-    └── web_database.html
+    ├── js   
+    │   ├── document_storage.js   
+    │   ├── offline_storage.js   
+    │   └── web_database.js   
+    ├── document_storage.html   
+    ├── offline_storage.html   
+    └── web_database.html   

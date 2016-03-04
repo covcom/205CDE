@@ -139,13 +139,11 @@ Intro, grid system, different components: well, navigation, forms, Bootstrap JS 
 
 ## Week 7 Database
 
-### SQL (recall)
+### SQL
 
 **Contents**
 
-Module 104KM
-
-SQL basics, data types, commands, syntax: create, select etc.
+SQLite basics, data types, commands, syntax: create, select etc.
 
 **Refs**
 

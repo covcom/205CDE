@@ -503,19 +503,16 @@ Some principles for normalization are:
 * There should be a primary key to uniquely identify each row.
 * Now redundancy across multiple rows.
 
-
-
 ## HTML local storage (N.B.: bonus)
 
-You have probably noticed that each time you reload the page, your list of items disappears. This is because the list is held in an array which gets cleared each time the script is reloaded.
+Modern browsers implement a cool feature called HTML 5 Local Storage which enables you to persist data, even when the browser is shut down. Lets show you a taste of its capabilities.
 
-Modern browsers implement a cool feature called HTML 5 Local Storage which enables you to persist data, even when the browser is shut down. We will be spending more time on this later in the module but lets show you a taste of its capabilities.
-
-LocalStorage uses a dictionary to store data as key/value pairs. If we know the key we can set and get the data. One limitation of Local Storage is that it can only store strings however there are two functions that can turn any JavaScript object into a JSON string and back into an object. Again, we will be spending time working with JSON strings but we will implement  simple example.
+LocalStorage uses a dictionary to store data as key/value pairs. If we know the key we can set and get the data. One limitation of Local Storage is that it can only store strings however there are two functions that can turn any JavaScript object into a JSON string and back into an object.
 
 ### Tasks
 
 We will start by implementing two new functions in our code which will handle converting our array to a string and saving it and then taking the stored JSON string and turning it back into a JavaScript array.
+
 ```js
 function saveList() {
     localStorage.notes = JSON.stringify(notes);

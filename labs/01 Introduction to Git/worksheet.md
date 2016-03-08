@@ -4,13 +4,19 @@ In this worksheet you will learn the basic principles behind the most popular ve
 
 The lab activities are detailed and cover a lot of useful skills. Take the time to practice the skills and learn how to use Git.
 
-## 1.1 Codio IDE
+## 1.1 Cloud9 IDE
 
-Start by creating an account on Codio and logging in. On the projects screen click on the Create Project button to open the new projects screen. Name your project Git Tutorial. You will only have the option to create a public project unless you pay for a Student subscription.
+There are two options to start working with Cloud9. The first option is to create an account on Cloud9 and log in with your newly-created Cloud9 credentials. The second option is to use an existing GitHub account to log in.
+
+<!---
+On the projects screen click on the Create Project button to open the new projects screen. Name your project Git Tutorial. You will only have the option to create a public project unless you pay for a Student subscription.
+-->
+
+In the Cloud9 dashboard, click on the Create a new workspace button. Name your project Git Tutorial. Make your project private and select a project template of your choice. Later on this course, Php, Apache and MySQL will make a good starting point, but the choice doesn't really matter in this lab.
 
 ## 1.2 Working with Git
 
-Each Codio project runs on a Micro server running Linux. The most important way to run commands on a Linux server is through the Terminal screen. This is accessible under the Codio Tools menu. Git is an open source software package that is already installed and is accessed by running commands in the Terminal window. All the commands we will use start with the git command. lets start by confirming that Git is indeed installed. Type in the following command and press enter:
+Each Cloud9 project runs in a virtual machine running Linux. The most important way to run commands on a Linux server is through the Terminal screen. This is accessible under the Cloud9 Window menu. Git is an open source software package that is already installed and is accessed by running commands in the Terminal window. All the commands we will use start with the git command. lets start by confirming that Git is indeed installed. Type in the following command and press enter:
 ```
   git
 ```
@@ -193,7 +199,7 @@ index 3bd5ff0..945ce92 100644
 
 ## 3.2 Renaming Files
 
-Renaming files is easy right? We perhaps not. Lets see what happens when we rename our file using the standard approach. Right-click on the file in the file tree and choose ‘Rename’. Call the file README2.md then run the status command:
+Renaming files is easy right? Well, perhaps not. Lets see what happens when we rename our file using the standard approach. Right-click on the file in the file tree and choose ‘Rename’. Call the file README2.md then run the status command:
 ```
 git status
 # On branch master
@@ -264,7 +270,7 @@ To revert to an old commit we need to take the following steps:
 
 1. move/rename the current branch to reflect its new status.
 2. checkout the good commit
-3. create a new branch at that point called `‘master’` and move the `<head>` flag to that branch
+3. create a new branch at that point called `‘master’` and move the `HEAD` flag to that branch
 ```
 git branch -m badcode
 git checkout a07144a

@@ -7,7 +7,7 @@ In this lab you will learn how to create a remote repository using *GitLab*. You
 There are two ways to use git remote repos. One is to use https protocol, and the other is to use SSH keys. You can choose the way you feel more familiar to. Go through only one of the 02.2. or 02.3.
 
 ## 02.1 Updating the GitLab Profile
-We will be using *GitLab* as our remote repository and will use it to store and share our code. Start by creating an account (if you don’t have these already) and logging in. You will also need to have a *Codio* account. Make sure you have an account and are logged in to both sites before starting this worksheet.
+We will be using *GitLab* as our remote repository and will use it to store and share our code. Start by creating an account (if you don’t have these already) and logging in. You will also need to have a Cloud9 account. Make sure you have an account and are logged in to both sites before starting this worksheet.
 
 Before we start using GitLab it is important to update your personal profile to add your name and photo. This is required for when you start sharing your code with others.
 
@@ -23,16 +23,16 @@ Click 'Save changes' then click on the GitLab icon in the top-left corner to ret
 
 ### Cloning the course repository
 
-Many of the exercises you will be doing will require you to amend existing code. This code is available in a course repository in GitHub. To access this you will need to create a new Codio project containing a clone of this repository.
+Many of the exercises you will be doing will require you to amend existing code. This code is available in a course repository in GitHub. To access this you will need to create a new Cloud9 project containing a clone of this repository.
 
-Create a new project in Codio. On the projects screen click in the Create Project button.
+Create a new project in Cloud9. In the dashboard click the Create a new workspace button.
 
-Open Tools > Terminal. Clone the course repository (https://github.com/covcom/205CDE.git). 
+Open Window > New Terminal. Clone the course repository (https://github.com/covcom/205CDE.git). 
 ```
 $ git clone https://github.com/covcom/205CDE.git
 ```
 
-You can change the default name (205CDE) in Codio by right-clicking it in the tree view on the left.
+You can change the default name (205CDE) in Cloud9 by right-clicking it in the tree view on the left and selecting Rename.
 
 ### Changing the remote repository
 
@@ -43,7 +43,7 @@ Create a new GitLab (https://gitlab.com/) account if necessary. Sign in and crea
 
 Copy the HTTPS URL, visible in GitLab, to your clipboard.
 
-Go back to Codio. Go to the folder of the cloned repository in the terminal:
+Go back to Cloud9. Go to the folder of the cloned repository in the terminal:
 
 ```
 $ cd 205CDE/
@@ -107,32 +107,43 @@ git config credential.helper 'cache --timeout=300'
 
 ## 02.3 Using ssh keys (Skip this if you are using https)
 
-The course materials will be in GitHub repository, your own repository will be in GitLab, therefore you will need accounts on both sites.
-1)	create account on GitHub
-2)	create account on GitLab
-Authentication will be through the use of SSH keys. You need to copy the public key from Codio and add this to both GitHub and GitLab.
+The course materials will be in GitHub repository, and your own repository will be in GitLab. Therefore, you will need accounts on both sites.
+1)	create an account on GitHub
+2)	create an account on GitLab
+Authentication will be through the use of SSH keys. You need to copy the public key from Cloud9 and add this to both GitHub and GitLab.
+
 
 ### GitHub
+<!---
 Start by clicking on the Accounts setting icon in the bottom-left corner of the projects screen (gear icon).
-
 Choose the SSH Key tab and triple-click the long string (public key) to select it all. Copy this to clipboard.
+-->
 
-Log into GitHub and open the Preferences screen (gear icon). Locate the SSH Keys link and Add SSH Key button.
+First, you need the SSH public key from Cloud9. You can access this by going to terminal window and giving the following command:
+```
+cat ~/.ssh/id_rsa.pub
+```
 
-Set the key title to Codio and Paste the SSH key from the clipboard before clicking the Add key button.
+Copy the key (starting with `ssh-rsa` string) into the clipboard, as you will need this later.
+
+Next, log into GitHub and open the Settings. You can reach this by clicking your thumbnail profile image in the top right corner and selecting Settings. Then, select SSH keys from the pane on the left.
+
+Check the list of SSH Keys. If Cloud9 is not included, press Add SSH Key button. (Note that if you signed-in to Cloud9 using your GitHub credentials, your SSH key may have been added automatically. In that case, you can skip the following step.)
+
+Set the key title to Cloud9 and Paste the SSH key from the clipboard before clicking the Add key button.
 
 ### GitLab
 Open the Profile setting page (person icon) and choose the SSH Keys tab.
 
-Click the green button Add SSH Key and paste in the public key stored in the clipboard. Enter Codio as a title.
+Click the green button Add SSH Key and paste in the public key stored in the clipboard. Enter Cloud9 as a title.
 
 ### Cloning the course repository
 
-Many of the exercises you will be doing will require you to amend existing code. This code is available in a course repository in GitHub. To access this you will need to create a new Codio project containing a clone of this repository.
+Many of the exercises you will be doing will require you to amend existing code. This code is available in a course repository in GitHub. To access this you will need to create a new Cloud9 project containing a clone of this repository.
 
-Create a new project in Codio. On the projects screen click in the Create Project button.
+Create a new project in Cloud9 (use PHP, Apache and MySQL as template). On the projects screen click in the Create Project button.
 
-Open Tools > Terminal. Clone the course repository (git@github.com:covcom/205CDE.git). 
+Open Window > New terminal. Clone the course repository (git@github.com:covcom/205CDE.git). 
 
 ```
 $ git clone git@github.com:covcom/205CDE.git

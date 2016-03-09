@@ -84,3 +84,9 @@ Thumbs.db
 
 # lab12 example from book 'jump start bootstrap'
 Chapter_4/
+
+# lab15 virtual environment
+venv/
+
+
+

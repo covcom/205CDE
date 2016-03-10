@@ -6,7 +6,7 @@ This week's labs split into three sections. Depending on your proficiency of the
 
 ## Basic syntax
 
-I love Python, as much as you guys do in 110CT/121COM (even though I naturally speak Matlab). Python is huge. But we don't have to know them all to get started on Flask. Here is a list of the things you need:
+I love Python, as much as you guys do in 110CT/121COM (even though I naturally speak Matlab). Python is huge. But we don't have to know them all to get you started on Flask. Here is a list of the things you need:
 
 * First Steps and First Mistakes
 * Taking Control
@@ -19,29 +19,28 @@ I love Python, as much as you guys do in 110CT/121COM (even though I naturally s
 * Inheritance
 * Paradigms and Languages
 
-OK, I talked to Matthew England, the module leader of 121COM. We'll need everything from 110CT/121COM to get you started. And a bit more.
+Looks familiar? The truth is I talked to Matthew England, the module leader of 121COM. The list is what you've learned in that module. We'll need everything in it to get you started. And a bit more.
 
 This module assumes that you know Python already. To recall what you have learned, the best way is to find your notes (you have them, right?) and read. Or you can go back to Moodle to download the material.
 
 If you are exchange students who haven't done much in Python, or you did 110CT/121COM but it feels like it's ages ago, you need to start from the very beginning. Choose an approach that suits you the best:
 
-* You may find some online PDF tutorials if you're a book lover. Among the many books I've read on Python, I found the following particularly useful. ['A Quick, Painless Tutorial on the Python Language'](http://heather.cs.ucdavis.edu/~matloff/Python/PythonIntro.html), written by Professor Norman Matloff at UC Davis. Unfortunately, the website is not being actively maintained. But in the module repository, you can find a pdf version. The document is copyright free for educational purposes, let me know if I'm wrong.
-> OK, I lied. This is the only book I've read properly on Python.
+* You may find some online PDF tutorials if you're a book lover. Among the many books I've read on Python, I found the following particularly useful. ['A Quick, Painless Tutorial on the Python Language'](http://heather.cs.ucdavis.edu/~matloff/Python/PythonIntro.html), written by Professor Norman Matloff at UC Davis. Unfortunately, the website is not being actively maintained. But in the module repository, you can find a pdf version. The document is copyright free for educational purposes, let me know if I'm wrong. (OK, I lied. This is the only book I've read properly on Python.)
 * Or, if you prefer interactive learning, you can use [Codecademy](https://www.codecademy.com/learn/python) or [Learnpython](http://www.learnpython.org/).
 
-Either way, make sure your Python level goes back where you left.
+Either way, make sure your Python level goes back to where you left off.
 
-## More Python
+## Useful tools
 
 ### IPython 
 
 [IPython](http://ipython.org/) is a useful tool developed by a bunch of researchers at UC Berkeley. I use it mainly as a replacement of the standard Python shell, but it offers a lot of features.
 
-Open a new workspace in C9, and in the terminal window type `ipython` you'll see that IPython is installed by default. Type in the following commands and observe that IPython provides a more convenient interactive experience.
+Open a new workspace in C9, and in the terminal window type `ipython` you'll see that IPython is installed by default. Type in the following commands and observe that IPython provides a better user experience.
 
 ![](.md_images/color.png)
 
-If you use standard Python shell instead, the output is this.
+If you use the standard Python shell instead, the output is this.
 
 ![](.md_images/standard.png)
 
@@ -53,7 +52,7 @@ Another useful feature is auto-completion. Create a new variable called `areally
 
 Python is very popular. A by-product of this is that it has many different packages, that depend on different versions of the language and different versions of other packages. This is like a chain reaction.
 
-> Probably due to the popularity of Python, its creator [Guido Van Rossum](https://en.wikipedia.org/wiki/Guido_van_Rossum) got a good offer from Google. He, later on, moved to Dropbox in 2012. 
+> Probably due to the popularity of Python, its creator [Guido Van Rossum](https://en.wikipedia.org/wiki/Guido_van_Rossum) got a good offer from Google. But he, later on, got a even better one from Dropbox in 2012. 
 
 As an example of this really bad situation, have a look at a popular Python library called [Biopython](http://biopython.org/wiki/Download) (used mainly for bioinformatics analysis) below. Depending on the version of Python language, a single release of Biopython has around 10 different flavors. Also, Biopython relies on [NumPy](http://www.numpy.org/), which is used for numerical analysis and which doesn't live in a vacuum. So you can imagine the situation can get really bad.
 
@@ -79,7 +78,7 @@ deactivate
 
 ### A Python web server
 
-You learned Apache2. That's the proper production server you can use for production. If you just need a simple server for development purposes, you can use Python module SimpleHTTPServer.
+You learned Apache2. That's the proper production server you can use in any occasion. If you just need a simple server for development purposes, you can use Python module SimpleHTTPServer.
 
 In terminal, type the following command and hit enter
 
@@ -99,7 +98,7 @@ If you reach this point, congratulations you've successfully recalled the Python
 
 What you can do now is that you either start working on your own website, i.e. the HTML/CSS/JS part, or you can start to look into Flask.
 
-If you choose the latter, on the official website there's a [tutorial](http://flask.pocoo.org/docs/0.10/tutorial/). Follow instructions there and see how far you can go. Don't worry if you don't completely understand, you'll cover them all in the next 2/3 weeks time. Bare in mind this tutorial is written in a very casual style. In your final submission, you want to avoid things like this:
+If you choose the latter, on the official website there's a [tutorial](http://flask.pocoo.org/docs/0.10/tutorial/). Follow instructions there and see how far you can go. Don't worry if you don't completely understand, we'll cover them all in the next 2/3 weeks time. Bare in mind this tutorial is written in a very casual style. In your final submission, you want to avoid things like this:
 
 * In step 1, a column of `primary key autoincrement` was created. However, in SQLite, we don't normally (that is DON'T) declare 'autoincrement', see [here](https://www.sqlite.org/autoinc.html) the official documentation.
 * In step 1, SQL keywords should have been capitalized.

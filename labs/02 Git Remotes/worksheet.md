@@ -1,12 +1,16 @@
-# 02 Working with Git remote repos
+# Working with Git remote repos
 
 This lab extends the work you did in the previous one called *Git Basics*. Make sure you have completed the worksheet and fully understand the concepts covered. You will also need access to the repository you created as part of the exercise.
 
 In this lab you will learn how to create a remote repository using *GitLab*. You may apply these principles to working with any other remote repository such as GitHub or Bitbucket.
 
+The Git remote repositories are accessed with https protocol. The setup for the communication is described below.
+<!---
 There are two ways to use git remote repos. One is to use https protocol, and the other is to use SSH keys. You can choose the way you feel more familiar to. Go through only one of the 02.2. or 02.3.
+-->
 
-## 02.1 Updating the GitLab Profile
+
+## 1 Updating the GitLab Profile
 We will be using *GitLab* as our remote repository and will use it to store and share our code. Start by creating an account (if you don’t have these already) and logging in. You will also need to have a Cloud9 account. Make sure you have an account and are logged in to both sites before starting this worksheet.
 
 Before we start using GitLab it is important to update your personal profile to add your name and photo. This is required for when you start sharing your code with others.
@@ -19,9 +23,9 @@ Click 'Save changes' then click on the GitLab icon in the top-left corner to ret
 
 
 
-## 02.2 Using https protocol
+## 2 Setting up the communication
 
-### Cloning the course repository
+### 2.1 Cloning the course repository
 
 Many of the exercises you will be doing will require you to amend existing code. This code is available in a course repository in GitHub. To access this you will need to create a new Cloud9 project containing a clone of this repository.
 
@@ -34,7 +38,7 @@ $ git clone https://github.com/covcom/205CDE.git
 
 You can change the default name (205CDE) in Cloud9 by right-clicking it in the tree view on the left and selecting Rename.
 
-### Changing the remote repository
+### 2.2 Changing the remote repository
 
 The course repository is read-only, you will have to put your code in your own remote repository.
 Follow these steps:
@@ -74,7 +78,7 @@ Then finally you want to push all your commits to your own repository located in
 git push origin master
 ```
 
-### The course repository has been changed
+### 2.3 Updating changed content
 
 Sometimes the course repository will change, and you have to get the modifications to your own repositories and local working copies.
 
@@ -104,105 +108,7 @@ When using https protocol, git will always ask your username and password for th
 git config credential.helper 'cache --timeout=300'
 ```
 
-
-## 02.3 Using ssh keys (Skip this if you are using https)
-
-The course materials will be in GitHub repository, and your own repository will be in GitLab. Therefore, you will need accounts on both sites.
-1)	create an account on GitHub
-2)	create an account on GitLab
-Authentication will be through the use of SSH keys. You need to copy the public key from Cloud9 and add this to both GitHub and GitLab.
-
-
-### GitHub
-<!---
-Start by clicking on the Accounts setting icon in the bottom-left corner of the projects screen (gear icon).
-Choose the SSH Key tab and triple-click the long string (public key) to select it all. Copy this to clipboard.
--->
-
-First, you need the SSH public key from Cloud9. You can access this by going to terminal window and giving the following command:
-```
-cat ~/.ssh/id_rsa.pub
-```
-
-Copy the key (starting with `ssh-rsa` string) into the clipboard, as you will need this later.
-
-Next, log into GitHub and open the Settings. You can reach this by clicking your thumbnail profile image in the top right corner and selecting Settings. Then, select SSH keys from the pane on the left.
-
-Check the list of SSH Keys. If Cloud9 is not included, press Add SSH Key button. (Note that if you signed-in to Cloud9 using your GitHub credentials, your SSH key may have been added automatically. In that case, you can skip the following step.)
-
-Set the key title to Cloud9 and Paste the SSH key from the clipboard before clicking the Add key button.
-
-### GitLab
-Open the Profile setting page (person icon) and choose the SSH Keys tab.
-
-Click the green button Add SSH Key and paste in the public key stored in the clipboard. Enter Cloud9 as a title.
-
-### Cloning the course repository
-
-Many of the exercises you will be doing will require you to amend existing code. This code is available in a course repository in GitHub. To access this you will need to create a new Cloud9 project containing a clone of this repository.
-
-Create a new project in Cloud9 (use PHP, Apache and MySQL as template). On the projects screen click in the Create Project button.
-
-Open Window > New terminal. Clone the course repository (git@github.com:covcom/205CDE.git). 
-
-```
-$ git clone git@github.com:covcom/205CDE.git
-```
-
-Finally give a name 205CDE to your project.
-
-### Changing the remote repository
-The course repository is read-only, you will have to put your code in your own remote repository.
-Follow these steps:
-Create a new repository in GitLab. You can name your repository the way you want. Copy the SSH link to your clipboard.
-Because you have cloned the course repository, there is one remote called origin, check it:
-
-```
-$git remote -v
-origin	git@github.com:covcom/205CDE.git (fetch)
-origin	git@github.com:covcom/205CDE.git (push)
-```
-
-We change this by
-```
-$ git remote set-url origin git@gitlab.com:your_GitLab_name/your_repo_name.git
-$ git remote -v
-
-origin	git@gitlab.com:your_GitLab_name/your_repo_name.git (fetch)
-origin	git@gitlab.com:your_GitLab_name/your_repo_name.git (push)
-```
-
-Then finally you want to push all your commits to your own repository located in new url.
-
-```
-$ git push origin master
-```
-
-### The course repository has been changed
-
-Sometimes the course repository will change, and you have to get the modifications to your own repositories and local working copies.
-
-```
-$ git remote
-origin
-$ git remote add wete git@github.com:covcom/205CDE.git
-$ git remote -v
-origin	git@gitlab.com:your_GitLab_name/your_repo_name.git (fetch)
-origin	git@gitlab.com:your_GitLab_name/your_repo_name.git (push)
-wete	git@github.com:covcom/205CDE.git (fetch)
-wete	git@github.com:covcom/205CDE.git (push)
-```
-
-We have now two remote repositories. The one called origin is your own, where you sent your updates. But because sometimes the course remote repository is edited, we have another remote repository called wete.
-
-```
-$ git pull wete master
-```
-
-This is the way you fetch and merge everything that has changed in the course repository with your own master.
-After this you have to check for conflicts, commit your changes to your local repository and push the changes to your own remote repository. But these ones you already know.
-
-## 02.4 New commands:  Push and Pull
+## 3 New commands:  Push and Pull
 
 Now we have configured our remote we need to push our commits onto the GitLab server. There are two key tasks.
 
@@ -216,7 +122,7 @@ git branch
 * master
   newbranch
 ```
-###  Pushing to the Remote
+###  3.1 Pushing to the Remote
 
 You can see that there are *three branches* and that we are on the *master* branch. Once you understand that you should be able to make sense of the command we use to push our changes to the remote.
 
@@ -224,7 +130,7 @@ You can see that there are *three branches* and that we are on the *master* bran
 
 This will push all the commits on your master branch to the remote with an alias of origin (we just added this).
 
-###  Viewing the Commit Graph
+###  3.2 Viewing the Commit Graph
 
 Lets see what has been pushed. Return to the *GitLab project* page and refresh it in the browser.
 
@@ -240,7 +146,7 @@ to push all branches at once use the all flag.
 
 `git push origin --all`
 
-###  Pushing Tags
+###  3.3 Pushing Tags
 
 If you view the network graph you may have noticed that the tags were not pushed from the local repository. By default tags are considered a local resource. Sometime we wish to push one or more tags to the remote. To push a single tag we use the following command. Try this out.
 
@@ -254,7 +160,7 @@ If we wish to push all the local tags we can do this by passing the tags long fl
 
 Try this and make sure both tags are now pushed.
 
-###  Pulling Changes
+###  3.4 Pulling Changes
 
 Sometimes there are commits on the remote that you don't have in your local repository. This can be caused two ways:
 
@@ -265,11 +171,11 @@ Before making any changes to your code you should get into the habit of pulling 
 
 `git pull origin master`
 
-## 02.5 Sharing with Other Users
+## 4 Sharing with Other Users
 
 You already know a lot about using Git both locally and syncing with remotes however we have still to cover one of the most powerful features, collaborative programming. By sharing your repository with other developers you allow them to clone a copy of your remote, make changes and commit locally then push these commits back to your remote!
 
-###  Adding Team Members
+### 4.1 Adding Team Members
 From the project page, click on the *Settings* link to access the repository settings screen.
 
 In the left-hand menu you will find a *Members* link. Click on this to view the appropriate screen.
@@ -285,24 +191,24 @@ You also need to choose the correct access settings. Generally you have two choi
 
 Choose *Developer* access to allow your classmate to push changes to your remote repository.
 
-## 02.6 Submitting Work for Marking
+## 5 Submitting Work for Marking
 
 You will be expected to submit a link to your remote repository home page when you complete an assignment. It is important that the academics who will be marking your work have access to your code and so it becomes your responsibility to locate their GitLab usernames and provide them with Reporter access to your repository.
 
 Typically the list of staff usernames will be found on your *assignment brief*. If you cannot locate this please speak to your lab supervisor as soon as possible.
 
-## 02.7 Online Tools
+## 6 Online Tools
 
 Git provides a number of useful tools to help manage your programming project. Here we identify a few of the most useful.
 
-###  Issues
+### 6.1 Issues
 
 The issues tool provides a sophisticated way to identify jobs, prioritise them and assign them to different members your development team. You can also generate labels (under the labels tab) and assign them to the tasks, add milestones and, finally you can mark jobs as complete. Think about this as a powerful todo list. You will be expected to demonstrate you can use this.
 
-###  Wiki
+###  6.2 Wiki
 
 It is important that you keep detailed notes and documentation. The wiki tool allows you to write nicely formatted notes. You can also link pages together. As you write your code you need to maintain suitable documentation.
 
-###  Merge Requests
+###  6.3 Merge Requests
 
 If you are working as part of a team you will each be working on code in your own branch(es). Before merging a branch back into the master you should issue a merge request. You detail the branch you want to merge, where you want to merge it and the features you have added. Others can view the changes you intend making to the master branch and suggest changes. When working in a team you will be expected to use this tool before merging any branches.

@@ -61,7 +61,10 @@ Notice the new file appears in the file tree. We can also list the files in the 
 ls -l
 ```
 
-The l flag displays the directory contents in a list format. Click on the file in the file tree to begin editing. The file extension you added marks this as being a markdown file which is used to create documentation. Down the right-hand edge you will see a number of icons. If you click on the book icon you will be presented with a split editor. You will be able to enter your markup in the left pane whilst viewing the rendered layout in the right pane.
+The l flag displays the directory contents in a list format. Click on the file in the file tree to begin editing.
+The file extension you added marks this as being a markdown file which is used to create documentation.
+
+If you right-click on a markhown file and select Preview, you will be able to preview the formatted contents on the file.
 
 Enter the following markup.
 ```

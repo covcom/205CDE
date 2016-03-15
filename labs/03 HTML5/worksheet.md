@@ -21,9 +21,9 @@ This lab takes approximately 2 hours.
 
 In this task you learn to create a HTML5 document with basic markup.
 
-### Creating a document in Codio
+### Creating a document in C9
 
-In Codio, create a new document and name it **computers80.html**. Codio suggests that the type of document is HTML. Change it to HTML5, as otherwise the resulting document would be incorrectly interpreted as HTML 4.01.
+In C9, create a new document and name it to **computers80.html**.  Get a HTML5 template (for example) from w3Schools.com-pages.
 
 The resulting HTML5 document contains the definition of an empty web page. First, pay attention to the overall structure of the web page defined in the document. There is a correspondence between a file and a web page. Each static web page corresponds to one HTML5 file.
 
@@ -72,7 +72,7 @@ Once the `head` element is ready, add some markup inside the `body` element of t
 </body>
 ```
 
-Open the file in a browser by selecting **Current file (static)**. The page is displayed using the browser´s built-in style settings. We can later change how the page looks using CSS (Cascaded Style Sheets).
+Open the file in a browser by selecting **Preview -> Live Preview File **. The page is displayed using the browser´s built-in style settings. We can later change how the page looks using CSS (Cascaded Style Sheets).
 
 Later, when you amend your code, just hit **Refresh** button in your browser (F5 in many browsers) to show the updated content.
 

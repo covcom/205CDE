@@ -1,0 +1,26 @@
+{% if name %}
+<h1>Hello {{name|capitalize}}!</h1>
+{% else %}
+<h1>Hello World!</h1>
+{% endif %}
+
+{# This is a comment
+assignment operation use 'set' keyword
+#}
+{% set seq = range(10)%}
+
+<p>Line without white spaces</p>
+{% for item in seq -%}
+    {{ item }}
+{%- endfor %}
+
+<br>
+
+<p>Line with white spaces</p>
+{% for item in seq -%}
+    {{ item }}
+{% endfor %}
+
+<br>
+
+<img src="{{url_for('static', filename='images/sun.jpg')}}">

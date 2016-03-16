@@ -8,13 +8,13 @@ The (difficult) time has come!
 
 > A lot of us experienced problems with C9 lately. I recommend that you register a free/trial account on [Codio](https://codio.com/), linking to the same GitHub repository that your C9 workspace is pointing to. So that if one server is down, you can use the other. In any case, you should keep pushing/pulling to make sure these two (C9 and Codio) are synchronized.
 
-> Some of the examples were done using my Mac, as you can tell as C9 is not very stable.
+> Some of the examples were done using my Mac, as you can tell, because C9 is not very stable.
 
 ## Basic Flask
 
 In last week's lab sheets, I didn't show you how to install `virtualenv`, as at that time it's installed in all virtual machines on C9 by default. But it seems that the default settings have been changed since then. In other words, `virtualenv` and `ipython` are not installed by default. We'll have to start from there.
 
-> I use the built-in web server in all examples. However, this server is not for production environment. For that, you'll need to use something such as [Apache module mod_wsgi](http://flask.pocoo.org/docs/0.10/deploying/).
+> I use the Flask built-in web server in all examples. However, this server is not for production environment. For that, you'll need to use something such as [Apache module mod_wsgi](http://flask.pocoo.org/docs/0.10/deploying/).
 
 ### Installation
 
@@ -47,7 +47,7 @@ If everything goes well, you'll see that some new folders appear in your `venv/l
 
 The installation is now complete.
 
-### Hello world
+### Hello World!
 
 The tradition in teaching programming language is to start with a 'Hello world' program. We'll do the same.
 
@@ -67,7 +67,7 @@ if __name__ == '__main__':
     app.debug = True
     port = int(os.getenv('PORT', 8080))
     host = os.getenv('IP', '0.0.0.0')
-    app.run(port=port, host=host,)
+    app.run(port=port, host=host)
 ```
 
 We'll come back to this file later. Now go into the terminal and issue the following command `python hello_flask.py`, what you'll see is similar to below
@@ -78,7 +78,7 @@ Now you have a server listening on port 8080. But we don't know the IP address! 
 
 ![](.md_images/share.png)
 
-Copy and paste that URL into a new browser tab, what you'll see is similar to below
+Paste that URL into a new browser tab, what you'll see is similar to below
 
 ![](.md_images/running.png)
 
@@ -164,7 +164,7 @@ There are something new in the code above:
 
 ### Migrate your static site
 
-Now you've seen how to produce a simple website using Flask. What about the work you've done already? In other words, how to integrate static pages into Flask?
+Now you've seen how to produce a simple website using Flask. What about the work you've done already (you have done something, right)? In other words, how to integrate static pages into Flask?
 
 Suppose you have a simple HTML page called 'existing1.html' that looks like below. You also have some other pages and images that link to each other.
 
@@ -201,13 +201,13 @@ The job is being done by two functions:
 
 ## Jinja2 templates
 
-We have done a lot using HTML and CSS. The limit of using these two are obvious -- These are not languages, we cannot do things that are common in programming languages such as assignment, loops, inheritance.
+We have done a lot using HTML and CSS. The limit of using these two are obvious -- These are not languages, we cannot do things that are common in programming languages such as assignment, loops, inheritance etc.
 
 With the help of Jinja2 template system, it's possible to do all sorts of things as mentioned above. Note that Jinja2 is part of Flask installation, but it's also a standalone templating language.
 
 ### A basic template
 
-In order to make templating work, we'll need to components: one is the Flask app i.e. the py file, the other is an HTML file that lives in a folder called 'templates'.
+In order to make templating work, we'll need two components: one is the Flask app i.e. the py file, the other is an HTML file that lives in a folder called 'templates'.
 
 Let's start with the python file.
 

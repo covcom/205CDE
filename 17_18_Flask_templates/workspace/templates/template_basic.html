@@ -7,20 +7,18 @@
 {# This is a comment
 assignment operation use 'set' keyword
 #}
-{% set seq = range(10)%}
+{% set seq = [1, 9, 7, 3] %}
 
-<p>Line without white spaces</p>
+<p>Lenna became famous after</p>
 {% for item in seq -%}
     {{ item }}
 {%- endfor %}
 
-<br>
-
-<p>Line with white spaces</p>
+<p>NOT</p>
 {% for item in seq -%}
     {{ item }}
 {% endfor %}
 
 <br>
 
-<img src="{{url_for('static', filename='images/sun.jpg')}}">
+<img src="{{url_for('static', filename='images/lenna.png')}}">

@@ -7,6 +7,7 @@ Next week we'll look at how to popular forms and collect user inputs, again usin
 The (difficult) time has come!
 
 > A lot of us experienced problems with C9 lately. I recommend that you register a free/trial account on [Codio](https://codio.com/), linking to the same GitHub repository that your C9 workspace is pointing to. So that if one server is down, you can use the other. In any case, you should keep pushing/pulling to make sure these two (C9 and Codio) are synchronized.
+
 > Some of the examples were done using my Mac, as you can tell as C9 is not very stable.
 
 ## Basic Flask

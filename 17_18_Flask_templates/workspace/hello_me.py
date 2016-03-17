@@ -17,7 +17,7 @@ def hello_me(username):
 @app.route('/error')
 @app.route('/errors')
 def error():
-    response = make_response('Whoops, something goes wrong!', 404)
+    response = make_response('Oops, something goes wrong!', 404)
     return response
     
 @app.route('/unexpected')

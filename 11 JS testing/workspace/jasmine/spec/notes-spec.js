@@ -30,8 +30,12 @@ describe('notes module', () => {
     expect(notes.count()).toBe(5);
     pending();
   });
-  xit('should require a string parameter', ()=>{
+  it('should require a string parameter', ()=>{
     expect(notes.add()).toBe(false);
     expect(notes.count()).toBe(5);
   });
+  it('should delete a note with a valid index', () => {
+    
+  })
+  it('should return false if the index to remove is out of range')
 });

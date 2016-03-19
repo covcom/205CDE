@@ -4,7 +4,7 @@
 // Function called when the form is submitted.
 // Function performs the calculation and returns false.
 function calculate() {
-	'use strict';
+	'use strict'
 
 	// For storing the order total:
 	var total;
@@ -19,7 +19,7 @@ function calculate() {
 
 	// Calculate the initial total:
 	total = quantity * price;
-	console.log("total before tax: " + total);
+	console.log('total before tax: ' + total);
 
 	// Make the tax rate easier to use:
 	tax = tax / 100;

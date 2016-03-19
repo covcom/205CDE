@@ -1,0 +1,18 @@
+{
+  "env": {
+    "browser": 1
+  },
+ 
+  "globals": {
+    "angular": 1
+  },
+ 
+  "rules": {
+    "indent": ["error", "tab"],
+    "quotes": ["error", "single"],
+    "semi": ["warn", "never"],
+    "camelcase": ["warn", "always"],
+    "comma-spacing": ["warn", {"before": false, "after": true}],
+    "no-mixed-spaces-and-tabs": ["error", "smart-tabs"]
+  }
+}

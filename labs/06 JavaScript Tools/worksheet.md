@@ -3,19 +3,26 @@
 
 ## 1 Editing and Testing JavaScript Code
 
-In the sidebar, locate the folder `labs/07 JavaScript Tools/` and open the file  `basic_math.html` . You can now make changes to the code. To preview the page (and run your program) you need to view it in a new tab in your web browser. At the top of the screen you should see a menu item called *Project Index (static)* and next to this a small drop down arrow. 
+In the sidebar, locate the folder `labs/06 JavaScript Tools/` and open the file  `basic_math.html` . You can now make changes to the code. 
+To preview the page (and run your program) you need to view it in a new tab in your web browser. 
+At the top of the screen you should see a menu item called *Preview*.
 
-Make sure the html code is open then click on the arrow to open the menu. Make sure the *New browser* tab option is selected then choose *Current file (static)*. This will open your web page in a new browser tab as shown.
+Make sure the html code is open then click *Preview* and choose *Live preview file*
+This will open your web page in a new browser tab as shown.
+
+Now do the following:
 
 Try out the application by entering different values and clicking on the Calculate link.
 
+Read through comments in the JS file, and try to understand the code. You can now make changes to the code.
+
 ### 1.1 Test Your Understanding
 
-1. the values read from the text boxes are stored as *strings*. Modify the code to store the quantity to an *integer* and the price, tax and discount as *floats* (hint, check the crib sheet).
+1. the values read from the text boxes are stored as *strings*. Modify the code to store the quantity to an *integer* and the price, tax and discount as *floats* (hint, check the [crib sheet](http://www.cheatography.com/davechild/cheat-sheets/javascript/)).
 2. modify the JS code to double the discount applied when the quantity ordered is greater than 100 items
 3. modify the HTML form to include a *shipping* field, and include this value in the total calculation in `shopping.js`.
 
-As you edit the file in Codio it auto-saves. To view the view version simply refresh the web browser tab running your web page.
+As you edit the file in C9 you have to save once in a while. To view the new version simply refresh the web browser tab running your web page.
 
 ### 1.2 JavaScript source material
 
@@ -31,57 +38,58 @@ Enter some valid inputs into the form and submit it...
 
 “Nothing” happens. . . Actually, the result is being logged to the console which is a part of the Chrome Developer Tools integrated in to the browser.
 
-1. From the customise and control menu in Chrome (3 horizontal bars), choose More tools > Developer tools (ctrl-shift-I on a Chromebook) to open the Developer Tools pane. This can be docked to the right or bottom of the main window (bottom preferable).
-2. Click on the console tab and try submitting the form again (you can ignore errors at this point) to see output
-3. Go back to Brackets and load contact.js to see where this output comes from
+1. From the customise and control menu in Chrome (3 horizontal bars), choose More tools > Developer tools (ctrl-shift-I on a Chromebook) to open the Developer Tools pane. 
+2. This can be docked to the right or bottom of the main window (bottom preferable).
+3. Click on the console tab and try submitting the form again (you can ignore errors at this point) to see output
+
 
 ### 2.2 Test Your Understanding
 
 1. Load up `conditionals_booleans.html` and modify the HTML form to include a “Full Name” field
 2. Add validation in contact.js to ensure that the name entered has at least two parts separated by a space, and is between 3 and 100 characters in length
 
-## 3 JSLint Code Checking
+## 3 ESLint Code Checking
 
-Writing clean, readable, and error-free high-quality code is essential to maintainability. Therefore most languages now have automated syntax and style “checkers” called linters that code editors and IDEs can use to alert potential problems to programmers immediately, when they are writing their code.
+Writing clean, readable, and error-free high-quality code is essential to maintainability. 
+Therefore most languages now have automated syntax and style “checkers” called linters that code editors and IDEs can use to alert potential problems to programmers immediately, 
+when they are writing their code.
 
-One such linter for JavaScript is called JSLint, and it is built in to the Codio editor to help you improve any code you work with. This is disabled by default.
+ESLint is completely configurable through a configuration file .eslintrc which is located in the 06 Javascript Language directory. 
+By default any file or directory starting with the period (.) character is hidden. 
+To display hidden files and directories click on the gear icon at the top of the Documents Tree and choose Show Hidden Files.
 
-### 3.1 Enabling JSLint
+1. the env object imports groups of pre-defined global variables based on the environment they are used in. 
+2. the rules object defines any additional rules we want to enforce.
+In this example we are specifying that we don't want semicolons at the end of each line, 
+that we will use a 2 space tab for indenting, we will use single quotes for strings and that we are using UNIX line endings.
 
-To enable JSLint you need to open the user preferences file (Codio > Preferences > User) and add a line to the end of the Editor section under Your Preferences. You also need to set jslint_happy to true This should read:
-```
-[editor]
-wrap = true
-theme = default
-font_size = 14
-indent_with_tabs = true
-linting = true
+### 3.1 Enabling ESLint
 
-[code-beautifier]
-indent_with_tabs  = true
-jslint_happy = true
-```
+To enable ESLint you need to copy configuration file .eslintrc to the workspace  ~/workspace directory. 
+You can configure eslint, look at [configuring](http://eslint.org/docs/user-guide/configuring).
 
-Load up `js/notes.js` in Codio and run it to prove the code is fully functional. Make sure you understand how it works.
+Load up `js/notes.js` in C9 and run it to prove the code is fully functional. Make sure you understand how it works.
 
-1. Locate the orange and red dots in the left margin. If the dots are not visible, select Tools > Beautify to make them appear.
-2. Click on each dot to see the warning message
-3. Read the warning message and use this information to correct the code
+1. Notice the red error circles and yellow warning triangles in the left margin. If you hover the mouse pointer over these you can find out more.
+2. Read the warning message and use this information to correct the code
 
-Note that many of the highlighted issues are about things like indentation, and consistency of style, as well as syntax. That is because linters take readable code very seriously, and so should you! You should aim to have no JSLint warnings when you write your JavaScript or other programming code.
+Note that many of the highlighted issues are about things like indentation, and consistency of style, as well as syntax. That is because linters take readable code very seriously, 
+and so should you! You should aim to have no ESLint warnings when you write your JavaScript or other programming code.
 
 1. Open up the preview of the switch_case.html file in a new browser tab to see what it does
 2. Load the js/membership.js file and follow the code to determine how it works
 
 ### 3.2 Test your understanding
-Once you have corrected for any JSLint errors found by the code linter (`js/notes.js`), do the following.
-1. Locate all the JSLint errors and warnings and understand what they mean
+Once you have corrected for any ESLint errors found by the code linter (`js/notes.js`), do the following.
+1. Locate all the ESLint errors and warnings and understand what they mean
 2. Correct the app to eliminate all the errors (make sure it still runs correctly!)
-3. Read up on the most common JSLint errors
+3. Read up on the most common ESLint errors
 
 ## 4 Strict Mode
 
-JavaScript’s strict mode allows you to use a safer, restricted version of the language. It makes changes to the semantics to help you avoid many common errors. For example if you don’t use the var keyword when declaring variables these become globally scoped. With strict mode enabled these get flagged up as errors.
+JavaScript’s strict mode allows you to use a safer, restricted version of the language. 
+It makes changes to the semantics to help you avoid many common errors. 
+For example if you don’t use the var keyword when declaring variables these become globally scoped. With strict mode enabled these get flagged up as errors.
 
 To enable strict mode you simply add a line of code.
 
@@ -92,8 +100,9 @@ This can be added to the top of your script if you want it to apply to everythin
 ### 4.1 Activity
 Add this line to the top of your `notes.js` script. Notice how you now get a number of additional errors flagged in your code!
 
-Amongst other things, the global objects console and document are not recognised. We need to indicate that these objects have already been defined but also that they must not be overwritten (false). 
-To do this we need to identify these global objects in the `.jshintrc` file. Locate this in the `07 JavaScript Tools` folder and add the following:
+Amongst other things, the global objects console and document are not recognised. We need to indicate that these objects have already been defined 
+but also that they must not be overwritten (false). 
+To do this we need to identify these global objects in the `.eslintrc` file. Locate this in the `06 JavaScript Tools` folder and add the following:
 ```
 "globals": {
     "console": false,
@@ -114,7 +123,8 @@ WIth strict mode enabled your program will throw errors which can be seen in the
 
 For a much more detailed description read [Google’s debugging JavaScript guide](https://developer.chrome.com/devtools/docs/javascript-debugging).
 
-Sometimes your attempts to change the code will introduce bugs. A bug is usually signalled by some kind of error message, usually RED in colour, appearing on the console. If you find a bug has appeared in your code do the following to help track it down:
+Sometimes your attempts to change the code will introduce bugs. A bug is usually signalled by some kind of error message, usually RED in colour, appearing on the console. 
+If you find a bug has appeared in your code do the following to help track it down:
 
 1. Note the line number that caused the problem, if any is mentioned on the console output (sometimes it is not)
 2. Load the ‘Sources’ tab in the developer tools area and select the JS file

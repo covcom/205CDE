@@ -4,7 +4,7 @@ This week introduces the two key data types in JS: objects and functions. Get us
 
 ## Task List
 
-Aim to complete these in roughly 30-60 minutes of lab time.
+This lab takes approximately 30-60 minutes.
 
 1. Write a simple function to remove duplicates from a task list.
 2. Nest objects to define the internal sub-components of a car and engine.
@@ -18,8 +18,8 @@ One of the most useful resources is the Mozilla JS Tutorial. You should read thi
 
 In this task you will write a simple function to detect and remove duplicates from a task list.
 
-1. Open the Codio project containing the lab code (see the previous lab) and open the file  simple_function.html  from  `/labs/08 JavaScript Language/`. 
-2. Use the  *Current File (static)*  button to test out what the page does.
+1. Open the C9 project containing the lab code (see the previous lab) and open the file  simple_function.html  from  `/labs/07 JavaScript Language/`. 
+2. Use the  *Preview*  button to test out what the page does.
 3. Open the associated JS file `js/tasks.js` and check you understand how it works.
 
 ### 1.1 Test Your Understanding

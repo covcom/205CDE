@@ -8,7 +8,7 @@ function addItem() {
 	textbox.focus();
 	var newItem = {title: itemText, quantity: 1};
 	notes.push(newItem);
-	displayList()
+	displayList();
 }
 
 function displayList() {
@@ -29,5 +29,5 @@ function deleteIndex(i) {
 	displayList();
 }
 
-button = document.getElementById('add')
+button = document.getElementById('add');
 button.onclick = addItem;

@@ -141,10 +141,9 @@ This HTML template has the same number of input fields as the pure HTML example,
 
 If you run the code you'll see that the form looks much better as it inherits all Bootstrap rules and interactivities.
 
-![](.md_images/xxx.png)
+![](.md_images/bootstrap.png)
 
-> The recommendation from Bootstrap is to *"void using <textarea> elements as their rows attribute will not be respected in some cases"*, see [here](http://getbootstrap.com/components/#input-groups).
-
+> The recommendation from Bootstrap is to *"void using `textarea` elements as their rows attribute will not be respected in some cases"*, see [here](http://getbootstrap.com/components/#input-groups).
 
 ### Forms using WTF
 

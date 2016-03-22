@@ -60,7 +60,7 @@ You also need to know how to “turn off” event handlers that you no longer ne
 
 The code you will look at below invokes handlers that check for methods and properties that are not shared across all browsers (browser incompatibility implies that the same JS does not work in all browsers). Libraries such as jQuery do this automatically, but it is important that you see how it is achieved: loading all of jQuery just to handle a click event is usually massive overkill, it is often better to keep the dependencies to a minimum.
 
-1. Load events.html in Brackets and preview its functionality.
+1. Load events.html in Cloud 9 editor and preview its functionality.
 2. Note that the window.onload event is given a function (this should be familiar from previous weeks)
     a. Observe that the function checks whether particular methods are available on div in the DOM
     b. Depending on the method availability, the onload handler invokes a click handler on the div and passes it a callback function called handleClick
@@ -130,7 +130,7 @@ AJAX essentially uses the JavaScript XMLHttpRequest object to communicate with s
 
 In this section we will see the main “workflow” involved in making an AJAX request and processing a response using a callback function. The code also takes account of browser inconsistencies, which is usually done automatically if you are using jQuery, for example.
 
-1. Load the ajax_basic.html file in Brackets and preview it with live preview
+1. Load the ajax_basic.html file in editor and preview it with live preview
     - NOTE If you do not use live preview the AJAX call will fail due to cross domain security restrictions used by most servers/browsers
 2. Note that clicking on the “ajaxButton” will call a function that makes a request to a certain URL
 3. The makeRequest() call first checks which suitable HTTP request methods are available in the browser

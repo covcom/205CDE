@@ -20,7 +20,7 @@ One of the most useful resources is the Mozilla JS Tutorial. You should read thi
 
 In this task you will write code to respond to a series of events. The code will access data contained within a form and display it in HTML tags.
 
-1. Open the Codio project containing the lab code (see the previous lab) and open the file  simple_dom.html  from  /labs/10 Single-Page Applications/ 
+1. Open the Cloud9 project containing the lab code (see the previous lab) and open the file  simple_dom.html  from  /labs/10 Single-Page Applications/ 
 2. Use the  Current File (static)  button to test out what the page does. Make sure you open the Chrome Developer Tools at the Console tab.
 3. Open the associated JS file  js/simple_dom.js  and check you understand how it works.
 

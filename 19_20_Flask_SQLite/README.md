@@ -147,7 +147,7 @@ If you run the code you'll see that the form looks much better as it inherits al
 
 ### Forms using WTF
 
-Bootstrap was covered earlier in the module, in lab12. The only reason we need to re-visit is to use Flask extension Flask-WTF, which offers a simple wrapper around WTForms. WTForms is a flexible forms validation and rendering library for python web development that turns the whole form into classes and objects.
+Bootstrap was covered earlier in the module, in lab12. The only reason we need to re-visit is to prepare for the Flask extension Flask-WTF, which offers a simple wrapper around WTForms. WTForms is a flexible forms validation and rendering library for python web development that turns the whole form into classes and objects.
 
 Create a new file and name it 'form_wtf.py'. Insert the following code into it
 
@@ -187,10 +187,12 @@ if __name__ == '__main__':
 
 There are quite a lot of things going on in the example above:
 
+* The `SECRET_KEY` configuration variable is used as a general-purpose encryption key by Flask and several third-party extensions. This is required against [Cross-Site Request Forgery (CSRF)](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
 * We created a class called CommentForm that inherits from the Form class that comes with package flask_wtf. This class is being used as the form in an ordinary HTML context.
-* This CommentForm class has three attributes, corresponding to the three form controls we have. Note here these attributes are objects themselve, imported from a different module called 'wtforms'.
-* Form controls i.e. fields can have validators. These are imported classes. The differences between this Python validators and JS validators we saw earlier in the module is that Python validators need to be run on the server. That is, the form is sent first to get validation.
-* Form objects have an instance funciton called `validate_on_submit()`. Basically if the form validates fine, this function will evaluate to true, and the sub-block will get run
+* This CommentForm class has three attributes, corresponding to the three form controls we have. Note here these attributes are field objects themselve, imported from a different module called 'wtforms'.
+* Form controls i.e. fields can have validators. These are imported classes. The differences between these Python validators and JS validators we saw earlier in the module is that **some** Python validators need to be run on the server. That is, the form is passed to the server first to get validation.
+* Form objects have an instance funciton called `validate_on_submit()`. Basically if the form validates fine, this function will evaluate to true, and the sub-block will run.
+* The form, as an object, is used to present and also to hold user input data. So `form.name.data` denotes the user's response in the name field. And so it's necessary we replace user submitted value by an empty string before re-send it out to the user again.
 > If you Google online, you'll notice that some tutorial use 'data_required()' or 'required()' instead of 'DataRequired()'. In fact, 'data_required' is the same as 'DataRequired()', and  'required()' is the legacy version of the same thing.
 
 Now, create a file called 'form_wtf.html' and put inside the templates folder. Insert the following lines into this file
@@ -217,21 +219,131 @@ Now, create a file called 'form_wtf.html' and put inside the templates folder. I
 {% endblock %}
 ```
 
+With the help of WTF form object, rendering the form becomes an easy job. All you need is to call the `quick_form()` macro and give your form as input. The rest of the template above displays user inputs back in the same way as in the pure HTML example.
+
 ## SQLite integration
 
-### Collect user inputs
+Data collected using forms allows us to do various manipulations, which is not possible using standard HTML/CSS techniques.
 
-### Save data in SQLite
+### Prepare database
 
-## Advanced
+In your workspace create a new file and name it 'schema.sql'. Insert the following code into it
 
+```sql
+DROP TABLE IF EXISTS comments_table;
+
+
+CREATE TABLE comments_table (
+    id integer PRIMARY KEY,
+    name text NOT NULL,
+    comments text NOT NULL
+    );
+```
+
+Go to terminal and insert the following command and hit `Enter`
+
+```bash
+sqlite3 comments.db < schema.sql
+```
+
+Command above will invoke the SQLite3 executable and run SQL commands saved in file 'schema.sql'. This essentially create a database file called 'comments.db' and create a table named 'comments_table' inside.
+
+### Collect and display data
+
+Create a new file and name it 'flask_sqlite.py' and insert the following code
+
+```python
+from flask import Flask, render_template, redirect, url_for
+import os
+from flask_bootstrap import Bootstrap
+from flask_wtf import Form
+from wtforms import StringField, TextAreaField, SubmitField
+from wtforms.validators import DataRequired, Length
+import sqlite3
+
+app = Flask(__name__)
+app.config.update(dict(
+    DATABASE=os.path.join(app.root_path, 'comments.db'),
+    SECRET_KEY='development key'
+))
+Bootstrap(app)
+
+class CommentForm(Form):
+    name = StringField('Name:', validators=[DataRequired()])
+    comments = TextAreaField('Comments', validators=[DataRequired(), Length(min=3, max=10)])
+    submit = SubmitField('Submit')
+
+@app.route('/', methods=['GET', 'POST'])
+def view_form():
+    form = CommentForm()
+    if form.validate_on_submit():
+        name = form.name.data
+        comments = form.comments.data
+        with sqlite3.connect(app.config['DATABASE']) as con:
+            cur = con.cursor()
+            cur.execute("INSERT INTO comments_table (name, comments) VALUES (?,?)", (name, comments))
+            con.commit()
+
+        return redirect(url_for('list_results'))
+    return render_template('form_wtf.html', form=form)
+
+@app.route('/display')
+def list_results():
+    with sqlite3.connect(app.config['DATABASE']) as con:
+        con.row_factory = sqlite3.Row
+        cur = con.cursor()
+        cur.execute("SELECT * FROM comments_table")
+        entries = cur.fetchall()
+        return render_template('flask_sqlite.html', entries=entries)
+
+if __name__ == '__main__':
+    app.run(port=8080, host='0.0.0.0', debug=True)
+```
+
+Create a file called 'flask_sqlite.html' and put into the templates folder. Insert the following code into this file_exists
+
+```html
+{% extends 'bootstrap/base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}
+    A simple form using SQLite
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+
+        <ul class="entries">
+            {% for entry in entries %}
+                <li><h2>{{ entry.name|capitalize }}</h2>{{ entry.comments }}
+            {% endfor %}
+        </ul>
+
+
+    </div>
+
+{% endblock %}
+```
+
+If you type in some names/comments in the form and click submit, you should see something similar to below
+
+![](.md_images/sqlite.png)
+
+The database file 'comments.db' can be downloaded and visualized using for example [SQLiteStudio](http://sqlitestudio.pl/).
+
+![](.md_images/table.png)
+
+## Extensions (N.B.: advanced)
+
+So far in this module we have learned some extensions such as Flask-Bootstrap and Flask-WTF. Apart from these two, there're [a large number of extesions](http://flask.pocoo.org/extensions/) covering almost everything one can think of.
+
+* [Flask-Script](http://github.com/techniq/flask-script/) provides support for writing external scripts in Flask. 
+* [Flask-SQLAlchemy](https://github.com/mitsuhiko/flask-sqlalchemy/) is a wrapper for [SQLAlchemy](http://www.sqlalchemy.org/) which, in simple terms, turns relational SQL tables into models a.k.a. classes.
+* [Flask-Mail](http://pythonhosted.org/Flask-Mail/) allows your user to send emails using a mail server or an existing email account such as your Gmail account.
 
 > ![](.md_images/flash.jpg)
 
 > There's a new book came out recently using [Zootopia's Flash](http://disney.wikia.com/wiki/Flash) as cover image. Grab a copy of the book and see if it makes differences.
 
 
-### Flask-SQLAlchemy
-
-### Flask-Mail
 

@@ -80,10 +80,70 @@ If you run the code, type in something and hit 'submit', what you'll see is simi
 
 ### Bootstrap forms
 
-Obviously pure HTML forms work, but as you can see it doesn't look very nice. Using the Bootstrap 
+Obviously pure HTML forms work, but as you can see it doesn't look very nice. Using existing Bootstrap templates/blocks we can save a lot of time on the formatting.
+
+Create a new file called 'form_bootstrap.py', and insert the following code
+
+```python
+from flask import Flask, render_template, request
+from flask_bootstrap import Bootstrap
+
+app = Flask(__name__)
+Bootstrap(app)
+
+@app.route('/')
+def view_form():
+    return render_template('form_bootstrap.html')
+
+
+if __name__ == '__main__':
+    app.run(port=8080, host='0.0.0.0', debug=True)
+```
+
+This is a standard Flask app using Bootstrap, the same as what we saw in the previos lab. 
+
+Next, create a file called 'form_bootstrap.html' and put into the templates folder. Insert the following lines into this newly created file.
+
+```html
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+    A simple form using Bootstrap
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="nameId">Name:</label>
+                <input type="text" name="name" id="nameId" class="form-control" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="commentsId">Comments:</label>
+                <textarea name="comments" id="commentsId" rows="8" class="form-control"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+
+{% endblock %}
+```
+
+This HTML template has the same number of input fields as the pure HTML example, but it uses the Bootstrap format:
+
+* The form is being contained in a 'container' class.
+* Input fields and associated labels are groupled using the 'form-group' class.
+* Input fileds are marked using the 'form-control' class.
+* Submit button has been assigned the 'btn' and 'btn-default' classes.
+
+If you run the code you'll see that the form looks much better as it inherits all Bootstrap rules and interactivities.
+
+> The recommendation from Bootstrap is to *"void using <textarea> elements as their rows attribute will not be respected in some cases"*, see [here](http://getbootstrap.com/components/#input-groups).
 
 ### Forms using WTF
 
+Bootstrap was covered earlier in the module, in lab12. The only reason we need to re-visit is to use Flask extension Flask-WTF, which offers a simple wrapper around WTForms.
 
 ## SQLite integration
 

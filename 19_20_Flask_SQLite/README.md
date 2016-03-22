@@ -139,11 +139,82 @@ This HTML template has the same number of input fields as the pure HTML example,
 
 If you run the code you'll see that the form looks much better as it inherits all Bootstrap rules and interactivities.
 
+![](.md_images/xxx.png)
+
 > The recommendation from Bootstrap is to *"void using <textarea> elements as their rows attribute will not be respected in some cases"*, see [here](http://getbootstrap.com/components/#input-groups).
+
 
 ### Forms using WTF
 
-Bootstrap was covered earlier in the module, in lab12. The only reason we need to re-visit is to use Flask extension Flask-WTF, which offers a simple wrapper around WTForms.
+Bootstrap was covered earlier in the module, in lab12. The only reason we need to re-visit is to use Flask extension Flask-WTF, which offers a simple wrapper around WTForms. WTForms is a flexible forms validation and rendering library for python web development that turns the whole form into classes and objects.
+
+Create a new file and name it 'form_wtf.py'. Insert the following code into it
+
+```python
+from flask import Flask, render_template
+from flask_bootstrap import Bootstrap
+from flask_wtf import Form
+from wtforms import StringField, TextAreaField, SubmitField
+from wtforms.validators import DataRequired, Length
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'hard to guess string'
+Bootstrap(app)
+
+
+class CommentForm(Form):
+    name = StringField('Name:', validators=[DataRequired()])
+    comments = TextAreaField('Comments', validators=[DataRequired(), Length(min=3, max=10)])
+    submit = SubmitField('Submit')
+
+
+@app.route('/', methods=['GET', 'POST'])
+def view_form():
+    form = CommentForm()
+    if form.validate_on_submit():
+        name = form.name.data
+        comments = form.comments.data
+        form.name.data = ''
+        form.comments.data = ''
+        return render_template('form_wtf.html', form=form, name=name, comments=comments)
+    return render_template('form_wtf.html', form=form)
+
+
+if __name__ == '__main__':
+    app.run(port=8080, host='0.0.0.0', debug=True)
+```
+
+There are quite a lot of things going on in the example above:
+
+* We created a class called CommentForm that inherits from the Form class that comes with package flask_wtf. This class is being used as the form in an ordinary HTML context.
+* This CommentForm class has three attributes, corresponding to the three form controls we have. Note here these attributes are objects themselve, imported from a different module called 'wtforms'.
+* Form controls i.e. fields can have validators. These are imported classes. The differences between this Python validators and JS validators we saw earlier in the module is that Python validators need to be run on the server. That is, the form is sent first to get validation.
+* Form objects have an instance funciton called `validate_on_submit()`. Basically if the form validates fine, this function will evaluate to true, and the sub-block will get run
+> If you Google online, you'll notice that some tutorial use 'data_required()' or 'required()' instead of 'DataRequired()'. In fact, 'data_required' is the same as 'DataRequired()', and  'required()' is the legacy version of the same thing.
+
+Now, create a file called 'form_wtf.html' and put inside the templates folder. Insert the following lines into this file
+
+```html
+{% extends 'bootstrap/base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}
+    A simple form using WTF
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {{ wtf.quick_form(form) }}
+
+        {% if name %}
+            <p> Your name is: {{ name }}</p>
+            <p>and your comments are: {{ comments }}</p>
+            <p>A big thank you!</p>
+        {% endif %}
+    </div>
+
+{% endblock %}
+```
 
 ## SQLite integration
 

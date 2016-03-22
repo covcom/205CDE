@@ -88,5 +88,6 @@ Chapter_4/
 # lab15 virtual environment
 venv/
 
-
+# lab19
+.idea/
 

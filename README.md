@@ -183,7 +183,7 @@ Classes, OOP design
 
 [Ref.[8]](#ref8) chapter 7/9
 
-## Week 9 Flask
+## Week 9 Flask templates
 
 ### Basic Flask
 
@@ -195,19 +195,29 @@ Basic application structure, routes, view function, request-response cycle
 
 [Ref.[9]](#ref9) chapter 2
 
-### Jinja2 integration
+### Jinja2 templates
 
 **Contents**
 
-Jinja2 templates and web forms
+Jinja2 templating system
 
 **Refs**
 
-[Ref.[9]](#ref9) chapter 3/4
+[Ref.[9]](#ref9) chapter 3
 
-## Week 10 Flask
+## Week 10 Flask SQLite
 
-### Database
+### Forms in Flask
+
+**Contents**
+
+Web forms in Flask, Flask-WTF
+
+**Refs**
+
+[Ref.[9]](#ref9) chapter 4
+
+### SQLite integration
 
 **Contents**
 
@@ -215,17 +225,7 @@ Database integration, flast-sqlalchemy, email support
 
 **Refs**
 
-[Ref.[9]](#ref9) chapter 5/6
-
-### Large application
-
-**Contents**
-
-Large application structure, testing and deployment
-
-**Refs**
-
-[Ref.[9]](#ref9) chapter 8/15/17
+[Ref.[9]](#ref9) chapter 5
 
 [Ref.[10]](#ref10)
 

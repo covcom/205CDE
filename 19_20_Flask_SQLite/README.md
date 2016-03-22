@@ -2,7 +2,7 @@
 
 Last week we looked at how to combine HTM/CSS with the Python language using Jinja2 templating system. This combination is very powerful as it overcomes some limitations associated with HTML such as the lack of flow control mechanims. 
 
-This week we'll rely Python language's SQL handling capabilites to build website that is capable of connecting/manipulating daat in a relational database. The excercises that follow conclude the current module.
+This week we'll rely Python language's SQL handling capabilites to build websites that is capable of connecting/manipulating daat in a relational database. The excercises that follow conclude the current module.
 
 ## Forms in Flask
 
@@ -67,6 +67,7 @@ if __name__ == '__main__':
 ```
 
 The majority of the code should look familiar, apart from the following two:
+
 1. The function decorator takes an additional 'method' argument. By defaul (without the 'method' argument), the current route i.e. `/` will only respond to `GET` method. That's what happens when people try to view a webpages. However, when they try to send data in a form, they will have to specify either 'POST' or 'PUT' in the form's `method` attribute. When you design your route, you'll need to respond to that **HTTP method**.
 2. 'request' here is an object that encapsulates the contents of a HTTP request sent by the client (normally a browser). Here we use it to access the data contained in the form. 
 
@@ -80,7 +81,9 @@ If you run the code, type in something and hit 'submit', what you'll see is simi
 
 ### Bootstrap forms
 
-Obviously pure HTML forms work, but as you can see it doesn't look very nice. Using the Bootstrap 
+Obviously pure HTML forms work, but as you can see it doesn't look very nice. Using the Flask-Bootstrap extension we can take advantage of existing CSS rules in Bootstrap.
+
+
 
 ### Forms using WTF
 
@@ -94,7 +97,8 @@ Obviously pure HTML forms work, but as you can see it doesn't look very nice. Us
 ## Advanced
 
 
-![](.md_images/flash.jpg)
+> ![](.md_images/flash.jpg)
+
 > There's a new book came out recently using [Zootopia's Flash](http://disney.wikia.com/wiki/Flash) as cover image. Grab a copy of the book and see if it makes differences.
 
 

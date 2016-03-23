@@ -353,8 +353,8 @@ So far in this module, we have learned some extensions such as Flask-Bootstrap a
 * [Flask-SQLAlchemy](https://github.com/mitsuhiko/flask-sqlalchemy/) is a wrapper for [SQLAlchemy](http://www.sqlalchemy.org/) which, in simple terms, turns relational SQL tables into models a.k.a. classes.
 * [Flask-Mail](http://pythonhosted.org/Flask-Mail/) allows your user to send emails using a mail server or an existing email account such as your Gmail account.
 
-> ![](.md_images/flash.jpg)
-
 > There's a new book came out recently using [Zootopia's Flash](http://disney.wikia.com/wiki/Flash) as the cover image. Grab a copy of the book and see if it makes sense.
+
+> ![](.md_images/flash.jpg)
 
 

@@ -1,6 +1,6 @@
 # HTML5
 
-The web technology has revolutionized everything, including itself. HTML5 (Hypertext Markup Language) became official in 2014, following the previous release of version 4.01. There're many big changes introduced in this new release, the most important being HTML is now a ['living standard'](https://html.spec.whatwg.org/multipage/). This means that the standard will update itself, there will never be another version of HTML.
+The web technology has revolutionized everything, including itself. HTML5 (Hypertext Markup Language) became official in 2014, following the previous release of version 4.01. There are many big changes introduced in this new release, the most important being HTML is now a ['living standard'](https://html.spec.whatwg.org/multipage/). This means that the standard will update itself, there will never be another version of HTML.
 
 [![](.md_images/eow.png)](http://www.evolutionoftheweb.com/)
 

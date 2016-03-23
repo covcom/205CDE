@@ -84,7 +84,7 @@ Paste that URL into a new browser tab, what you'll see is similar to below
 
 Congratulations, your first Flask website is up and running!
 
-Now go back to the code we inserted into the file. There're several important concepts in it:
+Now go back to the code we inserted into the file. There are several important concepts in it:
 
 * `Flask` is a class, it accepts several different input parameters. The one we supplied is the name of the current module. This name is used to uniquely identified the currently running app.
 * Line begins with `@` is called a decorator. This is used to modify the function (in the current case 'hello_word()'.) The modified function then becomes associated with route `/`, so that when a request is being sent to `/` i.e. the root folder of the website, this function will be run.
@@ -267,7 +267,7 @@ This may take a while to understand.
     * {# ... #} for Comments not included in the template output
 * `endif` and `endfor` are for ending branching and for loops. This is new and not available in Python.
 * Variables are set using `set` keyword.
-* There're two ways to start/end a block. If we use `{%-` instead of `{%`, the whitespaces before or after that block will be removed.
+* There are two ways to start/end a block. If we use `{%-` instead of `{%`, the whitespaces before or after that block will be removed.
 * Function `url_for()` generates a link to a static image. In this case, the image is saved in a folder called 'static/images'. This is how to combine static resource files with Jinja2.
 
 ![](.md_images/lenna.png)
@@ -308,7 +308,7 @@ I'm not going to list all the contents. You can find it in the module repository
 {% endblock %}
 ```
 
-There're several things to note here:
+There are several things to note here:
 
 * We used all three directives: extend, import, and include. In all cases, it takes file name in a string format.
 * Blocks can have named eng tags. For example, the list line above could be changed to `{% endblock content %}`

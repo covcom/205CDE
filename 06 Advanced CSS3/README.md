@@ -55,7 +55,7 @@ Verify that all four paragraphs are displayed exactly as intended.
 
 ### Developer tools
 
-In Google Chrome browser, there're a built-in Developer Tools for viewing the layout of an individual element. It is an important tool for finding and correcting layout problems. Click options menu to the right of the menu bar, then More Tools ==> Developer Tools to view it.
+In Google Chrome browser, there are a built-in Developer Tools for viewing the layout of an individual element. It is an important tool for finding and correcting layout problems. Click options menu to the right of the menu bar, then More Tools ==> Developer Tools to view it.
 
 ![](.md_images/tools.png)
 

@@ -83,7 +83,7 @@ HTML defines a number of input types that can be used in forms. The commonly use
 - Password fields: `<input type="password">`
 - Email addresses: `<input type="email">`
 
-The above are supported by most browsers. There're some new input types also:
+The above are supported by most browsers. There are some new input types also:
 
 - URL addresses: `<input type="url">`
 - Numeric data: `<input type="number">`
@@ -241,7 +241,7 @@ If we add a `required` attribute to the query input, it will become `<input requ
 
 ![Example of an error message](.md_images/error_html5.png).
 
-Behind the scene, the browser tries to verify user's input. There're some other input attributes that can serve for validation purposes. For example, `min` and `max` attributes for numerical input types such as `number` or `month`; `size` and `maxlength` for limiting the number of characters entered.
+Behind the scene, the browser tries to verify user's input. There are some other input attributes that can serve for validation purposes. For example, `min` and `max` attributes for numerical input types such as `number` or `month`; `size` and `maxlength` for limiting the number of characters entered.
 
 ### 'pattern' attribute based on regular expression
 

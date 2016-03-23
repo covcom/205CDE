@@ -73,7 +73,7 @@ One such linter for JavaScript is called [JSLint](http://www.jslint.com/), and i
 
 > [JSLint](http://www.jslint.com/) provides checks based on direct input, similar to HTML/CSS validation.
 
-Load up **notes.js** in C9 and you'll see immediately there're some highlights in the gutter. If you move your mouse over you'll see some hints on the error.
+Load up **notes.js** in C9 and you'll see immediately there are some highlights in the gutter. If you move your mouse over you'll see some hints on the error.
 
 ![](.md_images/error.png)
 

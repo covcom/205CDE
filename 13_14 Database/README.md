@@ -6,7 +6,7 @@ In this lab, you'll do some SQL exercises using C9 and SQLite. The purpose of th
 
 > Some comparisons of SQL and NoSQL on [Sitepoint](http://www.sitepoint.com/sql-vs-nosql-differences/). Click for the official documentation on [Using SQLite 3 with Flask](http://flask.pocoo.org/docs/0.10/patterns/sqlite3/).
 
-There're two parts in this current lab: 
+There are two parts in this current lab: 
 
 1. SQLite. This current module assumes no prior knowledge of SQL. I understand some of you have done SQL before in 104KM or doing it right now in 220CT. Bare in mind that SQL has different flavors. Being very powerful and popular, SQLite is different from other implementations such as MySQL. 
     
@@ -52,7 +52,7 @@ CREATE TABLE lecturers (
   );
 ```
 
-There're several things going on in the code above:
+There are several things going on in the code above:
 * It creates a table with 4 columns. In this example, it shows staff ID, room number etc.
 * In SQL we don't distinguish between lower and upper case letters. The reason that reserved words use all upper cases is for convention only.
 * Each SQL statement must terminate using a semicolon ';'.

@@ -58,11 +58,11 @@ Prototype inheritance applies to any JS data type / object, including objects cr
     - Each invocation of  sip()  should simply log  "Hmm, tasty"  to the console
 
 ## 3. Create a JavaScript module
-See JS module pattern along with Immediately-Invoked function expressions for a good discussion of what follows.
+Make web searches with keyword 'Immediately-Invoked function expressions' for a good discussion of what follows.
 
 This is more advanced but begins to show the power of JS as a fully fledged language for designing and building large-scale applications. In particular, function closures and immediate invocation allows us to define self-contained modules that do not pollute the global namespace. This is how libraries such as, for example, jQuery and YUI, are put together.
 
-1. Load the advanced_obj_fun folder in Brackets and preview index.html.
+1. Open the advanced_obj_fun folder and preview index.html.
 2. Play with the app, it is a simple task list. However, it is implemented as a proper application, using modules.
 3. Load the following files in the editor:
 ```

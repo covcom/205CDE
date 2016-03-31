@@ -1,15 +1,15 @@
 # Modular PHP
 
-in this lab you will use modular features of the PHP language, for example functions and classes.
+In this lab you will learn to use modular features of the PHP language such as functions and classes.
 
 ## Task List
 
 in this lab you will do the following tasks:
 
 - write PHP functions
-- use predined functions
-- write PHP classes
-- create a JSON object as a response to an API call
+- use predefined functions
+- use object-oriented features of PHP (classes, objects, modules)
+- create a JSON object that can acts as a response to an API call
 
 ### 1 Functions
 #### 1.1 Defining a Function
@@ -28,25 +28,19 @@ function name($parameterName, ..., $parameterName) {
 Example:
 
 ```
-<!DOCTYPE html>
-<html>
-    <head><title>Function example</title></head>
-    <body>
-    <?php
-    function is_odd($number) {
-        if (($number%2)==0)
-            return FALSE;
-        else
-            return TRUE;
-    }
-    $checked_number=rand(0, 50); # random number generator
-    if (is_odd($checked_number)==TRUE)
-        print "<p>Number $checked_number is odd.</p>";
+<?php
+function is_odd($number) {
+    if (($number%2)==0)
+        return FALSE;
     else
-        print "<p>Number $checked_number is even.</p>";
-     ?>
-    </body>
-</html>
+        return TRUE;
+}
+$checked_number=rand(0, 50); # random number generator
+if (is_odd($checked_number)==TRUE)
+    print "<p>Number $checked_number is odd.</p>";
+else
+    print "<p>Number $checked_number is even.</p>";
+?>
 ```
 
 The latter if-statement looks a bit redundant. How would you get rid of it?
@@ -60,68 +54,56 @@ A parameter can also be passed by reference which means that both parameters (ac
 A reference parameter should have a & mark before the usual $ mark.
 See the example below.
 
-```
-<!DOCTYPE html>
-<html>
-    <head><title>Function example</title></head>
-    <body>
-    <?php
-    function is_odd(&$number) { # $number is now a reference parameter
-        if (($number%2)==0) {
-            $number++;
-            return FALSE;
-        }
-        else {
-            $number++;
-            return TRUE;
-        }
+```php
+<?php
+function is_odd(&$number) { # $number is now a reference parameter
+    if (($number%2)==0) {
+        $number++;
+        return FALSE;
     }
-    $checked_number=rand(0, 50);
-    $checked_original_value = $checked_number;
-    if (is_odd($checked_number)==TRUE)
-        print "<p>Number $checked_original_value is odd. (incremented value $checked_number)</p>";
-    else
-        print "<p>Number $checked_original_value is even. (incremented value $checked_number)</p>";
-     ?>
-    </body>
-</html>
+    else {
+        $number++;
+        return TRUE;
+    }
+}
+$checked_number=rand(0, 50);
+$checked_original_value = $checked_number;
+if (is_odd($checked_number)==TRUE)
+    print "<p>Number $checked_original_value is odd. (incremented value $checked_number)</p>";
+else
+    print "<p>Number $checked_original_value is even. (incremented value $checked_number)</p>";
+?>
 ```
 
 
-#### 1.2 Scope
+#### 1.3 Scope
 
 A variable defined outside of a function have a global scope and can be seen throughout the program. A variable which is defined inside a function are local 
 variables and have a local scope. They can be used only inside a function block they are defined.
 
 If a function wants to access to a global variable, global keyword is needed in front of the variable name. See the example below.
 
-```
-<!DOCTYPE html>
-<html>
-    <head><title>Function example</title></head>
-    <body>
-    <?php
-    function is_odd() {
-        global $checked_number; # global variable
-        $number=0; # local variable (just for demo purpose)
-        if (($checked_number%2)==0) {
-            $number++;
-            return FALSE;
-        }
-        else {
-            $number++;
-            return TRUE;
-        }
+```php
+<?php
+function is_odd() {
+    global $checked_number; # global variable
+    $number=0; # local variable (just for demo purpose)
+    if (($checked_number%2)==0) {
+        $number++;
+        return FALSE;
     }
-    $checked_number=rand(0, 50);
+    else {
+        $number++;
+        return TRUE;
+    }
+}
+$checked_number=rand(0, 50);
     
-    if (is_odd($checked_number)==TRUE)
-        print "<p>Number $checked_number is odd. </p>";
-    else
-        print "<p>Number $checked_number is even. </p>";
-     ?>
-    </body>
-</html>
+if (is_odd($checked_number)==TRUE)
+    print "Number $checked_number is odd.";
+else
+    print "Number $checked_number is even.";
+?>
 ```
 
 ### 2 Files
@@ -155,138 +137,10 @@ reverse_lines("myfile.txt");
 print file_get_contents("myfile.txt");
 ?>
 ```
-### 3 REST API - a Simple Example
 
-Here is a simple REST API [example][RESTAPI] found from the web. In the example the first PHP program creates an api implementation and the second is a client which creates api calls.
-The API implementation is below:
+### 3 Object-oriented PHP
 
-```php
-<?php
-// This is the API, 2 possibilities: show the app list or show a specific app by id.
-// This would normally be pulled from a database but for demo purposes, I will be hardcoding the return values.
-
-function get_app_by_id($id)
-{
-  $app_info = array();
-
-  // normally this info would be pulled from a database.
-  // build JSON array.
-  switch ($id){
-    case 1:
-      $app_info = array("app_name" => "Web Demo", "app_price" => "Free", "app_version" => "2.0"); 
-      break;
-    case 2:
-      $app_info = array("app_name" => "Audio Countdown", "app_price" => "Free", "app_version" => "1.1");
-      break;
-    case 3:
-      $app_info = array("app_name" => "The Tab Key", "app_price" => "Free", "app_version" => "1.2");
-      break;
-    case 4:
-      $app_info = array("app_name" => "Music Sleep Timer", "app_price" => "Free", "app_version" => "1.9");
-      break;
-  }
-
-  return $app_info;
-}
-
-function get_app_list()
-{
-  //normally this info would be pulled from a database.
-  //build JSON array
-  $app_list = array(array("id" => 1, "name" => "Web Demo"), array("id" => 2, "name" => "Audio Countdown"), array("id" => 3, "name" => "The Tab Key"), array("id" => 4, "name" => "Music Sleep Timer")); 
-
-  return $app_list;
-}
-
-$possible_url = array("get_app_list", "get_app");
-
-$value = "An error has occurred";
-
-if (isset($_GET["action"]) && in_array($_GET["action"], $possible_url))
-{
-  switch ($_GET["action"])
-    {
-      case "get_app_list":
-        $value = get_app_list();
-        break;
-      case "get_app":
-        if (isset($_GET["id"]))
-          $value = get_app_by_id($_GET["id"]);
-        else
-          $value = "Missing argument";
-        break;
-    }
-}
-
-//return JSON array
-exit(json_encode($value));
-?>
-```
-The edited client implementation is below:
-```
-<html>
- <body>
-
-<?php
-
-$server = $_SERVER['HTTP_HOST'];
-
-if (isset($_GET["action"]) && isset($_GET["id"]) && $_GET["action"] == "get_app") 
-{
-  $app_info = file_get_contents('http://'.$server.'/api.php?action=get_app&id=' . $_GET["id"]);
-  $app_info = json_decode($app_info, true);
-  ?>
-    <table>
-      <tr>
-        <td>App Name: </td><td> <?php echo $app_info["app_name"] ?></td>
-      </tr>
-      <tr>
-        <td>Price: </td><td> <?php echo $app_info["app_price"] ?></td>
-      </tr>
-      <tr>
-        <td>Version: </td><td> <?php echo $app_info["app_version"] ?></td>
-      </tr>
-    </table>
-    <br />
-     
-    <a href="http://<?php echo $server?>/REST_Client.php?action=get_app_list" alt="app list">Return to the app list</a> 
-  <?php
-}
-else // else take the app list
-{
-    
-  $app_list = file_get_contents('http://'.$server.'/api.php?action=get_app_list');
-  $app_list = json_decode($app_list, true);
-  //var_dump($app_list);
-  ?>
-    <ul>
-     <?php foreach ($app_list as $app) {  ?>
-      <li>
-        <a href=<?php echo "http://$server/REST_Client.php?action=get_app&id=" . $app["id"]  ?> alt=<?php echo "app_" . $app["id"] ?>><?php echo $app["name"] ?></a>
-      </li>
-     <?php } ?>
-    </ul>
-  <?php
-} ?>
- </body>
-</html>
-```
-These are the API calls in this example:
-
--   http://drink-office.codio.io:3000/REST_Client.php?action=get_app&id=1  (drink-office.codio.io:3000 is the host name which may vary.)
--   http://drink-office.codio.io:3000/REST_Client.php?action=get_app&id=2
--   http://drink-office.codio.io:3000/REST_Client.php?action=get_app&id=3
--   http://drink-office.codio.io:3000/REST_Client.php?action=get_app&id=4
--   http://drink-office.codio.io:3000/REST_Client.php?action=get_app_list
-
-The API implementation returns a specific JSON object related to the query string id value. The query string variable "get_app_list" is used to create a menu if there is a need to run client more than once.
-Notice how a PHP program obtain access to the HTTP query ids and to the query id values.
-
-
-
-### 4 Object Oriented PHP
-
-PHP can be used as an object oriented language i.e. a developer can create classes and objects and use other object oriented features.
+PHP can be used as an object oriented language i.e. a developer can create classes and objects and use other object-oriented features.
 The syntax template for PHP class is the following:
 
 ```php
@@ -304,27 +158,62 @@ class name {
 }
 ```
 
-When accessing class members inside class member functions an implicit reference $this should be used.
+As an example of a PHP class, open **diceclasses.inc.php** and study its contents. The purpose of the class is to implement a dice with a variable number of faces. For example, one can create an object that is a regular 6-face dice, a 21-face RPG dice, or a simple coin that can be emulated by a 2-face die.
 
-Further reading: [PHP home page][PHP]
+Furthermore, each dice keeps track of how many times it has delivered each number of eyes. These numbers of occurences are called frequencies, and, by keeping track of them, each dice can tell how many times it has landed on six, for example.
+
+Pay attention to the following points in **diceclasses.inc.php**:
+- The class contains encapsulated instance variables, declared as **private**. The functions are public, labeled as **public**.
+- The constructor is declared as a function with special name **__construct()**. The constructor can be parametrized, but there can be only one constructor. This is a limitation of PHP language that can be overcome by variable-length argument lists.
+- When accessing class members inside class member functions an implicit reference $this should be used.
+
+Now, open **diceplay.php**. It is a class that generates a dice object (based on user input given in URI) and generates a JSON object that contains both the indivual dice cast results as well as overall frequencies for each number of eyes.
+
+In the beginning of the file, there is an include statement:
+
+```php
+include("diceclasses.inc.php");
+```
+
+This causes the classes in the file to be visible into the executable script. (In this case, there is just one class named **Dice**).
+
+Pay attention to the generation of the **Dice** object that is done by **new** statement:
+
+```php
+$dice = new Dice($faces);
+```
+This automatically calls the constuctor of the **Dice** class (recall that it was named **__construct**).
+
+Now, let's test the dice. First, run **diceplay.php** to start the server.
+
+When the server is started, **diceplay.php** can be called by entering the URI of the following structure:
+
+https://wete-original-vesavvo.c9users.io/labs/14%20Modular%20PHP/diceplay.php?faces=4&throws=10
+
+In the URI, replace the domain with the one that you use. The input is given be changing the values of **faces** and **throws** parameters. In the example, there is a 4-face dice that is cast 10 times.
+
+In a fully working web application, the PHP scripts are run as a consequence of AJAX XMLHttpRequests initiated by JavaScript in browser. In this lab, you can use the aforementioned URI way to provide the input for your PHP scripts.
+
+Below is a possible JSON outcome for that call:
+```
+{"faces":"4","results":[{"id":"1","res":"2"},{"id":"2","res":"1"},{"id":"3","res":"2"},{"id":"4","res":"4"},
+{"id":"5","res":"2"},{"id":"6","res":"4"},{"id":"7","res":"3"},{"id":"8","res":"4"},{"id":"9","res":"4"},{"id":"10","res":"1"}],
+"frequencies":[{"eyes":"1","frequency":"2"},{"eyes":"2","frequency":"3"},{"eyes":"3","frequency":"1"},{"eyes":"4","frequency":"4"}]}
+```
+
+Study the contents of the output and make sure that you understand the structure of the JSON object. For viewing the structure, you can use any online JSON formatter/validator such as https://jsonformatter.curiousconcept.com/.
+
+Then, examine the source code in **diceplay.php** and find out the relatively simple steps for generating a JSON object was in PHP.
+
+
+Further reading: [PHP documentation home page][PHP]
 
 [PHP]: http://php.net/manual/en/
-[RESTAPI]: http://blog.ijasoneverett.com/2013/02/rest-api-a-simple-php-tutorial/
 
 ### Test Your Understanding
 
-It is good to be able reed some data when doing these exercises. There are two small php-scrits (Showform.php, getInput.php) included, which can be useful. Feel free to use them if you like.
-
-1. Write a PHP function which gets user name and age as input and prints them out.
-2. Write a PHP function which reverses characters of the input string and prints the result out. So input string "John" is printed out as "nhoJ".
-3. Write a PHP function that prints out prime numbers from 2 to some maximum, the maximum is given as input.
-4. Write a PHP function which randomly chooses (and prints) one line from the list of words found from here: http://www.webstepbook.com/words.txt.
-5. Write a PHP program that calculates an area of a circle when the radius is known. Make this version based on the REST API (radius is read from an HTTP query string and the result is returned as a JSON object). 
-6. Write a traffic card program using PHP class which makes it possible to “travel” in public transportation (in busses, trams, etc.). Define a TrafficCard class which has at least the following features:
-    a.	a card initialization (who’s the owner, assign zero to a balance)
-    b.	loading a value to the card (euros/pounds)
-    c.	traveling using a card
-    d.	two different charges: 2.80 euros/pounds in city central and 4 euros/pounds in areas outside of a city.
-
-    Consider what operations a card must include. Implement the TrafficCard class and test that it functions as should (for example a balance can never be negative).
-
+1. Modify the **Dice** class in **diceclasses.inc.php** to contain a function that returns the average number of eyes that the dice has given so far.
+2. Add the average number of eyes (after the entire seqeunce of casts) to the resulting JSON. Use the function written above in Step 1. For instance, if the cast results are 2, 2, 6, and 1, the reported average should be 2.75.
+3. Modify the **Dice** class to implement a biased dice. The bias of the dice is given as parameter *p*. For an *n*-faceted dice with bias *p*, the maximum result (*n*) is returned with probability *p*, and each of the other results is returned with probability (1-*p*)/(*n*-1). Example: Consider a six-faceted dice with a bias of 0.4. The dice returns a six with probability of 0.4, and each of the lower numbers (1 to 5) with probability 0.12. Modify the parsing of the URI in such a way that the bias can be included in the input. If the bias is not provided, the dice should be treated as unbiased.
+4. In PHP, the inheritance is implemented using **extends** keyword in a fairly Java-like fashion (one of the key differences being that superclass constructors are not automatically called). In **diceclasses.inc.php**, write a new **PhysicalDice** class that becomes a subclass of **Dice**. In the subclass, add a new instance variable that is a string containing the material of the dice (e.g. wood or stone). Modify **diceplay.php** in such a way that the user can give the material of the dice as a parameter. If the material is given, a **PhysicalDice** is created. Otherwise, a regular **Dice** object is generated. For information on inheritance in PHP, see, e.g. http://zetcode.com/lang/php/oopi/ and scroll down to "Inheritance".
+ 

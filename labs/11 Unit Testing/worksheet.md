@@ -6,13 +6,13 @@ In this worksheet you will be introduced to the concept of Unit Testing. You wil
 
 To get a link to the current Jasmine release, visit the download page https://github.com/jasmine/jasmine/releases and click on the ‘Latest release’ button then right-click on the zip button and copy the URL to the clipboard.
 
-Download using `wget` and `unzip` on your Codio server then delete the *original zip file*. Finally delete the contents of two sub-directories `spec` and `src`.
+Download using `wget` and `unzip` in terminal, and delete the *original zip file*. Finally delete the contents of two sub-directories `spec` and `src`.
 
 **NB: ensure you click through on GitHub to view the correct URL for the raw zip file (the `view raw` link. Do not use the link to the zip file appearing in the `jasmine/dist` directory in the repo.**
 ```
-wget https://github.com/jasmine/jasmine/.../jasmine-standalone-2.1.3.zip                                                                                          
-unzip jasmine-standalone-2.1.3.zip                                                            
-rm jasmine-standalone-2.1.3.zip
+wget https://github.com/jasmine/jasmine/.../jasmine-standalone-2.4.1.zip                                                                                          
+unzip jasmine-standalone-2.4.1.zip                                                            
+rm jasmine-standalone-2.4.1.zip
 rm -rf spec/*
 rm -rf src/*
 ```
@@ -43,7 +43,7 @@ We need to tell Jasmine about our two files. This is done in the file  SpecRunne
   <script src="spec/notes.spec.js"></script>
 ```
 
-Finally load up `SpecRunner.html` in the browser inside codio. You should get a web page indicating that no specs have been found (that’s OK because we have not written any).
+Finally load up `SpecRunner.html` in the browser. You should get a web page indicating that no specs have been found (that’s OK because we have not written any).
 
 ## 3 Defining Our Tests
 

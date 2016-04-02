@@ -12,7 +12,10 @@ PHP is a scripting language meaning it is interpreted; it is translated to machi
 
 Traditionally a PHP program creates a dynamic content in the HTML page, for example client information read from the database which is stored in the server. Nowadays there is a trend towards to an API based processing: a PHP programming module is triggered by a REST API call and returns a JSON object as a response.
 
+Further reading: [PHP documentation home page][PHP]
+
 [PHP]: http://php.net/manual/en/
+
 
 ## Task List
 

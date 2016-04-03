@@ -63,7 +63,7 @@ Take a look at the basic PHP-program below:
 
 This file should be named using PHP-extension (not HTML-extension) for example Minimal.php, so that the server understands to execute the PHP-code.
 
-Note that the page is shown in the browser but it isn't valid HTML page. It doesn't have DOCTYPE or <html> and so on. We could add additional print statements to output these tags, or we could use embedded PHP to produce valid page. But since we will be using PHP to give answers to  the requests we send from Javascript, we don't care about this.
+Note that the page is shown in the browser but it isn't valid HTML page. It doesn't have DOCTYPE or html element and so on. We could add additional print statements to output these tags, or we could use embedded PHP to produce valid page. But since we will be using PHP to give answers to  the requests we send from Javascript, we don't care about this.
 
 ## 3 Some PHP-spesific features
 
@@ -111,7 +111,7 @@ You can use PHP function gettype to check a type. The function returns the type 
 ```
 is_string("hello")
 ```
-return true.
+returns true.
 
 ### 3.3 Strings
 
@@ -130,8 +130,6 @@ The third example is not interpreted so writing a variable name into this string
 The + operator is always a numeric operator in PHP. String concatenation is done by using . (dot-operator).
 
 Strings in PHP are an array of characters so accessing an individual character is similar to many other languages: writing $str[0] returns "W" from the upper example.
-
-More on strings: [PHP strings][PHPStrings]
 
 ## Test Your Understanding
 

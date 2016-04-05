@@ -216,7 +216,7 @@ var notes = (function() {
 	  },
 	  list: function() {},
 	  find: function(str) {},
-	  clear: function() {};
+	  clear: function() {}
     }
 }());
 ```

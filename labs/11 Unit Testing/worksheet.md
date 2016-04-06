@@ -191,7 +191,7 @@ var notes = (function() {
     count: function() {},
     list: function() {},
     find: function(str) {},
-    clear: function() {};
+    clear: function() {}
     }
 }());
 ```
@@ -216,7 +216,7 @@ var notes = (function() {
 	  },
 	  list: function() {},
 	  find: function(str) {},
-	  clear: function() {};
+	  clear: function() {}
     }
 }());
 ```

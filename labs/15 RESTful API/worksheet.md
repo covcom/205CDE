@@ -257,8 +257,7 @@ The next step is to map each URI to a PHP function that handles the correspondin
 
 In the new C9 project, the first step is to add a file called **.htaccess** into the root directory of the project's workspace (in the root of **~/workspace** directory). 
 
-You can simply right-click the project's master folder icon in the project's C9 workspace and select New File.
-![(You see the image of file creation if you open this assignment sheet outside C9, in a separate browser window.)](img/newfile.png)
+You can simply right-click the project's folder in the project's C9 workspace and select New File.
 
 The **.htaccess** file is used by Apache web server, and it may contain instructions for the web server to redirect URI requests.
 Add the following contents to the newly created **.htaccess** file:

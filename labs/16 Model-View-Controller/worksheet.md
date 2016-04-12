@@ -205,7 +205,7 @@ Now we are ready for using Codeigniter.
 
 ## Tutorial
 
-CodeIgniter has a very good tutorial. With it you will find out what is MVC:s idea and how CodeIgniter works.
+CodeIgniter has a very good tutorial (http://www.codeigniter.com/user_guide/tutorial/index.html). With it you will find out what is MVC:s idea and how CodeIgniter works.
 
 ## Test your understanding
 

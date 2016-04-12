@@ -171,12 +171,12 @@ CodeIgniter is an open source framework, which uses PHP language. It is commonly
 - **Good documentation:** For example, it has a very good tutorial in it.
 - **Easy istallation:** Just copy file structure, make a couple small configurations and start using it.
 
-## Installing CodeIgniter to Codio
+## Installing CodeIgniter to Cloud 9
 
-First, make a new project to Codio, open a terminal and install a codeigniter (get it & unzip). Note: before downloading, check the newest version!
+First, make a new project to Cloud 9 (actually: not necessary), open a terminal and install a codeigniter (get it & unzip). Note: before downloading, check the newest version! When this is written, newest version is 3.0.6
 ```
-$ wget https://github.com/bcit-ci/CodeIgniter/archive/3.0.3.zip
-$ unzip 3.0.3.zip
+$ wget https://github.com/bcit-ci/CodeIgniter/archive/3.0.6.zip
+$ unzip 3.0.6.zip
 ```
 When done, you will see this kind of directory structure on your project:
 
@@ -184,11 +184,23 @@ When done, you will see this kind of directory structure on your project:
 
 As you see, also documentation is included.
 
-We need also another programs to use: Some database and web server. So we install Apache Web Server, PHP5, PHP5 plugin for Apache and a MySQL relational database: (and of course to start these services)
+Now run project and from right folder (CodeIgniter), you will find this message:
+
+![](http://users.metropolia.fi/~kuivi/codeigniter/ci_2.png "CodeIgniter Welcome message")
+
+Codeigniter needs also PHP and MySQL servers. These are already installed. If you want, you maybe want install phpmyadmin:
+
 ```
-$ parts install php5 php5-apache2 mysql
-$ parts start apache2 mysql       
+$ phpmyadmin-cli install
 ```
+When installed, make a new user to database, like in this video:
+
+https://www.youtube.com/watch?v=4ym4nyfuGbM&nohtml5=False
+
+(Same guy has more maybe useful stuff for CodeIgniter, if you want to watch)
+
+And when needed, use this user and database in CI tutorial.
+
 Now we are ready for using Codeigniter.
 
 ## Tutorial
@@ -201,7 +213,7 @@ CodeIgniter has a very good tutorial. With it you will find out what is MVC:s id
 1. Add a nickname-field to your chat so that you can show in messages list who wrote message. Could you do this so, that you have to give your nickname only once?
 1. Go through GodeIgniters tutorial
 1. Use CodeIgniter to make your chat.
-1. For more experienced users: By default CodeIgniters  URL:s are something like that: *example.com/index.php/news/article/my_article* Find out how to remove *index.php* from the visible URL. Tip: you maybe have to install something more to your Apache server...
+1. For more experienced users: By default CodeIgniters  URL:s are something like that: *example.com/index.php/news/article/my_article* Find out how to remove *index.php* from the visible URL. 
 
 
 

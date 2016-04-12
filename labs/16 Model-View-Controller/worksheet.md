@@ -128,9 +128,9 @@ And last: put all together: (*Chat.php*)
 ```
 Some links for MVC:
 
-[Wikipedia](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
-[MVC Architecture](https://developer.chrome.com/apps/app_frameworks)
-[MVC for Noobs](http://code.tutsplus.com/tutorials/mvc-for-noobs--net-10488)
+- [Wikipedia](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
+- [MVC Architecture](https://developer.chrome.com/apps/app_frameworks)
+- [MVC for Noobs](http://code.tutsplus.com/tutorials/mvc-for-noobs--net-10488)
 
 # Web frameworks
 
@@ -155,11 +155,11 @@ As you can see, there are a lot of them...
 
 And also some links for doing right choises:
 
-[Choosing a Web Framework/Language Combo for the Next Decade](http://jacquesmattheij.com/choosing-web-framework-language-combo)
-[15 Most Important Considerations when Choosing a Web Development Framework](http://code.tutsplus.com/tutorials/15-most-important-considerations-when-choosing-a-web-development-framework--net-8035)
-[10 criteria for choosing the correct framework](http://symfony.com/ten-criteria)
-[Choosing A Web Framework](http://www.clearlytech.com/2013/12/01/choosing-web-framework/)
-[How to choose a web framework and be surprised](http://www.slideshare.net/jmarranz/how-to-choose-a-web-framework-and-be-surprised)
+- [Choosing a Web Framework/Language Combo for the Next Decade](http://jacquesmattheij.com/choosing-web-framework-language-combo)
+- [15 Most Important Considerations when Choosing a Web Development Framework](http://code.tutsplus.com/tutorials/15-most-important-considerations-when-choosing-a-web-development-framework--net-8035)
+- [10 criteria for choosing the correct framework](http://symfony.com/ten-criteria)
+- [Choosing A Web Framework](http://www.clearlytech.com/2013/12/01/choosing-web-framework/)
+- [How to choose a web framework and be surprised](http://www.slideshare.net/jmarranz/how-to-choose-a-web-framework-and-be-surprised)
 
 # CodeIgniter
 

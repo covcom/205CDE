@@ -71,7 +71,7 @@ The link can be added before or after the `title` element, as the order of eleme
 
 Having added the link, reload the web page and see how the rules are applied to the page.
 
-Next, play with the CSS file. Add new rules and properties to the file and see how they affect the web page. Note that Codio helps you in writing the contents of a CSS file by proposing property names and values as you type.
+Next, play with the CSS file. Add new rules and properties to the file and see how they affect the web page. Note that your IDE may help you in writing the contents of a CSS file by proposing property names and values as you type.
 
 You can find a complete list of CSS property names and possible values (among other information) at the [W3C Cascading Stylesheets documentation](http://www.w3.org/TR/CSS/).
 

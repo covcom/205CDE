@@ -264,7 +264,7 @@ In the lab's `audio` folder, there is a sample public domain audio clip. Include
 </audio>
 ```
 
-The incorporation of videos is similar to audio elements, except for that the corresponding tag is `video`. For large videos, the file size limit in Codio can, however, hinder the use of anything but small video clips.
+The incorporation of videos is similar to audio elements, except for that the corresponding tag is `video`. For large videos, the file size limit in the cloud programming environment can, however, hinder the use of anything but small video clips.
 
 ### Semantic elements
 

@@ -13,26 +13,29 @@ MongoDB that we use in this lab is one of the most commonly used document databa
 
 In this lab you do the following tasks:
 
-1. Install MongoDB in Codio
+1. Install MongoDB in Cloud9.
 2. Learn MongoDB data model.
 3. Make queries as well as data modification operations via MongoDB interpreter.
 4. Use MongoDB from your own PHP scripts.
 
 ## 1 Installation
 
-Start the lab by installing MongoDB server in Codio. To do this, open a new terminal window and type:
+Start the lab by installing MongoDB server in Cloud9. To do this, open a new terminal window and run the following commands:
 
 ```
-parts install mongodb
+mkdir data
+echo 'mongod --bind_ip=$IP --dbpath=data --nojournal --rest "$@"' > mongod
+chmod a+x mongod
 ```
 
-Then, following the on-screen instructions, start MongoDB server:
+
+Then, start MongoDB server:
 
 ```
-parts start mongodb
+./mongod &
 ```
 
-Now, MongoDB server is listening to a dedicated port (by default 27017), waiting for clients to connect. Later, PHP REST handler scriptss are going to be such clients. For now, we start with command-line usage, where the MongoDB command interpreter acts as a client.
+Now, MongoDB server is listening to a dedicated port (by default 27017), waiting for clients to connect. Later, PHP REST handler scripts are going to be such clients. For now, we start with command-line usage, where the MongoDB command interpreter acts as a client.
 
 ## 2 Data model
 
@@ -103,12 +106,22 @@ From the previous lab, you should have a REST API enabled Codeigniter project. I
 
 Now, install PHP drivers for MongoDB in a terminal window:
 ```
-parts install php5-mongo
+sudo apt-get install php-pear php5-dev
+sudo pecl install mongo
+sudo touch /etc/php5/apache2/conf.d/mongo.ini
 ```
-After the driver installation, restart Apache server; otherwise the drivers may not be visible to the web server:
+Open the newly created **mongo.ini** file in an editor to add a single line of configuration. You can do this with Pico editor by typing:
 ```
-parts restart apache2
+sudo pico /etc/php5/apache2/conf.d/mongo.ini
 ```
+In the opening editor window, add a single line with the following content:
+```
+extension=mongo.so
+```
+
+Close the editor by hitting Ctrl-X, saving the contents of the file.
+
+After the driver installation, restart Apache server if it's running; otherwise the drivers may not be visible to the web server:
 
 In the lab's **php** folder, there´s a file named **Persons.php**. This is a REST API handler for GET operation to resource **.../Persons/list** that should work together with the MongoDB database that you generated a while ago using command line. Recall at this step that the database **company** contains one collection named **persons** that should have a few persons inserted in it. The handler file simply returns as JSON that contains all the persons in the collection.
 
@@ -118,9 +131,9 @@ Copy **Persons.php** to **controllers** folder in your Codeigniter/REST project.
 
 If your project is in working condition, you can simply send the GET request from Postman or browser to the following URI:
 ```
-https://chrome-coral.codio.io:9500/staff/index.php/Persons/list/
+https://test-vesavvo.c9users.io/staff/index.php/Persons/list/
 ```
-In the URI, replace **chrome-coral** with your own Codio box name, and, instead of **staff**, write the name of your API. It appears as the name of the folder right under the project folder in the hierarchy (see image below).
+In the URI, replace **test-vesavvo** with your own server name, and, instead of **staff**, write the name of your API. It appears as the name of the folder right under the project folder in the hierarchy (see image below).
 
 ![(You see the image embedded here if you open this assignment sheet in a separate browser window).](img/ci_files.png)
 

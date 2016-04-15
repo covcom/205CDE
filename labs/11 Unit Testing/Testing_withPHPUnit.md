@@ -4,11 +4,11 @@ PHPUnit is quite similar to the JUnit library you have used for testing Java cod
 
 Open Tools > Terminal and give the following commands:
 ```
-$ wget https://phar.phpunit.de/phpunit.phar
+$ wget https://phar.phpunit.de/phpunit-old.phar 
 
-$ chmod +x phpunit.phar
+$ chmod +x phpunit-old.phar
 
-$ sudo mv phpunit.phar /usr/local/bin/phpunit
+$ sudo mv phpunit-old.phar /usr/local/bin/phpunit
 
 $ phpunit --version
 ```
@@ -16,9 +16,9 @@ $ phpunit --version
 PHPUnit 4.8.0 by Sebastian Bergmann and contributors.
 You can also immediately use the PHAR after you have downloaded it, of course:
 ```
-$ wget https://phar.phpunit.de/phpunit.phar
+$ wget https://phar.phpunit.de/phpunit-old.phar
 
-$ php phpunit.phar --version
+$ php phpunit-old.phar --version
 PHPUnit 4.8.0 by Sebastian Bergmann and contributors
 ```
 

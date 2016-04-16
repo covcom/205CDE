@@ -96,7 +96,7 @@ PHP is loosely typed language like Javascript meaning that PHP tries to make a c
     $f_number = 3.14;
     $number = $number + $text;
     $f_number = $f_number + $text;
-    echo  "Values " $number . " and " . $f_number;
+    echo  "Values ".  $number . " and " . $f_number;
 
 ?>
 ```

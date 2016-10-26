@@ -29,7 +29,7 @@ In the newly-created HTML file, add the following lines of code:
 ```
 
 
-Notice that as an action it refers to [Google's search engine](http://www.google.com/search). It gives a URL where the user's input data is sent. Open the file in a browser by selecting **Current file (static)**. 
+Notice that as an action it refers to [Google's search engine](http://www.google.com/search). It gives a URL where the user's input data is sent. Run the file and copy the URL after "Starting Apache httpd, serving" into an address field of your browser. 
 When you write something into the box and click submit, your text is sent to Google's search engine.
 
 Notice how you see parameters passed in a URL.

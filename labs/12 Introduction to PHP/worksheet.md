@@ -238,10 +238,9 @@ is making an XMLHttpRequest to be sent to gethint.php.
 
 1. Change the order.html and serverTime.php files in the following way: put a button on the page, when it's clicked, the php is requested for a random number, which is the shown by the javascript callback function.
 2. Change the suggestions.html and gethint.php in the following way: change the php program to return the first name of the hints in a JSON format and show it by the javascript callback function.
-Hint. Use an array in PHP like
-```javascript
-$vihjeet = [
-    "firstName":"Erkki"
-];
+Hint: Encode an array in PHP to a string looking like this:
+
+```php
+	[{"firstname":"Maltti"},{"firstname":"Markku"}]
 ```
-Change it to JSON format and return JSON to Javascript callback. 
+Parse it to an JSON object and print it out in your Ui. 

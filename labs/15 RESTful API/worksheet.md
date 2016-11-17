@@ -82,17 +82,17 @@ API stands for Application Programming Interface - it means that we give access 
 To allow this action to take place, the application has to publish an API that specifically allows for 
 foreign applications to make calls to its data and return data to the user from inside of the external application. 
 
-We have created a simple API in FireBase, which is a cloud platform for building web applications. The URL to the API is
+Let's familiarise ourselves with a demo implementation of a REST API. One such is located in an URL address
 
-https://cityofhelsinki-erja.firebaseio.com
+http://reqres.in/
 
-The API is a copy of issue reporting API, which is used by applications for sending service requests to the City of Helsinki. At the moment, the real issue API is mostly used for sending service requests about broken parts of city infrastructure like street signs, potholes, etc.
-To do our experiments we are using a Chrome browser plugin called Postman. If it’s not installed on your computer, do it now.
-The resources we have are shown in FireBase dashboard:
+If you scroll to the "give it a try" header you'll see buttons on the left, an API request part in the middle and a response on the right. You may
+try different requests freely by pushing any button.
 
-![Resources available in the API](img/data_city.png).
+We can make our experiments using a Chrome browser plugin called Postman as well. If it’s not installed on your computer, do it now.
 
-The requests we have are the ones which are shown in Postman history.
+
+The requests we have are the ones which are shown in Postman history. (If you really see the pictures below, you'll find out that experiments use an different URL but otherwise pictures are informative.)
 
 ![Postman history](img/hist_city.png).
 
@@ -103,15 +103,11 @@ By choosing a GET method at the left-hand side and requesting for the first issu
 
 ![Postman get](img/get_city.png).
 
-Check your understanding by asking 
--	for a description of an issue and
--	for all issues having “Katujen kunto ja liikenne” ask for their group
 
 The PUT method is used to add a named resource. we will have to give the item we want to add in the request. By choosing PUT at the left hand side, giving URL and adding the json data to the request body as raw data in JSON format, we will have
 
 ![Postman put](img/put_city.png).
 
-In our data store we have the new item number 10
 
 ![Resources available in the API](img/datanew_city.png).
 
@@ -148,7 +144,7 @@ We are using these two APIs to program a mashup with PHP. First the queries we a
 Notice that this is not a REST API itself, it is just a demonstration how to construct HTTP requests in PHP.
 
 
-But because we are making an application, we will allow the user to tell a location name, and make our program to find the coordinates, and use them to find out photos from Instagram. The file is index.html.
+But because we are making an application, we will allow the user to tell a location name, and make our program to find the coordinates, and use them to find out photos from Instagram. The file is test.php in the directory named "php".
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -208,7 +204,7 @@ As you can see, the request to Instagram needs a client-id. If you want the code
 
 ### Test your understanding
 
-1. Change the mash-up application: change the index.html and put Javascript into it to send the XMLHttpRequest to the php file (like we did in the 12 Introduction to PHP/suggestions.html example). Change the geogram.php to echo the Json as the answer to the request.
+1. Change the mash-up application: change the name of a file test.php to the test.html and put Javascript into it to send the XMLHttpRequest to the php file (like we did in the 12 Introduction to PHP/suggestions.html example). Change the geogram.php to echo the Json as the answer to the request.
 2. Change the mash-up application to use some other existing public REST APIs. Remember first to test your queries with Postman.
 
 
@@ -221,9 +217,9 @@ Nevertheless, it will later be straightforward to further develop the API into a
 
 First, we choose the API end point to be:
 
-https://museum-enikunen.c9users.io/staffapi
+https://<Cloud 9 domain name>/staffapi
 
-Here, staffapi is the name of the designed API. The domain part in the URI is given by C9. In your project that runs in a different C9 virtual machine, the domain will be different.
+Here, staffapi is the name of the designed API. The domain name in the URI is given by C9. In your project that runs in a different C9 virtual machine, the domain will be different.
 
 The URI shown before will be a prefix for all API calls.
 
@@ -281,13 +277,13 @@ newly-created **index.php** file.
 To get the HTTPS server address, C9 shows it when it starts Apache, when you push RUN button. The domain
 name in the URI varies, but it should be something like:
 
-https://museum-enikunen.c9users.io/staffapi
+https://<Cloud 9 domain name>/staffapi
 
 This is a prefix in the API calls.
 
 To make an api call for listing persons, for example, you can now make a GET call to
 
-https://museum-enikunen.c9uses.io/staffapi/persons.
+https://<Cloud 9 domain name>/staffapi/persons.
 
 Again, the domain name must be replaced with the correct one.
 
@@ -297,7 +293,7 @@ that the correct function has been called.
 Study the contents of the file and make sure you understand how it works.
 
 The three functions in the beginning, **getResource()**, **getParameters()** and **getMethod()**, are URI parsing functions that return the information embedded in the URI in a consumable format.
-For instance, suppose a POST request [https://museum-enikunen.c9users.io:9500/staffapi/person?id=13&firstname="Jane"&lastname="Doe"](https://museum-enikunen.c9users.io:9500/staffapi/person?id=13&firstname="Jane"&lastname="Doe") has been obtained by server.
+For instance, suppose a POST request [https://<Cloud 9 domain name>:9500/staffapi/person?id=13&firstname="Jane"&lastname="Doe"](https://<Cloud 9 domain name>:9500/staffapi/person?id=13&firstname="Jane"&lastname="Doe") has been obtained by server.
 - For this sample URI, function **getResource()** would produce a numerical array of URI parts, where element 0 contains the value 'staffapi', and element 1 contains the value 'person'.
 - The second function, **getParameters()**, produces an associative array, where element 'firstname' has value "Jane", and element 'lastname' has a value of "Doe".
 - Finally, function **getMethod()** returns a string containing the HTTP method, i.e. 'POST'.

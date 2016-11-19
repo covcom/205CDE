@@ -307,7 +307,25 @@ Thus, adding new functionality to the API is simple:
 
 ### Test your understanding
 
-1. Add a mock DELETE operation that deletes the entire collection of persons. Verify that the API call works as intended.
+1. Add the Person API example a functionality which implements storing of information on the server. So if you post a new person through the API, you'll see the result using **staffapi/persons**-request.
+  One possibility to create this functionality is to define a global array and read the person information from the file each time index.php is called.
+  You should write a file to the server when the array is changed, in other words, when posting a new item or when deleting it. The real API would return JSON strings but at this point it is enough to just echo array items.  
+  The following code can be helpful when initializing an array and when storing it:
+```
+// initialize
+$dataArray = array(); // global array for data
+// convert data from disk to a variable:
+$recoveredData = file_get_contents('restdata.txt');
+// unserializing to get actual array
+$dataArray = unserialize($recoveredData);
+
+...
+// store
+// serialize an array
+$serializedData = serialize($dataArray);
+// save serialized data in a text file
+file_put_contents('restdata.txt', $serializedData);
+```
 
 2. Generate a minimalistic RESTful API that gives you a lucky number and a lucky word. Both should be delivered within a single JSON. Use random number generator to produce the output.
 

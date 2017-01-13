@@ -6,7 +6,7 @@ Nowadays everything is on the cloud. This includes your integrated development e
 * Better access your code, virtually from everywhere.
 * Easier to share and collaborate.
 
-> As a programmer we don't normally share photos like most others do, we share codes instead. This is because [talk is cheap, show me the code](https://en.wikipedia.org/wiki/Linus_Torvalds).
+> As a programmer we don't normally share photos like most others do, we share code instead. This is because, as said by [Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds), 'talk is cheap, show me the code'.
 
 But the drawback is obvious -- you need to be connected. So my advice is KEEP BACKING UP!
 
@@ -36,7 +36,7 @@ What you'll see now is that a new workspace called lab1 appeared in your Dashboa
 
 This is where you can find out how much disk space and RAM are being used in your project, and what files you have etc. If you exceed the limit for a free account, you'll have to pay!
 
-Click on the little green gear icon will take you to the settings page, this is where the whole project can be deleted (for ever). So be careful with this.
+Click on the little green gear icon will take you to the settings page, this is where the whole project can be deleted (forever). So be careful with this.
 
 ![](.md_images/lab1_setting2.png)
 
@@ -55,7 +55,7 @@ The visibility of these windows can be toggled using View drop-down menu.
 
 There are two useful functions you need to know:
 
-1. Press F6 to toggle the Console window. If you think the Console is useless (it's not) you can hide it by pressing F6. For a full list of keyboard shortcuts, click [here](https://docs.c9.io/docs/keybindings).
+1. Press F6 to toggle the Console window. If you think the Console is useless (it's not) you can hide it by pressing F6. For a full list of keyboard shortcuts, click [official Keybindings help page from C9](https://docs.c9.io/docs/keybindings).
 2. The editor screen can be split, either horizontally or vertically, by clicking View ==> Layout ==> Split. As an alternative, you can click the small 'right click' icon to the top left corner of the editor window.
 
 ![](.md_images/right_click.png)
@@ -70,27 +70,21 @@ Now click on the Commands tool window to bring it up. This Commands tool window 
 
 ![](.md_images/command.png)
 
-To the right-hand side of the menu bar, you see the 'Share' and configure icons. This is where you share your code with me to get help if you get stuck one day (please don't). There's also an overview of how much CPU/disk space etc. are being used. This allows you to monitor your virtual machine (we'll come back to that later).
+To the right-hand side of the menu bar, you see the 'Share' and configure icons. This is where you share your code with me to get help if you get stuck one day (more than welcome). There's also an overview of how much CPU/disk space etc. are being used. This allows you to monitor your virtual machine (we'll come back to that later).
 
 ![](.md_images/vm.png)
 
 ### Preview your website
 
-Traditionally if you want to build a website and see how other people see it, you'll need to install different versions of browsers. Now with technologies like C9, we can save time in setting up things like browsers on your own computer.
-
 Double click the automatically generated file hello-world.html to view it in the editor. Don't worry about the actual code. Now right click that file in Workspace tool window and select Preview. What you'll see is the file is being rendered in a browser window.
 
 ![](.md_images/html.png)
-
-Click on the Browser button to switch to a different browser to see what your web page looks like in a different browser.
-
-![](.md_images/browser.png)
 
 Right click on file hello-world.html and select Run. This will open a new Console window similar to the one below:
 
 ![](.md_images/run.png)
 
-Copy that URL and paste into the browser window, now you'll see the same content as before. The URL for my webpage is at
+Copy that URL and paste into the browser window, now you'll see the same content as you saw earlier. The URL for my webpage is at (yours will be different)
 
 ```sh
     https://lab1-jianhuayang.c9users.io/hello-world.html
@@ -101,11 +95,11 @@ We have now used two ways to view an HTML file:
 1. Preview shows you what your web page looks like in a static manner. That is the same as you open an HTML file using your browser's File ==> Open.. scenario.
 2. Run determines what you have in the HTML first of all (and execute if necessary), and then serve it through a web server. If your website works with data, as we'll do later in the module, you'll need to run it through a web server.
 
-> For more info on web pages and website, click this link from Mozilla [Webpages, websites, web servers, and search engines](https://developer.mozilla.org/en-US/Learn/Pages_sites_servers_and_search_engines).
+> For more info on web pages and website, see discussions from Mozilla [Webpages, websites, web servers, and search engines](https://developer.mozilla.org/en-US/Learn/Pages_sites_servers_and_search_engines).
 
 ## Basic Linux commands
 
-Behind the scene C9 is based on Linux technology and specifically it's Ubuntu 14.04 at the time of writing (Jan 2016). This can be verified if you issue the following command in the terminal window:
+Behind the scene, C9 is based on Linux technology and specifically it's Ubuntu 14.04 at the time of writing (Jan 2017). This can be verified if you issue the following command in the terminal window:
 
 ```sh
     $ lsb_release -a
@@ -117,13 +111,13 @@ The output is
 
 Basically, what happens when you create a Workspace in C9 is that the system creates a virtual machine for you using Ubuntu 14.04 with the configuration of 5GB disks etc. You need to know some basic command line operations if you work with C9 or web technologies in general.
 
-> Other popular Linux OSs include Fedora and openSUSE. For a comprehensive list, click [Put the fun back into computing](http://distrowatch.com).
+> Other popular Linux OSs include Fedora and openSUSE. For a comprehensive list, read [Put the fun back into computing from Distrowatch.com](http://distrowatch.com).
 
 ### Navigate the filesystem
 
 The Console window (also called terminal or shell) is a way we interact with the virtual machine that hosts our workspace. And probably it's the most effective way. 
 
-> They say that [Jeff Dean](https://en.wikipedia.org/wiki/Jeff_Dean_(computer_scientist)) uses just two keys '0' and '1' to talk to the console, which is probably not true. See [here](https://www.quora.com/What-are-all-the-Jeff-Dean-facts).
+> They say that [Jeff Dean](https://en.wikipedia.org/wiki/Jeff_Dean_(computer_scientist)) uses just two keys '0' and '1' to talk to the console, which is probably not true. [Read more from Quora.com](https://www.quora.com/What-are-all-the-Jeff-Dean-facts).
 >   
 ![](.md_images/01.jpg)
 
@@ -195,7 +189,7 @@ Now we're at the root of the file system. If you issue `ls` command again you'll
 
 > The system arranges so that the display goes vertical first and then horizontal.
 
-Things are getting interesting from here. All these folders are for different purposes. Here list a few important ones, for a complete list click [this](https://peter.upfold.org.uk/blog/2006/07/18/a-guide-to-files-and-folders-on-linux/)
+Things are getting interesting from here. All these folders are for different purposes. Here list a few important ones, for a complete list [read a blog article written by Peter Upfold](https://peter.upfold.org.uk/blog/2006/07/18/a-guide-to-files-and-folders-on-linux/)
 
 * bin is for binaries, in other words, programmes, executables.
 * etc is for configuration files e.g. Apache configuration.
@@ -259,9 +253,9 @@ Now issue the following commands and see the differences in the outputs
 
 Unlike Windows, files and folders in Linux have owners and permissions. (Windows do too, but not in an obvious way). You can see even though we copied the file from a system folder (and everything should be exactly the same), the owner has been changed.
 
-For both files, the permissions are `-rw-r--r--`. This means that for the three positions in the order of the owner, group, others, the permissions are read/write `rw`, read only `r` and  read only `r`. But the owner has been changed from root to ubuntu.
+For both files, the permissions are `-rw-r--r--`. This means that for the three positions in the order of the owner, group, others, the permissions are read/write `rw`, read only `r` and read only `r`. But the owner has been changed from root to ubuntu.
 
-The command `id` tells us that the current user (you that is) has been assigned a username ubuntu.
+The command `id` tells us that the current user (*you*, that is) has been assigned a username ubuntu.
 
 Run the following commands to change some permissions of the file
 
@@ -276,7 +270,7 @@ Run the following commands to change some permissions of the file
 
 Now that the read `r` permission has been removed from group `g` and others `o`, and execution has been added to the owner.
 
-> A shortcut to the example above is to use the number system `chmod 700 apache2.conf`, click [here](https://www.linux.com/learn/tutorials/309527-understanding-linux-file-permissions) for detailed explanation and examples.
+> A shortcut to the example above is to use the number system `chmod 700 apache2.conf`. [Read more explanation and examples on Linux file permissions from Linux.com](https://www.linux.com/learn/tutorials/309527-understanding-linux-file-permissions).
 
 ## What if C9 is down?
 
@@ -288,14 +282,14 @@ Brackets is a software used to author websites. Brackets and C9 IDE have a lot o
 
 1. Download C9 project to your local machine using File ==> Download Project menu from your workspace. 
 2. Extract the downloaded file into the desired folder on your hard drive.
-3. On all EC machines, the Brackets software has been installed. But if it's your own computer, you'll need to [download](brackets.io) and install first.
+3. On all EC machines, the Brackets software has been installed. But if it's your own computer, you'll need to [download](http://brackets.io/?lang=en) and install first.
 4. Open Brackets software and select File ==> Open Folder on your computer, and navigate to where you just saved the files. If everything goes well, you should see something similar to below
     
     ![](.md_images/barckets.png)
     
 5. Now you're ready to start editing.
 
-### Set up local web servers
+## Advanced: set up local web servers
 
 Brackets enables you to edit and preview HTML files locally. But you'll need to setup a web server to view dynamic contents. You don't need it right now, but you'll need it later during the module.
 
@@ -309,7 +303,7 @@ Follow instructions below to install a web server yourself:
     * Option 1: Open your Chromebook, follow instructions given [here](http://lifehacker.com/how-to-install-linux-on-a-chromebook-and-unlock-its-ful-509039343) to install Ubuntu on a Chromebook.
     * Option 2: Open your Windows machine, install [VirtualBox](https://www.virtualbox.org) and then install [Ubuntu](http://www.ubuntu.com) within it. A step by step instruction can be found on [wikiHow](http://www.wikihow.com/Install-Ubuntu-on-VirtualBox).
     
-2. Boot into Ubuntu to install LAMP server. In the example below I use Ubuntu installed on a VirtualBox running inside a Mac. But if it's Chromebook or Windows it's essentially the same.
+2. Boot into Ubuntu to install LAMP server. In the example below I use Ubuntu installed on a VirtualBox running on a Mac. But if it's Chromebook or Windows it's essentially the same.
     
     ```sh
         sudo apt-get update
@@ -318,11 +312,11 @@ Follow instructions below to install a web server yourself:
     
     ![](.md_images/vbox.png)
     
-    > The official documentation on installing [LAMP](https://help.ubuntu.com/community/ApacheMySQLPHP)
+    > [The official Ubuntu documentation on installing LAMP](https://help.ubuntu.com/community/ApacheMySQLPHP)
     
 3. Now you can put your lab1 stuff in this server and view it in a browser.
     
-    * Download your lab1 material and extract within Ubuntu. For example, mine is extracted at `/home/yang/Downloads/workspace`'
+    * Download your lab1 material and extract within Ubuntu. For example, mine is extracted at `/home/yang/Downloads/workspace`
     
     ![](.md_images/folder.png)
     
@@ -342,9 +336,9 @@ Follow instructions below to install a web server yourself:
     
     ![](.md_images/running.png)
 
-4. You have seen previously files installed by in Apache package using `dpkg -L apache2`. Now let's have a little look to understand how to configure Apache. Open the apache2.conf file in C9 or Ubuntu. Have a read through, especially the following block. This refers to the folder we used before. For explanations of these options, refer to the [official documentation](http://httpd.apache.org/docs/2.2/mod/core.html).
+4. You have seen previously files installed by in Apache package using `dpkg -L apache2`. Now let's have a little look to understand how to configure Apache. Open the apache2.conf file in C9 or Ubuntu. Have a read through, especially the following block. This refers to the folder we used before. For explanations of these options, refer to the [official Apache documentation](http://httpd.apache.org/docs/2.4/mod/core.html).
     
-    > The official documentation on configuring Apache on Ubuntu is [here](https://help.ubuntu.com/lts/serverguide/httpd.html)
+    > [Official Ubuntu Apache2 Web Server guide](https://help.ubuntu.com/lts/serverguide/httpd.html)
     
     ```xml
     <Directory /var/www/>
@@ -355,6 +349,6 @@ Follow instructions below to install a web server yourself:
     ```
     
 
-> There are quite a few LAMPP or WAMP packages available, some are listed here on [wiki](https://en.wikipedia.org/wiki/List_of_Apache%E2%80%93MySQL%E2%80%93PHP_packages). Among these my favorites are [XAMPP](https://www.apachefriends.org/index.html) on Windows and [MAMP](https://www.mamp.info/en/) on Mac.
+> There are quite a few LAMPP or WAMP packages available, some are listed here on [WiKi](https://en.wikipedia.org/wiki/List_of_Apache%E2%80%93MySQL%E2%80%93PHP_packages). Among these my favorites are [XAMPP](https://www.apachefriends.org/index.html) on Windows and [MAMP](https://www.mamp.info/en/) on Mac.
 
 

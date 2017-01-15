@@ -97,6 +97,13 @@ If we refresh the GitHub webpage for our new repository we should see an exact c
 
 ![](.md_images/github_new_repo_full.png)
 
+### Cacheing Git Credentials
+
+You have probably noticed that to push to your remote repository you needed to enter your username and password. For a one-off this is not an issue but with our current settings this will have to be entered every time you push which can get annoying. To make things easier you can set up a _credential cache_ which will cache your username and password. The timeout is the number of seconds to cache the credentials for. In this example they will be cached for an hour.
+```
+git config --global credential.helper 'cache --timeout=3600'
+```
+
 ### Previewing a Web Page
 
 Since the IDE is cloud-based we can use the built-in Apache web server to view our web pages through an online URL. Let's have a go at this. Start by navigating to the Codeanywhere directory, right-clicking on the `index.html` file and choosing **Preview** from the context menu.

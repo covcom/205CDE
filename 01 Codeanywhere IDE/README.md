@@ -37,6 +37,10 @@ Start by logging into https://github.coventry.ac.uk using your University userna
 
 On the profile screen, upload a _head and shoulders_ photo of yourself.
 
+Check the exact **name** and **email address** associated with your account, this will come from the University's active directory system. make a note of this for later.
+
+![](.md_images/profile_page.png)
+
 Now you will need to switch to the 205CDE organisation as shown.
 
 ![](.md_images/github_switch_org.png)
@@ -56,6 +60,18 @@ $ git clone -o upstream https://github.coventry.ac.uk/205CDE-1617JANMAY/TEACHING
 After a few minutes the cloning will be complete. You will need to refresh the file tree in Codeanywhere by right-clicking on the `205CDE` container name and choosing _refresh_ from the context menu.
 
 ![](.md_images/codeanywhere_ide.png)
+
+### Updating the Git Profile
+
+Remember earlier where we identified the name and email address assigned to our University GitHub profile. Now we need to update the Git profile on Codeanywhere to match these settings. In the SSH Terminal enter the following commands, substituting your own name and email address as they appear in your GitHub profile. First we check the current values and change them only if needed.
+```
+git config user.name
+git config user.name "Mark Tyers"
+git config user.name
+git config user.email
+git config user.email "aa7401@coventry.ac.uk"
+git config user.email
+```
 
 ### Adding a New Remote Repository
 

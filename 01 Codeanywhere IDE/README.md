@@ -25,7 +25,7 @@ This is called the Dashboard, and it's where different workspaces (projects) are
 
 As soon as this has been completed, the container will open and you will see the IDE. Our first task is to open the **SSH Terminal** by right-clicking on the **205CDE** container and choosing the first option from the context menu. This will allow us to run bash commands directly in Codeanywhere.
 
-![](.md_images/adding_codeanywhere_open_ssh.png)
+![](.md_images/codeanywhere_open_ssh.png)
 
 ### Cloning the Lab Materials
 

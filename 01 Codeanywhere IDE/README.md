@@ -53,7 +53,9 @@ As you can see there is a repository called `TEACHING-MATERIALS` which contains 
 
 ![](.md_images/github_clone_lab.png)
 
-Click on the green **Clone or Download** button and use the clipboard icon to copy the url into the computer clipboard. Now we can use the SSH Terminal in Codeanywhere to clone these materials into our IDE. Note the period (full-stop) at the end. This clones the repository into the _current directory_ instead of creating a new directory under it.
+Notice that the GitHub _remote repository_ has a URL which we will use to _clone_ (copy) it into our Codeanywhere IDE. Clicking on the green **Clone or Download** button and the clipboard icon will copy the url into the computer clipboard.
+
+We will use the SSH Terminal in Codeanywhere to clone these materials into our IDE by running the git command shown below. **Note the period (full-stop) at the end** which will clone the repository into the _current directory_ instead of creating a new directory under it.
 ```
 $ git clone -o upstream https://github.coventry.ac.uk/205CDE-1617JANMAY/TEACHING-MATERIALS.git .
 ```

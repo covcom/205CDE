@@ -81,7 +81,7 @@ As we work through the lab exercises, making changes to our code we will need to
 
 ![](.md_images/adding_github_repo.png)
 
-We can now create our own _private_ repository called `worksheets` as shown. Click on the **Create repository** button when done.
+We can now create our own _private_ repository called `USERNAME-worksheets` as shown, replacing USERNAME with your _university username_. Click on the **Create repository** button when done.
 
 ![](.md_images/adding_new_repo.png)
 

@@ -128,7 +128,7 @@ Description:    Ubuntu 14.04 LTS
 Release:        14.04
 Codename:       trusty 
 ```
-Basically, what happens when you create a Workspace in Codeanywhere the system creates a virtual machine for you using Ubuntu 14.04 with the configuration of 5GB disks etc. You need to know some basic command line operations if you work with Codeanywhere or web technologies in general.
+Basically, what happens when you create a Workspace in Codeanywhere the system creates a virtual machine for you using Ubuntu 14.04. You need to know some basic command line operations if you work with Codeanywhere or web technologies in general.
 
 > Other popular Linux OSs include Fedora and openSUSE. For a comprehensive list, read [Put the fun back into computing from Distrowatch.com](http://distrowatch.com).
 
@@ -323,7 +323,7 @@ Now you're ready to start editing.
 
 ## Advanced: set up local web servers
 
-Brackets enables you to edit and preview HTML files locally. But you'll need to setup a web server to view dynamic contents. You don't need it right now, but you'll need it later during the module.
+Now you can edit and preview HTML files locally. But you'll need to setup a web server to view dynamic contents. You don't need it right now, but you'll need it later during the module.
 
 Unfortunately, the university policy doesn't allow you to install any software on ITS machines yourself, so you'll have to do it on your own machines. But it's important you install and configure a web server yourself.
 

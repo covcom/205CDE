@@ -8,11 +8,11 @@ Git is a widely-used version control system (VCS), and probably the most popular
 
 You'll see details of these as you go along.
 
-> If you are old enough you've probably heard of [Google Code Search](http://web.archive.org/web/20101112131244/http://www.google.com//codesearch), which is a tool that allows programmers to search for source code. Partially due to the increased popularity of Git-base code hosting websites such as Github, this tool has now been shut down. ([code.google.com](code.google.com) is not the original site anymore.)
+> If you are old enough you've probably heard of [Google Code Search](http://web.archive.org/web/20101112131244/http://www.google.com//codesearch), which is a tool that allows programmers to search for source code. Partially due to the increased popularity of Git-base code hosting websites such as Github, this tool has now been shut down. ([http://code.google.com](http://code.google.com) is not the original site anymore.)
 
 ## Work with Git locally
 
-In C9 create a new workspace based on HTML template and name it lab2. In terminal type in the following command and press enter. This shows you Git has been installed
+In Codeanywhere, create a new connection based on HTML template and name it lab2 (you might have to delete the one your created earlier). In terminal type in the following command and press enter. This shows you Git has been installed
 
 ```sh
     $ git
@@ -24,7 +24,7 @@ In C9 create a new workspace based on HTML template and name it lab2. In termina
     ......
 ```
 
-> C9 Ubuntu virtual machine has Git installed by default. If you work on your own computers, make sure you download and install [Git](https://git-scm.com/downloads) first.
+> If you work on your own computers, make sure you download and install [Git](https://git-scm.com/downloads) first.
 
 Here we are presented with a summary of the available Git commands.
 
@@ -34,17 +34,25 @@ In terminal issue the following command to initialise a Git repository.
 
 ```sh
     $ git init
-    Initialized empty Git repository in /home/ubuntu/workspace/.git/
+    Initialized empty Git repository in /home/<>/.git/
 ```
 
 A Git repository contains a hidden directory called .git which contains all the tracking data. We need to check that there is a repository. Obviously, we can't see it in the file tree (its hidden) so we need to run a command to list all the files, including the hidden ones (`ls` lists the files whilst the `ls -a` flag includes the hidden ones.
 
 ```sh
     $ ls -a
-    ./  ../  .c9/  .git/  README.md*  hello-world.html
+    ./  ../  .git/
 ```
 
 The first file (.) represents the current directory, the second (..) the parent directory and the last (.git) is the Git repository. So in this case, we can see that there is now a repository.
+
+Now issue the following command to create a file called README.md
+
+```sh
+    $ touch README.md
+    $ ls -a
+    ./  ../  .git/  README.md
+```
 
 ### Set user information
 

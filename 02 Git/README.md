@@ -12,7 +12,7 @@ You'll see details of these as you go along.
 
 ## Work with Git locally
 
-In Codeanywhere, create a new connection based on HTML template and name it lab2 (you might have to delete the one your created earlier). In terminal type in the following command and press enter. This shows you Git has been installed
+In Codeanywhere, create a new connection based on HTML template and name it lab2 (you will have to delete the one your created earlier). In terminal type in the following command and press enter. This shows you Git has been installed
 
 ```sh
     $ git
@@ -41,7 +41,7 @@ A Git repository contains a hidden directory called .git which contains all the 
 
 ```sh
     $ ls -a
-    ./  ../  .git/
+    .  ..  .git
 ```
 
 The first file (.) represents the current directory, the second (..) the parent directory and the last (.git) is the Git repository. So in this case, we can see that there is now a repository.
@@ -51,7 +51,7 @@ Now issue the following command to create a file called README.md
 ```sh
     $ touch README.md
     $ ls -a
-    ./  ../  .git/  README.md
+    .  ..  .git  README.md
 ```
 
 ### Set user information
@@ -74,7 +74,7 @@ There may be additional keys and values stored. If there are multiple names and/
     $ git config --global --replace-all user.name "John Doe"
 ```
 
-> Ever wonder why it's John again, click [here](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup).
+> Ever wonder why it's John again, read this official [Getting Started First Time Git Setup](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup).
 
 ### Stage files
 
@@ -144,10 +144,10 @@ Let's take a look at the commit history. This lists all the commits you have mad
 
 ### A second commit
 
-Return to C9 and open README.md in the editor. At the very bottom of the file add today's date
+Return to Codeanywhere and open README.md in the editor. Insert today's date and save
 
 ```sh
-    20 Jan 2016
+    30 Jan 2017
 ```
 
 > You don't have to add the date, this is just to make some changes to the file.
@@ -177,7 +177,7 @@ You should see all the changes made to the file between the two specified commit
 
 ### Rename files
 
-Renaming files is easy, right? We perhaps not. Let's see what happens when we rename our file using the standard approach. Right-click on the file in the file tree and choose Rename. Call the file README2.md then run the status command:
+Renaming files is easy, right? Well, perhaps not. Let's see what happens when we rename our file using the standard approach. Right-click on the file in the file tree and choose Rename. Call the file README2.md then run the status command:
 
 ```sh
     $ git status
@@ -187,7 +187,7 @@ Notice that git assumes we have deleted the old file (with all its commits) and 
 
 To fix this we need to rename the file using a special git command.
 
-Start by renaming the file back to the original name and running the status command to check there are no changes to the stage. Next we run the `git mv` command:
+Start by renaming the file back to the original name and running the status command to check there are no changes to the stage. Next, we run the `git mv` command:
 
 ```sh
     $ git mv README.md README2.md
@@ -283,6 +283,8 @@ For a version displaying the short commit codes try:
 
 ### GitHub repository
 
+> The instructions below are for [https://github.com](https://github.com). This is not to be confused with [https://github.coventry.ac.uk](https://github.coventry.ac.uk)
+
 GitHub is a source code hosting website based on Git. If you haven't got one, create an account and sign in. Click on the plus sign on the top right corner and select 'New repository'. Name it lab2 and click 'Create repository'.
 
 ![](.md_images/github.png)
@@ -297,7 +299,7 @@ Take a note of the URL of the repository, you'll need it for later. For example,
 
 ### Add the remote repository
 
-To add a new remote, use the `git remote add` command on the terminal in C9, in the directory your repository is stored at.
+To add a new remote, use the `git remote add` command on the terminal, in the directory your repository is stored at.
 
 The `git remote add` command takes two arguments:
 
@@ -323,11 +325,11 @@ Enter the GitHub credentials as and when prompted. If you then refresh you GitHu
 
 ![](.md_images/fill.png)
 
-> You can have more than one remotes, or you can remove/reset remotes. Some examples can be found [here](https://help.github.com/categories/managing-remotes/).
+> You can have more than one remotes, or you can remove/reset remotes. Some examples can be found on [the official GitHub guide on manageing remotes](https://help.github.com/categories/managing-remotes/).
 
 ### Synchronize local with remote
 
-What we have done in the previous step was to `push` our commits onto the remote GitHub server. The opposite of this operation is to `pull` (download) any commits that are on the server but not in your local repository. This can be caused two ways:
+What we have done in the previous step was to `push` our commits onto the remote GitHub server. The opposite of this operation is to `pull` (download) any commits that are on the server but not in your local repository. There're mainly two reasons for this:
 
 1. You have been editing (and committing) code using two different editors/computers
 2. You are not the only person working on the code
@@ -353,15 +355,13 @@ Use the following commands to ignore local changes and restore everything to the
     $ git pull origin master
 ```
 
-> There are some nice discussions on how to force Git to overwrite local files on pull on [StackOverFlow](http://stackoverflow.com/questions/1125968/force-git-to-overwrite-local-files-on-pull)
+> There are some nice discussions on StackOverflow about [how to force Git to overwrite local files on pull](http://stackoverflow.com/questions/1125968/force-git-to-overwrite-local-files-on-pull)
 
 ## What if Github is down?
 
 OK, you got the idea -- there is nothing that stops you from learning (and submitting your coursework)!
 
 GitHub will never be down! But sometimes it can happen that you cannot visit it. If that happens, use alternatives such as [GitLab](https://gitlab.com) or [Bitbucket](https://bitbucket.org/)
-
-> It was once reported GitHub was blocked by the [Great Firewall](https://en.wikipedia.org/wiki/Great_Firewall) in China, see [here](https://en.greatfire.org/blog/2013/jan/github-blocked-china-how-it-happened-how-get-around-it-and-where-it-will-take-us).
 
 As an alternative to web-based hosting tools, you can use offline software as well. In the following example, I show you how to clone the GitHub repository using the SourceTree software.
 
@@ -371,11 +371,11 @@ As an alternative to web-based hosting tools, you can use offline software as we
     
     ![](.md_images/source.png)
     
-4. You should see now the project has been backed up to your local folder. And that you can manage Git through the GUI.
+4. You should see now the project has been backed up to your local folder. And that you can manage Git through the GUI. In fact this Codeanywhere ==> GitHub ==> SourceTre is a better approach to backup your project rather than downloading directly from Codeanywhere.
     
     ![](.md_images/full.png)
     
-    In fact this C9 ==> GitHub ==> SourceTre is a better approach to backup your project rather than downloading directly from C9.
+    
 
 
 

@@ -4,7 +4,7 @@ The web technology has revolutionized everything, including itself. HTML5 (Hyper
 
 [![](.md_images/eow.png)](http://www.evolutionoftheweb.com/)
 
-HTML5 is the most fundamental language in web programming. In this lab, you learn the basics of HTML5. In subsequent labs, several new technologies are introduced to facilitate styling and dynamic content, but HTML5 remains the starting point and center point of web programming techniques.
+HTML5 is the most fundamental language in web programming. In this lab, you learn the basics of HTML5. In subsequent labs, several new technologies will be introduced to facilitate styling and dynamic content, but HTML5 remains the starting and center point of web programming techniques.
 
 > [A journey of a thousand miles begins with a single step, Lao Tzu](http://www.bbc.co.uk/worldservice/learningenglish/movingwords/shortlist/laotzu.shtml)
 
@@ -22,9 +22,21 @@ HTML is the language for describing the structure and content of a web page. In 
 
 ### Hello HTML
 
-In C9, create a new document through File ==> New From Template ==> HTML file. The file will automatically open in the editor. Move you cursor into the editing area and press `ctrl` + `s` to save the file. Name it *computers80.html*, leave other default settings unchanged.
+Create a new file and name it *computers80.html*. The file will automatically open in the editor. Next, paste the following into this file, and press `ctrl` + `s` to save it.
 
-The resulting HTML5 document contains the definition of an empty web page. First, pay attention to the overall structure of the web page defined in the document. There is a correspondence between a file and a web page. Each static web page corresponds to one HTML5 file.
+```html
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Document</title>
+    </head>
+    <body>
+
+    </body>
+    </html>
+```
+
+The above HTML5 document contains the definition of an empty web page. First, pay attention to the overall structure of the web page defined in the document. There is a correspondence between a file and a web page. Each static web page corresponds to one HTML5 file.
 
 The page consists of elements, separated by a start tag and end tag. For example, the root element `html` starts with a start tag `<html>` and ends with an end tag `</html>`.
 
@@ -32,7 +44,7 @@ The page consists of elements, separated by a start tag and end tag. For example
 
 Elements are nested: for instance, the `body` element is inside the `html` element.
 
-> Use Edit ==> Code Formatting ==> HTML to properly format your code so that parent-children relation becomes obvious to see.
+> Use Edit ==> Beautify to properly format your code so that parent-children relation becomes obvious to see.
 
 The elements follow the HTML5 syntax. The syntax dictates, for example, that:
 
@@ -70,7 +82,7 @@ In the above:
 * `meta` is an empty element with an attribute. It is an exception to the start tag / end tag rule. We return to these later.
 * UTF-8 is a means of encoding characters in disk or memory. Instead of UTF-8, we could have ASCII or ANSI, among many others. But UTF-8 (Unicode) covers almost all of the characters and symbols in the world.
 
-> If you're confused about UTF-8/ANSI etc, you're not alone. Read discussions on [StackOverFlow](http://stackoverflow.com/questions/700187/unicode-utf-ascii-ansi-format-differences) and [The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets](http://www.joelonsoftware.com/articles/Unicode.html).
+> If you're confused about UTF-8/ANSI etc, you're not alone. Read discussions on [StackOverflow](http://stackoverflow.com/questions/700187/unicode-utf-ascii-ansi-format-differences) and [the Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets](http://www.joelonsoftware.com/articles/Unicode.html).
 
 Once the `head` element is ready, add some markup inside the `body` element of the web page:
 
@@ -92,15 +104,13 @@ Once the `head` element is ready, add some markup inside the `body` element of t
 </body>
 ```
 
-Open the file in a browser by right-clicking computers80.html in Workspace tool window and then select Preview. The page is displayed using the browser's built-in style settings. We can later change how the page looks using CSS (Cascaded Style Sheets).
+Open the file in a browser by right-clicking computers80.html then select Preview. The page is displayed using the browser's built-in style settings. We can later change how the page looks using CSS (Cascaded Style Sheets).
 
 ![](.md_images/hello.png)
 
 > If you don't want to type yourself to fill the space, instead of copy/paste, you can use [Lorem ipsum](https://en.wikipedia.org/wiki/Lorem_ipsum).
 
 Later, when you amend your code, just hit **Refresh** icon in the built-in browser to show the updated content.
-
-![](.md_images/refresh.png)
 
 ### Paragraphs and headers
 
@@ -169,9 +179,9 @@ The definitions list contains two elements for each item: a `dt` for the term an
 
 In HTML5, images are put inside a `figure` element. The `figure` element normally contains one image, possibly with a caption, but technically it can serve as a container for multiple images.
 
-In the Workspace tool window, create a new folder called 'images'. Add an image of a computer into this folder by using the File ==> Upload Local Files menu. 
+In your workspace, create a new folder called 'images'. Add an image of a computer into this folder by using the File ==> Upload Local Files menu. 
 
-> Organize your folders/projects properly using sub-folders such as images/assets/js/css. See [here](https://www.reddit.com/r/webdev/comments/3afdb8/website_directory_structure_bestpractices/) for a discussion on Reddit. For file names, follow common practice using all lower case letters and hyphen such as `contact-details.html`. See [here](http://www.dummies.com/how-to/content/how-to-name-html-files.html) for some explanations. 
+> Organize your folders/projects properly using sub-folders such as images/assets/js/css. Read [Reddit discussions on folder structure best practice](https://www.reddit.com/r/webdev/comments/3afdb8/website_directory_structure_bestpractices/). For file names, follow common practice using all lower case letters and hyphen such as `contact-details.html`. See [some more explanations](http://www.dummies.com/how-to/content/how-to-name-html-files.html). 
 
 > Don't use `index.html` for pages other than your home page, because browsers detect your home page by looking for a file called index.html by default.
 
@@ -196,7 +206,7 @@ There are a couple of notable things about the `img` element:
     
     > There are other void elements besides `img`. One of the most widely used is `hr` for creating a horizontal rule and written as `<hr>`. Void elements are not to be confused with self-closing tags. For void elements it's **illegal** to write `<img></img>` or `<hr></hr>`, but for self-closing tags such as `<li>` or `<body>` you can safely ignore closing tags `</li>` or `</body>`. 
     
-    > Click [here](https://www.w3.org/TR/html-markup/syntax.html) for a comprehensive list of void elements, [here](http://stackoverflow.com/questions/3558119/are-self-closing-tags-valid-in-html5) and [here](http://stackoverflow.com/questions/5641997/is-it-necessary-to-write-head-body-and-html-tags) for discussions on StackOverFlow. [To close or not to close tags](http://blog.teamtreehouse.com/to-close-or-not-to-close-tags-in-html5), that is the question.
+    > Click [here](https://www.w3.org/TR/html-markup/syntax.html) for a comprehensive list of void elements, [here](http://stackoverflow.com/questions/3558119/are-self-closing-tags-valid-in-html5) and [here](http://stackoverflow.com/questions/5641997/is-it-necessary-to-write-head-body-and-html-tags) for discussions on StackOverflow. [To close or not to close tags](http://blog.teamtreehouse.com/to-close-or-not-to-close-tags-in-html5), that is the question.
     
     
 2. For an image to be displayed, it requires additional information in the form of attribute/value pairs. The attribute/value pairs above, are given within the start tag in the form of `attribute="value"`. Multiple definitions are separated by space. Two of attribute/value pairs are mandatory for images:
@@ -216,7 +226,6 @@ Now, add a link to a Wikipedia article to your web page, in a suitable location 
 
 To test the functionality in the browser, you need to run the Apache server first, and then choose a proper browser (not the default one). This was in lab1 if you cannot remember. The following image was generated using Chrome on Windows. Once you click the link, you'll be directed to the wiki page you specified earlier.
 
-![](.md_images/wiki.png)
 
 A link, defined by `a` element contains the URL of the linked web page as its `href` attribute. The link above contains an absolute path to a document on the external server. The absolute path begins will full protocol identifier and domain name.
 

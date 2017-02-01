@@ -332,7 +332,8 @@ The summary of some key semantic elements to describe the contents of the web pa
 | header  | introductory content                                       | welcome texts            |
 | footer  | "smallprint" content, usually in the end.                  | contact data, disclaimer |
 
-![elements](http://www.w3schools.com/html/img_sem_elements.gif)
+<!--![elements](http://www.w3schools.com/html/img_sem_elements.gif)-->
+![](.md_images/img_sem_elements.png)
 
 There are more semantic elements to clarify the content, such as `thead`, `tbody` and `tfoot` elements inside the tables.
 

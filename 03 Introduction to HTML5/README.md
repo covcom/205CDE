@@ -224,8 +224,7 @@ Now, add a link to a Wikipedia article to your web page, in a suitable location 
 <p>Read the <a href="http://en.wikipedia.org/wiki/Retrocomputing">Wikipedia article for Retrocomputing</a>.</p>
 ```
 
-To test the functionality in the browser, you need to run the Apache server first, and then choose a proper browser (not the default one). This was in lab1 if you cannot remember. The following image was generated using Chrome on Windows. Once you click the link, you'll be directed to the wiki page you specified earlier.
-
+If you preview the web page and click the link, you'll be directed to the wiki page you specified earlier.
 
 A link, defined by `a` element contains the URL of the linked web page as its `href` attribute. The link above contains an absolute path to a document on the external server. The absolute path begins will full protocol identifier and domain name.
 
@@ -284,7 +283,7 @@ Verify that you understand the elements used in marking up the table:
 - `th` for a header cell. Inside the `tr` element corresponding to the header row (usually the topmost row), each column heading is given using this element.
 - `td` for a table data cell, i.e. regular table cell.
 
-> A summary of all HTML table tags can be found [here](http://www.w3schools.com/html/html_tables.asp).
+> A summary of all HTML table tags can be found on [w3schools.com](http://www.w3schools.com/html/html_tables.asp).
 
 ### Test your understanding
 
@@ -311,7 +310,7 @@ The audio file can then be included in a web page by adding the following HTML5 
 </audio>
 ```
 
-The incorporation of videos is similar to audio elements, except for that the corresponding tag is `video`. For large videos, the file size limit in C9 can, however, hinder the use of anything but small video clips.
+The incorporation of videos is similar to audio elements, except for that the corresponding tag is `video`. For large videos, the file size limit can, however, hinder the use of anything but small video clips.
 
 > For YouTube videos, however, the format is different. See [w3school page](http://www.w3schools.com/html/tryit.asp?filename=tryhtml_youtubeiframe) for an example 
 
@@ -333,7 +332,7 @@ The summary of some key semantic elements to describe the contents of the web pa
 | header  | introductory content                                       | welcome texts            |
 | footer  | "smallprint" content, usually in the end.                  | contact data, disclaimer |
 
-![](http://www.w3schools.com/html/img_sem_elements.gif)
+![elements](http://www.w3schools.com/html/img_sem_elements.gif)
 
 There are more semantic elements to clarify the content, such as `thead`, `tbody` and `tfoot` elements inside the tables.
 

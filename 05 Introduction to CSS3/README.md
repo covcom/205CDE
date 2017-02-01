@@ -2,7 +2,7 @@
 
 The purpose of HTML is to define the structure and contents of a website. It is not intended to contain any representational markups. CSS (Cascaded Style Sheets) is designed for that purpose.
 
-> CSS is amazingly powerful. As an example, click to visit [CSS Zen Garden](http://www.csszengarden.com). Different CSS files are applied to a single HTML file by clicking on the navigation links to the right of the screen. There's a book for it as well on [Amazon](http://www.amazon.co.uk/ZEN-CSS-Design-Visual-Enlightenment/dp/0321303474).
+> CSS is amazingly powerful. As an example, click to visit [CSS Zen Garden](http://www.csszengarden.com). Different CSS rules are applied to a single HTML file by clicking on the navigation links to the right of the screen. There's a book for it as well on [Amazon](http://www.amazon.co.uk/ZEN-CSS-Design-Visual-Enlightenment/dp/0321303474).
 
 In this lab, you learn to use CSS3 for defining the visual outlook of a website. This lab focuses on basic representation (colors, fonts, etc.). The layout of the elements on a web page will be covered in the next lab.
 
@@ -10,21 +10,19 @@ In the lab, you do the following tasks, and it takes approximately 2 hours.
 
 1. Perform basic formatting (colors, fonts, etc.) of your web pages.
 2. Use CSS classes and identifiers to pick the correct elements 
-3. Fine-tune your selection by picking nested elements and using pseudo elements.
+3. Fine-tune your selection by picking nested elements and using pseudo-elements.
 
 > We use CSS as a synonym for CSS3, which is the newest version of the styling language.
 
 ## Emmet
 
-Now you've (hopefully) learned how to write proper/valid HTML codes, it's the time to do some tricks.
+Now you've (hopefully) learned how to write proper/valid HTML codes, it's the time to show some tricks.
 
 > [Laziness is the mother of invention](http://innovators.vassar.edu/innovator.html?id=8).
 
-[Emmet](http://emmet.io) is a plugin for text editors etc that saves your time from typing full HTML/CSS tags. Emmet is enabled by default in C9 through the Plugin Manager.
+[Emmet](http://emmet.io) is a plugin for code editors etc that saves your time from typing full HTML/CSS tags. Emmet is enabled by default in most code editors.
 
-![](https://a.disquscdn.com/uploads/mediaembed/images/3016/7557/original.jpg)
-
-In C9 start a new workspace and name it lab5. Open the auto-generated hello-world.html file and remove all contents. Type in the exclamation mark and immediately hit the tab key. What happened? 
+In your workspace create an empty file called **hello-world.html** (without contents). Type in the exclamation mark and immediately hit the tab key. What happened? 
 
 ![](.md_images/ex.png).
 
@@ -32,17 +30,11 @@ What you see is that the editor expands the single character into a full HTML te
 
 ![](.md_images/expand.png).
 
-There are quite a few other tricks you can do as well, for example:
-
-* Type `table1` and hit tab immediately, it will expand into full table element.
-    
-    ![](.md_images/tb.png).
-    
-* Type `ul>li*8` and hit tab immediately, it will expand into full list element.
+There are quite a few other tricks you can do as well, for example, type `ul>li*8` and hit tab immediately, it will expand into full list element.
     
     ![](.md_images/ul.png).
 
-Some more example usages can be found [here](https://www.smashingmagazine.com/2013/03/goodbye-zen-coding-hello-emmet/).
+Some more example usages can be found on [Goodbye, Zen Coding. Hello, Emmet! By Zeno Rocha](https://www.smashingmagazine.com/2013/03/goodbye-zen-coding-hello-emmet/).
 
 ## CSS basics
 
@@ -52,11 +44,11 @@ Ideally, all web pages in a site should be linked to one style sheet (one CSS fi
 
 This approach makes a clear separation between content and representation. The approach makes it easy to get a uniform outlook for the entire site. Moreover, one can easily build alternative views that may be strikingly different visually yet they share the same content.
 
-> Maybe you've heard of the [model-view-controller](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) pattern. In terms of web development, the model is HTML, the view is CSS, and the controller is JS files. Have a look at MVC patterns in my other module [388COM Android development](https://github.com/covcom/388COM/tree/master/Week_04_Simple_Views_and_Layouts).
+> Maybe you've heard of the [model-view-controller](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) pattern. In terms of web development, the model is HTML, the view is CSS, and the controller is JS files. Have a look at MVC patterns in my other module [300CEM Android development](https://github.com/covcom/300CEM/tree/master/Week_04_Simple_Views_and_Layouts).
 
 ### Create and link a style sheet
 
-Create a folder called `css` in C9. Then create a new file and name it **simple.css**. Save this file into the `css` folder. Insert the following into simple.css file:
+Create a folder called `css` in your workspace. Then create a new file and name it **simple.css**. Save this file into the `css` folder. Insert the following into simple.css file:
 
 ```css
 body {
@@ -78,13 +70,9 @@ Examine the CSS file and verify that you understand its contents. Pay attention 
 - The rules are automatically in effect in the nested subelements, so the font setting for `body` element applies to all elements in the page, including headers, lists, and paragraphs. 
 - The fonts are given as a list of alternatives. The browser uses the first font in the list that it is capable of. The list should always end in a generic font such as `serif` or `sans-serif`.
 
-Even though the CSS file is present, it has no effect as it is not currently linked to any HTML document. The next step is to link it to a file called **csstest.html** in your C9 workspace. 
+Even though the CSS file is present, it has no effect as it is not currently linked to any HTML document. The next step is to link it to a file called **csstest.html** in your workspace. To create this file you can simply create an empty file called csstest.html, and make it identical to our example by copying the contents over. The sample file can be found from the workspace folder above.
 
-> <a name='pre-existing'></a> There are two ways to create this file in your own workspace:
-> * You can simply create a new file in your workspace called csstest.html, and make it identical to our example by copying the contents over. The existing file that can be found [here]().
-> * Alternatively, you can clone the whole module's GitHub repository into your own workspace, and pull changes each time the module's repository gets updated. Mark Tyers has written a set of instructions that can be found [here](https://github.com/covcom/305CDE/blob/master/README.md).
-
-First, open the file and see how it looks like without the CSS file. The browser now uses its default stylesheet for displaying the page.
+First, preview the file and see how it looks like without the CSS file. The browser now uses its default stylesheet for displaying the page.
 
 Then, insert the following line of HTML code in the `head` element of the HTML file:
 
@@ -98,7 +86,7 @@ The link can be added before or after the `title` element, as the order of eleme
 
 Having added the link, reload the web page and see how the rules are applied to the page.
 
-Next, play with the CSS file. Add new rules and properties to the file and see how they affect the web page. Note that C9 helps you in writing the contents of a CSS file by proposing property names and values as you type.
+Next, play with the CSS file. Add new rules and properties to the file and see how they affect the web page. Note that the IDE helps you in writing the contents of a CSS file by proposing property names and values as you type.
 
 > You can find a complete list of CSS property names and possible values (among other information) at the [W3C Cascading Stylesheets documentation](http://www.w3.org/TR/CSS/).
 
@@ -139,7 +127,7 @@ h1 {
 }
 ```
 
-In CSS3, RGB colours can be supplemented by an additional alpha channel, which sets the opacity value (0.0 meaning fully transparent and 1.0 fully opaque).
+In CSS3, RGB colours can be supplemented by an additional alpha channel, which sets the opacity value (0.0 means fully transparent and 1.0 fully opaque).
 
 To add some opacity to headers, the aforementioned rule would be:
 ```css
@@ -293,7 +281,7 @@ If a property of an element would be defined in multiple CSS rules, the rule who
     
     ![(Alternatively, you see the image embedded if you open this assignment sheet in a separate browser window).](.md_images/comparison.png)
     
-    > Some examples of CSS table rules can be found [here](http://www.w3schools.com/css/css_table.asp).
+    > Some examples of CSS table rules can be found on [w3schools.com](http://www.w3schools.com/css/css_table.asp).
 
 ## Fine-tune the rules
 
@@ -348,7 +336,7 @@ Of course, you can use also the normal selectors for elements like `form`, `lege
 
 Therefore, you should always check that the results are what is expected.
 
-### Nested elements and pseudo elements
+### Nested elements and pseudo-elements
 
 Pseudoelements allow formatting only certain parts of an element. Using pseudoelements, it is, for instance, possible to pick the first letter or line of a paragraph.
 
@@ -395,7 +383,7 @@ As these approaches obscure the separation of content and presentation, their us
 
 ### Test your understanding
 
-You need the aforementioned file `simple.css`. CSS pseudo elements `::before` and `::after` allow inserting content right before or after an element for stylistic purposes. These are normally used in conjunction with `content` property that specifies the content to be included.
+You need the aforementioned file `simple.css`. CSS pseudo-elements `::before` and `::after` allow inserting content right before or after an element for stylistic purposes. These are normally used in conjunction with `content` property that specifies the content to be included.
 
 * Add a rule that adds the text `Note!` before each paragraph in **csstest.html**.
 * Add a rule that prints the image of a tick mark after each paragraph in **csstest.html**. A public domain tick mark image (Author: Kosta Kostov, via http://www.publicdomainpictures.net/) can be found in the lab's `images` folder.

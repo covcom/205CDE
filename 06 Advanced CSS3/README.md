@@ -5,7 +5,7 @@ In this lab, you learn to create a responsive layout for a web page or a website
 
 You first learn the basics of positioning elements to create a unified layout. The positioning is done using CSS, based on the proper markup of elements using HTML. In addition to the positioning of the elements, you learn to design the navigation and create a multi-level menu for your website.
 
-In this lab you do the following tasks, it takes approximately 2 hours.
+In this lab you do the following tasks, it takes approximately 2.
 
 - Use CSS box model to define the appearance of your web pages.
 - Position elements on a web page.

@@ -91,8 +91,8 @@ The main reason for introducing these new input types is for mobile devices with
 
 > Input types, not supported by old web browsers, will behave as input type text. See [here](http://www.w3schools.com/html/html_form_input_types.asp).
 
-![](http://developer.android.com/images/ui/pickers.png)
-<!--![](.md_images/pickers.png)-->
+<!-- ![](http://developer.android.com/images/ui/pickers.png) -->
+![](.md_images/pickers.png)
 
 ### Hidden parameters
 

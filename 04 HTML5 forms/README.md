@@ -13,7 +13,7 @@ In this lab you do the following tasks, it takes approximately 2 hours:
 
 ### A very basic form
 
-First, create a create a file called **sample-form.html**.
+First, create a create a file called **sample-form.html** (in terminal issue the following: touch sample-form.html)
 
 In the newly created HTML file, add the following lines of code:
 
@@ -29,9 +29,7 @@ In the newly created HTML file, add the following lines of code:
 
 Notice that as an action it refers to [Google's search engine](http://www.google.com/search). It gives a URL where the user's input data is sent. The `<div>` tag defines a division or a section in an HTML document. `<input>` tags are for many, but not all, input fields, as we'll see later. `<input>` is another example of a void element.
 
-Right click sample-form.html and select Run. In the terminal window copy the URL and pastes into a new browser tab. Now when you write something into the box and click submit, your text is sent to Google's search engine.
-
-![](.md_images/url.png)
+Right click sample-form.html and select Preview. Now when you write something into the box and click submit, your text is sent to Google's search engine.
 
 Notice how you see parameters passed in a URL. Depending on where you're (i.e. locale), if you're at Helsinki, you'll see something like
 
@@ -68,7 +66,7 @@ Second input element's type is `submit` which generates a submit button for the 
 
 ### Test your understanding
 
-1. Create a file called **form-skel.html**. You can download from current workspace folder and then transfer to your C9 workspace. Or you can create a new file in your C9 workspace and copy/paste contents into it. The file can be found in [here](https://github.com/covcom/205CDE/blob/c9/04%20HTML5%20forms/workspace/form-skel.html).
+1. Create a file called **form-skel.html**. You can download from current workspace folder above and then upload to your workspace. Or you can create a new file in your workspace and copy/paste contents into it.
 2. Insert the required input elements in the file and check that you have them all. You can use text input type for all but submit button.
 
 ## Control inputs
@@ -93,7 +91,8 @@ The main reason for introducing these new input types is for mobile devices with
 
 > Input types, not supported by old web browsers, will behave as input type text. See [here](http://www.w3schools.com/html/html_form_input_types.asp).
 
-![](http://developer.android.com/images/ui/pickers.png)
+<!--![](http://developer.android.com/images/ui/pickers.png)-->
+![](.md_images/pickers.png)
 
 ### Hidden parameters
 
@@ -139,7 +138,7 @@ Unfortunately `Reset` buttons almost never help users but often hurt them. It is
 
 For example in the case of text fields or checkboxes, the user can always erase the entry and revert to the original state.
 
-Radio buttons and checkboxes and pull-down menus are trickier. A classic design mistake on the Web is to have radio buttons that initially do not have a selection. Often, there is no way for the user to select a "nothing" option, once he or she has selected one of the choices. Also selectable menus should include an explicitly selectable menu entry in pull-down menus for the default choice. 
+Radio buttons and checkboxes and pull-down menus are trickier. A classic design mistake on the Web is to have radio buttons that initially do not have a selection. Often, there is no way for the user to select a "nothing" option, once he or she has selected one of the choices. Also, selectable menus should include an explicitly selectable menu entry in pull-down menus for the default choice. 
 
 There is one exception where `Reset` buttons can be used. This is when 
 
@@ -160,7 +159,7 @@ We have a couple of ways to help the user with forms.
 
 ### Connect label with control 
 
-`label` elements are used to connect texts and controls that are used together in forms. For example radio buttons and check boxes often come with preceding texts that describe the choice. However if the user clicks the text nothing happens. That's because the browser doesn't know the connection between the text and the neighboring control. They must be wrapped up with label element.
+`label` elements are used to connect texts and controls that are used together in forms. For example radio buttons and check boxes often come with preceding texts that describe the choice. However, if the user clicks the text nothing happens. That's because the browser doesn't know the connection between the text and the neighboring control. They must be wrapped up with label element.
 
 ```html
 <form action="">
@@ -188,7 +187,7 @@ Note the above can also be written as the following, which is also valid but nee
 </form>
 ```
 
-> Read discussions on [StackOverFlow](http://stackoverflow.com/questions/774054/should-i-put-input-tag-inside-label-tag) for different ways of associating labels and inputs.
+> Read [StackOverflow discussions on different ways of associating labels and inputs](http://stackoverflow.com/questions/774054/should-i-put-input-tag-inside-label-tag).
 
 ### Use grouping and hints
 
@@ -213,7 +212,7 @@ In user interfaces it also a common practice to give hints on the kind of data i
 
 ### Test your understanding
 
-Open Open file **form-skel.html**:
+Open file **form-skel.html**:
 
 2. At the moment, you have to click exactly the right spot on your checkboxes etc. Change this by using labels.
 3. Rearrange your form with legends and fieldsets in order to make it easier for the user to understand.
@@ -247,9 +246,9 @@ Behind the scene, the browser tries to verify user's input. There are some other
 
 In addition to using different input types, we can also use patterns a.k.a.regular expressions. Using patterns, we can validate user inputs even more precisely. 
 
-Pattern is an encoded sequence of characters that define a pattern of text characters. Remember that client-side validation is not reliable as the only means of validation, it is useful to make the user interface more pleasant.
+The pattern is an encoded sequence of characters that define a pattern of text characters. Remember that client-side validation is not reliable as the only means of validation, it is useful to make the user interface more pleasant.
 
-For example, a Finnish social security number (similar to UK National Insurance number) is often 999999-999X (for those who are born in the 20th century). The first 6 digits are the birth date: day, month and year's last two numbers. After "-" there are 3 digits and the last character can be either digit or letter from A to Y. If we want to make a pattern of this, it would be
+For example, a Finnish social security number (similar to UK National Insurance number) is often 999999-999X (for those who were born in the 20th century). The first 6 digits are the birth date: day, month and year's last two numbers. After "-" there are 3 digits and the last character can be either digit or letter from A to Y. If we want to make a pattern of this, it would be
 
 ```html
 <input type="text" pattern="\d{6}\-\d{3}([0-9A-Y])" ...>

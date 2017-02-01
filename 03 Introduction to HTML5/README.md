@@ -44,7 +44,7 @@ The page consists of elements, separated by a start tag and end tag. For example
 
 Elements are nested: for instance, the `body` element is inside the `html` element.
 
-> Use Edit ==> Beautify to properly format your code so that parent-children relation becomes obvious to see.
+> Use Edit ==> Beautify to properly format your code so that parent-children-relation becomes obvious to see.
 
 The elements follow the HTML5 syntax. The syntax dictates, for example, that:
 
@@ -183,7 +183,7 @@ In your workspace, create a new folder called 'images'. Add an image of a comput
 
 > Organize your folders/projects properly using sub-folders such as images/assets/js/css. Read [Reddit discussions on folder structure best practice](https://www.reddit.com/r/webdev/comments/3afdb8/website_directory_structure_bestpractices/). For file names, follow common practice using all lower case letters and hyphen such as `contact-details.html`. See [some more explanations](http://www.dummies.com/how-to/content/how-to-name-html-files.html). 
 
-> Don't use `index.html` for pages other than your home page, because browsers detect your home page by looking for a file called index.html by default.
+> Don't use `index.html` for pages other than your homepage, because browsers detect your homepage by looking for a file called index.html by default.
 
 ![](.md_images/upload.png)
 
@@ -278,7 +278,7 @@ Open the page **comparison.html** that contains a comparison table of the three 
 Verify that you understand the elements used in marking up the table:
 - `table` to indicate the entire table.
 - `caption` for specifying the header of the table. By default, it appears above the table centered.
-- `thead` and `tbody` are semantic elements to  show the header and body parts of the tables (there´s also `tfoot` for the footer). These are semantical elements, and, while not necessary, can help figuring out the structure of the table. In addition, `tfoot` could be used for a footer row.
+- `thead` and `tbody` are semantic elements to show the header and body parts of the tables (there´s also `tfoot` for the footer). These are semantical elements, and, while not necessary, can help figuring out the structure of the table. In addition, `tfoot` could be used for a footer row.
 - `tr` for a table row. You can add as many of these elements into the table as necessary. Inside each `tr`, put a necessary number of `th`/`td` elements (see below)
 - `th` for a header cell. Inside the `tr` element corresponding to the header row (usually the topmost row), each column heading is given using this element.
 - `td` for a table data cell, i.e. regular table cell.
@@ -299,7 +299,7 @@ Two benefits of using HTML5 are the easier inclusion of multimedia content and b
 
 ### Audio and video
 
-The inclusion of audio and video files is easy. In the lab's `assets` folder, there is a sample public domain audio clip. Download to you computer and then upload to your own `assets` folder (create it first).
+The inclusion of audio and video files is easy. In the lab's `assets` folder, there is a sample public domain audio clip. Download to your computer and then upload to your own `assets` folder (create it first).
 
 The audio file can then be included in a web page by adding the following HTML5 code:
 
@@ -341,7 +341,7 @@ The use of semantic elements is encouraged, even though they are not yet in wide
 
 ### Test your understanding
 
-1. Generate a personal webpage of a fictitious student Jane Doe, or John Doe (or your own, if you prefer), that contains, at least, the information listed below. Use semantic elements when applicable.
+1. Generate a personal web page of a fictitious student Jane Doe, or John Doe (or your own, if you prefer), that contains, at least, the information listed below. Use semantic elements when applicable.
 
     - personal data (first names, family name, date of birth)
     - image

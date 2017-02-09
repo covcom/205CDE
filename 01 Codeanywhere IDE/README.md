@@ -332,7 +332,7 @@ Follow instructions below to install a web server yourself:
 1. Install Ubuntu:
     
     Depending on if you use the Chromebook regularly (comfortable) or not, you have two options:
-    * Option 1: Open your Chromebook, follow instructions given [here](http://lifehacker.com/how-to-install-linux-on-a-chromebook-and-unlock-its-ful-509039343) to install Ubuntu on a Chromebook.
+    * Option 1: Open your Chromebook, follow instructions given on [How-To Geek: How to Install Ubuntu Linux on Your Chromebook with Crouton](http://www.howtogeek.com/162120/how-to-install-ubuntu-linux-on-your-chromebook-with-crouton/) to install Ubuntu on a Chromebook. You might also want to follow this guide [Things to do after installing Ubuntu on a Chromebook using Crouton](http://www.webupd8.org/2013/12/things-to-do-after-installing-ubuntu-on.html)
     * Option 2: Open your Windows machine, install [VirtualBox](https://www.virtualbox.org) and then install [Ubuntu](http://www.ubuntu.com) within it. A step by step instruction can be found on [wikiHow](http://www.wikihow.com/Install-Ubuntu-on-VirtualBox).
     
 2. Boot into Ubuntu to install LAMP server. In the example below I use Ubuntu installed on a VirtualBox running on a Mac. But if it's Chromebook or Windows it's essentially the same.

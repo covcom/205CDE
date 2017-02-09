@@ -12,7 +12,7 @@ In this lab you do the following tasks, it takes approximately 2 hours.
 
 ## CSS box model
 
-First, open the file **boxmodel.html** that illustrates the CSS box model which is vital for understanding how to set the dimensions, margins and paddings of elements in a web page. Check the contents of the file. You notice that it contains four paragraph elements, each labeled to belong to a different class.
+First, open the file **boxmodel.html** that illustrates the CSS box model which is vital for understanding how to set the dimensions, margins, and paddings of elements in a web page. Check the contents of the file. You notice that it contains four paragraph elements, each labeled to belong to a different class.
 
 Create a file called **boxstyles.css** and link it to the HTML file.
 
@@ -31,7 +31,7 @@ This sets the visual appearance of the first text paragraph that belongs to clas
 
 To truly understand the lines of code above, it is important to get an idea of the CSS box model.
 
-The box model is applicable to block elements, i.e. elements that  hold a rectangular space in the screen. Recall that common HTML elements such as headers, paragraphs, and lists are block elements.
+The box model is applicable to block elements, i.e. elements that hold a rectangular space on the screen. Recall those common HTML elements such as headers, paragraphs, and lists are block elements.
 
 For each element, you can set various CSS properties, such as:
 
@@ -39,7 +39,9 @@ For each element, you can set various CSS properties, such as:
 - `margin`: the amount of free space outside the border
 - `padding`: the amount of free space inside the border
 
-![](http://www.w3schools.com/css/box-model.gif)
+<!--![](http://www.w3schools.com/css/box-model.gif)-->
+![](.md_images/box-model.gif)
+
 
 Notice that borders are normally invisible for most elements (such as regular paragraphs). In spite of this, you can use margin and padding settings in the normal way.
 
@@ -48,8 +50,8 @@ By default, the settings above apply to all four directions. In the example abov
 Now, add rules for the remaining paragraph classes (two, three, four) to generate the following appearance for the remaining paragraphs:
 
 - class `two`: same border as for class `one`, no padding, 5em margins except for the top where no should be no margin.
-- class `three`: a 3-pixel wide solid black border only in the left edge of the paragraph, 1em padding except for the top where no padding is applied, 2em top margin, 8em bottom margin, no left and right margins.
-- class `four`: a 5 pixels wide dashed red margin with rounded corners (1em radius).
+- class `three`: a 3-pixel wide solid black border only on the left edge of the paragraph, 1em padding except for the top where no padding is applied, 2em top margin, 8em bottom margin, no left and right margins.
+- class `four`: a 5-pixels wide dashed red margin with rounded corners (1em radius).
 
 Verify that all four paragraphs are displayed exactly as intended.
 
@@ -65,7 +67,7 @@ Alternatively, you can simply right-click on an element and select **Inspect**. 
 
 ### Test your understanding
 
-The file **box_assignment.png** in the lab's `images` folder contains an image of intended appearance for a webpage. Using CSS box model, construct an HTML page and the associated CSS file that reproduce the appearance of the image.
+The file **box_assignment.png** in the lab's `images` folder contains an image of intended appearance for a web page. Using CSS box model, construct an HTML page and the associated CSS file that reproduce the appearance of the image.
 
 > In the lab's **images** folder, you also find the public domain image **berries.png** (author Scott Bauer, via http://commons.wikimedia.org) needed in the assignment. 
     
@@ -75,7 +77,7 @@ The file **box_assignment.png** in the lab's `images` folder contains an image o
 
 So far, we have modified the way how individual elements look and how much space should be left inside or outside the margin.
 
-Next, you learn how to modify the position, width and height of a block element. As a result, you will be able to generate exactly the desired layout for your web page.
+Next, you learn how to modify the position, width, and height of a block element. As a result, you will be able to generate exactly the desired layout for your web page.
 
 There are three positioning schemes in CSS:
 
@@ -180,7 +182,7 @@ nav {
 
 This sets the absolute position of the element to be exactly 120 pixels from the top of the page and exactly 40 pixels from the left edge of the page. Furthermore, the width of the element is set to 100 pixels.
 
-Note that the elements positioned using absolute positioning may appear on top of other elements, essentially garbling the output. To avoid this, we move the left edge of the page contents to 200 px, to facilitate the 100 px wide navigation element, starting at 40 px. Modify the rule for `body` element to contain the new `margin-left` property:
+Note that the elements positioned using absolute positioning may appear on top of other elements, essentially garbling the output. To avoid this, we move the left edge of the page contents to 200px, to facilitate the 100px wide navigation element, starting at 40px. Modify the rule for `body` element to contain the new `margin-left` property:
 
 ```css
 body {
@@ -218,7 +220,7 @@ Important things to note:
 
 - List bullets are removed by setting `list-style: none`.
 - Second-level list items are set, by default, hidden: `visibility:hidden`. 
-- Whenever the mouse pointer hovers over the first-level list item, the second level list-item is set visible. The selector `nav ul li:hover > li` points to those `li` items that are descendants of `nav`, `ul`, and (one that a mouse hovers over) `li` elements.
+- Whenever the mouse pointer hovers over the first-level list item, the second level list item is set visible. The selector `nav ul li:hover > li` points to those `li` items that are descendants of `nav`, `ul`, and (one that a mouse hovers over) `li` elements.
 
 ### Test your understanding
 

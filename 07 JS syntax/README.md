@@ -2,23 +2,21 @@
 
 From this week, we start doing JavaScript, which is the language for the modern web development, and also the language of the future.
 
-> [What Is The Most Valuable Programming Language To Know For The Future And Why?](http://www.forbes.com/sites/quora/2014/07/14/what-is-the-most-valuable-programming-language-to-know-for-the-future-and-why/#425503b66439)
-
 You need to learn JS for the following reasons (since I've been asked several times in the past):
 
 1. You want to use JS to add interactivity to your website, which greatly enhances user experience.
 2. JS is an essential component of Bootstrap, which is a popular front-end framework introduced later in the module.
-3. You need JS for your 3rd-year module [305CDE Developing the Modern Web 2](https://github.com/covcom/305CDE), that teaches [full stack JavaScript development](https://www.smashingmagazine.com/2013/11/introduction-to-full-stack-javascript/).
+3. You need JS for your 3rd-year modules such as [304CEM: Web API Development](http://resourcelists.coventry.ac.uk/modules/304cem.html), that teaches [full stack JavaScript development](https://www.smashingmagazine.com/2013/11/introduction-to-full-stack-javascript/).
 
 To help you get acquainted with the syntax used in JavaScript, use a tutorial such as [Mozilla developer network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction) or [W3Schools JavaScript tutorial](http://www.w3schools.com/js/). You will learn that several JavaScript constructs, such as the control structures are very similar to Java.
 
-> For this and following labs you'll need to clone the module repository in your C9 workspace. Instruction were given [here](https://github.com/covcom/305CDE).
+> For this and following labs, it's necessary to clone the module repository in your workspace. Just follow instructions given in the first lab.
 
 > Some of the JS exercises were based on tutorials written by [Colin Stephen](https://github.com/c0lin). 
 
 ## Edit and test JS code
 
-In the Workspace tool window navigate to lab7 ==> workspace, the folder structure is like this:
+In the Workspace tool window navigate to lab7 ==> workspace, the folder structure looks like this:
 
 ![](.md_images/lab7.png)
 
@@ -35,7 +33,7 @@ Now do the following:
 
 ### Test your understanding
 
-1. The values read from the text boxes are stored as *strings*. Modify the code to store the quantity to an *integer* and the price, tax and discount as *floats* (hint, check the crib sheet).
+1. The values read from the text boxes are stored as *strings*. Modify the code to store the quantity to an *integer* and the price, tax, and discount as *floats* (hint, check the crib sheet).
 2. Modify the JS code to double the discount applied when the quantity ordered is greater than 100 items
 3. Modify the HTML form to include a *shipping* field, and include this value in the total calculation in `shopping.js`.
 
@@ -69,23 +67,22 @@ Enter some valid inputs into the form and submit it.
 
 Writing clean, readable, and error-free high-quality code is essential to maintainability. Therefore most languages now have automated syntax and style "checkers" called linters that code editors and IDEs can use to alert potential problems to programmers immediately when they are writing their code.
 
-One such linter for JavaScript is called [JSLint](http://www.jslint.com/), and it is built into C9 and enabled by default.
+One such linter for JavaScript is called [JSLint](http://www.jslint.com/), and it is built into most online IDEs and enabled by default.
 
 > [JSLint](http://www.jslint.com/) provides checks based on direct input, similar to HTML/CSS validation.
 
-Load up **notes.js** in C9 and you'll see immediately there are some highlights in the gutter. If you move your mouse over you'll see some hints on the error.
+Load up **notes.js** and you'll see immediately there are some highlights in the gutter. If you move your mouse over you'll see some hints on the error.
 
 ![](.md_images/error.png)
 
-In general, C9 supports three types of identifiers:
+There are three types of identifiers:
 
 1. Informational: these are non-critical, non-dangerous updates about your code
 2. Warnings: these are potentially incorrect pieces of code
 3. Errors: these are incorrect lines of code that will almost certainly throw a runtime error when you try to run/compile your code
 
-> Click [here](https://docs.c9.io/docs/language-analysis) to visit the official documentation on C9.
 
-Preview **notes.html** in C9 and input some texts to prove the code is fully functional. 
+Preview **notes.html** and input some texts to prove the code is fully functional. 
 
 ![](.md_images/notes.png)
 
@@ -129,7 +126,7 @@ Sometimes your attempts to change the code will introduce bugs. A bug is usually
 
 Let's get familiar with the debugger:
 
-1. Make sure you're viewing your webpage using the live privew in a new tab. This is important.
+1. Make sure you're viewing your webpage using the live preview in a new tab. This is important.
 1. Click on the Sources tab and open the notes.js file
 2. Click in the margin to add a breakpoint to the first line of the addItem() function.
 3. Refresh the browser, type in a new item and click the button. The execution will pause at the breakpoint without running line 5.

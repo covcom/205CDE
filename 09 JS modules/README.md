@@ -29,9 +29,7 @@ Aim to complete these tasks in roughly 60-80 minutes of lab time.
 
 Closure is the JS way to define a little environment that goes together with function. By 'environment' I meant variables etc that only this specific function can have access to. This is the JS way of doing encapsulation in a way similar to other languages such as Java.
 
-> "Closures are functions that refer to independent (free) variables. In other words, the function defined in the closure 'remembers' the environment in which it was created", from [MDN guide to JS closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures).
-
-> Some nice discussions can be found on [StackOverFolow](http://stackoverflow.com/questions/111102/how-do-javascript-closures-work?rq=1).
+> "Closures are functions that refer to independent (free) variables. In other words, the function defined in the closure 'remembers' the environment in which it was created", from [Introduction to closures on Mozilla Developer Network (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures). See also discussions about [JavaScript Closures for Beginners On StackOverflow](http://stackoverflow.com/questions/111102/how-do-javascript-closures-work?rq=1).
 
 This is a bit difficult to explain without an example. Let's look at an example now:
 
@@ -72,7 +70,7 @@ Prototype inheritance applies to any JS data type/object, including objects crea
 
 > Note in js_classes.html there are two implementations of the Coffee class: one based on ES5 standard, the other based on the latest ES6. Bear in mind this two are equivalent -- the `class` keyword introduced in ES6 is a ['syntactical sugar'](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), it's still function behind the scene.
 
-> More examples of ES6 classes can be found on [sitepoint](http://www.sitepoint.com/understanding-ecmascript-6-class-inheritance/).
+> [Some examples of ES6 classes on Sitepoint](http://www.sitepoint.com/understanding-ecmascript-6-class-inheritance/).
 
 ### Test your understanding
 
@@ -87,7 +85,7 @@ Prototype inheritance applies to any JS data type/object, including objects crea
 
 This is more advanced but begins to show the power of JS as a fully fledged language for designing and building large-scale applications. In particular, function closures and immediate invocation allows us to define self-contained modules that do not pollute the global namespace. This is how libraries such as, for example, jQuery and YUI, are put together.
 
-> See [JS module pattern](http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html) along with [Immediately-Invoked function expressions](http://benalman.com/news/2010/11/immediately-invoked-function-expression/) for a good discussion of what follows.
+> See [a blog page on JS Module Pattern written by Ben Cherry](http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html) along with [Immediately-Invoked function expressions written by Ben Alman](http://benalman.com/news/2010/11/immediately-invoked-function-expression/) for a good discussion of what follows.
 
 1. Open index.html in the advanced_obj_fun folder and preview it.
 2. Play with the app, it is a simple task list. However, it is implemented as a proper application, using modules.
@@ -111,7 +109,7 @@ This is more advanced but begins to show the power of JS as a fully fledged lang
 
 These things are all typical of the "module pattern" in JS. 
 
-> The example used here is modified based on 'vanilla' flavor of the [TodoMVC](http://todomvc.com/). Click here for some help on [What (function (window, document, undefined) {})(window, document); really means](https://toddmotto.com/what-function-window-document-undefined-iife-really-means/).
+> The example used here is modified based on 'vanilla' flavor of the [TodoMVC](http://todomvc.com/). Click here for some help on [What (function (window, document, undefined) {})(window, document); really means written by Todd](https://toddmotto.com/what-function-window-document-undefined-iife-really-means/).
 
 ### Test your understanding
 
@@ -121,3 +119,9 @@ These things are all typical of the "module pattern" in JS.
 In other words, any page that includes your new module JS file should be able to call `$.id("myButton")` and this will return a reference to the DOM element with ID "myButton" (if any).
 
 By doing this, you should start to see how libraries such as jQuery add to or simplify the standard functionality of core JavaScript!
+
+## YouTube video on closure/module
+
+The following is a very good tutorial on closure. 
+
+* [Modular Javascript #3 - Revealing Module Pattern](https://www.youtube.com/watch?v=pOfwp6VlnlM&index=3&list=PLoYCgNOIyGABs-wDaaxChu82q_xQgUb4f)

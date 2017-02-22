@@ -6,14 +6,14 @@ DOM manipulation by JS allows you to 'read', 'write', 'update', and 'delete' act
 
 The DOM is essentially a description of the elements on a web page along with their attributes, properties, and accessible methods. To see JS interacting with the DOM, follow the next steps.
 
-> Do these after a quick scan of the [MDN DOM introduction](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction).
+> Do these after a quick scan of the [Introduction to the DOM from Mozilla Developer Network (MDN)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction).
 
-1. Load `map.html` and preview the functionality in C9
-2. Observe that the `showCoords()` function sets the innerHTML property of a DOM element
+1. Load `map.html` and preview the functionality.
+2. Observe that the `showCoords()` function sets the innerHTML property of a DOM element.
 3. Also observe that the `addtext()` function dynamically adds a new element to the DOM ( a "text node").
     * Similarly you can add other HTML tags such as `<a>` or `<p>` etc., or update their attributes
 
-> Discussions about innerHTML vs appendChild(txtNode) on [statckOverflow](http://stackoverflow.com/questions/2305654/innerhtml-vs-appendchildtxtnode).
+> [Discussions about innerHTML vs appendChild(txtNode) on StatckOverflow](http://stackoverflow.com/questions/2305654/innerhtml-vs-appendchildtxtnode).
 
 ### Test your understanding
 
@@ -65,7 +65,7 @@ The code you will look at below invokes handlers that check for methods and prop
 3. Note that the callback handleClick looks for a property called target on the event it is passed
     * Depending on the property availability, the callback correctly identifies the target element in the DOM
     
-> Check these links for discussions on [addEventListener vs attachEvent](http://stackoverflow.com/questions/2657182/correct-usage-of-addeventlistener-attachevent) and [window.event](http://stackoverflow.com/questions/6926963/understanding-the-window-event-property-and-its-usage).
+> Read [discussions about addEventListener vs attachEvent](http://stackoverflow.com/questions/2657182/correct-usage-of-addeventlistener-attachevent) and [discussions about window.event](http://stackoverflow.com/questions/6926963/understanding-the-window-event-property-and-its-usage), both on StackOverflow.
 
 ## Test your understanding
 
@@ -75,8 +75,6 @@ The code you will look at below invokes handlers that check for methods and prop
 
 ## JSON
 
-See the [MDN Using native JSON guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON) to help understanding the two key JSON methods described here.
-
 JSON is the "JavaScript Object Notation" and is a way of describing structured data which is particularly useful in JS because it corresponds very closely to the object literal syntax.
 
 It’s two main methods are for converting strings to and from "native" JSON objects that your JavaScript program can work with.
@@ -84,6 +82,8 @@ It’s two main methods are for converting strings to and from "native" JSON obj
 1. Load JSON.html and preview it, making sure to view the console output using F12.
 2. Note that the first output corresponds to accessing a property of a JS object that was created from a string using JSON.parse().
 3. Note that the second output corresponds to displaying in text format (also suitable for transmission over HTTP) the contents of a JS object, including its property names and values.
+
+> See the [MDN Using native JSON guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON) to help to understand the two key JSON methods described here.
 
 ### Test your understanding
 
@@ -120,9 +120,9 @@ Now you understand how the program works, try the following activities:
 3. Can you add column-headings?
 4. Finally, add an event handler so when you click on a row, the book title is displayed at the top of the page.
 
-## DOM scripting
+## DOM scripting (N.B.: advanced)
 
-There is a lot going on "behind the scenes" in libraries such as jQuery which abstract away many of the browser inconsistencies and deep hierarchies of objects, properties and methods relating to the DOM. You can review these DOM objects and their functionality on the [MDN DOM API documentation](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
+There is a lot going on "behind the scenes" in libraries such as jQuery which abstract away many of the browser inconsistencies and deep hierarchies of objects, properties and methods relating to the DOM. You can review these DOM objects and their functionality on the [DOM API documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
 
 This task involves a "helper script" that does some DOM and event manipulation for you. It is like a "mini jQuery" and even defines a utility DOM selector object called $.
 
@@ -157,3 +157,9 @@ The actual code in `dom_scripting.html` is short and self contained, this is bec
 - Adjust dom_scripting.html to include the dom_utils_global.js file (as well as the original dom_utils.js)
 - Now refactor the JS code in the HTML file to use window.$live to register the events and handlers previously dealt with by the U object.
 - Try adding a DOM element dynamically to the page, which has a "live" listener already defined earlier in your code. It should react to the listened- to the event even though it was not present when you added the $live event association.
+
+## YouTube video on DOM
+
+The following is a very good DOM tutorial on YouTube published by O'Reilly
+
+* [Manipulating the Document Object Model in JavaScript](https://www.youtube.com/watch?v=4Gv81XcC8iE&list=PL055Epbe6d5ZMPV1biOmaI7oCc7nEMxh4&index=8)

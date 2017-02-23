@@ -38,8 +38,6 @@ Identify how the script can locate both the textboxes and the heading and paragr
 
 Notice the two different ways the functions are called by the event handler on line 5 and line 6. Can you understand the different syntax used?
 
-There is one bug in the script, can you identify what this is?
-
 ### Check your understanding
 
 1. There is currently an event handler called onkeypress attached to the email field. Substitute the following events and verify they do what you expect:

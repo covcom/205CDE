@@ -101,11 +101,11 @@ if __name__ == '__main__':
 
 We'll come back to this file later. Now go into the terminal and issue the following command `python hello_flask.py`, the system will prompt you with something like 'Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)...'.
 
-Now you have a server listening on port 8080. But we don't know the IP address! Right-click on the container in CodeAnywhere and select 'info', in the window that pops up locate the URL in the format of 'http://[a-z0-9]+\.codeanyapp\.com', 
+Now you have a server listening on port 8080. But we don't know the IP address! Right-click on the container in CodeAnywhere and select 'info', in the window that pops up locate the URL in the format of 'http://[a-z0-9]+\.codeanyapp\.com'
 
 ![](.md_images/share.png)
 
-Paste that URL suffixed with the port number into a new browser tab, what you'll see 'Hello World!' coming up in your browser. Congratulations, your first Flask website is up and running!
+Paste that URL suffixed with the port number into a new browser tab, and you'll see 'Hello World!' coming up in your browser. Congratulations, your first Flask website is up and running!
 
 Now go back to the code we inserted into the file. There are several important concepts in it:
 
@@ -127,7 +127,7 @@ echo $PORT
 
 ## Notes on the official Flask tutorial
 
-On the official Flask website, there's a [tutorial](http://flask.pocoo.org/docs/0.10/tutorial/). You can follow instructions there and see how far you can go. Don't worry if you don't completely understand, we'll cover them all in the next 2/3 weeks time. Bear in mind this tutorial is written in a very casual style. In your final submission, you want to avoid things like this:
+There's [a tutorial on the official Flask website](http://flask.pocoo.org/docs/0.10/tutorial/). You can follow instructions there and see how far you can go. Don't worry if you don't completely understand, we'll cover them all in the next 2/3 weeks time. Bear in mind this tutorial is written in a very casual style. In your final submission, you want to avoid things like this:
 
 * In step 1, a column of `primary key autoincrement` was created. However, in SQLite, we don't normally (that is DON'T) declare 'autoincrement', see [here](https://www.sqlite.org/autoinc.html) the official documentation.
 * In step 1, SQL keywords should have been capitalized.

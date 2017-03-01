@@ -137,7 +137,11 @@ Note the carousel part starts from line 256 in the source code:
 1. Replace the `img` tag, use some online images with absolute path i.e. 'http://...' instead
 2. The Bootstrap API doesn't allow you to change the sliding speed. Try and figure out a way of doing it. (hint: Google)
 
+## YouTube video on Bootstrap
 
+The following is a good tutorial on Bootstrap for those who know HTML/CSS already
+
+* [Bootstrap Tutorial For Beginners - Responsive Design with Bootstrap 3 - Responsive HTML, CSS by LearnCode.academy](https://www.youtube.com/watch?v=no-Ntkc836w)
 
 
 

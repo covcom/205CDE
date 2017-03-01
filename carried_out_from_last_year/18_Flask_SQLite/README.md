@@ -75,10 +75,6 @@ If you run the code, type in something and hit 'submit', what you'll see is simi
 
 ![](.md_images/simple.png)
 
-> Last week we had some problems with C9, and I suggested that you register a free trial account on Codio that lasts for 30 days (only). In case needed, you may consider getting [PyCharm](https://www.jetbrains.com/student/) installed on your desktop, which normally costs £149 a year but is free for educational purposes. At the moment, you don't have to do this as C9 came back to normal.
-
-> ![](.md_images/charm.png)
-
 ### Bootstrap forms
 
 Obviously pure HTML forms work, but as you can see it doesn't look very nice. Using the Flask-Bootstrap extension we can take advantage of existing CSS rules in Bootstrap.

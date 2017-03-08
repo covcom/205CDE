@@ -1,16 +1,13 @@
 # Flask templates
 
-This week we look at basic Flask, including how to setup and run Flask server, how you can migrate what you've done already i.e. static web pages under the control of Flask, and how to use the powerful Jinja2 templating system.
+There are two parts in this lab:
 
-Next week we'll look at how to popular forms and collect user inputs, again using Flask and SQLite. That'll conclude this module, before Easter break.
-
-> A lot of us experienced problems with C9 lately. I recommend that you register a free/trial account on [Codio](https://codio.com/), linking to the same GitHub repository that your C9 workspace is pointing to. So that if one server is down, you can use the other. In any case, you should keep pushing/pulling to make sure these two (C9 and Codio) are synchronized.
-
-> Some of the examples were done using my Mac, as you can tell, because C9 is not very stable.
+1. Routing. This basically means the website serves different contents (pages) for differnt requests (URLs).
+2. Serving static files. This allows you to migrate what you've done already i.e. static web pages under the control of Flask.
 
 ### Routing
 
-It's unlikely that your website has only one page. If it's more than 1 page, we need a way that directs people to different pages, depending on their request. This is called **routing**. In the previous example 'hello_flak.py' you saw a function decorator. We'll have more examples to follow.
+It's unlikely that your website has only one page. If there're more than 1 pages, you'll need a way that directs users to different pages, depending on their requests. This is called **routing**. In the previous example 'hello_flak.py' you saw a function decorator which only serves the root of the website. What if there're multiple pages in the website?
 
 Create a new file and name it 'hello_me.py'. Insert the following into the file_exists
 

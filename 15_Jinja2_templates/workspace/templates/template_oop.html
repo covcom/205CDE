@@ -1,7 +1,7 @@
 {% extends 'template_parent.html'%}
 {% import 'template_macro.html' as macros%}
 
-{% block title%} Best actor candidates 2016 {% endblock%}
+{% block title%} Best actor candidates 2017 {% endblock%}
 
 {% block head %}
     {{super()}}
@@ -13,7 +13,7 @@
 {% block content%}
     {% include 'template_common.html'%}
     
-    {% set seq = ['Bryan Cranston', 'Matt Damon', 'Leonardo DiCaprio', 'Michael Fassbender', 'Eddie Redmayne']%}
+    {% set seq = ['Denzel Washington', 'Casey Affleck', 'Ryan Gosling', 'Viggo Mortensen', 'Andrew Garfield']%}
     
     {# expression needs to be within a block, otherwise it doesn't display#}
     {{macros.display_actors(seq)}}

@@ -1,22 +1,12 @@
-# Flask templates
+# Jinja2 templates
 
-This week we look at basic Flask, including how to setup and run Flask server, how you can migrate what you've done already i.e. static web pages under the control of Flask, and how to use the powerful Jinja2 templating system.
-
-Next week we'll look at how to popular forms and collect user inputs, again using Flask and SQLite. That'll conclude this module, before Easter break.
-
-> A lot of us experienced problems with C9 lately. I recommend that you register a free/trial account on [Codio](https://codio.com/), linking to the same GitHub repository that your C9 workspace is pointing to. So that if one server is down, you can use the other. In any case, you should keep pushing/pulling to make sure these two (C9 and Codio) are synchronized.
-
-> Some of the examples were done using my Mac, as you can tell, because C9 is not very stable.
-
-## Jinja2 templates
-
-We have done a lot using HTML and CSS. The limit of using these two are obvious -- These are not languages, we cannot do things that are common in programming languages such as assignment, loops, inheritance etc.
+You have done a lot using HTML and CSS. The limit of using these two are obvious - these are not languages, you cannot do things that can normally be done in programming languages such as assignment, loops, inheritance etc.
 
 With the help of Jinja2 template system, it's possible to do all sorts of things as mentioned above. Note that Jinja2 is part of Flask installation, but it's also a standalone templating language.
 
-### A basic template
+## A basic template
 
-In order to make templating work, we'll need two components: one is the Flask app i.e. the py file, the other is an HTML file that lives in a folder called 'templates'.
+In order to make templating work, you'll need two components: one is the Flask app i.e. the py file, the other is an HTML file that lives in a folder called 'templates'.
 
 Let's start with the python file.
 
@@ -36,7 +26,7 @@ if __name__ == '__main__':
     app.run(port=8080, host='0.0.0.0', debug=True)
 ```
 
-The only thing that is new here is the `render_template()` function. Note here it takes two input arguments: one is the HTML file that we'll create in a minute, and the other is a variable we take from the user input i.e. the variable called 'input'. This input variable is assigned to a named variable called 'name' in that function. 
+The only thing that is new here is the `render_template()` function. Note here it takes two input arguments: one is the HTML file that you'll create in a minute, and the other is a variable you take from the user input i.e. the variable called 'input'. This input variable is assigned to a named variable called 'name' in that function. 
 
 Next, let's look at the HTML file. Create a folder called 'templates' and inside it create a new file called 'template_basic.html'. Insert the following into 'template_basic.html'
 
@@ -67,7 +57,7 @@ assignment operation use 'set' keyword
 <img src="{{url_for('static', filename='images/lenna.png')}}">
 ```
 
-This may take a while to understand. 
+In the code above:
 
 * The code is a mix of Python code and HTML.
 * Python codes are enclosed:
@@ -76,32 +66,32 @@ This may take a while to understand.
     * {# ... #} for Comments not included in the template output
 * `endif` and `endfor` are for ending branching and for loops. This is new and not available in Python.
 * Variables are set using `set` keyword.
-* There are two ways to start/end a block. If we use `{%-` instead of `{%`, the whitespaces before or after that block will be removed.
+* There are two ways to start/end a block. If you use `{%-` instead of `{%`, the whitespaces before or after that block will be removed.
 * Function `url_for()` generates a link to a static image. In this case, the image is saved in a folder called 'static/images'. This is how to combine static resource files with Jinja2.
 
 ![](.md_images/lenna.png)
 
-> The image used in this example is by [Lena Söderberg](www.google.co.uk/search?q=image%20processing%20girl), who is quite famous in the digital image processing world.
+> The image used in this example is by [Lena Söderberg](http://www.google.co.uk/search?q=image%20processing%20girl), who is quite famous in the digital image processing world.
 
 
-### Directives
+## Directives
 
-Jinja2 supports several directives that compliment standard HTML. These directives allow us to import/include/extend other templates. In the OOP context, this allows us to build is-a/has-a relationships.
+Jinja2 supports several directives that compliment standard HTML. These directives allow you to import/include/extend other templates. In the OOP context, this allows you to build is-a/has-a relationships.
 
-For this current example, we need to create 4 HTML files:
+For this current example, you need to create 4 HTML files:
 
 1. template_common.html. This is a file that contains contents that are common and shared by other HTML files, for example, the navigation bar or copyright disclaimer. This file can be included using the 'include' directive.
 2. template_macro.html. This file contains common operations like functions. This file can then be imported using 'import' directive into other files in a way similar to Python module.
 3. template_parent.html. You guessed it, this file contains the basic structure. It serves as a 'template' so that all other files can extend this file to inherit all the structure.
 4. template_oop.html. This is our targeting HTML file. It's built based on all three files mentioned above.
 
-I'm not going to list all the contents. You can find it in the module repository. Below is a listing of 'template_oop.html'.
+Contents of these files are too long to be displayed here, but you can find them in the module repository. Below is a listing of 'template_oop.html'.
 
 ```html
 {% extends 'template_parent.html'%}
 {% import 'template_macro.html' as macros%}
 
-{% block title%} Best actor candidates 2016 {% endblock%}
+{% block title%} Best actor candidates 2017 {% endblock%}
 
 {% block head %}
     {{super()}}
@@ -117,9 +107,9 @@ I'm not going to list all the contents. You can find it in the module repository
 {% endblock %}
 ```
 
-There are several things to note here:
+In the code above:
 
-* We used all three directives: extend, import, and include. In all cases, it takes file name in a string format.
+* You used all three directives: extend, import, and include. In all cases, it takes file name in a string format.
 * Blocks can have named eng tags. For example, the list line above could be changed to `{% endblock content %}`
 * The `super()` method gives back the results of the parent block.
 * Expression values not included in any HTML tags are not being displayed. For example, if line `{{macros.display_actors(seq)}}` moves to the outside of any blocks, the names won't be shown on the web page.
@@ -128,7 +118,7 @@ Run file 'template_oop.py' and your websiet should look like below:
 
 ![](.md_images/oscars.png)
 
-### Flask-Bootstrap
+## Flask-Bootstrap
 
 It's possible to integrate Bootstrap with Flask. But this relies on a separate extension called flask-bootstrap. In your terminal and type in `pip install flask-bootstrap` to install it.
 
@@ -169,9 +159,9 @@ In the templates folder, create a file called 'template_bootstrap.html' and inse
 {% endblock %}
 ```
 
-Basically, the Python extension provides a template that has a number of empty blocks. We inherit it by using `extends 'bootstrap/base.html'`. We also provide some customized definitions for the different blocks. The rest such different classes in `div` tags, this is the same as in the Bootstrap CSS files.
+Basically, the Python extension provides a template that has a number of empty blocks. These blocks are inherited by using `extends 'bootstrap/base.html'`. In the actual template, you provide some customized definitions for different blocks. Then all you need to do is to put different classes in `div` tags, which is the same as in the Bootstrap CSS files.
 
-By using Bootstrap, the page we created earlier changes to the following
+By using Bootstrap, the page you created earlier changes to the following
 
 ![](.md_images/boot.png)
 

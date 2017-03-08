@@ -2,12 +2,16 @@
 
 There are two parts in this lab:
 
-1. Routing. This basically means the website serves different contents (pages) for differnt requests (URLs).
+1. Routing. This basically means the website serves different contents (pages) for different requests (URLs).
 2. Serving static files. This allows you to migrate what you've done already i.e. static web pages under the control of Flask.
 
 ### Routing
 
-It's unlikely that your website has only one page. If there're more than 1 pages, you'll need a way that directs users to different pages, depending on their requests. This is called **routing**. In the previous example 'hello_flak.py' you saw a function decorator which only serves the root of the website. What if there're multiple pages in the website?
+In the previous example 'hello_flak.py' you saw a function decorator which only serves the root of the website. What if there're multiple pages in the website?
+
+> Flask function decorator is well explained here in a [blog written by Ainsley: Things which aren't magic - Flask and @app.route](https://ains.co/blog/things-which-arent-magic-flask-part-1.html)
+
+It's unlikely that your website has only one page. If there're more than one pages, you'll need a way that directs users to different pages, depending on their requests. This is called **routing**. 
 
 Create a new file and name it 'hello_me.py'. Insert the following into the file_exists
 
@@ -47,19 +51,19 @@ if __name__ == '__main__':
     app.run(port=8080, host='0.0.0.0', debug=True)
 ```
 
-Run the code and view it in a new browser tab as before. Try different URLs and see what the server responds
+Run the code and view it in a new browser tab. Try different URLs and see what the server responds
 
 ```bash
-https://yourdomain.c9users.io/
-https://yourdomain.c9users.io/users
-https://yourdomain.c9users.io/users/yourname
-https://yourdomain.c9users.io/error
-https://yourdomain.c9users.io/errors
-https://yourdomain.c9users.io/unexpected
-https://yourdomain.c9users.io/arbitoary-long-code
+https://[your base URL goes here]/
+https://[your base URL goes here]/users
+https://[your base URL goes here]/users/yourname
+https://[your base URL goes here]/error
+https://[your base URL goes here]/errors
+https://[your base URL goes here]/unexpected
+https://[your base URL goes here]/arbitoary-long-code
 ```
 
-There are something new in the code above:
+In the code above:
 
 * `<username>` denotes a variable that can be passed to the view function. That is the function after the route decorator. In this case, we can make use of the variable to provide some customized response.
 * What being returned by the server is always a response object. We can explicitly create a response object using the `make_response()` method.
@@ -68,7 +72,7 @@ There are something new in the code above:
 
 ### Migrate your static site
 
-Now you've seen how to produce a simple website using Flask. What about the work you've done already (you have done something, right)? In other words, how to integrate static pages into Flask?
+Now you've seen how to produce a simple website using Flask. What about the work you've done already? In other words, how to integrate static pages into Flask?
 
 Suppose you have a simple HTML page called 'existing1.html' that looks like below. You also have some other pages and images that link to each other.
 

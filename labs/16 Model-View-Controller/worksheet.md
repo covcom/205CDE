@@ -132,6 +132,71 @@ Some links for MVC:
 - [MVC Architecture](https://developer.chrome.com/apps/app_frameworks)
 - [MVC for Noobs](http://code.tutsplus.com/tutorials/mvc-for-noobs--net-10488)
 
+# Cookies and Sessions
+
+Http is a stateless protocol but sometimes you need to know who is doing something (logins, web shopping...). Server can store information from user using cookies or sessions.
+
+## Cookies
+
+Cookie is a small file which server sends to clients computer. With PHP you can send cookies and also read them. You can set cookie with setcookie()-function:
+
+```
+setcookie("firstname", "John"); 
+// creates a cookie named "firstname" with value "John"
+setcookie("car", "Mercedes", time() + 60 * 10);
+//creates a cookie named "car" with value "Mercedes" and it is valid ten minutes 
+```
+If time is not given, cookie is valid until session ends. 
+
+## Unsetting cookies
+
+You can use same setcookie()-command when removing cookies:
+
+```
+setcookie("firstname", "");
+setcookie("car", ""; time()-60 * 10); // se time to past
+```
+
+## Using cookies with PHP
+
+Cookies are stored to $_COOKIES array. For example:
+
+```
+$name = $_COOKIE['firstname']; 
+```
+
+sets to variable $name value "John".
+
+# Sessions
+
+With sessions, server defines for user unique id-value. With this value server can recognise different users. With PHP you have to start session with session_start()-function:
+
+```
+<?php
+session_start(); // starts session
+```
+
+After this, you can store your session variables to $_SESSION[]-table:
+
+```
+$_SESSION['firstname'] = "John";
+$_SESSION['car'] = "Mercedes";
+```
+
+## Removing session variables and a session
+
+If you don't session variables, you can destroy them using unset()-function:
+
+```
+unset $_SESSION["firstname"];
+```
+
+And when you don't need a session anymore (for example after logout), session must be destroyed:
+
+```
+session_destroy();
+```
+
 
 ## Test your understanding
 

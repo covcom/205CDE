@@ -7,10 +7,8 @@
 In the lab you do the following tasks:
 
 1. Understand how MVC-modelling works
-1. Install a CodeIgniter Framework
-1. Go through CodeIgniter tutorial
+1. Make a small program with MVC-modelling
 
-This lab takes approximately 3 hours.
 
 ## Basics
 

@@ -154,7 +154,7 @@ You can use same setcookie()-command when removing cookies:
 
 ```
 setcookie("firstname", "");
-setcookie("car", ""; time()-60 * 10); // se time to past
+setcookie("car", "", time()-60 * 10); // se time to past
 ```
 
 ## Using cookies with PHP

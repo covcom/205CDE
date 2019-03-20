@@ -4,7 +4,7 @@ In this worksheet you will learn the basic principles behind the most popular ve
 
 The lab activities are detailed and cover a lot of useful skills. Take the time to practice the skills and learn how to use Git.
 
-## 1.1 Cloud9 IDE
+## 1.1 Cloud IDE
 
 There are two options to start working with Cloud9. The first option is to create an account on Cloud9 and log in with your newly-created Cloud9 credentials. The second option is to use an existing GitHub account to log in.
 
